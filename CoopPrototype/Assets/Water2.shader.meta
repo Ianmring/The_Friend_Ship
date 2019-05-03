@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: fb0d85da34f945c49a24c1e29bb85bbd
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _CausticPattern: {fileID: 2800000, guid: 8aaa18f3fe53a434498630ce125718e5, type: 3}
+  - _DistortionClouds: {fileID: 2800000, guid: 5a9db5f1cb473584f9892e86a5d00c05, type: 3}
+  - _WaterColor: {fileID: 2800000, guid: d669184718888c5419faaabdabae603c, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
