@@ -70,7 +70,7 @@ public class uimanager : MonoBehaviour
         if (playersready[0] && playersready[1])
         {
             playernums = Players.noone;
-            //  EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
+             EventSystem.current.SetSelectedGameObject(null);
             Menus[2].SetActive(!Menus[2].activeSelf);
             Menus[3].SetActive(true);
             Menus[4].SetActive(true);
