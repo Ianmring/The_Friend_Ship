@@ -42,10 +42,17 @@ public class inventorygeneral : MonoBehaviour
         if (Personal_Slots.Length < 1)
         {
             launch.isempty = true;
+            
         }
         else
         {
             launch.isempty = false;
+        }
+        if (Input.GetButtonUp("AddtoPslot"))
+        {
+            Debug.Log("UpdateS");
+            FindObjectOfType<uimanager>().Updateslotsgen();
+
         }
     }
 
@@ -84,21 +91,31 @@ public class inventorygeneral : MonoBehaviour
       
         
     }
+
+    //public void Updateslotsspecial()
+    //{
+    //    slotnums_P = Container.transform.childCount;
+
+    //    Personal_Slots = new PersonalItemSlot[slotnums_P];
+    //}
     public void Update_Slots()
     {
+       
+        //else
+        //{
         slotnums_P = Container.transform.childCount;
 
-        Personal_Slots = new PersonalItemSlot[slotnums_P];
+            Personal_Slots = new PersonalItemSlot[slotnums_P];
+      //  Debug.Log("istriggerd");
+            for (int i = 0; i < Personal_Slots.Length; i++)
+            {
+                Personal_Slots[i] = Container.transform.GetChild(i).GetComponent<PersonalItemSlot>();
 
-        for (int i = 0; i < Personal_Slots.Length; i++)
-        {
-            Personal_Slots[i] = Container.transform.GetChild(i).GetComponent<PersonalItemSlot>();
 
-          
-            
 
-        }
-        
+
+            }
+
             if (currentitem > Personal_Slots.Length - 1)
             {
                 currentitem = Personal_Slots.Length - 1;
@@ -108,19 +125,21 @@ public class inventorygeneral : MonoBehaviour
                 currentitem = 0;
             }
 
-        if (Container.transform.childCount == 0)
-        {
-            return;
-        }
-        else
-        {
-            Selector.transform.position = Personal_Slots[currentitem].transform.position;
 
-            launch.rocketPrefab = Personal_Slots[currentitem].OBJ.GetComponent<Rigidbody>();
-        }
-            
-        
-       
+
+            if (Container.transform.childCount == 0)
+            {
+                return;
+            }
+            else
+            {
+                Selector.transform.position = Personal_Slots[currentitem].transform.position;
+
+                launch.rocketPrefab = Personal_Slots[currentitem].OBJ.GetComponent<Rigidbody>();
+            }
+
+
+        //}
        // Debug.Log("updatingslot");
 
     }

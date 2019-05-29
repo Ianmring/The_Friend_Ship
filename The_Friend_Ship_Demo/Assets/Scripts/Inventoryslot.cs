@@ -96,14 +96,15 @@ public class Inventoryslot : MonoBehaviour
 
                         break;
             
-                    default:
-                        break;
                 }
-
-             
                 Checkitemcount();
+
+
+
             }
+            
         }
+       
         count.text = itemcount.ToString();
 
 

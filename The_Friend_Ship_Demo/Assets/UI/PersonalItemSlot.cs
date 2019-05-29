@@ -51,11 +51,12 @@ public class PersonalItemSlot : MonoBehaviour
 
     public void Transferall()
     {
+        FindObjectOfType<uimanager>().Updateslotsgen();
+
         switch (currentitem.Type)
         {
             case Item.type.Disposeable:
                 Inventory.instance.Add(currentitem, itemcount);
-
                 break;
             case Item.type.Oare:
                 Inventory.instance.AddOare(currentitem, itemcount);
@@ -66,18 +67,22 @@ public class PersonalItemSlot : MonoBehaviour
 
                 break;
             case Item.type.Keyitem:
-                Inventory.instance.Add(currentitem, itemcount);
+                Inventory.instance.AddKey(currentitem, itemcount);
 
                 break;
-            default:
-                break;
+      
         }
-       // itemcount=0;
-       
-            EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-            Destroy(this.gameObject);
 
-           }
+        FindObjectOfType<uimanager>().Updateslotsgen();
+            EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
+        itemcount = 0;
+
+        FindObjectOfType<uimanager>().Updateslotsgen();
+        //return;
+
+        Destroy(this.gameObject);
+
+    }
     //private void OnDestroy()
     //{
     //    if (Playernum == 0)

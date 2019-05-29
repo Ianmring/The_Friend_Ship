@@ -69,7 +69,7 @@ public class uimanager : MonoBehaviour
 
         if (playersready[0] && playersready[1])
         {
-            playernums = Players.noone;
+           // playernums = Players.noone;
              EventSystem.current.SetSelectedGameObject(null);
             Menus[2].SetActive(!Menus[2].activeSelf);
             Menus[3].SetActive(true);
@@ -115,6 +115,11 @@ public class uimanager : MonoBehaviour
         }
 
 
+    }
+    public void Updateslotsgen()
+    {
+        P1.GetComponent<inventorygeneral>().Update_Slots();
+        P2.GetComponent<inventorygeneral>().Update_Slots();
     }
     public void setslotint(int newslot)
     {
