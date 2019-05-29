@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
+  m_Name: Convo1
+  m_EditorClassIdentifier: 
+  name: 
+  Sentences:
+  - Happy
+  - Sad
+  - Talking
+  - Confused
+  - Angry
+  - Laughing
+  - Surprised
+  - Silly
+  Character_in_Conversation:
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c176c4828fa93a840885af8ce4514049, type: 2}
+  - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c176c4828fa93a840885af8ce4514049, type: 2}
+  - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c176c4828fa93a840885af8ce4514049, type: 2}
+  currentexpressions: 0000000001000000020000000300000004000000050000000600000007000000

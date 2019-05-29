@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e150fd8aca8d141bcfe387f165bc81, type: 3}
+  m_Name: Mrs_Wubber
+  m_EditorClassIdentifier: 
+  Name: Mrs.Wubber
+  expressions:
+  - {fileID: -1518489714635738765, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: -4801975497681289475, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: -6898578068144662257, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: 6648900546199129708, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: 4661924893949036828, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: -8771514049187197053, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: 1491997594037044040, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}
+  - {fileID: 8940380817733807979, guid: 2dd3bc374651fa44d9f424668cf00140, type: 3}

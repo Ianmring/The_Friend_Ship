@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e150fd8aca8d141bcfe387f165bc81, type: 3}
+  m_Name: Mr_Wubber
+  m_EditorClassIdentifier: 
+  Name: Mr.Wubber
+  expressions:
+  - {fileID: -7844170097820679067, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: 5299998017875744588, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: -6993474648880426048, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: -885335031155852535, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: -5622256355989403232, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: 9032130410650352512, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: 7973908114196651074, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
+  - {fileID: 1189929081239383784, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
