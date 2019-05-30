@@ -123,7 +123,13 @@ public class launcher : MonoBehaviour
                 {
                     invt.Subinvt();
 
-                    invt.Update_Slots();
+
+                    //Bring back if not working anymore (5/29/19)
+                   // invt.Update_Slots();
+
+
+
+
                     //Debug.Log("did the thing");
                     update = false;
                 }
