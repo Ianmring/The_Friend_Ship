@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
 
     public bool Add (Item item, int count)
     {
-        uimanager.UIinstance.Updateslotsgen();
+      //  uimanager.UIinstance.Updateslotsgen();
         if (!item.isdefault)
         {
             if (items.Count >= space[0])
@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour
     }
     public bool AddOare(Item item , int count)
     {
-        uimanager.UIinstance.Updateslotsgen();
+      //  uimanager.UIinstance.Updateslotsgen();
 
         if (!item.isdefault)
         {
@@ -125,7 +125,7 @@ public class Inventory : MonoBehaviour
   
     public bool AddHat(Item item, int count)
     {
-        uimanager.UIinstance.Updateslotsgen();
+      //  uimanager.UIinstance.Updateslotsgen();
 
         if (!item.isdefault)
         {
@@ -159,7 +159,7 @@ public class Inventory : MonoBehaviour
 
     public bool AddKey(Item item, int count)
     {
-        uimanager.UIinstance.Updateslotsgen();
+       // uimanager.UIinstance.Updateslotsgen();
 
         if (!item.isdefault)
         {

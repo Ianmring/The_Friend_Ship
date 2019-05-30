@@ -69,15 +69,17 @@ public class uimanager : MonoBehaviour
 
         if (playersready[0] && playersready[1])
         {
-           // playernums = Players.noone;
+            playernums = Players.noone;
              EventSystem.current.SetSelectedGameObject(null);
             Menus[2].SetActive(!Menus[2].activeSelf);
             Menus[3].SetActive(true);
             Menus[4].SetActive(true);
             isopen = false;
-            Triggerupdate();
             playersready[0] = false;
             playersready[1] = false;
+            P1.GetComponent<inventorygeneral>().isyourturn = false;
+            P2.GetComponent<inventorygeneral>().isyourturn = false;
+
             //  EventSystem.current.SetSelectedGameObject(null);
         }
 
@@ -110,16 +112,26 @@ public class uimanager : MonoBehaviour
                 P2.GetComponent<inventorygeneral>().Handoff();
                 break;
 
-            default:
-                break;
+        
         }
 
 
     }
-    public void Updateslotsgen()
+    public void Updateslotsgen(PersonalItemSlot slot)
     {
-        P1.GetComponent<inventorygeneral>().Update_Slots();
-        P2.GetComponent<inventorygeneral>().Update_Slots();
+        switch (playernums)
+        {
+            case Players.player1:
+                P1.GetComponent<inventorygeneral>().removeOBJ(slot);
+
+                break;
+            case Players.player2:
+                P2.GetComponent<inventorygeneral>().removeOBJ(slot);
+
+                break;
+           
+           
+        }
     }
     public void setslotint(int newslot)
     {

@@ -99,17 +99,20 @@ public class launcher : MonoBehaviour
 
             if (Ready == 1 && sett && !fire && !isempty)
             {
+                if (rocketPrefab == null)
+                {
+                    return;
+                }
+                else
+                {
+                    Rigidbody rocketInstance;
+                    rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
+                    rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
+                    invt.Update_Slots();
+                    fire = true;
+                    update = true;
 
-
-                Rigidbody rocketInstance;
-                rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
-                rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
-                invt.Subinvt();
-                //invt.Update_Slots();
-                fire = true;
-                  update = true;
-
-
+                }
 
             }
 
@@ -118,6 +121,8 @@ public class launcher : MonoBehaviour
                 fire = false;
                 if (update == true)
                 {
+                    invt.Subinvt();
+
                     invt.Update_Slots();
                     //Debug.Log("did the thing");
                     update = false;

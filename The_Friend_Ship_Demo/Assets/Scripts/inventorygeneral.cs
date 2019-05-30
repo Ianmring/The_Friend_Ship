@@ -14,7 +14,7 @@ public class inventorygeneral : MonoBehaviour
     public GameObject currentslot;
 
 
-    public PersonalItemSlot[] Personal_Slots;
+    public List<PersonalItemSlot> Personal_Slots = new List<PersonalItemSlot>();
 
   // public List<Item> items = new List<Item>();
     public Transform Container;
@@ -39,7 +39,19 @@ public class inventorygeneral : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Personal_Slots.Length < 1)
+
+        if (Personal_Slots.Count== 0)
+        {
+            return;
+        }
+        else
+        {
+            Selector.transform.position = Personal_Slots[currentitem].transform.position;
+
+        }
+
+
+        if (Personal_Slots.Count < 1)
         {
             launch.isempty = true;
             
@@ -51,7 +63,7 @@ public class inventorygeneral : MonoBehaviour
         if (Input.GetButtonUp("AddtoPslot"))
         {
             Debug.Log("UpdateS");
-            FindObjectOfType<uimanager>().Updateslotsgen();
+            FindObjectOfType<uimanager>().Triggerupdate();
 
         }
     }
@@ -59,7 +71,8 @@ public class inventorygeneral : MonoBehaviour
     public void Addslot(Item item , int count)
     {
 
-        for (int i = 0; i < Personal_Slots.Length; i++)
+
+        for (int i = 0; i < Personal_Slots.Count; i++)
         {
             if (Personal_Slots[i].currentitem == item)
             {
@@ -72,7 +85,7 @@ public class inventorygeneral : MonoBehaviour
            
         }
         // Debug.Log(item + "has been added to " + player.playernum + "'s inventory");
-        if (Personal_Slots.Length < 5)
+        if (Personal_Slots.Count < 5)
         {
            
                 GameObject PSlot;
@@ -80,6 +93,7 @@ public class inventorygeneral : MonoBehaviour
                 PSlot.GetComponent<PersonalItemSlot>().Additem(item);
                 PSlot.GetComponent<PersonalItemSlot>().Playernum = player.direction;
             PSlot.GetComponent<PersonalItemSlot>().itemcount = count;
+            Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
                 //items.Add(item);
                 //Personal_Slots = GetComponentsInChildren<PersonalItemSlot>();
                 //Personal_Slots[Personal_Slots.Length].Additem(item);
@@ -100,25 +114,19 @@ public class inventorygeneral : MonoBehaviour
     //}
     public void Update_Slots()
     {
-       
+
         //else
         //{
-        slotnums_P = Container.transform.childCount;
+        //slotnums_P = Container.transform.childCount;
 
-            Personal_Slots = new PersonalItemSlot[slotnums_P];
-      //  Debug.Log("istriggerd");
-            for (int i = 0; i < Personal_Slots.Length; i++)
+        //    Personal_Slots = new PersonalItemSlot[slotnums_P];
+        //  Debug.Log("istriggerd");
+
+       
+
+        if (currentitem > Personal_Slots.Count - 1)
             {
-                Personal_Slots[i] = Container.transform.GetChild(i).GetComponent<PersonalItemSlot>();
-
-
-
-
-            }
-
-            if (currentitem > Personal_Slots.Length - 1)
-            {
-                currentitem = Personal_Slots.Length - 1;
+                currentitem = Personal_Slots.Count - 1;
             }
             else if (currentitem < 0)
             {
@@ -127,9 +135,11 @@ public class inventorygeneral : MonoBehaviour
 
 
 
-            if (Container.transform.childCount == 0)
+            if (Personal_Slots.Count == 0)
             {
-                return;
+            launch.rocketPrefab = null;
+
+            return;
             }
             else
             {
@@ -141,6 +151,13 @@ public class inventorygeneral : MonoBehaviour
 
         //}
        // Debug.Log("updatingslot");
+
+    }
+
+    public void removeOBJ(PersonalItemSlot slot)
+    {
+        Personal_Slots.Remove(slot);
+
 
     }
     public void Handoff()
@@ -186,13 +203,20 @@ public class inventorygeneral : MonoBehaviour
  
     public void Subinvt()
     {
-        // Update_Slots();
+        Update_Slots();
 
 
         if (Personal_Slots[currentitem].itemcount < 2)
         {
-          //  items.Remove(Personal_Slots[currentitem].currentitem);
-          Destroy(Personal_Slots[currentitem].gameObject);
+            //  items.Remove(Personal_Slots[currentitem].currentitem);
+
+            GameObject obj;
+            obj = Personal_Slots[currentitem].gameObject;
+            Personal_Slots.Remove(Personal_Slots[currentitem]);
+
+            Destroy(obj);
+            obj = null;
+
 
         }
         else
@@ -200,7 +224,7 @@ public class inventorygeneral : MonoBehaviour
             Personal_Slots[currentitem].itemcount--;
 
         }
-
+       Update_Slots();
         //   Update_Slots();
 
     }

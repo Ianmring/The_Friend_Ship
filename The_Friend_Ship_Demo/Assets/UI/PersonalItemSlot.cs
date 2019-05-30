@@ -51,7 +51,7 @@ public class PersonalItemSlot : MonoBehaviour
 
     public void Transferall()
     {
-        FindObjectOfType<uimanager>().Updateslotsgen();
+      //  FindObjectOfType<uimanager>().Updateslotsgen();
 
         switch (currentitem.Type)
         {
@@ -73,11 +73,13 @@ public class PersonalItemSlot : MonoBehaviour
       
         }
 
-        FindObjectOfType<uimanager>().Updateslotsgen();
+      // FindObjectOfType<uimanager>().Updateslotsgen();
             EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-        itemcount = 0;
+        //itemcount = 0;
 
-        FindObjectOfType<uimanager>().Updateslotsgen();
+        FindObjectOfType<uimanager>().Updateslotsgen(this.GetComponent<PersonalItemSlot>());
+
+        
         //return;
 
         Destroy(this.gameObject);
