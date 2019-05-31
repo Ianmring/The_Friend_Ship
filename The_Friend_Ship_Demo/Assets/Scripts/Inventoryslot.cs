@@ -25,11 +25,18 @@ public class Inventoryslot : MonoBehaviour
 
     Button button;
 
+    uimanager mana;
+
 
     public void Awake()
     {
         Description_Name = GameObject.Find("name").GetComponentInParent<Text>();
         button = GetComponentInChildren<Button>();
+    }
+    public void Start()
+    {
+        mana = FindObjectOfType<uimanager>();
+
     }
     public void Addtiem(Item newitem)
     {
@@ -56,8 +63,7 @@ public class Inventoryslot : MonoBehaviour
 
             if (Input.GetButtonDown("AddtoPslot"))
             {
-                uimanager mana;
-                mana = FindObjectOfType<uimanager>();
+              
 
                 switch (mana.playernums)
                 {
@@ -117,23 +123,48 @@ public class Inventoryslot : MonoBehaviour
 
        // removebutton.interactable = false;
     }
-    //void updateslot()
-    //{
-      
-        
-    //}
-    //public void OnRemoveButton()
-    //{
-    //    Inventory.instance.Remove(item);
-    //}
-
+    
 
     public void UseItem()
     {
         if (item != null)
         {
-            item.Use();
 
+            switch (mana.playernums)
+            {
+                case uimanager.Players.player1:
+
+                    if (item.Type == Item.type.Disposeable)
+                    {
+                        mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
+                        //  itemcount--;
+
+                    }
+                    else
+                    {
+                        item.Use();
+
+                    }
+
+                    break;
+                case uimanager.Players.player2:
+
+
+                    if (item.Type == Item.type.Disposeable)
+                    {
+                        mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
+                        //  itemcount--;
+
+                    }
+                    else
+                    {
+                        item.Use();
+
+                    }
+                    break;
+
+            }
+            itemcount--;
             Checkitemcount();
                
 
@@ -142,15 +173,39 @@ public class Inventoryslot : MonoBehaviour
 
     public void Checkitemcount()
     {
-        itemcount--;
+      //  itemcount--;
         if (itemcount < 1)
         {
             EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[ uimanager.UIinstance.currentselected]);
+            switch (item.Type)
+            {
+                case Item.type.Disposeable:
+                    FindObjectOfType<InventoryMenu>().slots.Remove(this);
+                    break;
+                case Item.type.Oare:
+                    FindObjectOfType<InventoryMenu>().Oareslots.Remove(this);
+
+                    break;
+                case Item.type.Hat:
+                    FindObjectOfType<InventoryMenu>().Hatlots.Remove(this);
+
+                    break;
+                case Item.type.Keyitem:
+                    FindObjectOfType<InventoryMenu>().Keyslots.Remove(this);
+                    break;
+                default:
+                    break;
+            }
             Inventory.instance.Remove(item);
             Destroy(this.gameObject);
 
             //   istaken = false;
         }
+        else
+        {
+            return;
+        }
+
 
     }
 }

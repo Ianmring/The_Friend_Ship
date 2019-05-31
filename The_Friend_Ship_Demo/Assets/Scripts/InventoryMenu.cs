@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryMenu : MonoBehaviour
@@ -19,11 +20,10 @@ public class InventoryMenu : MonoBehaviour
     //int keyslots;
     //int oareslots;
     //int hatslots;
-
-   public Inventoryslot[] slots;
-    Inventoryslot[] Keyslots;
-    Inventoryslot[] Oareslots;
-    Inventoryslot[] Hatlots;
+   public List<Inventoryslot> slots { get; set; } = new List<Inventoryslot>();
+   public List<Inventoryslot> Keyslots { get; set; } = new List<Inventoryslot>();
+  public   List<Inventoryslot> Oareslots { get; set; } = new List<Inventoryslot>();
+  public  List<Inventoryslot> Hatlots { get; set; } = new List<Inventoryslot>();
 
 
     public GameObject inventoryUI;
@@ -61,108 +61,67 @@ public class InventoryMenu : MonoBehaviour
         
      
     }
-    void AddUI(Item item , int count)
+ public void AddUI(Item item , int count)
     {
         // Debug.Log(item.name);
         GameObject disslot;
        disslot = Instantiate(slot, itemsparent);
         disslot.GetComponent<Inventoryslot>().itemcount += count;
-        slots = itemsparent.GetComponentsInChildren<Inventoryslot>();
-      
+      //  slots = itemsparent.GetComponentsInChildren<Inventoryslot>();
 
-        slots[slots.Length-1].Addtiem(item);
+        slots.Add(disslot.GetComponent<Inventoryslot>());
+
+        slots[slots.Count-1].Addtiem(item);
 
         uimanager.UIinstance.Triggerupdate();
-        //for (int i = 0; i < slots.Length; i++)
-        //{
-        //    if (i < inventory.items.Count)
-        //    {
-        //        slots[i].Addtiem(inventory.items[i]);
 
 
-        //    }
-        //    else
-        //    {
-        //        slots[i].clearslot();
-        //    }
-        //}
+
     }
-    void AddUIKey(Item item, int count)
+  public void AddUIKey(Item item, int count)
     {
         GameObject Keyslot;
         Keyslot = Instantiate(slot, keyitemparent);
-        Keyslots = keyitemparent.GetComponentsInChildren<Inventoryslot>();
+        //Keyslots = keyitemparent.GetComponentsInChildren<Inventoryslot>();
         Keyslot.GetComponent<Inventoryslot>().itemcount += count;
 
+        Keyslots.Add(Keyslot.GetComponent<Inventoryslot>());
 
-        Keyslots[Keyslots.Length - 1].Addtiem(item);
+        Keyslots[Keyslots.Count - 1].Addtiem(item);
         uimanager.UIinstance.Triggerupdate();
 
-        //for (int i = 0; i < Keyslots.Length; i++)
-        //{
-        //    if (i < inventory.KeyItems.Count)
-        //    {
-        //        Keyslots[i].Addtiem(inventory.KeyItems[i]);
-
-        //    }
-        //    else
-        //    {
-        //        Keyslots[i].clearslot();
-        //    }
-        //}
+       
     }
 
-    void AddUIOare(Item item, int count)
+  public void AddUIOare(Item item, int count)
     {
         GameObject Oareslot;
        Oareslot = Instantiate(slot, Oareitemparent);
-        Oareslots = Oareitemparent.GetComponentsInChildren<Inventoryslot>();
+      //  Oareslots = Oareitemparent.GetComponentsInChildren<Inventoryslot>();
         Oareslot.GetComponent<Inventoryslot>().itemcount += count;
 
-        Oareslots[Oareslots.Length - 1].Addtiem(item);
+        Oareslots.Add(Oareslot.GetComponent<Inventoryslot>());
+
+        Oareslots[Oareslots.Count - 1].Addtiem(item);
         uimanager.UIinstance.Triggerupdate();
 
-        //for (int i = 0; i < Oareslots.Length; i++)
-        //{
-        //    if (i < inventory.Oare.Count)
-        //    {
-
-        //        Oareslots[i].Addtiem(inventory.Oare[i]);
-
-
-        //    }
-        //    else
-        //    {
-        //        Oareslots[i].clearslot();
-        //    }
-        //}
-
-
+      
 
     }
-    void AddUIHat(Item item, int count)
+ public void AddUIHat(Item item, int count)
     {
         GameObject Hatslot;
 
         Hatslot =Instantiate(slot, Hatitemparent);
-        Hatlots = Hatitemparent.GetComponentsInChildren<Inventoryslot>();
+   //     Hatlots = Hatitemparent.GetComponentsInChildren<Inventoryslot>();
         Hatslot.GetComponent<Inventoryslot>().itemcount += count;
 
-        Hatlots[Hatlots.Length - 1].Addtiem(item);
+        Hatlots.Add(Hatslot.GetComponent<Inventoryslot>());
+
+        Hatlots[Hatlots.Count - 1].Addtiem(item);
         uimanager.UIinstance.Triggerupdate();
 
-        //for (int i = 0; i < Hatlots.Length; i++)
-        //{
-        //    if (i < inventory.KeyItems.Count)
-        //    {
-        //        Hatlots[i].Addtiem(inventory.Hat[i]);
-
-        //    }
-        //    else
-        //    {
-        //        Hatlots[i].clearslot();
-        //    }
-        //}
+       
     }
 
 

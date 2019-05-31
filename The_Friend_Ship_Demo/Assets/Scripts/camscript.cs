@@ -32,6 +32,7 @@ public class camscript : MonoBehaviour {
             transform.position = character.transform.position + offsetI;
 
             transform.eulerAngles = AngleI;
+
         }
         else
         {

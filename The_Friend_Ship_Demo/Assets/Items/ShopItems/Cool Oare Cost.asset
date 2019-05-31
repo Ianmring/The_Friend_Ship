@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6172d4695e210d4aadaabf0b3636a97, type: 3}
+  m_Name: Cool Oare Cost
+  m_EditorClassIdentifier: 
+  ItemTobuy: {fileID: 11400000, guid: 851c54d8af1e0744ca2e043e7dccc8d4, type: 2}
+  costItems:
+  - {fileID: 11400000, guid: cdf1794adf2c15945ba142b4e894d508, type: 2}
+  - {fileID: 11400000, guid: 01b163718500e8948839c38ef54a95ad, type: 2}
+  costAmmounts: 0200000001000000
