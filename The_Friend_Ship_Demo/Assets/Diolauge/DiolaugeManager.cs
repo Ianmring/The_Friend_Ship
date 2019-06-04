@@ -15,7 +15,11 @@ public class DiolaugeManager : MonoBehaviour
     Diolauge currentDiolauge;
 
     //  int mood;
-    public int currentconvopoint;
+    int currentconvopoint;
+
+    NPC CurrentNPC;
+
+    bool indio;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +27,12 @@ public class DiolaugeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Startdio(Diolauge Dio)
+    public void Startdio(Diolauge Dio, NPC StartNPC)
     {
+        indio = true;
+        currentconvopoint = 0;
         anim.SetTrigger("Open");
+        CurrentNPC = StartNPC;
         currentDiolauge = Dio;
         nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
 
@@ -43,7 +50,7 @@ public class DiolaugeManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-
+        
         if (Sentences.Count == 0)
         {
             EndDiolauge();
@@ -59,7 +66,13 @@ public class DiolaugeManager : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
-
+    public void Update()
+    {
+        if ((Input.GetButtonDown("Submit1") || (Input.GetButtonDown("Submit2") && indio)))
+        {
+            DisplayNextSentence();
+        }
+    }
     IEnumerator TypeSentence(string sentence)
     {
         DioText.text = "";
@@ -72,8 +85,23 @@ public class DiolaugeManager : MonoBehaviour
 
     void EndDiolauge()
     {
+        if (CurrentNPC != null)
+        {
+            if (CurrentNPC.npctype == NPC.NPCTYPE.NPC)
+            {
+                CurrentNPC.StartAMission();
+            }
 
-        anim.SetTrigger("Close");
+            indio = false;
+            //CurrentNPC = null;
+            //currentDiolauge = null;
+            anim.SetTrigger("Close");
+        }
+        else
+        {
+            return;
+        }
+       
 
     }
 }

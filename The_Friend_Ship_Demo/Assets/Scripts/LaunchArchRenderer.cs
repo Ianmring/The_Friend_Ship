@@ -21,6 +21,8 @@ public class LaunchArchRenderer : MonoBehaviour
     float g;
     float radiantangel;
 
+    public bool overide;
+    public float Y { get; set; }
     private void Awake()
     {
        
@@ -45,11 +47,14 @@ public class LaunchArchRenderer : MonoBehaviour
     void Update()
     {
 
-        if (!GetComponent<Playergen>().isdemo)
+        if (!GetComponent<Playergen>().isdemo || Lan.Slot != null)
         {
 
+            if (!overide)
+            {
+                RenderArc();
 
-            RenderArc();
+            }
             Velocity = Lan.dirTotal * Velocitymulti;
             angle = Lan.dirTotal * angelmulti;
             if (Velocity < 1)
@@ -72,7 +77,11 @@ public class LaunchArchRenderer : MonoBehaviour
             }
 
             transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
-
+            Y = transform.eulerAngles.y;
+        }
+        else
+        {
+            return;
         }
 
     }

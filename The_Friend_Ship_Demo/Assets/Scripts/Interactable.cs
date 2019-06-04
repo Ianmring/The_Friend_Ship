@@ -18,11 +18,11 @@ public class Interactable : MonoBehaviour
 
 
 
-    private void Start()
+    public void Start()
     {
 
 
-        thiscol = GetComponent<SphereCollider>();
+        thiscol = this.GetComponent<SphereCollider>();
         thiscol.radius = radius;
         thiscol.center = inteactionpoint;
 

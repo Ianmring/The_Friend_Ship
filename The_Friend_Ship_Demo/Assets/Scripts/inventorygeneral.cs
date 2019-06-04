@@ -13,7 +13,6 @@ public class inventorygeneral : MonoBehaviour
     public int slotnums_P;
     public GameObject currentslot;
 
-
     public List<PersonalItemSlot> Personal_Slots = new List<PersonalItemSlot>();
 
   // public List<Item> items = new List<Item>();
@@ -85,23 +84,27 @@ public class inventorygeneral : MonoBehaviour
            
         }
         // Debug.Log(item + "has been added to " + player.playernum + "'s inventory");
-        if (Personal_Slots.Count < 5)
-        {
-           
+        //if (Personal_Slots.Count < 5)
+        //{
+            
                 GameObject PSlot;
                 PSlot = Instantiate(currentslot, Container);
+
                 PSlot.GetComponent<PersonalItemSlot>().Additem(item);
                 PSlot.GetComponent<PersonalItemSlot>().Playernum = player.direction;
             PSlot.GetComponent<PersonalItemSlot>().itemcount = count;
+
             Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
-                //items.Add(item);
-                //Personal_Slots = GetComponentsInChildren<PersonalItemSlot>();
-                //Personal_Slots[Personal_Slots.Length].Additem(item);
+ 
 
                 Update_Slots();
             
            
-        }
+        //}
+        //else
+        //{
+        //    return;
+        //}
       
         
     }
@@ -146,6 +149,7 @@ public class inventorygeneral : MonoBehaviour
                 Selector.transform.position = Personal_Slots[currentitem].transform.position;
 
                 launch.rocketPrefab = Personal_Slots[currentitem].OBJ.GetComponent<Rigidbody>();
+               launch.Slot = Personal_Slots[currentitem];
             }
 
 

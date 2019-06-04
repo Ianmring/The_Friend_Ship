@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8536095704725143741}
   - component: {fileID: 8536095704725143714}
   - component: {fileID: 5227037068341963699}
-  - component: {fileID: 557409140454805856}
   - component: {fileID: 5317480288770728414}
+  - component: {fileID: 8319913836231254387}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -111,7 +111,7 @@ MonoBehaviour:
   inteactionpoint: {x: 0, y: 0, z: 0}
   thiscol: {fileID: 0}
   Type: 0
-  item: {fileID: 11400000, guid: 762d156b3dd4d0248b8066d428bcf363, type: 2}
+  item: {fileID: 11400000, guid: 0ca57a4cc11230b499beddd149c7d96b, type: 2}
 --- !u!54 &5227037068341963699
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,19 +128,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &557409140454805856
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8536095704725143715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5317480288770728414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +140,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd82705a7594ec4b8432fafe34a5679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &8319913836231254387
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536095704725143715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

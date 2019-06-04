@@ -20,6 +20,6 @@ public class DiolaugeTrigger : MonoBehaviour
 
     public void Triggerdio()
     {
-        FindObjectOfType<DiolaugeManager>().Startdio(Dio);
+     //   FindObjectOfType<DiolaugeManager>().Startdio(Dio);
     }
 }

@@ -12,11 +12,15 @@ public class Item : ScriptableObject
     public bool isdefault = false;
     public GameObject OBJ = null;
     public string discription = null;
+    
+ 
 
-   
+
     public virtual void Use()
     {
-
+      
+       
+       
       //  Debug.Log("using" + name);
     }
 

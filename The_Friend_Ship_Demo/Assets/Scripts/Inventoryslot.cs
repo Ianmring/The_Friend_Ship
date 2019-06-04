@@ -68,38 +68,40 @@ public class Inventoryslot : MonoBehaviour
                 switch (mana.playernums)
                 {
                     case uimanager.Players.player1:
-
-                        if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                        if (mana.P1.GetComponent<inventorygeneral>().Personal_Slots.Count < 5)
                         {
-                            mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
-                          //  itemcount--;
+                            if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                            {
+                                mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
+                                itemcount--;
+
+                            }
+                            else
+                            {
+                                mana.P1.GetComponent<inventorygeneral>().Addslot(item, itemcount);
+                                itemcount = 0;
+                            }
 
                         }
-                        else
-                        {
-                            mana.P1.GetComponent<inventorygeneral>().Addslot(item, itemcount);
-                            itemcount = 0;
-                        }
-                      
-
                         
                         break;
                     case uimanager.Players.player2:
 
-
-                        if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                        if (mana.P2.GetComponent<inventorygeneral>().Personal_Slots.Count < 5)
                         {
-                            mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
-                         //   itemcount--;
+                            if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                            {
+                                mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
+                                itemcount--;
+
+                            }
+                            else
+                            {
+                                mana.P2.GetComponent<inventorygeneral>().Addslot(item, itemcount);
+                                itemcount = 0;
+                            }
 
                         }
-                        else
-                        {
-                            mana.P2.GetComponent<inventorygeneral>().Addslot(item, itemcount);
-                            itemcount = 0;
-                        }
-
-
                         break;
             
                 }
@@ -133,38 +135,44 @@ public class Inventoryslot : MonoBehaviour
             switch (mana.playernums)
             {
                 case uimanager.Players.player1:
-
-                    if (item.Type == Item.type.Disposeable)
+                    if (mana.P1.GetComponent<inventorygeneral>().Personal_Slots.Count < 5 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                     {
-                        mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
-                        //  itemcount--;
+                        if (item.Type == Item.type.Disposeable || item.Type == Item.type.Keyitem)
+                        {
 
+                            mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
+                            itemcount--;
+
+                        }
+                        else
+                        {
+                            item.Use();
+                            itemcount--;
+
+                        }
                     }
-                    else
-                    {
-                        item.Use();
-
-                    }
-
                     break;
                 case uimanager.Players.player2:
 
-
-                    if (item.Type == Item.type.Disposeable)
+                    if (mana.P2.GetComponent<inventorygeneral>().Personal_Slots.Count < 5 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                     {
-                        mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
-                        //  itemcount--;
+                        if (item.Type == Item.type.Disposeable || item.Type == Item.type.Keyitem)
+                        {
+                            mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
+                            itemcount--;
 
-                    }
-                    else
-                    {
-                        item.Use();
+                        }
+                        else
+                        {
+                            item.Use();
+                            itemcount--;
 
+                        }
                     }
                     break;
 
             }
-            itemcount--;
+           // itemcount--;
             Checkitemcount();
                
 

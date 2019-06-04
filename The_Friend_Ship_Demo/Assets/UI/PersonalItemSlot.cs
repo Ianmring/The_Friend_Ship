@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PersonalItemSlot : MonoBehaviour
 {
     // Start is called before the first frame update
+   public bool iskeyitem;
     public int Playernum;
     public Item currentitem;
     public int itemcount;
@@ -15,10 +16,15 @@ public class PersonalItemSlot : MonoBehaviour
     public Image icon;
     public GameObject OBJ;
    public Button Button;
+    KeyItem Kitem;
+
     public bool isinteract { get; set; }
+
+
     void Start()
     {
         Button = GetComponentInChildren<Button>();
+       
        // itemcount = 1;
     }
 
@@ -29,6 +35,43 @@ public class PersonalItemSlot : MonoBehaviour
         icon.enabled = true;
         OBJ = item.OBJ;
         Name.text = item.name;
+
+        if (item.Type == Item.type.Keyitem)
+        {
+            iskeyitem = true;
+            Kitem = currentitem as KeyItem;
+
+        }
+        else
+        {
+            Kitem = null;
+        }
+        if (currentitem.GetType() == typeof(KeyItem))
+        {
+
+            switch (Kitem.KeyItemType)
+            {
+               
+                case KeyItem.KeyitemType.ParaScope:
+                    this.gameObject.AddComponent<Parascope>();
+                    break;
+                case KeyItem.KeyitemType.Map:
+                    this.gameObject.AddComponent<Map>();
+
+                    break;
+                case KeyItem.KeyitemType.Compass:
+                    this.gameObject.AddComponent<Compass>();
+
+                    break;
+                case KeyItem.KeyitemType.ClipBoard:
+                    this.gameObject.AddComponent<CheckList>();
+
+                    break;
+              
+            }
+
+        }
+        Debug.Log(currentitem.GetType());
 
     }
     public void ChangeActive()
@@ -85,26 +128,56 @@ public class PersonalItemSlot : MonoBehaviour
         Destroy(this.gameObject);
 
     }
-    //private void OnDestroy()
-    //{
-    //    if (Playernum == 0)
-    //    {
 
-    //        mana.P1.GetComponent<inventorygeneral>().currentitem = -1;
-    //        //    mana.P1.GetComponent<inventorygeneral>().Update_Slots();
+    public void dosomething()
+    {
 
-    //        // Debug.Log("updatingp1slot");
+        switch (Kitem.KeyItemType)
+        {
 
-    //    }
-    //    if (Playernum == 1)
-    //    {
+            case KeyItem.KeyitemType.ParaScope:
+                this.gameObject.GetComponent<Parascope>().Dothething();
+                break;
+            case KeyItem.KeyitemType.Map:
+                this.gameObject.GetComponent<Map>().Dothething();
 
-    //        mana.P2.GetComponent<inventorygeneral>().currentitem = -1;
-    //        //   mana.P2.GetComponent<inventorygeneral>().Update_Slots();
+                break;
+            case KeyItem.KeyitemType.Compass:
+                this.gameObject.GetComponent<Compass>().Dothething();
 
-    //        //   Debug.Log("updatingp2slot");
+                break;
+            case KeyItem.KeyitemType.ClipBoard:
+                this.gameObject.GetComponent<CheckList>().Dothething();
 
+                break;
 
-    //    }
-    //}
+        }
+    }
+
+    public void DontDoSomething()
+    {
+       
+
+        switch (Kitem.KeyItemType)
+        {
+
+            case KeyItem.KeyitemType.ParaScope:
+                this.gameObject.GetComponent<Parascope>().DoDo();
+                break;
+            case KeyItem.KeyitemType.Map:
+                this.gameObject.GetComponent<Map>().DoDo();
+
+                break;
+            case KeyItem.KeyitemType.Compass:
+                this.gameObject.GetComponent<Compass>().DoDo();
+
+                break;
+            case KeyItem.KeyitemType.ClipBoard:
+                this.gameObject.GetComponent<CheckList>().DoDo();
+
+                break;
+
+        }
+    }
+  
 }

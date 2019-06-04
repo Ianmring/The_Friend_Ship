@@ -16,12 +16,11 @@ public class launcher : MonoBehaviour
     bool sett;
     bool fire;
     bool update;
-
     public bool isempty { get; set; }
     public Transform Player;
 
     public Rigidbody rocketPrefab;
-
+    public PersonalItemSlot Slot;
     float DirVTotal;
     float DirHTotal;
 
@@ -34,9 +33,9 @@ public class launcher : MonoBehaviour
     public float uplaunchMulti;
     inventorygeneral invt;
 
-    Vector3 Dir;
+    public Vector3 Dir;
     Playergen playa;
-
+    public float Yvect;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +45,7 @@ public class launcher : MonoBehaviour
         fire = true;
         playernumref = playa.playernum;
         invt = GetComponentInParent<inventorygeneral>();
+        Slot = null;
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class launcher : MonoBehaviour
 
             dirTotal = (DirHTotal + DirVTotal) / 2;
 
-            float Yvect;
+
 
             Yvect = (Mathf.Atan2(Dir1V, Dir1H) / Mathf.PI);
 
@@ -82,62 +82,98 @@ public class launcher : MonoBehaviour
             Dir = new Vector3(0f, Yvect, 0);
 
 
-
-
-            if (DirHTotal > 0.15 && DirVTotal > 0.15 || DirHTotal > 0.15 || DirVTotal > 0.15)
+            if (Slot == null)
             {
-                Player.localEulerAngles = Dir; // this does the actual rotaion according to inputs
-                sett = true;
+                return;
             }
             else
             {
 
-                Player.localEulerAngles = Player.localEulerAngles;
-                sett = false;
-            }
-
-
-            if (Ready == 1 && sett && !fire && !isempty)
-            {
-                if (rocketPrefab == null)
+                if (DirHTotal > 0.15 && DirVTotal > 0.15 || DirHTotal > 0.15 || DirVTotal > 0.15)
                 {
-                    return;
+                    if (!uimanager.UIinstance.isopen && Slot.iskeyitem && Slot != null)
+                    {
+                        Slot.dosomething();
+
+                    }
+
+
+                    Player.localEulerAngles = Dir; // this does the actual rotaion according to inputs
+                    sett = true;
+
+
                 }
                 else
                 {
-                    Rigidbody rocketInstance;
-                    rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
-                    rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
-                    invt.Update_Slots();
-                    fire = true;
-                    update = true;
+                    if (!uimanager.UIinstance.isopen && Slot.iskeyitem && Slot != null)
+                    {
+                        Slot.DontDoSomething();
 
+                    }
+                    Player.localEulerAngles = Player.localEulerAngles;
+                    sett = false;
                 }
 
-            }
 
-            else if (Ready == 0)
-            {
-                fire = false;
-                if (update == true)
+                if (Ready == 1 && sett && !fire && !isempty)
                 {
-                    invt.Subinvt();
 
 
-                    //Bring back if not working anymore (5/29/19)
-                   // invt.Update_Slots();
+                    if (rocketPrefab == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        if (Slot.iskeyitem == false)
+                        {
+                            Rigidbody rocketInstance;
+                            rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
+                            rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
+                            invt.Update_Slots();
+                            fire = true;
+                            update = true;
 
+                        }
+                        //else
+                        //{
+                        //    Slot.dosomething();
 
+                        //    fire = true;
+                        //    update = true;
+                        //}
 
+                    }
 
-                    //Debug.Log("did the thing");
-                    update = false;
                 }
 
+                else if (Ready == 0)
+                {
+
+                    fire = false;
+                    if (update == true)
+                    {
+                        if (Slot.iskeyitem == false)
+                        {
+
+                            invt.Subinvt();
+
+
+                            //Bring back if not working anymore (5/29/19)
+                            // invt.Update_Slots();
+                            update = false;
+                        }
+
+
+
+                    }
+
+
+                }
+
+
+
             }
-
-           
-
         }
     }
 }
