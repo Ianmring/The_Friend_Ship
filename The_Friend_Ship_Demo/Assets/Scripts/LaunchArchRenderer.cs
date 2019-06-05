@@ -14,8 +14,8 @@ public class LaunchArchRenderer : MonoBehaviour
     public float maxang;
 
 
-    float Velocity;
-     float angle;
+    float Velocity = 0.0000001f;
+     float angle = 0.0000001f;
     public int resolution = 10;
 
     float g;
@@ -47,35 +47,40 @@ public class LaunchArchRenderer : MonoBehaviour
     void Update()
     {
 
-        if (!GetComponent<Playergen>().isdemo || Lan.Slot != null)
+        if (!GetComponent<Playergen>().isdemo && Lan.Slot != null && !DiolaugeManager.DioInstance.indio)
         {
-
+            RenderArc();
+        
             if (!overide)
             {
-                RenderArc();
+                Velocity = Lan.dirTotal * Velocitymulti;
+                angle = Lan.dirTotal * angelmulti;
+                if (Velocity < 1)
+                {
+                    Velocity = 1;
+                }
+                else if (angle < 1)
+                {
+                    angle = 1;
+                }
+                if (Velocity > 15)
+                {
+                    Velocity = 15;
 
-            }
-            Velocity = Lan.dirTotal * Velocitymulti;
-            angle = Lan.dirTotal * angelmulti;
-            if (Velocity < 1)
-            {
-                Velocity = 1;
-            }
-            else if (angle < 1)
-            {
-                angle = 1;
-            }
-            if (Velocity > 15)
-            {
-                Velocity = 15;
+                }
+                if (angle > maxang)
+                {
+                    angle = maxang;
 
+                }
+
+            
             }
-            if (angle > maxang)
+            else
             {
-                angle = maxang;
-
+                Velocity = 0.0000001f;
+                angle = 0.0000001f;
             }
-
             transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
             Y = transform.eulerAngles.y;
         }

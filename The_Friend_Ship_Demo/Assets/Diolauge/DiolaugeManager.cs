@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DiolaugeManager : MonoBehaviour
 {
+        #region Singelton
+    public static DiolaugeManager DioInstance;
+
+    private void Awake()
+    {
+        DioInstance
+ = this;
+    }
+    #endregion
     public Text nameText;
     public Text DioText;
 
@@ -19,7 +28,7 @@ public class DiolaugeManager : MonoBehaviour
 
     NPC CurrentNPC;
 
-    bool indio;
+   public bool indio;
     // Start is called before the first frame update
     void Start()
     {

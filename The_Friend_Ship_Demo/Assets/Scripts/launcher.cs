@@ -86,7 +86,7 @@ public class launcher : MonoBehaviour
             {
                 return;
             }
-            else
+            else if(!DiolaugeManager.DioInstance.indio)
             {
 
                 if (DirHTotal > 0.15 && DirVTotal > 0.15 || DirHTotal > 0.15 || DirVTotal > 0.15)
