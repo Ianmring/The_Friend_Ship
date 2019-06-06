@@ -23,17 +23,18 @@ public class LaunchArchRenderer : MonoBehaviour
 
     public bool overide;
     public float Y { get; set; }
+
     private void Awake()
     {
-       
         LR = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
         Lan = GetComponentInChildren<launcher>();
+
         //Velocity = Lan.dirTotal * Velocitymulti;
         //angle = Lan.dirTotal * angelmulti;
     }
 
-     void OnValidate()
+    void OnValidate()
     {
         if (LR != null && Application.isPlaying)
         {
@@ -47,45 +48,73 @@ public class LaunchArchRenderer : MonoBehaviour
     void Update()
     {
 
-        if (!GetComponent<Playergen>().isdemo && Lan.Slot != null && !DiolaugeManager.DioInstance.indio)
+        if (!GetComponent<Playergen>().isdemo && Lan.Slot != null && !DiolaugeManager.DioInstance.indio )
         {
-            RenderArc();
-        
-            if (!overide)
+            if (FindObjectOfType<movement>().move)
             {
-                Velocity = Lan.dirTotal * Velocitymulti;
-                angle = Lan.dirTotal * angelmulti;
-                if (Velocity < 1)
+
+
+
+                if (Lan.Slot.iskeyitem)
                 {
-                    Velocity = 1;
+                    overide = true;
                 }
-                else if (angle < 1)
+                else
                 {
-                    angle = 1;
+                    overide = false;
                 }
-                if (Velocity > 15)
+                if (!overide)
                 {
-                    Velocity = 15;
+                    Velocity = Lan.dirTotal * Velocitymulti;
+                    angle = Lan.dirTotal * angelmulti;
+                    if (Velocity < 1)
+                    {
+                        Velocity = 1;
+                    }
+                    else if (angle < 1)
+                    {
+                        angle = 1;
+                    }
+                    if (Velocity > 15)
+                    {
+                        Velocity = 15;
+
+                    }
+                    if (angle > maxang)
+                    {
+                        angle = maxang;
+
+                    }
+
 
                 }
-                if (angle > maxang)
+                else
                 {
-                    angle = maxang;
+
+                    Velocity = 0.0000001f;
+                    angle = 0.0000001f;
 
                 }
+                RenderArc();
 
-            
+                transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
+                Y = transform.eulerAngles.y;
             }
             else
             {
                 Velocity = 0.0000001f;
                 angle = 0.0000001f;
+                RenderArc();
+
+                return;
             }
-            transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
-            Y = transform.eulerAngles.y;
         }
         else
         {
+            Velocity = 0.0000001f;
+            angle = 0.0000001f;
+            RenderArc();
+
             return;
         }
 

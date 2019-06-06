@@ -27,7 +27,7 @@ public class launcher : MonoBehaviour
     public float dirTotal;
 
 
-    float Ready;
+    public float Ready;
 
     public float launchMulti;
     public float uplaunchMulti;
@@ -46,6 +46,15 @@ public class launcher : MonoBehaviour
         playernumref = playa.playernum;
         invt = GetComponentInParent<inventorygeneral>();
         Slot = null;
+
+        if (playa.direction == 0)
+        {
+            dirData.P1F = this;
+        }
+        if (playa.direction == 1)
+        {
+            dirData.P2F = this;
+        }
     }
 
     // Update is called once per frame
@@ -86,7 +95,7 @@ public class launcher : MonoBehaviour
             {
                 return;
             }
-            else if(!DiolaugeManager.DioInstance.indio)
+            else if (!DiolaugeManager.DioInstance.indio)
             {
 
                 if (DirHTotal > 0.15 && DirVTotal > 0.15 || DirHTotal > 0.15 || DirVTotal > 0.15)
@@ -114,65 +123,67 @@ public class launcher : MonoBehaviour
                     sett = false;
                 }
 
-
-                if (Ready == 1 && sett && !fire && !isempty)
+                if (dirData.move)
                 {
+                    if (Ready == 1 && sett && !fire && !isempty)
+                    {
 
 
-                    if (rocketPrefab == null)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        if (Slot.iskeyitem == false)
+                        if (rocketPrefab == null)
                         {
-                            Rigidbody rocketInstance;
-                            rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
-                            rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
-                            invt.Update_Slots();
-                            fire = true;
-                            update = true;
+                            return;
+                        }
+                        else
+                        {
+                            if (Slot.iskeyitem == false)
+                            {
+                                Rigidbody rocketInstance;
+                                rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
+                                rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
+                                invt.Update_Slots();
+                                fire = true;
+                                update = true;
+
+                            }
+                            //else
+                            //{
+                            //    Slot.dosomething();
+
+                            //    fire = true;
+                            //    update = true;
+                            //}
 
                         }
-                        //else
-                        //{
-                        //    Slot.dosomething();
-
-                        //    fire = true;
-                        //    update = true;
-                        //}
 
                     }
 
-                }
-
-                else if (Ready == 0)
-                {
-
-                    fire = false;
-                    if (update == true)
+                    else if (Ready == 0 || !dirData.altoveride)
                     {
-                        if (Slot.iskeyitem == false)
+
+                        fire = false;
+                        if (update == true)
                         {
+                            if (Slot.iskeyitem == false)
+                            {
 
-                            invt.Subinvt();
+                                invt.Subinvt();
 
 
-                            //Bring back if not working anymore (5/29/19)
-                            // invt.Update_Slots();
-                            update = false;
+                                //Bring back if not working anymore (5/29/19)
+                                // invt.Update_Slots();
+                                update = false;
+                            }
+
+
+
                         }
 
 
-
                     }
 
 
+
                 }
-
-
-
             }
         }
     }

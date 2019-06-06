@@ -6,8 +6,18 @@ using UnityEngine.UI;
 public class movement : MonoBehaviour {
 
     // Use this for initialization
+    #region Singelton
+    public static movement MovInstance;
 
-   public float speed;
+    private void Awake()
+    {
+        MovInstance = this;
+    }
+
+    #endregion
+
+
+    public float speed;
 
     public float maxspeed;
     public float minturnspeed;
@@ -41,60 +51,83 @@ public class movement : MonoBehaviour {
 
      float zroto;
 
+    public launcher P1F;
+    public launcher P2F;
+
 
     float mag;
 
-  
+    public bool move= true;
+
+    public bool PlayersSet;
+
+    public bool altoveride;
     void Start () {
 
+        move = true;
         playa = FindObjectOfType<playerselect>();
         rig = GetComponent<Rigidbody>();
         moving = Moving.Not;
         turning = Turning.Not;
      
-     
-        // Debug.Log(names);
-
-      
-
-        
+  
     }
 
     // Update is called once per frame
     void Update () {
 
+      
 
-
-
-        mag = (Mathf.Abs(directions[0]) + Mathf.Abs(directions[1])) / 2;
-
-        Move();
-        Direction();
-
-        Slides[0].value = directions[0];
-        Slides[1].value = directions[1];
-
-
-
-      //  rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
-
-        zoom = rig.velocity.magnitude;
-
-
-        if (zoom >= maxspeed - maxspeed / 5)
+        if (move)
         {
-            turnspeed = minturnspeed;
+
+            mag = (Mathf.Abs(directions[0]) + Mathf.Abs(directions[1])) / 2;
+            rig.mass = 1;
+            directC.gameObject.SetActive(true);
+            Move();
+            Direction();
+            Slides[0].value = directions[0];
+            Slides[1].value = directions[1];
+            zoom = rig.velocity.magnitude;
+
+
+            if (zoom >= maxspeed - maxspeed / 5)
+            {
+                turnspeed = minturnspeed;
+            }
+            else
+            {
+                turnspeed = maxturnspeed;
+            }
+
+            zroto = transform.localEulerAngles.y;
+            directC.eulerAngles = new Vector3(0, 0, -zroto);
         }
         else
         {
-            turnspeed = maxturnspeed;
+            rig.mass = 10;
+            directC.gameObject.SetActive(false);
         }
+        
+        if (PlayersSet)
+        {
+            if ((P1F.Ready > 0 || altoveride && P1F.Slot.iskeyitem) || (P2F.Ready > 0  || altoveride && P2F.Slot.iskeyitem))
+            {
+                move = false;
+            }
+            else if(P1F.Slot == null || P2F.Slot == null)
+            {
+                move = true;
+            }
+            else
+            {
+                move = true;
+            }
+        }
+        
 
-        zroto = transform.eulerAngles.y;
-        directC.eulerAngles = new Vector3(0, 0, -zroto);
-
-       
     }
+
 
     void Move()
     {

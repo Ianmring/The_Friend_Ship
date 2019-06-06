@@ -13,9 +13,15 @@ public class Map : MonoBehaviour
 
     LaunchArchRenderer launchrend;
 
+    DiolaugeManager dio;
+
+    movement mov;
+
     private void Start()
     {
         slot = GetComponent<PersonalItemSlot>();
+        dio = DiolaugeManager.DioInstance;
+        mov = movement.MovInstance;
 
         if (slot.Playernum == 0)
         {
@@ -23,7 +29,7 @@ public class Map : MonoBehaviour
             launchrend = uimanager.UIinstance.P1.GetComponent<LaunchArchRenderer>();
             slide = GameObject.Find("P1Equip").GetComponentInChildren<Slider>();
         }
-        else if (slot.Playernum == 1)
+         if (slot.Playernum == 1)
         {
             launch = uimanager.UIinstance.P2.GetComponentInChildren<launcher>();
             launchrend = uimanager.UIinstance.P2.GetComponent<LaunchArchRenderer>();
@@ -32,13 +38,34 @@ public class Map : MonoBehaviour
     }
     public void Dothething()
     {
-        launchrend.overide = true;
-        slide.value = launch.dirTotal * 2;
+        //  launchrend.overide = true;
+
+        slide.value = launch.Ready;
+
+        //if (launch.Ready > 0)
+        //{
+        //    mov.move = false;
+
+        //}
+      
+
+
     }
     public void DoDo()
     {
-        launchrend.overide = true;
-        slide.value = launch.dirTotal * 2;
+        //  launchrend.overide = true;
 
+        slide.value = launch.Ready;
+
+       
+    
+    }
+    private void Update()
+    {
+        if (!launchrend.overide || !slot.isbeingused || dio.indio)
+        {
+            slide.value = 0f;
+
+        }
     }
 }

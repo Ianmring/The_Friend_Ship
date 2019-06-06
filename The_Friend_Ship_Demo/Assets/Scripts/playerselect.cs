@@ -76,7 +76,9 @@ public class playerselect : MonoBehaviour
                 //p1 = 1;
                 //p2 = 2;
                 contchosen = true;
-        
+
+            FindObjectOfType<movement>().PlayersSet = true;
+
              Destroy(GetComponent<playerselect>());
 
             }
@@ -110,8 +112,9 @@ public class playerselect : MonoBehaviour
                 //p2 = 1;
 
                 contchosen = true;
+            FindObjectOfType<movement>().PlayersSet = true;
 
-                Destroy(GetComponent<playerselect>());
+            Destroy(GetComponent<playerselect>());
                //  iscontorller = true;
 
             }

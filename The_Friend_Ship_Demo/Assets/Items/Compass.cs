@@ -6,16 +6,22 @@ public class Compass : MonoBehaviour
 {
     PersonalItemSlot slot;
 
-    launcher launch;
+     launcher launch;
 
-    LaunchArchRenderer launchrend;
+     LaunchArchRenderer launchrend;
 
     Renderer mat;
+
+    DiolaugeManager dio;
+
+    movement mov;
 
     private void Start()
     {
 
         mat = GameObject.Find("Comp").GetComponent<Renderer>();
+        dio = DiolaugeManager.DioInstance;
+        mov = movement.MovInstance;
 
         slot = GetComponent<PersonalItemSlot>();
 
@@ -24,7 +30,7 @@ public class Compass : MonoBehaviour
             launch = uimanager.UIinstance.P1.GetComponentInChildren<launcher>();
             launchrend = uimanager.UIinstance.P1.GetComponent<LaunchArchRenderer>();
         }
-        else if (slot.Playernum == 1)
+        if (slot.Playernum == 1)
         {
             launch = uimanager.UIinstance.P2.GetComponentInChildren<launcher>();
             launchrend = uimanager.UIinstance.P2.GetComponent<LaunchArchRenderer>();
@@ -32,13 +38,25 @@ public class Compass : MonoBehaviour
     }
     public void Dothething()
     {
-        launchrend.overide = true;
-        mat.material.color = new Color(0.8f,0.5f,0.1f, Mathf.Clamp(launch.dirTotal * 2, 0,1)  );
+
+        mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.Ready * 2, 0, 1));
+
+       
+
     }
     public void DoDo()
     {
-        launchrend.overide = true;
-        mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.dirTotal * 2, 0, 1));
+        mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.Ready * 2, 0, 1));
 
+        
+       
+    }
+    private void Update()
+    {
+        if (!launchrend.overide || !slot.isbeingused || dio.indio)
+        {
+            mat.material.color = new Color(0.8f, 0.5f, 0.1f, 0);
+
+        }
     }
 }

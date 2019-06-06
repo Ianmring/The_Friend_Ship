@@ -18,6 +18,9 @@ public class PersonalItemSlot : MonoBehaviour
    public Button Button;
     KeyItem Kitem;
 
+  public  inventorygeneral invt;
+
+    public bool isbeingused;
     public bool isinteract { get; set; }
 
 
@@ -35,6 +38,16 @@ public class PersonalItemSlot : MonoBehaviour
         icon.enabled = true;
         OBJ = item.OBJ;
         Name.text = item.name;
+
+        //if (Playernum == 0)
+        //{
+        //    invt = uimanager.UIinstance.P1.GetComponent<inventorygeneral>();
+        //}
+        //else if (Playernum == 1)
+        //{
+        //    invt = uimanager.UIinstance.P2.GetComponent<inventorygeneral>();
+
+        //}
 
         if (item.Type == Item.type.Keyitem)
         {
@@ -71,7 +84,9 @@ public class PersonalItemSlot : MonoBehaviour
             }
 
         }
-        Debug.Log(currentitem.GetType());
+        //invt.Update_Slots(); 
+
+      //  Debug.Log(currentitem.GetType());
 
     }
     public void ChangeActive()
@@ -89,7 +104,15 @@ public class PersonalItemSlot : MonoBehaviour
     void Update()
     {
         count.text = itemcount.ToString();
-       
+
+        if (invt.Selector.transform.position == this.transform.position)
+        {
+            isbeingused = true;
+        }
+        else
+        {
+            isbeingused = false;
+        }
     }
 
     public void Transferall()

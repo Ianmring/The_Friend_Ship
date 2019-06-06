@@ -8,15 +8,21 @@ public class Parascope : MonoBehaviour
 
     PersonalItemSlot slot;
 
-  public  LaunchArchRenderer launch;
-   public camscript cam;
+    LaunchArchRenderer launch;
+    camscript cam;
 
-  public  Vector3 direction;
+    Vector3 direction;
+
+    DiolaugeManager dio;
+
+    movement mov;
 
     bool overide;
     void Start()
     {
         slot = GetComponent<PersonalItemSlot>();
+        dio = DiolaugeManager.DioInstance;
+        mov = movement.MovInstance;
 
         if (slot.Playernum == 0)
         {
@@ -42,20 +48,33 @@ public class Parascope : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        if (overide == true)
+        if (slot.isbeingused == false || dio.indio)
         {
-            launch.overide = true;
-            cam.Overide = true;
-            cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Y + 90f, cam.AngleI.z);
+            mov.altoveride = false;
 
-        }
-        else if(overide == false)
-        {
-            launch.overide = false;
             cam.Overide = false;
-          //  cam.AngleI = new Vector3(cam.AngleI.x, 0, cam.AngleI.z);
 
         }
+        else
+        {
+            if (overide == true)
+            {
+                //  mov.move = false;
+                mov.altoveride = true;
+                cam.Overide = true;
+                cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Y + 90f, cam.AngleI.z);
+
+            }
+            else if (overide == false)
+            {
+                //  mov.move = true;
+                mov.altoveride = false;
+
+                cam.Overide = false;
+            }
+        }
+       
+
     }
 
 

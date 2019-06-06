@@ -38,6 +38,7 @@ public class DiolaugeManager : MonoBehaviour
     // Update is called once per frame
     public void Startdio(Diolauge Dio, NPC StartNPC)
     {
+        movement.MovInstance.move = false;
         indio = true;
         currentconvopoint = 0;
         anim.SetTrigger("Open");
@@ -105,12 +106,14 @@ public class DiolaugeManager : MonoBehaviour
             //CurrentNPC = null;
             //currentDiolauge = null;
             anim.SetTrigger("Close");
+
         }
         else
         {
             return;
         }
-       
+        movement.MovInstance.move = true;
+
 
     }
 }
