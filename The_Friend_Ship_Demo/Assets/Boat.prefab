@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1584186438}
   - component: {fileID: 1584186437}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Comp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8f7ccd0efb3029b4092e61af16c8af1f, type: 2}
+  - {fileID: 2100000, guid: 0a81f9f5da9416c4eabaee8f64202900, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 1739560884}
   - component: {fileID: 1739560885}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Compass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,6 +305,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   directC: {fileID: 0}
+  MapOBJ:
+  - {fileID: 0}
+  - {fileID: 0}
+  ClipOBJ:
+  - {fileID: 0}
+  - {fileID: 0}
+  P1F: {fileID: 0}
+  P2F: {fileID: 0}
+  move: 1
+  PlayersSet: 0
+  altoveride: 0
 --- !u!54 &2692510986355240210
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -350,9 +361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aa870ba5d47f14e8a3de70854c5af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 3
+  maxhealth: 0
   Damage:
-    basevalue: 5
+    basevalue: 0
     modifiers: 
   Speed:
     basevalue: 0

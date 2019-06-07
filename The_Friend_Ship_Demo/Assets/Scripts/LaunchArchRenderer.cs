@@ -47,7 +47,8 @@ public class LaunchArchRenderer : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-
+        transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
+        Y = transform.eulerAngles.y;
         if (!GetComponent<Playergen>().isdemo && Lan.Slot != null && !DiolaugeManager.DioInstance.indio )
         {
             if (FindObjectOfType<movement>().move)
@@ -97,8 +98,7 @@ public class LaunchArchRenderer : MonoBehaviour
                 }
                 RenderArc();
 
-                transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
-                Y = transform.eulerAngles.y;
+
             }
             else
             {
@@ -117,6 +117,7 @@ public class LaunchArchRenderer : MonoBehaviour
 
             return;
         }
+        
 
     }
 

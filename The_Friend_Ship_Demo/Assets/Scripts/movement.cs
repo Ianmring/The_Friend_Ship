@@ -46,6 +46,8 @@ public class movement : MonoBehaviour {
     public Slider[] Slides;
 
     public RectTransform directC;
+
+    public GameObject[] Handels;
     //public RectTransform directL;
     playerselect playa;
 
@@ -111,15 +113,16 @@ public class movement : MonoBehaviour {
         
         if (PlayersSet)
         {
-            if ((P1F.Ready > 0 || altoveride && P1F.Slot.iskeyitem) || (P2F.Ready > 0  || altoveride && P2F.Slot.iskeyitem))
+            if ((P1F.Ready > 0  && P1F.Slot.iskeyitem ) || (P2F.Ready > 0 && P2F.Slot.iskeyitem) || altoveride)
             {
                 move = false;
             }
+      
             else if(P1F.Slot == null || P2F.Slot == null)
             {
                 move = true;
             }
-            else
+            else if(!altoveride)
             {
                 move = true;
             }

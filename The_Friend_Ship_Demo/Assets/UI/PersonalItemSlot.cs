@@ -145,7 +145,7 @@ public class PersonalItemSlot : MonoBehaviour
 
         FindObjectOfType<uimanager>().Updateslotsgen(this.GetComponent<PersonalItemSlot>());
 
-        
+        invt.Update_Slots();
         //return;
 
         Destroy(this.gameObject);

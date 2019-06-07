@@ -63,22 +63,39 @@ public class Inventoryslot : MonoBehaviour
 
             if (Input.GetButtonDown("AddtoPslot"))
             {
-              
+                inventorygeneral invt0;
+                invt0 = mana.P1.GetComponent<inventorygeneral>();
+                inventorygeneral invt1;
+                invt1 = mana.P2.GetComponent<inventorygeneral>();
+
 
                 switch (mana.playernums)
                 {
                     case uimanager.Players.player1:
-                        if (mana.P1.GetComponent<inventorygeneral>().Personal_Slots.Count < 5)
+                        if (invt0.Personal_Slots.Count < 5)
                         {
                             if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                             {
-                                mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
+                                invt0.Addslot(item, 1);
                                 itemcount--;
 
                             }
                             else
                             {
-                                mana.P1.GetComponent<inventorygeneral>().Addslot(item, itemcount);
+                                if(item.Type == Item.type.Keyitem)
+                                {
+                                    for (int i = 0; i < invt0.Personal_Slots.Count; i++)
+                                    {
+                                        if (invt0.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
+                                        {
+                                            return;
+                                        }
+                                    }
+
+                                }
+
+
+                                invt0.Addslot(item, itemcount);
                                 itemcount = 0;
                             }
 
@@ -87,17 +104,29 @@ public class Inventoryslot : MonoBehaviour
                         break;
                     case uimanager.Players.player2:
 
-                        if (mana.P2.GetComponent<inventorygeneral>().Personal_Slots.Count < 5)
+                        if (invt1.Personal_Slots.Count < 5)
                         {
                             if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                             {
-                                mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
+                                invt1.Addslot(item, 1);
                                 itemcount--;
 
                             }
                             else
                             {
-                                mana.P2.GetComponent<inventorygeneral>().Addslot(item, itemcount);
+                                if (item.Type == Item.type.Keyitem)
+                                {
+                                    for (int i = 0; i < invt1.Personal_Slots.Count; i++)
+                                    {
+                                        if (invt1.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
+                                        {
+                                            return;
+                                        }
+                                    }
+
+                                }
+
+                                invt1.Addslot(item, itemcount);
                                 itemcount = 0;
                             }
 
@@ -131,16 +160,30 @@ public class Inventoryslot : MonoBehaviour
     {
         if (item != null)
         {
+            inventorygeneral invt0;
+            invt0 = mana.P1.GetComponent<inventorygeneral>();
+            inventorygeneral invt1;
+            invt1 = mana.P2.GetComponent<inventorygeneral>();
 
             switch (mana.playernums)
             {
                 case uimanager.Players.player1:
-                    if (mana.P1.GetComponent<inventorygeneral>().Personal_Slots.Count < 5 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                    if (invt0.Personal_Slots.Count < 5 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                     {
                         if (item.Type == Item.type.Disposeable || item.Type == Item.type.Keyitem)
                         {
-
-                            mana.P1.GetComponent<inventorygeneral>().Addslot(item, 1);
+                            if (item.Type == Item.type.Keyitem)
+                            {
+                                for (int i = 0; i < invt0.Personal_Slots.Count; i++)
+                                {
+                                    if (invt0.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
+                                    {
+                                        return;
+                                    }
+                                }
+                            }
+                            
+                            invt0.Addslot(item, 1);
                             itemcount--;
 
                         }
@@ -154,11 +197,22 @@ public class Inventoryslot : MonoBehaviour
                     break;
                 case uimanager.Players.player2:
 
-                    if (mana.P2.GetComponent<inventorygeneral>().Personal_Slots.Count < 5 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                    if (invt1.Personal_Slots.Count < 5 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                     {
                         if (item.Type == Item.type.Disposeable || item.Type == Item.type.Keyitem)
                         {
-                            mana.P2.GetComponent<inventorygeneral>().Addslot(item, 1);
+                            if (item.Type == Item.type.Keyitem)
+                            {
+                                for (int i = 0; i < invt1.Personal_Slots.Count; i++)
+                                {
+                                    if (invt1.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
+                                    {
+
+                                        return;
+                                    }
+                                }
+                            }
+                            invt1.Addslot(item, 1);
                             itemcount--;
 
                         }

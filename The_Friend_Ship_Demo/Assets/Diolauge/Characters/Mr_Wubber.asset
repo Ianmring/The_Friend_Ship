@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e150fd8aca8d141bcfe387f165bc81, type: 3}
   m_Name: Mr_Wubber
   m_EditorClassIdentifier: 
-  Name: Mr.Wubber
+  Name: Luis Seal
   expressions:
   - {fileID: -7844170097820679067, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}
   - {fileID: 5299998017875744588, guid: 6badb92cb900cc14a97c3aedec162618, type: 3}

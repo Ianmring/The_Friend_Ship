@@ -157,7 +157,7 @@ public class launcher : MonoBehaviour
 
                     }
 
-                    else if (Ready == 0 || !dirData.altoveride)
+                    else if (Ready == 0)
                     {
 
                         fire = false;

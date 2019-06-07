@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fc61a32582e5e4ab07a3e7f69e7ebe, type: 3}
+  m_Name: CheckList
+  m_EditorClassIdentifier: 
+  Type: 3
+  name: CheckList
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isdefault: 0
+  OBJ: {fileID: 5271233568894735566, guid: 42fd4c500248cc24dba1fea86052c3b8, type: 3}
+  discription: 
+  KeyItemType: 4

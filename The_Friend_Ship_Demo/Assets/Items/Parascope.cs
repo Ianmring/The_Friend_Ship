@@ -45,11 +45,14 @@ public class Parascope : MonoBehaviour
     public void DoDo()
     {
         overide = false;
+
     }
     public void FixedUpdate()
     {
-        if (slot.isbeingused == false || dio.indio)
+
+        if (slot.isbeingused == false)
         {
+            //  mov.move = true;
             mov.altoveride = false;
 
             cam.Overide = false;
@@ -60,9 +63,9 @@ public class Parascope : MonoBehaviour
             if (overide == true)
             {
                 //  mov.move = false;
+
                 mov.altoveride = true;
                 cam.Overide = true;
-                cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Y + 90f, cam.AngleI.z);
 
             }
             else if (overide == false)
@@ -73,7 +76,13 @@ public class Parascope : MonoBehaviour
                 cam.Overide = false;
             }
         }
-       
+
+        if (mov.altoveride)
+        {
+            cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Y + 90f, cam.AngleI.z);
+
+        }
+
 
     }
 

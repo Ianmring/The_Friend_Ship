@@ -22,7 +22,7 @@ public class itempickup : Interactable
 
     public void Pickup()
     {
-        Debug.Log("Pick up that " + item.name + " shit son, its " + item);
+//        Debug.Log("Pick up that " + item.name + " shit son, its " + item);
 
         switch (item.Type)
         {
