@@ -57,6 +57,7 @@ public class launcher : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -100,7 +101,7 @@ public class launcher : MonoBehaviour
 
                 if (DirHTotal > 0.15 && DirVTotal > 0.15 || DirHTotal > 0.15 || DirVTotal > 0.15)
                 {
-                    if (!uimanager.UIinstance.isopen && Slot.iskeyitem && Slot != null)
+                    if (!uimanager.UIinstance.isopen && Slot.iskeyitem && Slot != null && !Slot.isitem)
                     {
                         Slot.dosomething();
 
@@ -114,7 +115,7 @@ public class launcher : MonoBehaviour
                 }
                 else
                 {
-                    if (!uimanager.UIinstance.isopen && Slot.iskeyitem && Slot != null)
+                    if (!uimanager.UIinstance.isopen && Slot.iskeyitem && Slot != null && !Slot.isitem)
                     {
                         Slot.DontDoSomething();
 
@@ -135,7 +136,7 @@ public class launcher : MonoBehaviour
                         }
                         else
                         {
-                            if (Slot.iskeyitem == false)
+                            if (Slot.iskeyitem == false || Slot.isitem)
                             {
                                 Rigidbody rocketInstance;
                                 rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
@@ -163,7 +164,7 @@ public class launcher : MonoBehaviour
                         fire = false;
                         if (update == true)
                         {
-                            if (Slot.iskeyitem == false)
+                            if (Slot.iskeyitem == false || Slot.isitem == true)
                             {
 
                                 invt.Subinvt();

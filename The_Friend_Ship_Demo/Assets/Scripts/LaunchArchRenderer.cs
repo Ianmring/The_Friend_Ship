@@ -9,6 +9,8 @@ public class LaunchArchRenderer : MonoBehaviour
     LineRenderer LR;
     launcher Lan;
 
+    movement mov;
+
     public float Velocitymulti;
     public float angelmulti;
     public float maxang;
@@ -22,10 +24,18 @@ public class LaunchArchRenderer : MonoBehaviour
     float radiantangel;
 
     public bool overide;
-    public float Y { get; set; }
+    public float Y;
 
+  
+
+    public float adjmax;
+    public float adjmin;
+
+    public Vector3 boat;
+   
     private void Awake()
     {
+        mov = movement.MovInstance;
         LR = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
         Lan = GetComponentInChildren<launcher>();
@@ -43,12 +53,26 @@ public class LaunchArchRenderer : MonoBehaviour
 
         }
     }
-  
+
+
+
     // Start is called before the first frame update
     void Update()
-    {
-        transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
+    {     
+
+        boat = mov.transform.eulerAngles;
+
+        adjmax = boat.y + 90;
+        adjmin = boat.y -90;
+
+       transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
+
+       // transform.eulerAngles = new Vector3(0f, Mathf.Clamp( Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI , adjmin, adjmax), 0f); // this does the actual rotaion according to inputs
+
+
         Y = transform.eulerAngles.y;
+
+
         if (!GetComponent<Playergen>().isdemo && Lan.Slot != null && !DiolaugeManager.DioInstance.indio )
         {
             if (FindObjectOfType<movement>().move)
@@ -56,7 +80,7 @@ public class LaunchArchRenderer : MonoBehaviour
 
 
 
-                if (Lan.Slot.iskeyitem)
+                if (Lan.Slot.iskeyitem && !Lan.Slot.isitem)
                 {
                     overide = true;
                 }

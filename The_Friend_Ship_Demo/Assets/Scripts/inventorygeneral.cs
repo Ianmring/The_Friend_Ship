@@ -67,7 +67,7 @@ public class inventorygeneral : MonoBehaviour
         }
     }
 
-    public void Addslot(Item item , int count)
+    public void Addslot(Item item, int count, bool isitem)
     {
 
 
@@ -95,8 +95,9 @@ public class inventorygeneral : MonoBehaviour
         PSlot.GetComponent<PersonalItemSlot>().invt = this;
 
         PSlot.GetComponent<PersonalItemSlot>().itemcount = count;
+        PSlot.GetComponent<PersonalItemSlot>().isitem= isitem;
 
-            Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
+        Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
  
 
                 Update_Slots();

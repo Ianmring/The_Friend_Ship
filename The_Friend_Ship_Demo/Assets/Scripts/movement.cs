@@ -113,7 +113,7 @@ public class movement : MonoBehaviour {
         
         if (PlayersSet)
         {
-            if ((P1F.Ready > 0  && P1F.Slot.iskeyitem ) || (P2F.Ready > 0 && P2F.Slot.iskeyitem) || altoveride)
+            if ((P1F.Ready > 0  && P1F.Slot.iskeyitem && !P1F.Slot.isitem ) || (P2F.Ready > 0 && P2F.Slot.iskeyitem && !P2F.Slot.isitem) || altoveride)
             {
                 move = false;
             }

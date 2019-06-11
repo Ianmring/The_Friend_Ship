@@ -20,6 +20,8 @@ public class CheckList : MonoBehaviour
 
     Image ima;
 
+    uiMap map;
+    uiChecklist check;
     private void Start()
     {
         // ima = GetComponentInChildren<GameObject>().GetComponentInChildren<Image>();
@@ -28,6 +30,12 @@ public class CheckList : MonoBehaviour
         mov = movement.MovInstance;
         if (slot.Playernum == 0)
         {
+            check = mov.Handels[0].GetComponentInChildren<uiChecklist>();
+            check.gameObject.SetActive(true);
+
+            map = mov.Handels[0].GetComponentInChildren<uiMap>();
+            map.gameObject.SetActive(false);
+
             launch = uimanager.UIinstance.P1.GetComponentInChildren<launcher>();
             launchrend = uimanager.UIinstance.P1.GetComponent<LaunchArchRenderer>();
             slide = GameObject.Find("P1Equip").GetComponentInChildren<Slider>();
@@ -35,6 +43,12 @@ public class CheckList : MonoBehaviour
         }
         if (slot.Playernum == 1)
         {
+            check = mov.Handels[1].GetComponentInChildren<uiChecklist>();
+            check.gameObject.SetActive(true);
+
+            map = mov.Handels[1].GetComponentInChildren<uiMap>();
+            map.gameObject.SetActive(false);
+
             launch = uimanager.UIinstance.P2.GetComponentInChildren<launcher>();
             launchrend = uimanager.UIinstance.P2.GetComponent<LaunchArchRenderer>();
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();
@@ -47,7 +61,7 @@ public class CheckList : MonoBehaviour
 
         slide.value = launch.Ready;
 
-      //  ima.sprite = image;
+        //  ima.sprite = image;
 
         //if (launch.Ready > 0)
         //{
@@ -61,7 +75,7 @@ public class CheckList : MonoBehaviour
     public void DoDo()
     {
         //  launchrend.overide = true;
-     //   ima.sprite = image;
+        //   ima.sprite = image;
 
         slide.value = launch.Ready;
 
@@ -72,7 +86,18 @@ public class CheckList : MonoBehaviour
     {
         if (!launchrend.overide || !slot.isbeingused || dio.indio)
         {
+
+
             slide.value = 0f;
+
+        }
+    }
+    private void OnDestroy()
+    {
+        {
+            check.gameObject.SetActive(true);
+
+            map.gameObject.SetActive(true);
 
         }
     }

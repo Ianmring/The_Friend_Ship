@@ -76,7 +76,7 @@ public class Inventoryslot : MonoBehaviour
                         {
                             if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                             {
-                                invt0.Addslot(item, 1);
+                                invt0.Addslot(item, 1, true);
                                 itemcount--;
 
                             }
@@ -95,7 +95,7 @@ public class Inventoryslot : MonoBehaviour
                                 }
 
 
-                                invt0.Addslot(item, itemcount);
+                                invt0.Addslot(item, itemcount, true);
                                 itemcount = 0;
                             }
 
@@ -108,7 +108,7 @@ public class Inventoryslot : MonoBehaviour
                         {
                             if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                             {
-                                invt1.Addslot(item, 1);
+                                invt1.Addslot(item, 1 , true);
                                 itemcount--;
 
                             }
@@ -126,7 +126,7 @@ public class Inventoryslot : MonoBehaviour
 
                                 }
 
-                                invt1.Addslot(item, itemcount);
+                                invt1.Addslot(item, itemcount, true);
                                 itemcount = 0;
                             }
 
@@ -178,12 +178,13 @@ public class Inventoryslot : MonoBehaviour
                                 {
                                     if (invt0.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
                                     {
+                                      
                                         return;
                                     }
                                 }
                             }
                             
-                            invt0.Addslot(item, 1);
+                            invt0.Addslot(item, 1,false);
                             itemcount--;
 
                         }
@@ -207,12 +208,12 @@ public class Inventoryslot : MonoBehaviour
                                 {
                                     if (invt1.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
                                     {
-
+                                        
                                         return;
                                     }
                                 }
                             }
-                            invt1.Addslot(item, 1);
+                            invt1.Addslot(item, 1,false);
                             itemcount--;
 
                         }

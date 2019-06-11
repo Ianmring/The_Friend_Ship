@@ -96,9 +96,13 @@ MonoBehaviour:
   Player: {fileID: 0}
   rocketPrefab: {fileID: 3714032846625216265, guid: dddece795118a1a489b72a453a139cbd,
     type: 3}
+  Slot: {fileID: 0}
   dirTotal: 0
+  Ready: 0
   launchMulti: 2000
   uplaunchMulti: 50
+  Dir: {x: 0, y: 0, z: 0}
+  Yvect: 0
 --- !u!1 &2354370250694772853
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,10 +112,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2354370250694772852}
-  - component: {fileID: 2354370250694772854}
   - component: {fileID: 2354370250694772855}
   - component: {fileID: 7854857635097297502}
   - component: {fileID: 8028817674074426827}
+  - component: {fileID: 2354370250694772854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -134,6 +138,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2354370250694772855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354370250694772853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679707613418156429654502ab5f97a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Velocitymulti: 40
+  angelmulti: 100
+  maxang: 15
+  resolution: 10
+  overide: 0
+  Y: 0
+  adjmax: 0
+  adjmin: 0
+  boat: {x: 0, y: 0, z: 0}
+--- !u!114 &7854857635097297502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354370250694772853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224a75a51e93d2b478d24a20dcf19268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
+  playernum: 0
+  Mats:
+  - {fileID: 2100000, guid: 92f6c64028dbb6a4fa195d20d5ed8bf1, type: 2}
+  - {fileID: 2100000, guid: 9e7dd424c5f5e224da9ff325cbd08d30, type: 2}
+  playerrend: {fileID: 2354370249851884031}
+  isdemo: 0
+  UIMana: {fileID: 0}
+--- !u!114 &8028817674074426827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354370250694772853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bf6948170bc134b86d81269a83ad44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  INVNUM: 0
+  currentitem: 0
+  slotnums_P: 0
+  currentslot: {fileID: 5622982248611682233, guid: c10a7f966976e0446a8a84c0e28c43d9,
+    type: 3}
+  Personal_Slots: []
+  Container: {fileID: 0}
+  Selector: {fileID: 0}
+  isyourturn: 0
 --- !u!120 &2354370250694772854
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -247,60 +313,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!114 &2354370250694772855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2354370250694772853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679707613418156429654502ab5f97a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Velocitymulti: 40
-  angelmulti: 100
-  maxang: 15
-  resolution: 10
---- !u!114 &7854857635097297502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2354370250694772853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224a75a51e93d2b478d24a20dcf19268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 0
-  playernum: 0
-  Mats:
-  - {fileID: 2100000, guid: 92f6c64028dbb6a4fa195d20d5ed8bf1, type: 2}
-  - {fileID: 2100000, guid: 9e7dd424c5f5e224da9ff325cbd08d30, type: 2}
-  playerrend: {fileID: 2354370249851884031}
-  isdemo: 0
-  UIMana: {fileID: 0}
---- !u!114 &8028817674074426827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2354370250694772853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bf6948170bc134b86d81269a83ad44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  INVNUM: 0
-  currentitem: 0
-  slotnums_P: 0
-  currentslot: {fileID: 5622982248611682233, guid: c10a7f966976e0446a8a84c0e28c43d9,
-    type: 3}
-  Personal_Slots: []
-  Container: {fileID: 0}
-  Selector: {fileID: 0}
-  isyourturn: 0
