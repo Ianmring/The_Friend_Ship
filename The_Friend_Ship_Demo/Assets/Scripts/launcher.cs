@@ -31,7 +31,7 @@ public class launcher : MonoBehaviour
 
     public float launchMulti;
     public float uplaunchMulti;
-    inventorygeneral invt;
+public    inventorygeneral invt;
 
     public Vector3 Dir;
     Playergen playa;
