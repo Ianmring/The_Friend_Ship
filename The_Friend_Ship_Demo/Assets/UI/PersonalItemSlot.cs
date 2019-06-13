@@ -40,26 +40,46 @@ public class PersonalItemSlot : MonoBehaviour
         OBJ = item.OBJ;
         Name.text = item.name;
 
-        //if (Playernum == 0)
-        //{
-        //    invt = uimanager.UIinstance.P1.GetComponent<inventorygeneral>();
-        //}
-        //else if (Playernum == 1)
-        //{
-        //    invt = uimanager.UIinstance.P2.GetComponent<inventorygeneral>();
+        Image imag;
 
-        //}
+        Button = GetComponentInChildren<Button>();
 
-        if (item.Type == Item.type.Keyitem)
+        imag = Button.gameObject.GetComponent<Image>();
+        switch (item.Type)
         {
-            iskeyitem = true;
-            Kitem = currentitem as KeyItem;
+            case Item.type.Disposeable:
+                imag.color = Color.green;
+                break;
+            case Item.type.Oare:
+                imag.color = Color.yellow;
+                break;
+            case Item.type.Hat:
+                imag.color = Color.magenta;
+                break;
+            case Item.type.Keyitem:
+                imag.color = Color.cyan;
+                iskeyitem = true;
+                count.text = "I";
+                Kitem = currentitem as KeyItem;
+                break;
+            default:
+                Kitem = null;
 
+                break;
         }
-        else
-        {
-            Kitem = null;
-        }
+
+        //if (item.Type == Item.type.Keyitem)
+        //{
+        //    iskeyitem = true;
+        //    Kitem = currentitem as KeyItem;
+
+        //}
+        //else
+        //{
+        //    Kitem = null;
+        //}
+
+
         if (currentitem.GetType() == typeof(KeyItem))
         {
 
@@ -104,7 +124,11 @@ public class PersonalItemSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        count.text = itemcount.ToString();
+        if (!iskeyitem)
+        {
+            count.text = itemcount.ToString();
+        }
+      
 
         if (invt.Selector.transform.position == this.transform.position)
         {

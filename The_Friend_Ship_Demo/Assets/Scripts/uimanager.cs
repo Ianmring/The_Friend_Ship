@@ -83,6 +83,15 @@ public class uimanager : MonoBehaviour
             //  EventSystem.current.SetSelectedGameObject(null);
         }
 
+        if (isopen)
+        {
+            movement.MovInstance.move = false;
+        }
+        else
+        {
+            movement.MovInstance.move = true;
+
+        }
 
 
 
@@ -148,8 +157,8 @@ public class uimanager : MonoBehaviour
     public void UpdateMenuCont(int playnum)
     {
 
-        input.horizontalAxis = "Horizontal_P" + playnum.ToString() + "_Launch";
-        input.verticalAxis = "Vertical_P" + playnum.ToString() + "_Launch";
+        input.horizontalAxis = "Horizontal_P" + playnum.ToString() + "_M";
+        input.verticalAxis = "Vertical_P" + playnum.ToString() + "_M";
         input.submitButton = "Submit" + playnum.ToString();
 
     }

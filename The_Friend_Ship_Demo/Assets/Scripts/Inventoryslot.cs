@@ -51,7 +51,31 @@ public class Inventoryslot : MonoBehaviour
 
         icon.enabled = true;
         namee.text = item.name;
-       // removebutton.interactable = true;
+
+        Image imag;
+
+        button = GetComponentInChildren<Button>();
+
+         imag = button.gameObject.GetComponent<Image>();
+        switch (newitem.Type)
+        {
+            case Item.type.Disposeable:
+                imag.color = Color.green;
+                    break;
+            case Item.type.Oare:
+                imag.color = Color.yellow;
+
+                break;
+            case Item.type.Hat:
+                imag.color = Color.magenta;
+
+                break;
+            case Item.type.Keyitem:
+
+                imag.color = Color.cyan;
+                break;
+        }
+         // removebutton.interactable = true;
     }
  
     
