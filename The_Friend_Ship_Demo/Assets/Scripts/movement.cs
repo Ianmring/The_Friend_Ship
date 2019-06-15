@@ -78,7 +78,22 @@ public class movement : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-      
+        if (PlayersSet)
+        {
+            if ((P1F.Ready > 0 && P1F.Slot.iskeyitem && !P1F.Slot.isitem) || (P2F.Ready > 0 && P2F.Slot.iskeyitem && !P2F.Slot.isitem) || altoveride)
+            {
+                move = false;
+            }
+
+            else if (P1F.Slot == null || P2F.Slot == null)
+            {
+                move = true;
+            }
+            else if (!altoveride)
+            {
+                move = true;
+            }
+        }
 
         if (move)
         {
@@ -109,24 +124,8 @@ public class movement : MonoBehaviour {
         {
             rig.mass = 10;
             directC.gameObject.SetActive(false);
-        }
-        
-        if (PlayersSet)
-        {
-            if ((P1F.Ready > 0  && P1F.Slot.iskeyitem && !P1F.Slot.isitem ) || (P2F.Ready > 0 && P2F.Slot.iskeyitem && !P2F.Slot.isitem) || altoveride)
-            {
-                move = false;
-            }
+        }      
       
-            else if(P1F.Slot == null || P2F.Slot == null)
-            {
-                move = true;
-            }
-            else if(!altoveride)
-            {
-                move = true;
-            }
-        }
         
 
     }

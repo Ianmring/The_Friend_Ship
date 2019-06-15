@@ -97,9 +97,14 @@ public class DiolaugeManager : MonoBehaviour
     {
         if (CurrentNPC != null)
         {
-            if (CurrentNPC.npctype == NPC.NPCTYPE.NPC)
+            if (CurrentNPC.npctype == NPC.NPCTYPE.NPC && CurrentNPC.missionDone && !CurrentNPC.missionclosed)
+            {
+                CurrentNPC.Endmission();
+            }
+            else if (CurrentNPC.npctype == NPC.NPCTYPE.NPC && !CurrentNPC.missionDone && !CurrentNPC.missionclosed)
             {
                 CurrentNPC.StartAMission();
+               
             }
 
             indio = false;

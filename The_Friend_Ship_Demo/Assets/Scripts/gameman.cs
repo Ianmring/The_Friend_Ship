@@ -6,14 +6,6 @@ public class gameman : MonoBehaviour {
 
     // Use this for initialization
 
-    #region singelton
-    public static gameman instance;
-
-    private void Awake()
-    {
-        instance = this;
-    }
-#endregion
 
 
     public Transform Player;
@@ -29,39 +21,33 @@ public class gameman : MonoBehaviour {
 
     startmission text;
     playerselect player;
-    void Start () {
+
+
+
+    #region singelton
+    public static gameman instance;
+
+    private void Awake()
+    {
+        instance = this;
         player = FindObjectOfType<playerselect>();
         Player = FindObjectOfType<movement>().GetComponent<Transform>();
         text = FindObjectOfType<startmission>();
-      
+
     }
+    #endregion
+   
   
     
     // Update is called once per frame
     void Update () {
 
 
-        if (Input.GetButton("Submit1") || (Input.GetButton("Submit2")) || Input.GetKey(KeyCode.Return))
-        {
-            Hold.SetActive(false);
-        }
-       
-
-
-        if (text.ismissionfinish)
-        {
-            Hold.SetActive(true);
-            Hold.GetComponentInChildren<Text>().text = "";
-
-            Gameover.text = "Demo Done";
-        }
-     
-        //else
+        //if (Input.GetButton("Submit1") || (Input.GetButton("Submit2")) || Input.GetKey(KeyCode.Return))
         //{
-        //    return;
+        //    Hold.SetActive(false);
         //}
-
-
+       
 
         if (Input.GetKeyDown(KeyCode.R))
         {

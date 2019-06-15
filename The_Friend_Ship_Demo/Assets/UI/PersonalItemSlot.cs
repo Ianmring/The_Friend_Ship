@@ -22,7 +22,7 @@ public class PersonalItemSlot : MonoBehaviour
 
     public bool isbeingused;
     public bool isinteract { get; set; }
-    public bool isitem { get; set; }
+    public bool isitem;
 
 
     void Start()

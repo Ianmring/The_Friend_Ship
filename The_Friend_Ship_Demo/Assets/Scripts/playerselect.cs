@@ -13,8 +13,9 @@ public class playerselect : MonoBehaviour
     public GameObject player;
    GameObject Boat;
 
+    public GameObject Hold;
 
-     GameObject Player1;
+    GameObject Player1;
      GameObject Player2;
 
     //public int playernumbers;
@@ -51,8 +52,8 @@ public class playerselect : MonoBehaviour
             {
                 Debug.Log("onego");
 
-               // playernumbers++;
-                GameObject P1;
+            // playernumbers++;
+            GameObject P1;
               P1= Instantiate(player, Boat.transform);
               
                 P1.transform.position = Player1.transform.position;
@@ -78,15 +79,16 @@ public class playerselect : MonoBehaviour
                 contchosen = true;
 
             FindObjectOfType<movement>().PlayersSet = true;
+            Hold.SetActive(false);
 
-             Destroy(GetComponent<playerselect>());
+            Destroy(GetComponent<playerselect>());
 
             }
             else if (Input.GetButton("Submit2"))
             {
                 Debug.Log("twogo");
 
-                GameObject P1A;
+            GameObject P1A;
                 P1A = Instantiate(player, Boat.transform);
                 P1A.transform.position = Player1.transform.position;
                 P1A.transform.SetParent(Player1.transform);
@@ -113,6 +115,7 @@ public class playerselect : MonoBehaviour
 
                 contchosen = true;
             FindObjectOfType<movement>().PlayersSet = true;
+            Hold.SetActive(false);
 
             Destroy(GetComponent<playerselect>());
                //  iscontorller = true;
