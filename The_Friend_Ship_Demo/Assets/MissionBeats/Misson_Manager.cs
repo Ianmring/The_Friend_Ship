@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Mission_Start_End))]
+
 public class Misson_Manager : MonoBehaviour
 {
 
@@ -16,11 +18,10 @@ public class Misson_Manager : MonoBehaviour
     public MissionBeat Next_Beat;
 
     bool collectprize;
+
+    public string endobj;
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
     private void Awake()
     {
         foreach (var beat in Beat)
@@ -29,6 +30,7 @@ public class Misson_Manager : MonoBehaviour
         }
 
         Current_Beat = Beat[0];
+        StartNPC = GetComponent<NPC>();
     }
 
     public void NextBeat()
@@ -42,11 +44,13 @@ public class Misson_Manager : MonoBehaviour
             {
                 Next_Beat = Beat[currentbeat];
                 collectprize = true;
+                Beat[currentbeat].Task = endobj;
                 MissionDone();
             }
             else
             {
-                Next_Beat = Beat[currentbeat];
+                    
+                    Next_Beat = Beat[currentbeat];
 
                 return;
             }

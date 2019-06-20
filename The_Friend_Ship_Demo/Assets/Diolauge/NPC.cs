@@ -8,6 +8,7 @@ public class NPC : Interactable
    public  int currentdiolauge =0;
 
     public Mission_Start_End startmissionB;
+    MissionOrgonizer missorgo;
     public enum NPCTYPE {NPC, Shop, Description};
 
     public NPCTYPE npctype;
@@ -29,6 +30,7 @@ public class NPC : Interactable
 
     public void Awake()
     {
+        missorgo = FindObjectOfType<MissionOrgonizer>();
         startmissionB = GetComponent<Mission_Start_End>();
     }
     public void NPCInteract(int diotoload)
@@ -53,6 +55,9 @@ public class NPC : Interactable
     public void Endmission()
     {
         Debug.Log("MissionEnd");
+        missorgo.ActiveMissions.Remove(startmissionB.mana);
+        missorgo.CompletedMissions.Add(startmissionB.mana);
+        missorgo.currentQuest = null;
         currentdiolauge++;
         missionclosed = true;
     }

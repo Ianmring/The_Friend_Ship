@@ -192,7 +192,7 @@ public class uimanager : MonoBehaviour
     IEnumerator DelayHighlight()
     {
         yield return new WaitForSeconds(0.001f);
-        Debug.Log("did");
+
         if (EventSystem.current.currentSelectedGameObject == buttons[currentselected])
         {
             EventSystem.current.SetSelectedGameObject(null);

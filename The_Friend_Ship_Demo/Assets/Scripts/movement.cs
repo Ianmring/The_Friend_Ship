@@ -95,6 +95,7 @@ public class movement : MonoBehaviour {
             }
         }
 
+
         if (move)
         {
 
@@ -123,6 +124,7 @@ public class movement : MonoBehaviour {
         else
         {
             rig.mass = 10;
+            turning = Turning.Not;
             directC.gameObject.SetActive(false);
         }      
       
@@ -205,7 +207,7 @@ public class movement : MonoBehaviour {
         switch (turning)
         {
             case Turning.Clockwise:
-
+               // rig.AddTorque(Vector3.up, turnspeed * Time.deltaTime * mag);
                 transform.Rotate(Vector3.up, turnspeed * Time.deltaTime *mag);
                 if (moving == Moving.Not && isforward)
                 {

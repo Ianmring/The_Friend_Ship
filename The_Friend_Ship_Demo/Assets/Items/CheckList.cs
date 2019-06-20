@@ -21,10 +21,12 @@ public class CheckList : MonoBehaviour
     Image ima;
 
     uiMap map;
-    uiChecklist check;
+  public  uiChecklist check;
+
+    Misson_Manager MissMana;
     private void Start()
     {
-        // ima = GetComponentInChildren<GameObject>().GetComponentInChildren<Image>();
+        MissMana = FindObjectOfType<Misson_Manager>();
         slot = GetComponent<PersonalItemSlot>();
         dio = DiolaugeManager.DioInstance;
         mov = movement.MovInstance;
@@ -61,13 +63,7 @@ public class CheckList : MonoBehaviour
 
         slide.value = launch.Ready;
 
-        //  ima.sprite = image;
-
-        //if (launch.Ready > 0)
-        //{
-        //    mov.move = false;
-
-        //}
+       // check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
 
 
 
@@ -80,10 +76,13 @@ public class CheckList : MonoBehaviour
         slide.value = launch.Ready;
 
 
+     //   check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
 
     }
     private void Update()
     {
+      //  check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
+
         if (!launchrend.overide || !slot.isbeingused || dio.indio)
         {
 
