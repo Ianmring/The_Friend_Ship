@@ -32,8 +32,7 @@ public class Map : MonoBehaviour
 
             map = mov.Handels[0].GetComponentInChildren<uiMap>();
             map.gameObject.SetActive(true);
-            launch = uimanager.UIinstance.P1.GetComponentInChildren<launcher>();
-            launchrend = uimanager.UIinstance.P1.GetComponent<LaunchArchRenderer>();
+            launch = uimanager.UIinstance.P1.GetComponent<launcher>();
             slide = GameObject.Find("P1Equip").GetComponentInChildren<Slider>();
         }
         if (slot.Playernum == 1)
@@ -43,16 +42,17 @@ public class Map : MonoBehaviour
 
             map = mov.Handels[1].GetComponentInChildren<uiMap>();
             map.gameObject.SetActive(true);
-            launch = uimanager.UIinstance.P2.GetComponentInChildren<launcher>();
-            launchrend = uimanager.UIinstance.P2.GetComponent<LaunchArchRenderer>();
+            launch = uimanager.UIinstance.P2.GetComponent<launcher>();
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();
         }
+
+        GetComponentInParent<KeyitemTrigger>().isactive = true;
     }
     public void Dothething()
     {
         //  launchrend.overide = true;
 
-        slide.value = launch.Ready;
+        slide.value = launch.IReady;
 
         //if (launch.Ready > 0)
         //{
@@ -67,14 +67,14 @@ public class Map : MonoBehaviour
     {
         //  launchrend.overide = true;
 
-        slide.value = launch.Ready;
+        slide.value = launch.IReady;
 
 
 
     }
     private void Update()
     {
-        if (!launchrend.overide || !slot.isbeingused || dio.indio)
+        if ( dio.indio)
         {
 
             slide.value = 0f;

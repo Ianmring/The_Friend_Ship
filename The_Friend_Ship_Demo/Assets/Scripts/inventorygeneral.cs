@@ -12,26 +12,33 @@ public class inventorygeneral : MonoBehaviour
 
     public int slotnums_P;
     public GameObject currentslot;
-
     public List<PersonalItemSlot> Personal_Slots = new List<PersonalItemSlot>();
 
   // public List<Item> items = new List<Item>();
     public Transform Container;
+    public Transform KIContainer;
 
     public Transform Selector;
 
-    launcher launch;
+  public  MainLauncher launch { get; set; }
 
+    public launcher GLauncher { get; set; }
     public bool isyourturn;
 
+    public KeyitemTrigger TriggerItem;
     // Start is called before the first frame update
     void Start()
     {
-        launch = GetComponentInChildren<launcher>();
+        launch = FindObjectOfType<MainLauncher>();
+        GLauncher = GetComponent<launcher>();
         player = GetComponent<Playergen>();
         INVNUM = player.direction;
         Container = GameObject.Find("D" + player.direction + "_Inv").GetComponent<Transform>();
+        KIContainer = GameObject.Find("KeyItem" + player.direction).GetComponent<Transform>();
+        TriggerItem = GameObject.Find("KeyItem" + player.direction).GetComponent<KeyitemTrigger>();
         Selector = GameObject.Find("SelectedD" + player.direction).GetComponent<Transform>();
+        currentitem = 0;
+
         Update_Slots();
     }
 
@@ -39,29 +46,30 @@ public class inventorygeneral : MonoBehaviour
     void Update()
     {
 
-        if (Personal_Slots.Count== 0)
+        if (Personal_Slots.Count<= 0)
         {
+            currentitem = 0;
+
             return;
         }
         else
         {
+                    if (currentitem > Personal_Slots.Count-1 )
+            {
+                currentitem = Personal_Slots.Count-1;
+            }
+            else if (currentitem < 0)
+            {
+                currentitem = 0;
+            }
+
             Selector.transform.position = Personal_Slots[currentitem].transform.position;
-
-        }
-
-
-        if (Personal_Slots.Count < 1)
-        {
-            launch.isempty = true;
             
         }
-        else
-        {
-            launch.isempty = false;
-        }
+
+
         if (Input.GetButtonUp("AddtoPslot"))
         {
-            Debug.Log("UpdateS");
             FindObjectOfType<uimanager>().Triggerupdate();
 
         }
@@ -107,40 +115,36 @@ public class inventorygeneral : MonoBehaviour
         
     }
 
-  
+    public void AddKey(Item Kitem, bool isitem)
+    {
+        GameObject PSlot;
+        PersonalItemSlot slot;
+        PSlot = Instantiate(currentslot, KIContainer);
+        slot = PSlot.GetComponent<PersonalItemSlot>();
+        slot.Additem(Kitem);
+        slot.Playernum = player.direction;
+        slot.invt = this;
+
+        
+        PSlot.GetComponent<PersonalItemSlot>().isitem = isitem;
+        TriggerItem.Additem(slot, GLauncher);
+
+        // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
+
+
+        Update_Slots();
+
+    }
+
+
     public void Update_Slots()
     {
 
-   
-        if (currentitem > Personal_Slots.Count - 1)
-            {
-                currentitem = Personal_Slots.Count - 1;
-            }
-            else if (currentitem < 0)
-            {
-                currentitem = 0;
-            }
+
+        launch.updateLauncher();
 
 
 
-            if (Personal_Slots.Count == 0)
-            {
-            launch.rocketPrefab = null;
-            launch.Slot = null;
-
-            return;
-            }
-            else
-            {
-                Selector.transform.position = Personal_Slots[currentitem].transform.position;
-
-                launch.rocketPrefab = Personal_Slots[currentitem].OBJ.GetComponent<Rigidbody>();
-               launch.Slot = Personal_Slots[currentitem];
-            }
-
-
-        //}
-       // Debug.Log("updatingslot");
 
     }
 
@@ -152,7 +156,7 @@ public class inventorygeneral : MonoBehaviour
     }
     public void Handoff()
     {
-        Update_Slots();
+      Update_Slots();
       
             if (player.UIMana.isopen && isyourturn)
             {
@@ -214,7 +218,7 @@ public class inventorygeneral : MonoBehaviour
             Personal_Slots[currentitem].itemcount--;
 
         }
-       Update_Slots();
+      Update_Slots();
         //   Update_Slots();
 
     }

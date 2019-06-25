@@ -61,6 +61,7 @@ public class PersonalItemSlot : MonoBehaviour
                 iskeyitem = true;
                 count.text = "I";
                 Kitem = currentitem as KeyItem;
+
                 break;
             default:
                 Kitem = null;
@@ -130,14 +131,14 @@ public class PersonalItemSlot : MonoBehaviour
         }
       
 
-        if (invt.Selector.transform.position == this.transform.position)
-        {
-            isbeingused = true;
-        }
-        else
-        {
-            isbeingused = false;
-        }
+        //if (invt.Selector.transform.position == this.transform.position)
+        //{
+        //    isbeingused = true;
+        //}
+        //else
+        //{
+        //    isbeingused = false;
+        //}
     }
 
     public void Transferall()
@@ -177,63 +178,6 @@ public class PersonalItemSlot : MonoBehaviour
 
     }
 
-    public void dosomething()
-    {
-        if (!isitem)
-        {
-
-
-            switch (Kitem.KeyItemType)
-            {
-
-                case KeyItem.KeyitemType.ParaScope:
-                    this.gameObject.GetComponent<Parascope>().Dothething();
-                    break;
-                case KeyItem.KeyitemType.Map:
-                    this.gameObject.GetComponent<Map>().Dothething();
-
-                    break;
-                case KeyItem.KeyitemType.Compass:
-                    this.gameObject.GetComponent<Compass>().Dothething();
-
-                    break;
-                case KeyItem.KeyitemType.ClipBoard:
-                    this.gameObject.GetComponent<CheckList>().Dothething();
-
-                    break;
-
-            }
-        }
-    }
-
-    public void DontDoSomething()
-    {
-
-        if (!isitem)
-        {
-
-
-            switch (Kitem.KeyItemType)
-            {
-
-                case KeyItem.KeyitemType.ParaScope:
-                    this.gameObject.GetComponent<Parascope>().DoDo();
-                    break;
-                case KeyItem.KeyitemType.Map:
-                    this.gameObject.GetComponent<Map>().DoDo();
-
-                    break;
-                case KeyItem.KeyitemType.Compass:
-                    this.gameObject.GetComponent<Compass>().DoDo();
-
-                    break;
-                case KeyItem.KeyitemType.ClipBoard:
-                    this.gameObject.GetComponent<CheckList>().DoDo();
-
-                    break;
-
-            }
-        }
-    }
+ 
   
 }

@@ -8,7 +8,7 @@ public class Parascope : MonoBehaviour
 
     PersonalItemSlot slot;
 
-    LaunchArchRenderer launch;
+    launcher launch;
     camscript cam;
 
     Vector3 direction;
@@ -26,13 +26,14 @@ public class Parascope : MonoBehaviour
 
         if (slot.Playernum == 0)
         {
-            launch = uimanager.UIinstance.P1.GetComponent<LaunchArchRenderer>();
+            launch = uimanager.UIinstance.P1.GetComponent<launcher>();
         }
         else if (slot.Playernum == 1)
         {
-            launch = uimanager.UIinstance.P2.GetComponent<LaunchArchRenderer>();
+            launch = uimanager.UIinstance.P2.GetComponent<launcher>();
         }
         cam = FindObjectOfType<camscript>();
+        GetComponentInParent<KeyitemTrigger>().isactive = true;
 
     }
 
@@ -50,38 +51,39 @@ public class Parascope : MonoBehaviour
     public void FixedUpdate()
     {
 
-        if (slot.isbeingused == false)
-        {
-            //  mov.move = true;
-            mov.altoveride = false;
+        //if (slot.isbeingused == false)
+        //{
+        //    //  mov.move = true;
+        //    mov.altoveride = false;
 
-            cam.Overide = false;
+        //    cam.Overide = false;
 
-        }
-        else
-        {
+        //}
+        //else
+        //{
             if (overide == true)
             {
                 //  mov.move = false;
 
-                mov.altoveride = true;
+             //   mov.altoveride = true;
                 cam.Overide = true;
+            cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Yvect, cam.AngleI.z);
 
-            }
-            else if (overide == false)
+
+        }
+        else if (overide == false)
             {
                 //  mov.move = true;
-                mov.altoveride = false;
+             //   mov.altoveride = false;
 
                 cam.Overide = false;
             }
-        }
+   //     }
 
-        if (mov.altoveride)
-        {
-            cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Y + 90f, cam.AngleI.z);
+        //if (!mov.move)
+        //{
 
-        }
+        //}
 
 
     }

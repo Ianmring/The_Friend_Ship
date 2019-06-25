@@ -56,6 +56,7 @@ public class movement : MonoBehaviour {
     public launcher P1F;
     public launcher P2F;
 
+  public  MainLauncher ML;
 
     float mag;
 
@@ -80,7 +81,7 @@ public class movement : MonoBehaviour {
 
         if (PlayersSet)
         {
-            if ((P1F.Ready > 0 && P1F.Slot.iskeyitem && !P1F.Slot.isitem) || (P2F.Ready > 0 && P2F.Slot.iskeyitem && !P2F.Slot.isitem) || altoveride)
+            if ((P1F.IReady > 0 && ML.p1I.TriggerItem.KeyItem != null) || (P2F.IReady > 0 && ML.p2I.TriggerItem.KeyItem != null) || altoveride)
             {
                 move = false;
             }
@@ -93,6 +94,8 @@ public class movement : MonoBehaviour {
             {
                 move = true;
             }
+
+         
         }
 
 

@@ -7,7 +7,7 @@ public class LaunchArchRenderer : MonoBehaviour
 {
 
     LineRenderer LR;
-    launcher Lan;
+    MainLauncher Lan;
 
     movement mov;
 
@@ -38,7 +38,7 @@ public class LaunchArchRenderer : MonoBehaviour
         mov = movement.MovInstance;
         LR = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
-        Lan = GetComponentInChildren<launcher>();
+        Lan = GetComponentInChildren<MainLauncher>();
 
         //Velocity = Lan.dirTotal * Velocitymulti;
         //angle = Lan.dirTotal * angelmulti;
@@ -57,15 +57,14 @@ public class LaunchArchRenderer : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Update()
+    void FixedUpdate()
     {     
 
-        boat = mov.transform.eulerAngles;
+        //boat = mov.transform.eulerAngles;
 
-        adjmax = boat.y + 90;
-        adjmin = boat.y -90;
+        //adjmax = boat.y + 90;
+        //adjmin = boat.y -90;
 
-       transform.eulerAngles = new Vector3(0f, Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI, 0f); // this does the actual rotaion according to inputs
 
        // transform.eulerAngles = new Vector3(0f, Mathf.Clamp( Mathf.Atan2(Lan.Dir1V, Lan.Dir1H) * 180 / Mathf.PI , adjmin, adjmax), 0f); // this does the actual rotaion according to inputs
 
@@ -73,10 +72,10 @@ public class LaunchArchRenderer : MonoBehaviour
         Y = transform.eulerAngles.y;
 
 
-        if (!GetComponent<Playergen>().isdemo && Lan.Slot != null && !DiolaugeManager.DioInstance.indio )
+        if (Lan.Slot != null && !DiolaugeManager.DioInstance.indio  && FindObjectOfType<movement>().move)
         {
-            if (FindObjectOfType<movement>().move)
-            {
+            //if ()
+            //{
 
 
 
@@ -123,15 +122,15 @@ public class LaunchArchRenderer : MonoBehaviour
                 RenderArc();
 
 
-            }
-            else
-            {
-                Velocity = 0.0000001f;
-                angle = 0.0000001f;
-                RenderArc();
+            //}
+            //else
+            //{
+            //    Velocity = 0.0000001f;
+            //    angle = 0.0000001f;
+            //    RenderArc();
 
-                return;
-            }
+            //    return;
+            //}
         }
         else
         {

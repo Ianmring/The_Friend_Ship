@@ -23,10 +23,10 @@ public class CheckList : MonoBehaviour
     uiMap map;
   public  uiChecklist check;
 
-    Misson_Manager MissMana;
+  //  Misson_Manager MissMana;
     private void Start()
     {
-        MissMana = FindObjectOfType<Misson_Manager>();
+       // MissMana = FindObjectOfType<Misson_Manager>();
         slot = GetComponent<PersonalItemSlot>();
         dio = DiolaugeManager.DioInstance;
         mov = movement.MovInstance;
@@ -38,8 +38,7 @@ public class CheckList : MonoBehaviour
             map = mov.Handels[0].GetComponentInChildren<uiMap>();
             map.gameObject.SetActive(false);
 
-            launch = uimanager.UIinstance.P1.GetComponentInChildren<launcher>();
-            launchrend = uimanager.UIinstance.P1.GetComponent<LaunchArchRenderer>();
+            launch = uimanager.UIinstance.P1.GetComponent<launcher>();
             slide = GameObject.Find("P1Equip").GetComponentInChildren<Slider>();
 
         }
@@ -51,17 +50,18 @@ public class CheckList : MonoBehaviour
             map = mov.Handels[1].GetComponentInChildren<uiMap>();
             map.gameObject.SetActive(false);
 
-            launch = uimanager.UIinstance.P2.GetComponentInChildren<launcher>();
-            launchrend = uimanager.UIinstance.P2.GetComponent<LaunchArchRenderer>();
+            launch = uimanager.UIinstance.P2.GetComponent<launcher>();
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();
 
         }
+        GetComponentInParent<KeyitemTrigger>().isactive = true;
+
     }
     public void Dothething()
     {
         //  launchrend.overide = true;
 
-        slide.value = launch.Ready;
+        slide.value = launch.IReady;
 
        // check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
 
@@ -73,7 +73,7 @@ public class CheckList : MonoBehaviour
         //  launchrend.overide = true;
         //   ima.sprite = image;
 
-        slide.value = launch.Ready;
+        slide.value = launch.IReady;
 
 
      //   check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
@@ -83,7 +83,7 @@ public class CheckList : MonoBehaviour
     {
       //  check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
 
-        if (!launchrend.overide || !slot.isbeingused || dio.indio)
+        if ( dio.indio)
         {
 
 
