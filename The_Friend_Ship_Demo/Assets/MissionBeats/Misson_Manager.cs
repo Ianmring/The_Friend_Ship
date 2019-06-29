@@ -45,12 +45,14 @@ public class Misson_Manager : MonoBehaviour
                 Next_Beat = Beat[currentbeat];
                 collectprize = true;
                 Beat[currentbeat].Task = endobj;
+                FindObjectOfType<MissionOrgonizer>().UpdateMissionComp();
                 MissionDone();
             }
             else
             {
-                    
-                    Next_Beat = Beat[currentbeat];
+                FindObjectOfType<MissionOrgonizer>().UpdateMissionComp();
+
+                Next_Beat = Beat[currentbeat];
 
                 return;
             }

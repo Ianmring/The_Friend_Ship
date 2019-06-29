@@ -2853,6 +2853,7 @@ MonoBehaviour:
   currentQuest: {fileID: 0}
   ActiveMissions: []
   CompletedMissions: []
+  Look: {fileID: 0}
 --- !u!1001 &613407157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5148,7 +5149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyItem: {fileID: 0}
+  PL: {fileID: 0}
   isactive: 0
+  KI: {fileID: 0}
 --- !u!1 &1115297046
 GameObject:
   m_ObjectHideFlags: 0
@@ -9872,7 +9875,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyItem: {fileID: 0}
+  PL: {fileID: 0}
   isactive: 0
+  KI: {fileID: 0}
 --- !u!1 &2077777979
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,15 +9,18 @@ public class MissionOrgonizer : MonoBehaviour
   public  List<Misson_Manager> ActiveMissions;
     public List<Misson_Manager> CompletedMissions;
 
+    public lookat Look;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Look = FindObjectOfType<lookat>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void UpdateMissionComp()
     {
+
+            Look.updatecompass();
         
     }
+    // Update is called once per frame
+ 
 }

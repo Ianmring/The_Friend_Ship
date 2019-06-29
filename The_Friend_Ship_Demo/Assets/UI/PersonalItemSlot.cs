@@ -32,7 +32,7 @@ public class PersonalItemSlot : MonoBehaviour
        // itemcount = 1;
     }
 
-    public void Additem(Item item)
+    public void Additem(Item item, bool isitemI)
     {
         currentitem = item;
         icon.sprite = currentitem.icon;
@@ -45,29 +45,7 @@ public class PersonalItemSlot : MonoBehaviour
         Button = GetComponentInChildren<Button>();
 
         imag = Button.gameObject.GetComponent<Image>();
-        switch (item.Type)
-        {
-            case Item.type.Disposeable:
-                imag.color = Color.green;
-                break;
-            case Item.type.Oare:
-                imag.color = Color.yellow;
-                break;
-            case Item.type.Hat:
-                imag.color = Color.magenta;
-                break;
-            case Item.type.Keyitem:
-                imag.color = Color.cyan;
-                iskeyitem = true;
-                count.text = "I";
-                Kitem = currentitem as KeyItem;
 
-                break;
-            default:
-                Kitem = null;
-
-                break;
-        }
 
         //if (item.Type == Item.type.Keyitem)
         //{
@@ -81,9 +59,13 @@ public class PersonalItemSlot : MonoBehaviour
         //}
 
 
-        if (currentitem.GetType() == typeof(KeyItem))
+        if (currentitem.GetType() == typeof(KeyItem) && !isitemI)
         {
+            Kitem = currentitem as KeyItem;
+            imag.color = Color.cyan;
 
+            iskeyitem = true;
+            count.text = "I";
             switch (Kitem.KeyItemType)
             {
                
@@ -105,6 +87,29 @@ public class PersonalItemSlot : MonoBehaviour
               
             }
 
+        }
+        else
+        {
+            switch (item.Type)
+            {
+                case Item.type.Disposeable:
+                    imag.color = Color.green;
+                    break;
+                case Item.type.Oare:
+                    imag.color = Color.yellow;
+                    break;
+                case Item.type.Hat:
+                    imag.color = Color.magenta;
+                    break;
+                case Item.type.Keyitem:
+                    imag.color = Color.cyan;                 
+
+                    break;
+                default:
+                    Kitem = null;
+
+                    break;
+            }
         }
         //invt.Update_Slots(); 
 
@@ -159,6 +164,8 @@ public class PersonalItemSlot : MonoBehaviour
 
                 break;
             case Item.type.Keyitem:
+                invt.TriggerItem.ClearItem();
+                itemcount = 1;
                 Inventory.instance.AddKey(currentitem, itemcount);
 
                 break;

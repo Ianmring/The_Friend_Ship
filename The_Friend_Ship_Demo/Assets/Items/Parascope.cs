@@ -63,11 +63,22 @@ public class Parascope : MonoBehaviour
         //{
             if (overide == true)
             {
-                //  mov.move = false;
+            //  mov.move = false;
 
-             //   mov.altoveride = true;
+            //   mov.altoveride = true;
+
+
                 cam.Overide = true;
-            cam.transform.eulerAngles = new Vector3(cam.AngleI.x, launch.Yvect, cam.AngleI.z);
+
+            if (launch.DirH > 0)
+            {
+                cam.transform.Rotate(0, -40 * Time.deltaTime, 0, Space.World);
+            }
+            if (launch.DirH < 0)
+            {
+                cam.transform.Rotate(0, 40 * Time.deltaTime, 0, Space.World);
+            }
+
 
 
         }

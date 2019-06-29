@@ -61,36 +61,53 @@ public class itempickup : Interactable
             case Item.type.Keyitem:
 
                 #region keyitemcheck
-                for (int i = 0; i < p1.Personal_Slots.Count; i++)
+              
+                if (p1.Keyitem == item)
                 {
-                    if (item == p1.Personal_Slots[i].currentitem)
-                    {
-                        return;
-                    }
+                    //for (int i = 0; i < p1.Personal_Slots.Count; i++)
+                    //{
+                    //    if (item == p1.Personal_Slots[i].currentitem)
+                    //    {
+                    //        return;
+                    //    }
 
+                    //}
+
+                    return;
                 }
-                for (int i = 0; i < p2.Personal_Slots.Count; i++)
+                else if (p2.Keyitem == item)
                 {
-                    if (item == p2.Personal_Slots[i].currentitem)
+                    //for (int i = 0; i < p2.Personal_Slots.Count; i++)
+                    //{
+                    //    if (item == p2.Personal_Slots[i].currentitem)
+                    //    {
+                    //        return;
+                    //    }
+                    //}
+                    return;
+                  
+                }
+                else
+                {
+                    for (int i = 0; i < invt.KeyItems.Count; i++)
                     {
+                        if (item == invt.KeyItems[i])
+                        {
+                            return;
+                        }
+                    }
+                    bool waspickedupK = Inventory.instance.AddKey(item, 1);
+                    if (waspickedupK)
+                    {
+                        Destroy(this.gameObject);
                         return;
                     }
                 }
-                for (int i = 0; i < invt.KeyItems.Count; i++)
-                {
-                    if (item == invt.KeyItems[i])
-                    {
-                        return;
-                    }
-                }
+                
+
                 #endregion
 
-                bool waspickedupK = Inventory.instance.AddKey(item, 1);
-                if (waspickedupK)
-                {
-                    Destroy(this.gameObject);
 
-                }
                 break;
             default:
                 break;

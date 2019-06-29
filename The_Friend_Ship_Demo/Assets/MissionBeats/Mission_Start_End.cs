@@ -19,7 +19,8 @@ public class Mission_Start_End : MissionBeat
 
     public void MissionEnd()
     {
-  
+        //MissO.currentQuest = null;
+        //MissO.UpdateMissionComp();
         GetComponent<NPC>().currentdiolauge++;
         GetComponent<NPC>().missionDone = true ;
 

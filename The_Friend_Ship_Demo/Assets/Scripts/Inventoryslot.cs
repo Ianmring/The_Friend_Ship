@@ -204,12 +204,9 @@ public class Inventoryslot : MonoBehaviour
                         }
                        else if (item.Type == Item.type.Keyitem)
                         {
-                            for (int i = 0; i < invt0.Personal_Slots.Count; i++)
+                            if (invt0.Keyitem == item)
                             {
-                                if (invt0.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
-                                {
-                                    return;
-                                }
+                                return;
                             }
                             invt0.AddKey(item, false);
                             itemcount--;
@@ -237,12 +234,9 @@ public class Inventoryslot : MonoBehaviour
                         }
                         else if (item.Type == Item.type.Keyitem)
                         {
-                            for (int i = 0; i < invt1.Personal_Slots.Count; i++)
+                            if (invt1.Keyitem == item)
                             {
-                                if (invt1.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
-                                {
-                                    return;
-                                }
+                                return;
                             }
                             invt1.AddKey(item, false);
                             itemcount--;

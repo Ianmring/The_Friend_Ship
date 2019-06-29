@@ -13,7 +13,7 @@ public class inventorygeneral : MonoBehaviour
     public int slotnums_P;
     public GameObject currentslot;
     public List<PersonalItemSlot> Personal_Slots = new List<PersonalItemSlot>();
-
+    public Item Keyitem;
   // public List<Item> items = new List<Item>();
     public Transform Container;
     public Transform KIContainer;
@@ -96,14 +96,18 @@ public class inventorygeneral : MonoBehaviour
         //{
             
                 GameObject PSlot;
-                PSlot = Instantiate(currentslot, Container);
+        PersonalItemSlot slot;
 
-                PSlot.GetComponent<PersonalItemSlot>().Additem(item);
-                PSlot.GetComponent<PersonalItemSlot>().Playernum = player.direction;
-        PSlot.GetComponent<PersonalItemSlot>().invt = this;
+        PSlot = Instantiate(currentslot, Container);
+        slot = PSlot.GetComponent<PersonalItemSlot>();
 
-        PSlot.GetComponent<PersonalItemSlot>().itemcount = count;
-        PSlot.GetComponent<PersonalItemSlot>().isitem= isitem;
+        slot.Additem(item , isitem);
+       // slot.isitem = isitem;
+
+        slot.Playernum = player.direction;
+        slot.invt = this;
+
+        slot.itemcount = count;
 
         Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
  
@@ -117,23 +121,32 @@ public class inventorygeneral : MonoBehaviour
 
     public void AddKey(Item Kitem, bool isitem)
     {
-        GameObject PSlot;
-        PersonalItemSlot slot;
-        PSlot = Instantiate(currentslot, KIContainer);
-        slot = PSlot.GetComponent<PersonalItemSlot>();
-        slot.Additem(Kitem);
-        slot.Playernum = player.direction;
-        slot.invt = this;
+        if (Kitem == Keyitem)
+        {
+            return;
+        }
+        else
+        {
+            GameObject PSlot;
+            PersonalItemSlot slot;
+            PSlot = Instantiate(currentslot, KIContainer);
+            slot = PSlot.GetComponent<PersonalItemSlot>();
 
-        
-        PSlot.GetComponent<PersonalItemSlot>().isitem = isitem;
-        TriggerItem.Additem(slot, GLauncher);
+            slot.Additem(Kitem, isitem);
+            Keyitem = Kitem;
 
-        // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
+            slot.Playernum = player.direction;
+            slot.invt = this;
 
 
-        Update_Slots();
+          //  slot.isitem = isitem;
+            TriggerItem.Additem(slot, GLauncher);
 
+            // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
+
+
+            Update_Slots();
+        }
     }
 
 

@@ -13,26 +13,21 @@ public class launcher : MonoBehaviour
 
     movement dirData;
 
-    bool sett;
-    bool fire;
-    bool update;
-    public bool isempty { get; set; }
+   
     public Transform Player;
 
-    public Rigidbody rocketPrefab;
-    public PersonalItemSlot Slot;
+   // public Rigidbody rocketPrefab;
+    //public PersonalItemSlot Slot;
     float DirVTotal;
     float DirHTotal;
 
     public float dirTotal;
 
-
+    public bool Sett;
     public float Ready;
     public float IReady;
 
 
-    public float launchMulti;
-    public float uplaunchMulti;
 public    inventorygeneral invt;
 
     public Vector3 Dir;
@@ -48,10 +43,9 @@ public    inventorygeneral invt;
         playa = GetComponent<Playergen>();
         dirData = GameObject.FindObjectOfType<movement>();
         Player = GetComponent<Transform>();
-        fire = true;
         playernumref = playa.playernum;
         invt = GetComponent<inventorygeneral>();
-        Slot = null;
+//Slot = null;
 
         mainL = FindObjectOfType<MainLauncher>();
         mainL.isready = false;
@@ -94,7 +88,16 @@ public    inventorygeneral invt;
 
             Yvect = transform.eulerAngles.y;
 
+            if (DirHTotal > 0 || DirVTotal > 0 || DirHTotal > 0 && DirVTotal > 0)
+            {
+                Sett = true;
+            }
+            else
+            {
+                Sett = false;
+            }
 
+       
           //  Dir = new Vector3(0f, Yvect, 0);
 
                 }

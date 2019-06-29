@@ -58,6 +58,7 @@ public class NPC : Interactable
         missorgo.ActiveMissions.Remove(startmissionB.mana);
         missorgo.CompletedMissions.Add(startmissionB.mana);
         missorgo.currentQuest = null;
+        missorgo.UpdateMissionComp();
         currentdiolauge++;
         missionclosed = true;
     }

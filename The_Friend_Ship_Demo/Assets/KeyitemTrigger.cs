@@ -8,11 +8,11 @@ public class KeyitemTrigger : MonoBehaviour
     public PersonalItemSlot KeyItem;
 
     MainLauncher mainl;
-    launcher PL;
+  public  launcher PL;
 
    public bool isactive;
 
-    KeyItem KI;
+    public KeyItem KI;
     // Start is called before the first frame update
     public void Additem(PersonalItemSlot Kitem, launcher L)
     {
@@ -21,6 +21,15 @@ public class KeyitemTrigger : MonoBehaviour
         // mainl = ML;
         PL = L;
         isactive = false;
+
+    }
+    public void ClearItem()
+    {
+        KeyItem.invt.Keyitem = null;
+        KeyItem = null;
+        KI = null;
+        isactive = false;
+
 
     }
 

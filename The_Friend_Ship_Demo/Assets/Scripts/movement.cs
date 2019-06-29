@@ -86,10 +86,10 @@ public class movement : MonoBehaviour {
                 move = false;
             }
 
-            else if (P1F.Slot == null || P2F.Slot == null)
-            {
-                move = true;
-            }
+            //else if (P1F.Slot == null || P2F.Slot == null)
+            //{
+            //    move = true;
+            //}
             else if (!altoveride)
             {
                 move = true;
