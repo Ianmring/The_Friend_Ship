@@ -52,6 +52,7 @@ public class Playergen : MonoBehaviour
 
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -86,7 +87,8 @@ public class Playergen : MonoBehaviour
                             
                             UIMana.playernums = uimanager.Players.player1;
                             UIMana.isopen = true;
-
+                            UIMana.menuisopen = true;
+                            UIMana.storeisopen = false;
                             UIMana.Triggerupdate();
                         //    EventSystem.current.SetSelectedGameObject(UIMana.buttons[UIMana.currentselected]);
                             
@@ -94,7 +96,8 @@ public class Playergen : MonoBehaviour
                         case 1:
                             UIMana.playernums = uimanager.Players.player2;
                             UIMana.isopen = true;
-
+                            UIMana.menuisopen = true;
+                            UIMana.storeisopen = false;
                             UIMana.Triggerupdate();
 
 
@@ -188,13 +191,13 @@ public class Playergen : MonoBehaviour
 
                    
                 }
-                if (Input.GetButtonUp("MenuUP" + playernum.ToString()) && direction == (int)UIMana.playernums)
+                if ((Input.GetButtonUp("MenuUP" + playernum.ToString()) && direction == (int)UIMana.playernums) || (Input.GetButtonUp("MenuUP" + playernum.ToString()) && UIMana.storeisopen))
                 {
                     UIMana.currentselected++;
                     UIMana.Updateinvmenu();
 
                 }
-                if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && direction == (int)UIMana.playernums)
+                if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && direction == (int)UIMana.playernums || (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && UIMana.storeisopen))
                 {
                     UIMana.currentselected--;
                     UIMana.Updateinvmenu();
@@ -212,6 +215,7 @@ public class Playergen : MonoBehaviour
             #endregion
        
         }
+        
     
       
     }

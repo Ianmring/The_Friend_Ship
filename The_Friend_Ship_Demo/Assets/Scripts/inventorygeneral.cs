@@ -171,7 +171,7 @@ public class inventorygeneral : MonoBehaviour
     {
       Update_Slots();
       
-            if (player.UIMana.isopen && isyourturn)
+            if (player.UIMana.isopen && isyourturn && player.UIMana.menuisopen)
             {
 
             foreach (var slot in Personal_Slots)
@@ -184,12 +184,22 @@ public class inventorygeneral : MonoBehaviour
                 slot.isinteract = true;
                 slot.ChangeActive();
             }
-
-
+            if (TriggerItem.KeyItem == null)
+            {
+                return;
             }
-
-
             else
+            {
+                TriggerItem.KeyItem.isinteract = true;
+                TriggerItem.KeyItem.ChangeActive();
+            }
+           
+
+
+        }
+
+
+        else
             {
             foreach (var slot in Personal_Slots)
             {
@@ -201,11 +211,20 @@ public class inventorygeneral : MonoBehaviour
                 slot.isinteract = false;
                 slot.ChangeActive();
             }
+            if (TriggerItem.KeyItem == null)
+            {
+                return;
+            }
+            else
+            {
+                TriggerItem.KeyItem.isinteract = false;
+                TriggerItem.KeyItem.ChangeActive();
+            }
 
         }
 
 
-        
+
     }
  
     public void Subinvt()

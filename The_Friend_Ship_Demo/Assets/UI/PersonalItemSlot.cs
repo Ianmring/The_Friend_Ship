@@ -113,7 +113,7 @@ public class PersonalItemSlot : MonoBehaviour
         }
         //invt.Update_Slots(); 
 
-      //  Debug.Log(currentitem.GetType());
+        //  Debug.Log(currentitem.GetType());
 
     }
     public void ChangeActive()

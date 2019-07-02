@@ -33,23 +33,38 @@ public class Compass : MonoBehaviour
         {
             launch = uimanager.UIinstance.P2.GetComponent<launcher>();
         }
-        GetComponentInParent<KeyitemTrigger>().isactive = true;
+     //   GetComponentInParent<KeyitemTrigger>().isactive = true;
 
     }
     public void Dothething()
     {
 
-        mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.IReady * 2, 0, 1));
+        if (mat == null)
+        {
+            return;
+        }
+        else
+        {
+            mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.IReady * 2, 0, 1));
 
-       
+        }
+
 
     }
     public void DoDo()
     {
-        mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.IReady * 2, 0, 1));
+        if (mat == null)
+        {
+            return;
+        }
+        else
+        {
+            mat.material.color = new Color(0.8f, 0.5f, 0.1f, Mathf.Clamp(launch.IReady * 2, 0, 1));
 
-        
-       
+        }
+
+
+
     }
     private void Update()
     {

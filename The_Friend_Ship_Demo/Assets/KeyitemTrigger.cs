@@ -20,11 +20,12 @@ public class KeyitemTrigger : MonoBehaviour
         KI = Kitem.currentitem as KeyItem;
         // mainl = ML;
         PL = L;
-        isactive = false;
+        isactive = true;
 
     }
     public void ClearItem()
     {
+        KeyItem.gameObject.SendMessage("Turnoff",SendMessageOptions.DontRequireReceiver);
         KeyItem.invt.Keyitem = null;
         KeyItem = null;
         KI = null;
@@ -56,6 +57,10 @@ public class KeyitemTrigger : MonoBehaviour
                 DontDoSomething();
 
             }
+        }
+        else
+        {
+            return;
         }
 
 

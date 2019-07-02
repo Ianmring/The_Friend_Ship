@@ -115,6 +115,8 @@ public class DiolaugeManager : MonoBehaviour
         }
         else
         {
+            anim.SetTrigger("Close");
+
             return;
         }
         movement.MovInstance.altoveride = false;

@@ -54,17 +54,20 @@ public class CheckList : MonoBehaviour
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();
 
         }
-        GetComponentInParent<KeyitemTrigger>().isactive = true;
+        //  GetComponentInParent<KeyitemTrigger>().isactive = true;
 
     }
     public void Dothething()
     {
-        //  launchrend.overide = true;
+        if (slide == null)
+        {
+            return;
+        }
+        else
+        {
+            slide.value = launch.IReady;
 
-        slide.value = launch.IReady;
-
-       // check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
-
+        }
 
 
     }
@@ -73,10 +76,17 @@ public class CheckList : MonoBehaviour
         //  launchrend.overide = true;
         //   ima.sprite = image;
 
-        slide.value = launch.IReady;
+        if (slide == null)
+        {
+            return;
+        }
+        else
+        {
+            slide.value = launch.IReady;
 
+        }
 
-     //   check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
+        //   check.Co.text = MissMana.Beat[MissMana.currentbeat].Task;
 
     }
     private void Update()
@@ -91,13 +101,17 @@ public class CheckList : MonoBehaviour
 
         }
     }
+    public void Turnoff()
+    {
+        map.gameObject.SetActive(true);
+
+    }
     private void OnDestroy()
     {
-        {
-            check.gameObject.SetActive(true);
+        //{
+      //  check.gameObject.SetActive(true);
 
-            map.gameObject.SetActive(true);
 
-        }
     }
 }
+

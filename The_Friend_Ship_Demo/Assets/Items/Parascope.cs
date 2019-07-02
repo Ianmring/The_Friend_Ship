@@ -33,7 +33,7 @@ public class Parascope : MonoBehaviour
             launch = uimanager.UIinstance.P2.GetComponent<launcher>();
         }
         cam = FindObjectOfType<camscript>();
-        GetComponentInParent<KeyitemTrigger>().isactive = true;
+     //   GetComponentInParent<KeyitemTrigger>().isactive = true;
 
     }
 

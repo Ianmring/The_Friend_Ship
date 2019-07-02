@@ -45,20 +45,19 @@ public class Map : MonoBehaviour
             launch = uimanager.UIinstance.P2.GetComponent<launcher>();
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();
         }
-
-        GetComponentInParent<KeyitemTrigger>().isactive = true;
+      //  GetComponentInParent<KeyitemTrigger>().isactive = true;
     }
     public void Dothething()
     {
-        //  launchrend.overide = true;
+        if (slide == null)
+        {
+            return;
+        }
+        else
+        {
+            slide.value = launch.IReady;
 
-        slide.value = launch.IReady;
-
-        //if (launch.Ready > 0)
-        //{
-        //    mov.move = false;
-
-        //}
+        }
 
 
 
@@ -66,8 +65,15 @@ public class Map : MonoBehaviour
     public void DoDo()
     {
         //  launchrend.overide = true;
+        if (slide == null)
+        {
+            return;
+        }
+        else
+        {
+            slide.value = launch.IReady;
 
-        slide.value = launch.IReady;
+        }
 
 
 
@@ -82,12 +88,17 @@ public class Map : MonoBehaviour
 
         }
     }
+    public void Turnoff()
+    {
+        check.gameObject.SetActive(true);
+
+    }
     private void OnDestroy()
     {
-        {
-            check.gameObject.SetActive(true);
+        
+           // check.gameObject.SetActive(true);
 
-            map.gameObject.SetActive(true);
-        }
+           // map.gameObject.SetActive(true);
+        
     }
 }

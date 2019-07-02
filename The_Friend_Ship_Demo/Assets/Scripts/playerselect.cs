@@ -62,7 +62,6 @@ public class playerselect : MonoBehaviour
 
             P1.GetComponent<Playergen>().direction = 0;
                 P1.GetComponent<Playergen>().playernum = 1;
-
                 GameObject P2;
                 P2 = Instantiate(player, Boat.transform);
                 P2.transform.position = Player2.transform.position;
@@ -74,9 +73,9 @@ public class playerselect : MonoBehaviour
                 P2.GetComponent<Playergen>().playernum = 2;
 
 
-                //p1 = 1;
-                //p2 = 2;
-                contchosen = true;
+            //p1 = 1;
+            //p2 = 2;
+            contchosen = true;
 
             FindObjectOfType<movement>().PlayersSet = true;
             Hold.SetActive(false);
@@ -99,7 +98,7 @@ public class playerselect : MonoBehaviour
                 P1A.GetComponent<Playergen>().playernum = 2;
 
 
-                GameObject P2A;
+            GameObject P2A;
                 P2A = Instantiate(player, Boat.transform);
                 P2A.transform.position = Player2.transform.position;
                 P2A.transform.SetParent(Player2.transform);
@@ -110,10 +109,10 @@ public class playerselect : MonoBehaviour
                 P2A.GetComponent<Playergen>().playernum = 1;
 
 
-                //p1 = 2;
-                //p2 = 1;
+            //p1 = 2;
+            //p2 = 1;
 
-                contchosen = true;
+            contchosen = true;
             FindObjectOfType<movement>().PlayersSet = true;
             Hold.SetActive(false);
 
