@@ -13,8 +13,8 @@ public class MainLauncher : MonoBehaviour
 
      float Dir2V;
 
-     float Yvect1;
-     float Yvect2;
+   public  float Yvect1;
+     public float Yvect2;
 
     public float delta;
 
@@ -23,11 +23,10 @@ public class MainLauncher : MonoBehaviour
     public bool sett;
     bool fire;
     bool update;
-    public bool isempty { get; set; }
+//    public bool isempty { get; set; }
    // public Transform Player;
 
-    public Rigidbody rocketPrefab { get; set; }
-    public PersonalItemSlot Slot;
+   // public PersonalItemSlot Slot;
     float DirVTotal;
     float DirHTotal;
     float DirVTotal2;
@@ -56,18 +55,29 @@ public class MainLauncher : MonoBehaviour
 
    public Playerturn Turn;
 
+
+    public enum TurretDir { Up, Down, Left, Right, Upleft, UpRight, Downleft, DownRight ,not};
+
+    public TurretDir turdir;
     public bool isready { get; set; }
+
+    public float dirtotal;
+
+  public  bool p1set;
+    public bool p2set;
+
     // Start is called before the first frame update
     void Start()
     {
         dirData = GameObject.FindObjectOfType<movement>();
      //   Player = GetComponentInParent<Transform>();
         fire = true;
-        Slot = null;
+        //Slot = null;
 
         dirData.ML = this;
 
-        
+        //p1set = true;
+        //p2set = true;
         Turn = Playerturn.p1;
        // updateLauncher();
         // switchPlayers();
@@ -89,7 +99,6 @@ public class MainLauncher : MonoBehaviour
         Ready1 = P1.Ready;
         Ready2 = P2.Ready;
 
-
         Yvect1 = (Mathf.Atan2(Dir1V, Dir1H) / Mathf.PI);
         Yvect2 = (Mathf.Atan2(Dir2V, Dir2H) / Mathf.PI);
 
@@ -100,209 +109,152 @@ public class MainLauncher : MonoBehaviour
 
         dirTotal = (DirHTotal + DirVTotal + DirHTotal2 + DirVTotal2) / 4;
 
+            dirtotal = Mathf.Atan2(Dir1V + Dir2V, Dir1H + Dir2H) / Mathf.PI;
 
-        if (Slot == null)
-        {
-            return;
-        }
-        else if (!DiolaugeManager.DioInstance.indio)
-        {
-
-            if (Mathf.Abs(Yvect1 - Yvect2) < delta && Mathf.Abs(Yvect1) > 0 && Mathf.Abs(Yvect2) > 0)
+            if (p1set && p2set && sett)
             {
 
 
-
-                transform.eulerAngles = new Vector3(0f, (Mathf.Atan2(Dir1V + Dir2V, Dir1H + Dir2H) * 180 / Mathf.PI), 0f);
-                sett = true;
-
+                Debug.Log("hit");
 
             }
-            else
+            if (Ready1 == 1 )
             {
+
+                StartCoroutine("P1swing");
+            }
+           
+            if (Ready2 == 1 )
+            {
+                StartCoroutine("P2swing");
+            }
+          
+        
+           if (!DiolaugeManager.DioInstance.indio)
+        {
+
+                if (Mathf.Abs(Yvect1 - Yvect2) < delta && Mathf.Abs(Yvect1) > 0 && Mathf.Abs(Yvect2) > 0)
+                {
+                    #region launchertrack
+
+                    if ((Yvect1 < -0.375 && Yvect1 > -0.625) && (Yvect2 < -0.375 && Yvect2 > -0.625))
+                    {
+                        turdir = TurretDir.Up;
+                    }
+                    if ((Yvect1 < 0.625 && Yvect1 > 0.375) && (Yvect2 < 0.625 && Yvect2 > 0.375))
+                    {
+                        turdir = TurretDir.Down;
+                    }
+                    if ((Yvect1 < 0.125 && Yvect1 > -0.125) && (Yvect2 < 0.125 && Yvect2 > -0.125))
+                    {
+                        turdir = TurretDir.Right;
+                    }
+                    if ((Yvect1 < -0.125 && Yvect1 > -0.375) && (Yvect2 < 0.125 && Yvect2 > -0.375))
+                    {
+                        turdir = TurretDir.UpRight;
+                    }
+                    if ((Yvect1 < -0.625 && Yvect1 > -0.875) && (Yvect2 < -0.625 && Yvect2 > -0.875))
+                    {
+                        turdir = TurretDir.Upleft;
+                    }
+                    if ((Yvect1 > -0.875 && Yvect1 > 0.875) && (Yvect2 > -0.875 && Yvect2 > 0.875))
+                    {
+                        turdir = TurretDir.Left;
+                    }
+                    if ((Yvect1 < 0.875 && Yvect1 > 0.625) && (Yvect2 < 0.875 && Yvect2 > 0.625))
+                    {
+                        turdir = TurretDir.Downleft;
+                    }
+                    if ((Yvect1 < 0.875 && Yvect1 > 0.625) && (Yvect2 < 0.875 && Yvect2 > 0.625))
+                    {
+                        turdir = TurretDir.Downleft;
+                    }
+                    if ((Yvect1 < 0.375 && Yvect1 > 0.125) && (Yvect2 < 0.375 && Yvect2 > 0.125))
+                    {
+                        turdir = TurretDir.DownRight;
+                    }
+
+
+                    switch (turdir)
+                    {
+                        case TurretDir.Up:
+                            transform.eulerAngles = new Vector3(0f, -90, 0f);
+
+                            break;
+                        case TurretDir.Down:
+                            transform.eulerAngles = new Vector3(0f, 90, 0f);
+
+                            break;
+                        case TurretDir.Left:
+                            transform.eulerAngles = new Vector3(0f, -180, 0f);
+
+                            break;
+                        case TurretDir.Right:
+                            transform.eulerAngles = new Vector3(0f, 0, 0f);
+
+                            break;
+                        case TurretDir.Upleft:
+                            transform.eulerAngles = new Vector3(0f, -132, 0f);
+
+                            break;
+                        case TurretDir.UpRight:
+                            transform.eulerAngles = new Vector3(0f, -45, 0f);
+
+                            break;
+                        case TurretDir.Downleft:
+                            transform.eulerAngles = new Vector3(0f, 132, 0f);
+
+                            break;
+                        case TurretDir.DownRight:
+                            transform.eulerAngles = new Vector3(0f, 45, 0f);
+
+                            break;
+                        case TurretDir.not:
+                            break;
+                        default:
+                            break;
+                    }
+
+                    #endregion
+
+                    //transform.eulerAngles = new Vector3(0f, (Mathf.Atan2(Dir1V + Dir2V, Dir1H + Dir2H) * 180 / Mathf.PI), 0f);
+                    sett = true;
+                }
+                else
+                {
+
+                  //  transform.localEulerAngles = transform.localEulerAngles;
+                    turdir = TurretDir.not;
+                    sett = false;
+                }
                 
-                transform.localEulerAngles = transform.localEulerAngles;
-                sett = false;
-            }
-
-
-
-            if (dirData.move)
-            {
-                switch (Turn)
-                {
-                    case Playerturn.p1:
-
-                        if (Ready1 == 1 && sett && !fire && !isempty)
-                        {
-
-
-                            if ( rocketPrefab == null)
-                            {
-                                return;
-                            }
-                            else
-                            {
-                                if (Slot.iskeyitem == false || Slot.isitem)
-                                {
-                                    Rigidbody rocketInstance;
-                                    rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
-                                    rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
-                                        updateLauncher();
-                                        fire = true;
-                                    update = true;
-
-                                }
-                                //else
-                                //{
-                                //    Slot.dosomething();
-
-                                //    fire = true;
-                                //    update = true;
-                                //}
-
-                            }
-
-                        }
-
-                        else if (Ready1 == 0)
-                        {
-
-                            fire = false;
-                            if (update == true)
-                            {
-                                
-                                    p1I.Subinvt();
-
-
-                                    //Bring back if not working anymore (5/29/19)
-                                    // invt.Update_Slots();
-                                    switchPlayers();
-
-                                    update = false;
-                                
-
-
-
-                            }
-
-
-                        }
-                        break;
-
-
-                    case Playerturn.p2:
-                     //   invt = P2.invt;
-
-                        if (Ready2 == 1 && sett && !fire && !isempty)
-                        {
-
-
-                            if (rocketPrefab == null)
-                            {
-                                return;
-                            }
-                            else
-                            {
-                                if (Slot.iskeyitem == false || Slot.isitem)
-                                {
-                                    Rigidbody rocketInstance;
-                                    rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as Rigidbody;
-                                    rocketInstance.AddForce(transform.right * dirTotal * launchMulti);
-                                        updateLauncher();
-                                        fire = true;
-                                    update = true;
-
-                                }
-
-
-                            }
-
-                        }
-
-                        else if (Ready2 == 0)
-                        {
-
-                            fire = false;
-                            if (update == true)
-                            {
-                              
-                                    p2I.Subinvt();
-
-
-                                    //Bring back if not working anymore (5/29/19)
-                                    // invt.Update_Slots();
-                                    switchPlayers();
-
-                                    update = false;
-                                
-
-
-
-                            }
-
-                        }
-                        break;
-                   
-                }
-               
 
 
 
             }
         }
         }
-       
-    }
-
-   
-    void switchPlayers()
+    IEnumerator P1swing()
     {
-        switch (Turn)
-        {
-            case Playerturn.p1:
-                Turn = Playerturn.p2;
-                updateLauncher();
-                break;
-            case Playerturn.p2:
-                Turn = Playerturn.p1;
-                updateLauncher();
-                break;
-        }
+        //p1set = true;
+        p1set = true;
+
+        yield return new WaitForSeconds(.1f);
+        Debug.Log("done");
+        p1set = false;
+
     }
-    public void updateLauncher()
+    IEnumerator P2swing()
     {
-        if (isready)
-        {
-            if (p1I.Personal_Slots.Count <= 0 && Turn == Playerturn.p1)
-            {
-                rocketPrefab = null;
-                Slot = null;
-                return;
-            }
-            else if (p2I.Personal_Slots.Count <= 0 && Turn == Playerturn.p2)
-            {
-                rocketPrefab = null;
-                Slot = null;
-                return;
-            }
-            else
-            {
-                switch (Turn)
-                {
-                    case Playerturn.p1:
-                        //Turn = Playerturn.p2;
-                        rocketPrefab = p1I.Personal_Slots[p1I.currentitem].OBJ.GetComponent<Rigidbody>();
-                        Slot = p1I.Personal_Slots[p1I.currentitem];
-                        break;
-                    case Playerturn.p2:
-                        //  Turn = Playerturn.p1;
-                        rocketPrefab = p2I.Personal_Slots[p2I.currentitem].OBJ.GetComponent<Rigidbody>();
-                        Slot = p2I.Personal_Slots[p2I.currentitem];
-                        break;
-                }
-            }
-        }
-      //  Debug.Log("LauncherUpdated");
+        p2set = true;
+
+        yield return new WaitForSeconds(.1f);
+        //    p2set = true;
+        Debug.Log("done");
+        p2set = false;
     }
+
 }
+
+
+

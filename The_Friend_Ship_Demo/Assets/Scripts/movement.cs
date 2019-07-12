@@ -81,7 +81,7 @@ public class movement : MonoBehaviour {
 
         if (PlayersSet)
         {
-            if ((P1F.IReady > 0 && ML.p1I.TriggerItem.KeyItem != null) || (P2F.IReady > 0 && ML.p2I.TriggerItem.KeyItem != null) || altoveride)
+            if ((P1F.IReady > 0 && ML.p1I.TriggerItem.KeyItem != null && !ML.p1I.TriggerItem.Isitem) || (P2F.IReady > 0 && ML.p2I.TriggerItem.KeyItem != null && !ML.p2I.TriggerItem.Isitem) || altoveride)
             {
                 move = false;
             }
@@ -167,14 +167,16 @@ public class movement : MonoBehaviour {
         {
             turning = Turning.Clockwise;
 
-       
+            StartCoroutine("TurnClockwise");
+
 
 
         }
         else if (directions[0] < 0 && directions[1] > 0)
         {
             turning = Turning.AniClockwise;
-         
+            StartCoroutine("TurnAntiClockwise");
+
 
         }
         else
@@ -210,8 +212,8 @@ public class movement : MonoBehaviour {
         switch (turning)
         {
             case Turning.Clockwise:
+
                // rig.AddTorque(Vector3.up, turnspeed * Time.deltaTime * mag);
-                transform.Rotate(Vector3.up, turnspeed * Time.deltaTime *mag);
                 if (moving == Moving.Not && isforward)
                 {
                     rig.AddForce(transform.forward.normalized * speed/5);
@@ -225,7 +227,6 @@ public class movement : MonoBehaviour {
                 break;
             case Turning.AniClockwise:
 
-                transform.Rotate(Vector3.up, -turnspeed * Time.deltaTime * mag);
 
                 if (moving == Moving.Not && isforward)
                 {
@@ -241,7 +242,8 @@ public class movement : MonoBehaviour {
                 break;
 
             case Turning.Not:
-                
+                StopAllCoroutines();
+
                 break;
             default:
                 break;
@@ -250,8 +252,24 @@ public class movement : MonoBehaviour {
 
     }
 
+    IEnumerator TurnClockwise()
+    {
 
+        yield return new WaitForSeconds(.2f);
 
+        transform.Rotate(Vector3.up, 45);
+
+        StopCoroutine("TurnClockwise");
+    }
+    IEnumerator TurnAntiClockwise()
+    {
+
+        yield return new WaitForSeconds(.2f);
+
+        transform.Rotate(Vector3.up, -45);
+
+        StopCoroutine("TurnAntiClockwise");
+    }
 
 }
 

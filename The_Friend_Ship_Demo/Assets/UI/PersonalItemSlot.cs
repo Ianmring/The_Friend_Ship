@@ -62,7 +62,7 @@ public class PersonalItemSlot : MonoBehaviour
         if (currentitem.GetType() == typeof(KeyItem) && !isitemI)
         {
             Kitem = currentitem as KeyItem;
-            imag.color = Color.cyan;
+            imag.color = Color.green;
 
             iskeyitem = true;
             count.text = "I";
@@ -90,10 +90,14 @@ public class PersonalItemSlot : MonoBehaviour
         }
         else
         {
+            iskeyitem = false;
+
+            count.text = "T";
+
             switch (item.Type)
             {
                 case Item.type.Disposeable:
-                    imag.color = Color.green;
+                    imag.color = Color.cyan;
                     break;
                 case Item.type.Oare:
                     imag.color = Color.yellow;
@@ -102,14 +106,13 @@ public class PersonalItemSlot : MonoBehaviour
                     imag.color = Color.magenta;
                     break;
                 case Item.type.Keyitem:
-                    imag.color = Color.cyan;                 
+                    imag.color = Color.green;                 
 
                     break;
-                default:
-                    Kitem = null;
-
-                    break;
+                
             }
+            this.gameObject.AddComponent<Throwable>();
+
         }
         //invt.Update_Slots(); 
 
@@ -128,32 +131,20 @@ public class PersonalItemSlot : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        if (!iskeyitem)
-        {
-            count.text = itemcount.ToString();
-        }
-      
-
-        //if (invt.Selector.transform.position == this.transform.position)
-        //{
-        //    isbeingused = true;
-        //}
-        //else
-        //{
-        //    isbeingused = false;
-        //}
-    }
+   
 
     public void Transferall()
     {
       //  FindObjectOfType<uimanager>().Updateslotsgen();
 
+        invt.TriggerItem.ClearItem();
+        itemcount = 1;
+
         switch (currentitem.Type)
         {
             case Item.type.Disposeable:
                 Inventory.instance.Add(currentitem, itemcount);
+
                 break;
             case Item.type.Oare:
                 Inventory.instance.AddOare(currentitem, itemcount);
@@ -164,21 +155,20 @@ public class PersonalItemSlot : MonoBehaviour
 
                 break;
             case Item.type.Keyitem:
-                invt.TriggerItem.ClearItem();
-                itemcount = 1;
                 Inventory.instance.AddKey(currentitem, itemcount);
 
                 break;
-      
+            default:
+                break;
         }
 
-      // FindObjectOfType<uimanager>().Updateslotsgen();
-            EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
+
+        // FindObjectOfType<uimanager>().Updateslotsgen();
+        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
         //itemcount = 0;
 
-        FindObjectOfType<uimanager>().Updateslotsgen(this.GetComponent<PersonalItemSlot>());
 
-        invt.Update_Slots();
+      //  invt.Update_Slots();
         //return;
 
         Destroy(this.gameObject);

@@ -9,7 +9,7 @@ public class LaunchArchRenderer : MonoBehaviour
     LineRenderer LR;
     MainLauncher Lan;
 
-    movement mov;
+    //movement mov;
 
     public float Velocitymulti;
     public float angelmulti;
@@ -35,7 +35,7 @@ public class LaunchArchRenderer : MonoBehaviour
    
     private void Awake()
     {
-        mov = movement.MovInstance;
+      //  mov = movement.MovInstance;
         LR = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
         Lan = GetComponentInChildren<MainLauncher>();
@@ -72,14 +72,14 @@ public class LaunchArchRenderer : MonoBehaviour
         Y = transform.eulerAngles.y;
 
 
-        if (Lan.Slot != null && !DiolaugeManager.DioInstance.indio  && FindObjectOfType<movement>().move)
+        if ( !DiolaugeManager.DioInstance.indio  && FindObjectOfType<movement>().move)
         {
             //if ()
             //{
 
 
 
-                if (Lan.Slot.iskeyitem && !Lan.Slot.isitem)
+                if (Lan.sett)
                 {
                     overide = true;
                 }
@@ -87,7 +87,7 @@ public class LaunchArchRenderer : MonoBehaviour
                 {
                     overide = false;
                 }
-                if (!overide)
+                if (overide)
                 {
                     Velocity = Lan.dirTotal * Velocitymulti;
                     angle = Lan.dirTotal * angelmulti;

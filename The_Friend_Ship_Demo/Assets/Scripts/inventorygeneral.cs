@@ -12,13 +12,13 @@ public class inventorygeneral : MonoBehaviour
 
     public int slotnums_P;
     public GameObject currentslot;
-    public List<PersonalItemSlot> Personal_Slots = new List<PersonalItemSlot>();
+   // public List<PersonalItemSlot> Personal_Slots = new List<PersonalItemSlot>();
     public Item Keyitem;
   // public List<Item> items = new List<Item>();
-    public Transform Container;
+  //  public Transform Container;
     public Transform KIContainer;
 
-    public Transform Selector;
+    //public Transform Selector;
 
   public  MainLauncher launch { get; set; }
 
@@ -33,39 +33,39 @@ public class inventorygeneral : MonoBehaviour
         GLauncher = GetComponent<launcher>();
         player = GetComponent<Playergen>();
         INVNUM = player.direction;
-        Container = GameObject.Find("D" + player.direction + "_Inv").GetComponent<Transform>();
+      //  Container = GameObject.Find("D" + player.direction + "_Inv").GetComponent<Transform>();
         KIContainer = GameObject.Find("KeyItem" + player.direction).GetComponent<Transform>();
         TriggerItem = GameObject.Find("KeyItem" + player.direction).GetComponent<KeyitemTrigger>();
-        Selector = GameObject.Find("SelectedD" + player.direction).GetComponent<Transform>();
+      //  Selector = GameObject.Find("SelectedD" + player.direction).GetComponent<Transform>();
         currentitem = 0;
 
-        Update_Slots();
+        //Update_Slots();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Personal_Slots.Count<= 0)
-        {
-            currentitem = 0;
+        //if (Personal_Slots.Count<= 0)
+        //{
+        //    currentitem = 0;
 
-            return;
-        }
-        else
-        {
-                    if (currentitem > Personal_Slots.Count-1 )
-            {
-                currentitem = Personal_Slots.Count-1;
-            }
-            else if (currentitem < 0)
-            {
-                currentitem = 0;
-            }
+        //    return;
+        //}
+        //else
+        //{
+        //            if (currentitem > Personal_Slots.Count-1 )
+        //    {
+        //        currentitem = Personal_Slots.Count-1;
+        //    }
+        //    else if (currentitem < 0)
+        //    {
+        //        currentitem = 0;
+        //    }
 
-            Selector.transform.position = Personal_Slots[currentitem].transform.position;
+        //    Selector.transform.position = Personal_Slots[currentitem].transform.position;
             
-        }
+        //}
 
 
         if (Input.GetButtonUp("AddtoPslot"))
@@ -75,49 +75,7 @@ public class inventorygeneral : MonoBehaviour
         }
     }
 
-    public void Addslot(Item item, int count, bool isitem)
-    {
-
-
-        for (int i = 0; i < Personal_Slots.Count; i++)
-        {
-            if (Personal_Slots[i].currentitem == item)
-            {
-                Personal_Slots[i].itemcount += count;
-                return;
-            }
-
-           
-            
-           
-        }
-        // Debug.Log(item + "has been added to " + player.playernum + "'s inventory");
-        //if (Personal_Slots.Count < 5)
-        //{
-            
-                GameObject PSlot;
-        PersonalItemSlot slot;
-
-        PSlot = Instantiate(currentslot, Container);
-        slot = PSlot.GetComponent<PersonalItemSlot>();
-
-        slot.Additem(item , isitem);
-       // slot.isitem = isitem;
-
-        slot.Playernum = player.direction;
-        slot.invt = this;
-
-        slot.itemcount = count;
-
-        Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
- 
-
-                Update_Slots();
-            
-
-      
-        
-    }
+   
 
     public void AddKey(Item Kitem, bool isitem)
     {
@@ -140,50 +98,45 @@ public class inventorygeneral : MonoBehaviour
 
 
           //  slot.isitem = isitem;
-            TriggerItem.Additem(slot, GLauncher);
+            TriggerItem.Additem(slot, GLauncher , isitem);
 
             // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
 
 
-            Update_Slots();
+            //Update_Slots();
         }
     }
 
 
-    public void Update_Slots()
-    {
+    //public void Update_Slots()
+    //{
 
 
-        launch.updateLauncher();
+    //    //launch.updateLauncher();
 
 
 
 
-    }
-
-    public void removeOBJ(PersonalItemSlot slot)
-    {
-        Personal_Slots.Remove(slot);
+    //}
 
 
-    }
     public void Handoff()
     {
-      Update_Slots();
+      //Update_Slots();
       
             if (player.UIMana.isopen && isyourturn && player.UIMana.menuisopen)
             {
 
-            foreach (var slot in Personal_Slots)
-            {
-                if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
-                {
-                    EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-                }
-                // Container.GetComponentInParent<GameObject>().SetActive(true);
-                slot.isinteract = true;
-                slot.ChangeActive();
-            }
+            //foreach (var slot in Personal_Slots)
+            //{
+            //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
+            //    {
+            //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
+            //    }
+            //    // Container.GetComponentInParent<GameObject>().SetActive(true);
+            //    slot.isinteract = true;
+            //    slot.ChangeActive();
+            //}
             if (TriggerItem.KeyItem == null)
             {
                 return;
@@ -201,16 +154,16 @@ public class inventorygeneral : MonoBehaviour
 
         else
             {
-            foreach (var slot in Personal_Slots)
-            {
-                // Container.GetComponentInParent<GameObject>().SetActive(false);
-                if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
-                {
-                    EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-                }
-                slot.isinteract = false;
-                slot.ChangeActive();
-            }
+            //foreach (var slot in Personal_Slots)
+            //{
+            //    // Container.GetComponentInParent<GameObject>().SetActive(false);
+            //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
+            //    {
+            //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
+            //    }
+            //    slot.isinteract = false;
+            //    slot.ChangeActive();
+            //}
             if (TriggerItem.KeyItem == null)
             {
                 return;
@@ -227,33 +180,33 @@ public class inventorygeneral : MonoBehaviour
 
     }
  
-    public void Subinvt()
-    {
-        Update_Slots();
+    //public void Subinvt()
+    //{
+    //    Update_Slots();
 
 
-        if (Personal_Slots[currentitem].itemcount < 2)
-        {
-            //  items.Remove(Personal_Slots[currentitem].currentitem);
+    //    if (Personal_Slots[currentitem].itemcount < 2)
+    //    {
+    //        //  items.Remove(Personal_Slots[currentitem].currentitem);
 
-            GameObject obj;
-            obj = Personal_Slots[currentitem].gameObject;
-            Personal_Slots.Remove(Personal_Slots[currentitem]);
+    //        GameObject obj;
+    //        obj = Personal_Slots[currentitem].gameObject;
+    //        Personal_Slots.Remove(Personal_Slots[currentitem]);
 
-            Destroy(obj);
-            obj = null;
+    //        Destroy(obj);
+    //        obj = null;
 
 
-        }
-        else
-        {
-            Personal_Slots[currentitem].itemcount--;
+    //    }
+    //    else
+    //    {
+    //        Personal_Slots[currentitem].itemcount--;
 
-        }
-      Update_Slots();
-        //   Update_Slots();
+    //    }
+    //  Update_Slots();
+    //    //   Update_Slots();
 
-    }
+    //}
    
 
 

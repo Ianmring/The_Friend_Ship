@@ -213,22 +213,7 @@ public class uimanager : MonoBehaviour
 
 
     }
-    public void Updateslotsgen(PersonalItemSlot slot)
-    {
-        switch (playernums)
-        {
-            case Players.player1:
-                P1.GetComponent<inventorygeneral>().removeOBJ(slot);
-
-                break;
-            case Players.player2:
-                P2.GetComponent<inventorygeneral>().removeOBJ(slot);
-
-                break;
-           
-           
-        }
-    }
+   
     public void setslotint(int newslot)
     {
         for (int i = 0; i < inventorymenus.Length; i++)

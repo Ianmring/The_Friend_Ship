@@ -60,7 +60,7 @@ public class Inventoryslot : MonoBehaviour
         switch (newitem.Type)
         {
             case Item.type.Disposeable:
-                imag.color = Color.green;
+                imag.color = Color.cyan;
                     break;
             case Item.type.Oare:
                 imag.color = Color.yellow;
@@ -72,7 +72,7 @@ public class Inventoryslot : MonoBehaviour
                 break;
             case Item.type.Keyitem:
 
-                imag.color = Color.cyan;
+                imag.color = Color.green;
                 break;
         }
          // removebutton.interactable = true;
@@ -96,67 +96,21 @@ public class Inventoryslot : MonoBehaviour
                 switch (mana.playernums)
                 {
                     case uimanager.Players.player1:
-                        if (invt0.Personal_Slots.Count < 4)
+
+                        if (invt0.TriggerItem.KeyItem == null)
                         {
-                            if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-                            {
-                                invt0.Addslot(item, 1, true);
-                                itemcount--;
-
-                            }
-                            else
-                            {
-                                if(item.Type == Item.type.Keyitem)
-                                {
-                                    for (int i = 0; i < invt0.Personal_Slots.Count; i++)
-                                    {
-                                        if (invt0.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
-                                        {
-                                            return;
-                                        }
-                                    }
-
-                                }
-
-
-                                invt0.Addslot(item, itemcount, true);
-                                itemcount = 0;
-                            }
-
+                            invt0.AddKey(item, true);
+                            itemcount--;
                         }
-                        
                         break;
                     case uimanager.Players.player2:
-
-                        if (invt1.Personal_Slots.Count < 4)
+                        if (invt1.TriggerItem.KeyItem == null)
                         {
-                            if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-                            {
-                                invt1.Addslot(item, 1 , true);
-                                itemcount--;
-
-                            }
-                            else
-                            {
-                                if (item.Type == Item.type.Keyitem)
-                                {
-                                    for (int i = 0; i < invt1.Personal_Slots.Count; i++)
-                                    {
-                                        if (invt1.Personal_Slots[i].currentitem.Type == Item.type.Keyitem)
-                                        {
-                                            return;
-                                        }
-                                    }
-
-                                }
-
-                                invt1.Addslot(item, itemcount, true);
-                                itemcount = 0;
-                            }
-
+                            invt1.AddKey(item, true);
+                            itemcount--;
                         }
                         break;
-            
+
                 }
                 Checkitemcount();
 
@@ -189,20 +143,24 @@ public class Inventoryslot : MonoBehaviour
             inventorygeneral invt1;
             invt1 = mana.P2.GetComponent<inventorygeneral>();
 
+           
             switch (mana.playernums)
             {
                 case uimanager.Players.player1:
-                    if (invt0.Personal_Slots.Count < 4 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+
+                    if (invt0.TriggerItem.KeyItem == null)
                     {
-                        if (item.Type == Item.type.Disposeable)
+                        if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                         {
 
-                            
-                            invt0.Addslot(item, 1,true);
+
+
+                            item.Use();
                             itemcount--;
 
+
                         }
-                       else if (item.Type == Item.type.Keyitem)
+                        else if (item.Type == Item.type.Keyitem)
                         {
                             if (invt0.Keyitem == item)
                             {
@@ -210,26 +168,28 @@ public class Inventoryslot : MonoBehaviour
                             }
                             invt0.AddKey(item, false);
                             itemcount--;
-                         //   return;
+                            //   return;
                         }
                         else
                         {
-                            item.Use();
-                            itemcount--;
-
+                            return;
                         }
                     }
                     break;
                 case uimanager.Players.player2:
-
-                    if (invt1.Personal_Slots.Count < 4 || item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                    if (invt1.TriggerItem.KeyItem == null)
                     {
-                        if (item.Type == Item.type.Disposeable)
+                        {
+
+                        }
+                        if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
                         {
 
 
-                            invt1.Addslot(item, 1, true);
+
+                            item.Use();
                             itemcount--;
+
 
                         }
                         else if (item.Type == Item.type.Keyitem)
@@ -240,15 +200,15 @@ public class Inventoryslot : MonoBehaviour
                             }
                             invt1.AddKey(item, false);
                             itemcount--;
-                           // return;
+                            //   return;
                         }
                         else
                         {
-                            item.Use();
-                            itemcount--;
-
+                            return;
                         }
                     }
+
+
                     break;
 
             }

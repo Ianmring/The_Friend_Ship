@@ -123,26 +123,26 @@ public class Playergen : MonoBehaviour
                         if (Input.GetButtonUp("MenuUP" + playernum.ToString()))
                         {
                             invent.currentitem++;
-                            invent.Update_Slots();
+                         //   invent.Update_Slots();
 
                         }
                         if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()))
                         {
                             invent.currentitem--;
-                            invent.Update_Slots();
+                          //  invent.Update_Slots();
                         }
                         break;
                     case 1:
                         if (Input.GetButtonUp("MenuUP" + playernum.ToString()))
                         {
                             invent.currentitem--;
-                            invent.Update_Slots();
+                        //    invent.Update_Slots();
 
                         }
                         if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()))
                         {
                             invent.currentitem++;
-                            invent.Update_Slots();
+                      //      invent.Update_Slots();
                         }
                         break;
                    
