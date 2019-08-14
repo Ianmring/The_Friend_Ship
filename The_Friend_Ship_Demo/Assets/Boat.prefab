@@ -108,7 +108,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155903697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -146,11 +146,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155903697}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.27, y: 3.82, z: 4.49}
+  m_Center: {x: 3.5, y: 0, z: 0}
 --- !u!114 &1155903699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50a2c3537a0a2448abed4a7e9ecf68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delta: 0.5
+  Yvect1: 0
+  Yvect2: 0
+  delta: 0.7
   sett: 0
   dirTotal: 0
   Ready1: 0
@@ -172,7 +174,13 @@ MonoBehaviour:
   uplaunchMulti: 0
   Dir: {x: 0, y: 0, z: 0}
   Yvect: 0
+  p1I: {fileID: 0}
+  p2I: {fileID: 0}
   Turn: 0
+  turdir: 0
+  dirtotal: 0
+  totaldir: 0
+  inrage: []
 --- !u!120 &1155903704
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -210,12 +218,10 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Positions:
-  - {x: 1, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -229,14 +235,23 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9093981
-        value: 1
+        time: 0.6347493
+        value: 0.56302667
+        inSlope: 0.83949023
+        outSlope: 0.83949023
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.23064426
+        outWeight: 0.23251854
+      - serializedVersion: 3
+        time: 0.82011616
+        value: 0.6218524
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.23251854
+        inWeight: 0
+        outWeight: 0
       - serializedVersion: 3
         time: 1
         value: 0
@@ -562,8 +577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   maxspeed: 15
-  minturnspeed: 25
-  maxturnspeed: 30
+  minturnspeed: 0.2
+  maxturnspeed: 0.2
   directions:
   - 0
   - 0
@@ -594,7 +609,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &457719521
 MonoBehaviour:

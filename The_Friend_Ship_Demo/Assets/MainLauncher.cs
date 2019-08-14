@@ -21,16 +21,15 @@ public class MainLauncher : MonoBehaviour
     movement dirData;
 
     public bool sett;
-    bool fire;
     bool update;
 //    public bool isempty { get; set; }
    // public Transform Player;
 
    // public PersonalItemSlot Slot;
     float DirVTotal;
-    float DirHTotal;
-    float DirVTotal2;
-    float DirHTotal2;
+     float DirHTotal;
+     float DirVTotal2;
+     float DirHTotal2;
     public float dirTotal;
 
 
@@ -50,39 +49,29 @@ public class MainLauncher : MonoBehaviour
     public inventorygeneral p1I;
     public inventorygeneral p2I;
 
-
-    public enum Playerturn { p1,p2};
-
-   public Playerturn Turn;
-
-
-    public enum TurretDir { Up, Down, Left, Right, Upleft, UpRight, Downleft, DownRight ,not};
-
-    public TurretDir turdir;
     public bool isready { get; set; }
 
     public float dirtotal;
 
-  public  bool p1set;
-    public bool p2set;
+    public float totaldir;
+    bool p1set;
+     bool p2set;
+    bool p1done;
+    bool p2done;
 
+  public  List<hit> inrage;
     // Start is called before the first frame update
     void Start()
     {
         dirData = GameObject.FindObjectOfType<movement>();
-     //   Player = GetComponentInParent<Transform>();
-        fire = true;
-        //Slot = null;
 
         dirData.ML = this;
 
-        //p1set = true;
-        //p2set = true;
-        Turn = Playerturn.p1;
-       // updateLauncher();
-        // switchPlayers();
-        //invt = p1I;
-       
+        p1set = false;
+        p1done = true;
+        p2set = false;
+        p2done = true;
+
     }
 
     // Update is called once per frame
@@ -90,168 +79,96 @@ public class MainLauncher : MonoBehaviour
     {
         if (movement.MovInstance.PlayersSet)
         {
-             Dir1H = P1.DirH;
-        //    Dir2H = Input.GetAxis("Horizontal_P" + dirData.p2.ToString() + "_Launch");
-        Dir1V = P1.DirV;
-        Dir2H = P2.DirH;
-        //    Dir2H = Input.GetAxis("Horizontal_P" + dirData.p2.ToString() + "_Launch");
-        Dir2V = P2.DirV;
+      
         Ready1 = P1.Ready;
         Ready2 = P2.Ready;
 
-        Yvect1 = (Mathf.Atan2(Dir1V, Dir1H) / Mathf.PI);
-        Yvect2 = (Mathf.Atan2(Dir2V, Dir2H) / Mathf.PI);
-
-        DirHTotal = Mathf.Abs(Dir1H);
-        DirVTotal = Mathf.Abs(Dir1V);
-        DirHTotal2 = Mathf.Abs(Dir2H);
-        DirVTotal2 = Mathf.Abs(Dir2V);
-
-        dirTotal = (DirHTotal + DirVTotal + DirHTotal2 + DirVTotal2) / 4;
-
-            dirtotal = Mathf.Atan2(Dir1V + Dir2V, Dir1H + Dir2H) / Mathf.PI;
-
-            if (p1set && p2set && sett)
+       
+            if (p1set && p2set && !p1done && !p2done)
             {
-
-
-                Debug.Log("hit");
-
+              //  StartCoroutine("Range");
+                foreach (var obj in inrage)
+                {
+                    obj.interact();
+                }
+                p1done = true;
+                p2done = true;
             }
-            if (Ready1 == 1 )
+            if (Ready1 == 1 && !p1done)
             {
 
                 StartCoroutine("P1swing");
             }
-           
-            if (Ready2 == 1 )
+            else if (Ready1 <= .6)
+            {
+                p1done = false;
+            }
+
+            if (Ready2 == 1 && !p2done)
             {
                 StartCoroutine("P2swing");
             }
+            else if (Ready2 <= .6)
+            {
+                p2done = false;
+            }
+
           
-        
-           if (!DiolaugeManager.DioInstance.indio)
+        }
+        }
+
+ 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<hit>())
         {
-
-                if (Mathf.Abs(Yvect1 - Yvect2) < delta && Mathf.Abs(Yvect1) > 0 && Mathf.Abs(Yvect2) > 0)
-                {
-                    #region launchertrack
-
-                    if ((Yvect1 < -0.375 && Yvect1 > -0.625) && (Yvect2 < -0.375 && Yvect2 > -0.625))
-                    {
-                        turdir = TurretDir.Up;
-                    }
-                    if ((Yvect1 < 0.625 && Yvect1 > 0.375) && (Yvect2 < 0.625 && Yvect2 > 0.375))
-                    {
-                        turdir = TurretDir.Down;
-                    }
-                    if ((Yvect1 < 0.125 && Yvect1 > -0.125) && (Yvect2 < 0.125 && Yvect2 > -0.125))
-                    {
-                        turdir = TurretDir.Right;
-                    }
-                    if ((Yvect1 < -0.125 && Yvect1 > -0.375) && (Yvect2 < 0.125 && Yvect2 > -0.375))
-                    {
-                        turdir = TurretDir.UpRight;
-                    }
-                    if ((Yvect1 < -0.625 && Yvect1 > -0.875) && (Yvect2 < -0.625 && Yvect2 > -0.875))
-                    {
-                        turdir = TurretDir.Upleft;
-                    }
-                    if ((Yvect1 > -0.875 && Yvect1 > 0.875) && (Yvect2 > -0.875 && Yvect2 > 0.875))
-                    {
-                        turdir = TurretDir.Left;
-                    }
-                    if ((Yvect1 < 0.875 && Yvect1 > 0.625) && (Yvect2 < 0.875 && Yvect2 > 0.625))
-                    {
-                        turdir = TurretDir.Downleft;
-                    }
-                    if ((Yvect1 < 0.875 && Yvect1 > 0.625) && (Yvect2 < 0.875 && Yvect2 > 0.625))
-                    {
-                        turdir = TurretDir.Downleft;
-                    }
-                    if ((Yvect1 < 0.375 && Yvect1 > 0.125) && (Yvect2 < 0.375 && Yvect2 > 0.125))
-                    {
-                        turdir = TurretDir.DownRight;
-                    }
-
-
-                    switch (turdir)
-                    {
-                        case TurretDir.Up:
-                            transform.eulerAngles = new Vector3(0f, -90, 0f);
-
-                            break;
-                        case TurretDir.Down:
-                            transform.eulerAngles = new Vector3(0f, 90, 0f);
-
-                            break;
-                        case TurretDir.Left:
-                            transform.eulerAngles = new Vector3(0f, -180, 0f);
-
-                            break;
-                        case TurretDir.Right:
-                            transform.eulerAngles = new Vector3(0f, 0, 0f);
-
-                            break;
-                        case TurretDir.Upleft:
-                            transform.eulerAngles = new Vector3(0f, -132, 0f);
-
-                            break;
-                        case TurretDir.UpRight:
-                            transform.eulerAngles = new Vector3(0f, -45, 0f);
-
-                            break;
-                        case TurretDir.Downleft:
-                            transform.eulerAngles = new Vector3(0f, 132, 0f);
-
-                            break;
-                        case TurretDir.DownRight:
-                            transform.eulerAngles = new Vector3(0f, 45, 0f);
-
-                            break;
-                        case TurretDir.not:
-                            break;
-                        default:
-                            break;
-                    }
-
-                    #endregion
-
-                    //transform.eulerAngles = new Vector3(0f, (Mathf.Atan2(Dir1V + Dir2V, Dir1H + Dir2H) * 180 / Mathf.PI), 0f);
-                    sett = true;
-                }
-                else
-                {
-
-                  //  transform.localEulerAngles = transform.localEulerAngles;
-                    turdir = TurretDir.not;
-                    sett = false;
-                }
-                
-
-
+            if (inrage.Contains(other.GetComponent<hit>()))
+            {
+                return;
 
             }
+            else
+            {
+                inrage.Add(other.gameObject.GetComponent<hit>());
+
+            }
+
         }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<hit>())
+        {
+            inrage.Remove(other.gameObject.GetComponent<hit>());
         }
+    }
+
+    //IEnumerator Range()
+    //{
+    //    sett = true;
+    //    yield return new WaitForSeconds(1);
+    //    sett = false;
+    //}
     IEnumerator P1swing()
     {
         //p1set = true;
         p1set = true;
-
+        p1done = false;
         yield return new WaitForSeconds(.1f);
-        Debug.Log("done");
         p1set = false;
+        p1done = true;
 
     }
     IEnumerator P2swing()
     {
         p2set = true;
-
+        p2done = false;
         yield return new WaitForSeconds(.1f);
         //    p2set = true;
-        Debug.Log("done");
         p2set = false;
+        p2done = true;
     }
 
 }

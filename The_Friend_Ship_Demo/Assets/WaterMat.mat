@@ -129,7 +129,7 @@ Material:
     - _Transparency: 0.65
     - _Treshold: 0
     - _UVSec: 0
-    - _WaterSpeed: 0.1
+    - _WaterSpeed: 0.05
     - _WaveBrightness: 1.1
     - _ZWrite: 1
     - _min: 0

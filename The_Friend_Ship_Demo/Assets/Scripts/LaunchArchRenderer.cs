@@ -99,9 +99,9 @@ public class LaunchArchRenderer : MonoBehaviour
                     {
                         angle = 1;
                     }
-                    if (Velocity > 15)
+                    if (Velocity > 10)
                     {
-                        Velocity = 15;
+                        Velocity = 10;
 
                     }
                     if (angle > maxang)

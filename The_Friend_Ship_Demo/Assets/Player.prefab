@@ -47,7 +47,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2354370249851884026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -148,10 +148,8 @@ MonoBehaviour:
   slotnums_P: 0
   currentslot: {fileID: 5622982248611682233, guid: c10a7f966976e0446a8a84c0e28c43d9,
     type: 3}
-  Personal_Slots: []
-  Container: {fileID: 0}
+  Keyitem: {fileID: 0}
   KIContainer: {fileID: 0}
-  Selector: {fileID: 0}
   isyourturn: 0
   TriggerItem: {fileID: 0}
 --- !u!114 &2431174051849577159
@@ -170,14 +168,10 @@ MonoBehaviour:
   DirV: 0
   playernumref: 0
   Player: {fileID: 0}
-  rocketPrefab: {fileID: 3714032846625216265, guid: dddece795118a1a489b72a453a139cbd,
-    type: 3}
-  Slot: {fileID: 0}
   dirTotal: 0
+  Sett: 0
   Ready: 0
   IReady: 0
-  launchMulti: 2000
-  uplaunchMulti: 50
   invt: {fileID: 0}
   Dir: {x: 0, y: 0, z: 0}
   Yvect: 0

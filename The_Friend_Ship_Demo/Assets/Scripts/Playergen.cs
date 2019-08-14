@@ -191,13 +191,13 @@ public class Playergen : MonoBehaviour
 
                    
                 }
-                if ((Input.GetButtonUp("MenuUP" + playernum.ToString()) && direction == (int)UIMana.playernums) || (Input.GetButtonUp("MenuUP" + playernum.ToString()) && UIMana.storeisopen))
+                if ((Input.GetButtonUp("MenuUP" + playernum.ToString()) && direction != (int)UIMana.playernums) || (Input.GetButtonUp("MenuUP" + playernum.ToString()) && UIMana.storeisopen))
                 {
                     UIMana.currentselected++;
                     UIMana.Updateinvmenu();
 
                 }
-                if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && direction == (int)UIMana.playernums || (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && UIMana.storeisopen))
+                if ((Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && direction != (int)UIMana.playernums) || (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && UIMana.storeisopen))
                 {
                     UIMana.currentselected--;
                     UIMana.Updateinvmenu();

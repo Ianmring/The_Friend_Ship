@@ -156,7 +156,7 @@ public class uimanager : MonoBehaviour
             //  EventSystem.current.SetSelectedGameObject(null);
         }
 
-        if (isopen)
+        if (isopen || DiolaugeManager.DioInstance.indio)
         {
             movement.MovInstance.altoveride = true;
         }
@@ -238,11 +238,22 @@ public class uimanager : MonoBehaviour
     }
     public void UpdateMenuCont(int playnum)
     {
+
         if (menuisopen && !storeisopen)
         {
-            input.horizontalAxis = "Horizontal_P" + playnum.ToString() + "_M";
-            input.verticalAxis = "Vertical_P" + playnum.ToString() + "_M";
+            if (playnum == 1)
+            {
+            input.horizontalAxis = "Horizontal_P2_M";
+            input.verticalAxis = "Vertical_P2_M";
             input.submitButton = "Submit" + playnum.ToString();
+            }
+            else if (playnum == 2)
+            {
+                input.horizontalAxis = "Horizontal_P1_M";
+                input.verticalAxis = "Vertical_P1_M";
+                input.submitButton = "Submit" + playnum.ToString();
+            }
+            
         }
         else if (storeisopen && !menuisopen)
         {

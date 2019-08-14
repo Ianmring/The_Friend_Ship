@@ -37,27 +37,33 @@ public class movement : MonoBehaviour {
 
     public enum Turning { Clockwise, AniClockwise, Not };
 
- 
+    public enum Directions { up, upleft, left, downleft, down, downright, right, upright}
+
+    public int direction;
 
     Moving moving;
     Turning turning;
- 
+   public Directions Dir;
 
     public Slider[] Slides;
 
     public RectTransform directC;
 
     public GameObject[] Handels;
+
+    public Sprite[] imagedir;
+
     //public RectTransform directL;
     playerselect playa;
 
-     float zroto;
+    public float zroto;
 
     public launcher P1F;
     public launcher P2F;
 
   public  MainLauncher ML;
 
+  public  SpriteRenderer spit;
     float mag;
 
     public bool move= true;
@@ -65,6 +71,8 @@ public class movement : MonoBehaviour {
     public bool PlayersSet;
 
     public bool altoveride;
+
+    bool t1;
     void Start () {
 
         move = true;
@@ -72,8 +80,9 @@ public class movement : MonoBehaviour {
         rig = GetComponent<Rigidbody>();
         moving = Moving.Not;
         turning = Turning.Not;
-     
-  
+        checkDirection();
+        spit = GetComponentInChildren<SpriteRenderer>();
+            
     }
 
     // Update is called once per frame
@@ -166,7 +175,6 @@ public class movement : MonoBehaviour {
         if (directions[0] > 0 && directions[1] < 0)
         {
             turning = Turning.Clockwise;
-
             StartCoroutine("TurnClockwise");
 
 
@@ -242,31 +250,93 @@ public class movement : MonoBehaviour {
                 break;
 
             case Turning.Not:
+                t1 = true;
                 StopAllCoroutines();
 
                 break;
             default:
+         
+
                 break;
         }
 
 
     }
+  public void checkDirection()
+    {
+        if (direction < 0)
+        {
+            direction = 7;
+        }
+        else if (direction > 7)
+        {
+            direction = 0;
+        }
 
+        spit.GetComponent<Transform>().eulerAngles = new Vector3(40,0,0);
+        spit.sprite = imagedir[direction];
+
+        switch (direction)
+        {
+            case 0:
+                Dir = Directions.up;              
+                break;
+            case 1:
+                Dir = Directions.upright;
+                break;
+            case 2:
+                Dir = Directions.right;
+                break;
+            case 3:
+                Dir = Directions.downright;
+                break;
+            case 4:
+                Dir = Directions.down;
+                break;
+            case 5:
+                Dir = Directions.downleft;
+                break;
+            case 6:
+                Dir = Directions.left;
+                break;
+            case 7:
+                Dir = Directions.upleft;
+                break;
+          
+        }
+    }
     IEnumerator TurnClockwise()
     {
-
-        yield return new WaitForSeconds(.2f);
+        if (t1)
+        {
+            transform.Rotate(Vector3.up, 45);
+            direction++;
+            checkDirection();
+            t1 = false;
+        }
+        yield return new WaitForSeconds(turnspeed);
 
         transform.Rotate(Vector3.up, 45);
+        direction++;
+        checkDirection();
 
         StopCoroutine("TurnClockwise");
     }
     IEnumerator TurnAntiClockwise()
     {
+        if (t1)
+        {
+            transform.Rotate(Vector3.up, -45);
+            direction--;
+            checkDirection();
 
-        yield return new WaitForSeconds(.2f);
+            t1 = false;
+        }
+        yield return new WaitForSeconds(turnspeed);
 
         transform.Rotate(Vector3.up, -45);
+        direction--;
+        checkDirection();
 
         StopCoroutine("TurnAntiClockwise");
     }
