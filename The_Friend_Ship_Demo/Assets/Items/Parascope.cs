@@ -68,7 +68,7 @@ public class Parascope : MonoBehaviour
             //   mov.altoveride = true;
 
 
-                cam.Overide = true;
+
 
             if (launch.DirH > 0)
             {
@@ -87,7 +87,6 @@ public class Parascope : MonoBehaviour
                 //  mov.move = true;
              //   mov.altoveride = false;
 
-                cam.Overide = false;
             }
    //     }
 

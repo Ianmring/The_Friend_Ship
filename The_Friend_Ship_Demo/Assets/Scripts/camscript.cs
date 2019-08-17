@@ -16,7 +16,6 @@ public class camscript : MonoBehaviour {
 
     public bool iso; 
 
-    public bool Overide;
 
     
     //public Quaternion offsetangel;
@@ -29,16 +28,20 @@ public class camscript : MonoBehaviour {
 	void FixedUpdate () {
 
 
-       
+        if (iso)
+        {
             cam.orthographic = true;
             cam.nearClipPlane = -100;
             transform.position = character.transform.position + offsetI;
-
-        if (!Overide)
-        {
-            transform.localEulerAngles = AngleI;
-
         }
+        else
+        {
+            cam.orthographic = false;
+           // cam.nearClipPlane = -100;
+            transform.position = character.transform.position + offset;
+        }
+            
+
     
 
 

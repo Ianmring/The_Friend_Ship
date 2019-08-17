@@ -86,7 +86,7 @@ public class MainLauncher : MonoBehaviour
        
             if (p1set && p2set && !p1done && !p2done)
             {
-              //  StartCoroutine("Range");
+                Debug.Log("Hit");
                 foreach (var obj in inrage)
                 {
                     obj.interact();
