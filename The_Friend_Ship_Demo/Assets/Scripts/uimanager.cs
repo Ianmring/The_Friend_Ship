@@ -241,18 +241,12 @@ public class uimanager : MonoBehaviour
 
         if (menuisopen && !storeisopen)
         {
-            if (playnum == 1)
-            {
-            input.horizontalAxis = "Horizontal_P2_M";
-            input.verticalAxis = "Vertical_P2_M";
-            input.submitButton = "Submit" + playnum.ToString();
-            }
-            else if (playnum == 2)
-            {
-                input.horizontalAxis = "Horizontal_P1_M";
-                input.verticalAxis = "Vertical_P1_M";
-                input.submitButton = "Submit" + playnum.ToString();
-            }
+           
+            input.horizontalAxis = "Horizontal_P"+ playnum+"_M";
+            input.verticalAxis = "Vertical_P"+playnum+"_M";
+                input.submitButton = "Submit" + playnum;
+            
+   
             
         }
         else if (storeisopen && !menuisopen)
