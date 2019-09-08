@@ -40,20 +40,7 @@ public class gameman : MonoBehaviour {
   
     
     // Update is called once per frame
-    void Update () {
-
-
-        //if (Input.GetButton("Submit1") || (Input.GetButton("Submit2")) || Input.GetKey(KeyCode.Return))
-        //{
-        //    Hold.SetActive(false);
-        //}
-       
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Application.LoadLevel(Application.loadedLevel);
-        }
-    }
+    
 
   
   

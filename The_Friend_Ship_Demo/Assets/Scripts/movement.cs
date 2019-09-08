@@ -41,9 +41,9 @@ public class movement : MonoBehaviour {
 
     public int direction;
 
-    Moving moving;
-    Turning turning;
-   public Directions Dir;
+   public Moving moving { get; set; }
+   public Turning turning { get; set; }
+    public Directions Dir;
 
     public Slider[] Slides;
 
