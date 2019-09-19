@@ -15,9 +15,9 @@ public class Misson_Manager : MonoBehaviour
     // Start is called before the first frame update
     public MissionBeat Current_Beat;
 
-    public MissionBeat Next_Beat;
+ //   public MissionBeat Next_Beat;
 
-    bool collectprize;
+  public  bool collectprize { get; set; }
 
     public string endobj;
     // Update is called once per frame
@@ -29,20 +29,20 @@ public class Misson_Manager : MonoBehaviour
             beat.mana = this;
         }
 
-        Current_Beat = Beat[0];
+      //  Current_Beat = Beat[0];
         StartNPC = GetComponent<NPC>();
     }
 
     public void NextBeat()
     {
-        if (Beat[currentbeat].isdone == true && StartNPC.missionstated && !collectprize)
+        if ( StartNPC.missionstated && !collectprize)
         {
-            Current_Beat = Beat[currentbeat];
+          //  Current_Beat = Beat[currentbeat];
             currentbeat++;
 
             if (currentbeat >= Beat.Length - 1)
             {
-                Next_Beat = Beat[currentbeat];
+                //Next_Beat = Beat[currentbeat];
                 collectprize = true;
                 Beat[currentbeat].Task = endobj;
                 FindObjectOfType<MissionOrgonizer>().UpdateMissionComp();
@@ -52,7 +52,7 @@ public class Misson_Manager : MonoBehaviour
             {
                 FindObjectOfType<MissionOrgonizer>().UpdateMissionComp();
 
-                Next_Beat = Beat[currentbeat];
+              //  Next_Beat = Beat[currentbeat];
 
                 return;
             }

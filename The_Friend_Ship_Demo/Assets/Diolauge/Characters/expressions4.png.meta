@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 38158809eb4a45145be80deb2acead6c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5296285216065901769
+    second: expressions4_0
+  - first:
+      213: 5945842502553073021
+    second: expressions4_1
+  - first:
+      213: -8662575650461795548
+    second: expressions4_2
+  - first:
+      213: -1227630763711557277
+    second: expressions4_3
+  - first:
+      213: -8663688820453145544
+    second: expressions4_4
+  - first:
+      213: -5633206617687918628
+    second: expressions4_5
+  - first:
+      213: 82035344488053633
+    second: expressions4_6
+  - first:
+      213: 2738602336216010269
+    second: expressions4_7
+  - first:
+      213: 7601428557298514816
+    second: expressions4_8
+  - first:
+      213: -3278191534716587852
+    second: expressions4_9
+  - first:
+      213: 8389510877313752233
+    second: expressions4_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,11 +137,179 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: expressions4_0
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1010
+        width: 772
+        height: 852
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453e45015b926394cb30fabb0c193b49
+      internalID: 5296285216065901769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_1
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1035
+        width: 759
+        height: 805
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ee7e1e32095944e9740e85573b63cd
+      internalID: 5945842502553073021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_2
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 997
+        width: 772
+        height: 865
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949635f5e5a2ee743800ff8e2fe25941
+      internalID: -8662575650461795548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_4
+      rect:
+        serializedVersion: 2
+        x: 2658
+        y: 990
+        width: 772
+        height: 833
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a2fcc8557b69d49b1dd240d9c34f03
+      internalID: -8663688820453145544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_6
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 159
+        width: 771
+        height: 811
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf6f8fd523be2845abd2d62e734d23b
+      internalID: 82035344488053633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_7
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 136
+        width: 772
+        height: 835
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a751d9f32bda6214ea16d8d0b7908c31
+      internalID: 2738602336216010269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_8
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 136
+        width: 772
+        height: 854
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0e68435a0aa8b40a09b1736a6dd4dc
+      internalID: 7601428557298514816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: expressions4_10
+      rect:
+        serializedVersion: 2
+        x: 2642
+        y: 136
+        width: 772
+        height: 854
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd34d3fa21dc9f847b7c9dbf653451a5
+      internalID: 8389510877313752233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 10f281cc1dccf154c991759488a4fbd5
     internalID: 0
     vertices: []
     indices: 

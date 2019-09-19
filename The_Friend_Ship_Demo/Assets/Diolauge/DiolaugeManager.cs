@@ -77,7 +77,7 @@ public class DiolaugeManager : MonoBehaviour
     }
     public void Update()
     {
-        if ((Input.GetButtonDown("Submit1") || (Input.GetButtonDown("Submit2") && indio)))
+        if ((Input.GetButtonDown("Submit")  && indio))
         {
             DisplayNextSentence();
         }
@@ -96,6 +96,8 @@ public class DiolaugeManager : MonoBehaviour
     {
         if (CurrentNPC != null)
         {
+            CurrentNPC.dio = true;
+            CurrentNPC.diointoer = false;
             if (CurrentNPC.npctype == NPC.NPCTYPE.NPC && CurrentNPC.missionDone && !CurrentNPC.missionclosed)
             {
                 CurrentNPC.Endmission();
@@ -105,12 +107,12 @@ public class DiolaugeManager : MonoBehaviour
                 CurrentNPC.StartAMission();
                
             }
-
             indio = false;
             //CurrentNPC = null;
             //currentDiolauge = null;
+               
             anim.SetTrigger("Close");
-
+        
         }
         //else
         //{

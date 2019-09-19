@@ -16,8 +16,8 @@ public class Interactable : MonoBehaviour
 
     public InteactionType Type;
 
-
-
+   public bool diointoer;
+    public bool dio;
     public void Start()
     {
 
@@ -25,18 +25,37 @@ public class Interactable : MonoBehaviour
         thiscol = this.GetComponent<SphereCollider>();
         thiscol.radius = radius;
         thiscol.center = inteactionpoint;
-
+        diointoer = false;
+        dio = true;
 
     }
     public virtual void Interact()
     {
+        Debug.Log("do");
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<movement>())
         {
-            Interact();
+           // intoer = true;
+            if (GetComponent<itempickup>())
+            {
+                Interact();
+
+            }
+            else
+            {
+                diointoer = true;
+            }
         }
+    }
+    public void Update()
+    {
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        diointoer = false;
     }
     private void OnDrawGizmosSelected()
     {

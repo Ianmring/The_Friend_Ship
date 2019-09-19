@@ -15,9 +15,10 @@ public class MissionBeat : MonoBehaviour
         isdone = false;
     }
 
-    public void FinishBeat()
+    public void Beat()
     {
-        isdone = true;
         mana.NextBeat();
+        isdone = true;
+
     }
 }

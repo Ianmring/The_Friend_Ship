@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: f173071702789c949ad5d5ebb690a49b
+guid: b9314e915ed052840a61ffceec83a112
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5364538173299595898
-    second: expressions Girl_0
+      213: 2416496416775699656
+    second: FriendshipAssets_0
   - first:
-      213: 713641089232570335
-    second: expressions Girl_1
+      213: 3619703140155919170
+    second: FriendshipAssets_1
   - first:
-      213: -7224600878373234856
-    second: expressions Girl_2
+      213: 5030961836286207952
+    second: FriendshipAssets_2
   - first:
-      213: -5031070043932176231
-    second: expressions Girl_3
+      213: 8227867916944934035
+    second: FriendshipAssets_3
   - first:
-      213: -6168487183984008952
-    second: expressions Girl_4
+      213: -2506287975169362575
+    second: FriendshipAssets_4
   - first:
-      213: -7420002254925412735
-    second: expressions Girl_5
+      213: -5910877360374961834
+    second: FriendshipAssets_5
   - first:
-      213: -3301709518675078928
-    second: expressions Girl_6
+      213: 8566430501052856512
+    second: FriendshipAssets_6
   - first:
-      213: -6054624191556815453
-    second: expressions Girl_7
+      213: 6264977240713850038
+    second: FriendshipAssets_7
+  - first:
+      213: -9059805958343505118
+    second: FriendshipAssets_8
+  - first:
+      213: -4319789433987314235
+    second: FriendshipAssets_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -66,10 +72,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,195 +110,173 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: expressions Girl_0
+      name: FriendshipAssets_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 1010
-        width: 624
-        height: 831
+        x: 370
+        y: 243
+        width: 112
+        height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 436bad65f34120447b64bf2a69edde2e
-      internalID: -5364538173299595898
+      spriteID: 6efda479010545b4fb41ce85ae5a8dea
+      internalID: 5030961836286207952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_1
+      name: FriendshipAssets_3
       rect:
         serializedVersion: 2
-        x: 884
-        y: 1037
-        width: 625
-        height: 804
+        x: 503
+        y: 277
+        width: 63
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec7db116e7ee7ba42a209378fb721ad0
-      internalID: 713641089232570335
+      spriteID: 491936ac597d62c458f947edf64e8fba
+      internalID: 8227867916944934035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_2
+      name: FriendshipAssets_4
       rect:
         serializedVersion: 2
-        x: 1609
-        y: 1003
-        width: 629
-        height: 838
+        x: 580
+        y: 11
+        width: 247
+        height: 569
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b12965b337be79547a81c2f065654697
-      internalID: -7224600878373234856
+      spriteID: 9623bd9c5e66e3f4d88345a82cc48c99
+      internalID: -2506287975169362575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_3
+      name: FriendshipAssets_5
       rect:
         serializedVersion: 2
-        x: 2322
-        y: 1003
-        width: 618
-        height: 838
+        x: 310
+        y: 169
+        width: 45
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb9763a0d992fd94498316c3dd4c5303
-      internalID: -5031070043932176231
+      spriteID: aa1c7e76d4c180c48a0568af92c7a414
+      internalID: -5910877360374961834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_4
+      name: FriendshipAssets_6
       rect:
         serializedVersion: 2
-        x: 84
-        y: 157
-        width: 651
-        height: 805
+        x: 478
+        y: 230
+        width: 68
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 587096d3befaff444ba5101895196d9d
-      internalID: -6168487183984008952
+      spriteID: 60267fd0b8549dd4794178974db01d00
+      internalID: 8566430501052856512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_5
+      name: FriendshipAssets_7
       rect:
         serializedVersion: 2
-        x: 902
-        y: 134
-        width: 690
-        height: 853
+        x: 385
+        y: 28
+        width: 30
+        height: 94
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5a43fe21ef0f7429776d56ef158931
-      internalID: -7420002254925412735
+      spriteID: 0e1df333c7dc4e04b84715bdbdba197d
+      internalID: 6264977240713850038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_6
+      name: FriendshipAssets_8
       rect:
         serializedVersion: 2
-        x: 1623
-        y: 134
-        width: 641
-        height: 856
+        x: 444
+        y: 96
+        width: 20
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64ad1d90a503fd842b04eb5cf20df348
-      internalID: -3301709518675078928
+      spriteID: db1bac09c50caa044aeaadf315363a13
+      internalID: -9059805958343505118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: expressions Girl_7
+      name: FriendshipAssets_9
       rect:
         serializedVersion: 2
-        x: 2348
-        y: 134
-        width: 641
-        height: 856
+        x: 494
+        y: 105
+        width: 10
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4cd3af95a9cb874bb3b71976d547868
-      internalID: -6054624191556815453
+      spriteID: 50b2b14791f0e1447929446d4467c59d
+      internalID: -4319789433987314235
       vertices: []
       indices: 
       edges: []
@@ -300,7 +284,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b705d88189f5f4246b2cad29bd1bfbfe
+    spriteID: 2a3fb155ba0abc845ae77896cb76aab8
     internalID: 0
     vertices: []
     indices: 

@@ -21,11 +21,11 @@ public class NPC : Interactable
     {
         if (this.enabled)
         {
-            NPCInteract(currentdiolauge); 
+            NPCInteract(currentdiolauge);
+            base.Interact();
 
         }
 
-        base.Interact();
     }
 
     public void Awake()
@@ -44,7 +44,21 @@ public class NPC : Interactable
     {
 
     }
+    private new void Update()
+    {
+        if (diointoer)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                if (dio)
+                {
+                    dio = false;
 
+                    Interact();
+                }
+            }
+        }
+    }
     public void StartAMission()
     {
         missionstated = true;
