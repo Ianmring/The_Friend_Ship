@@ -29,6 +29,9 @@ public class DiolaugeManager : MonoBehaviour
     NPC CurrentNPC;
 
    public bool indio;
+
+    bool p1;
+    bool p2;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,10 +80,24 @@ public class DiolaugeManager : MonoBehaviour
     }
     public void Update()
     {
-        if ((Input.GetButtonDown("Submit")  && indio))
+        if (indio)
         {
-            DisplayNextSentence();
+            if (Input.GetButtonDown("Submit1"))
+            {
+                p1 = true;
+            }
+            if (Input.GetButtonDown("Submit2"))
+            {
+                p2 = true;
+            }
+            if (p1 && p2 )
+            {
+                p1 = false;
+                p2 = false;
+                DisplayNextSentence();
+            }
         }
+       
     }
     IEnumerator TypeSentence(string sentence)
     {
@@ -108,6 +125,8 @@ public class DiolaugeManager : MonoBehaviour
                
             }
             indio = false;
+            p1 = false;
+            p2 = false;
             //CurrentNPC = null;
             //currentDiolauge = null;
                

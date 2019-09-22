@@ -17,6 +17,9 @@ public class NPC : Interactable
     public bool missionDone;
     public bool missionclosed;
 
+
+    bool p1;
+    bool p2;
     public override void Interact()
     {
         if (this.enabled)
@@ -48,12 +51,21 @@ public class NPC : Interactable
     {
         if (diointoer)
         {
-            if (Input.GetButtonDown("Submit"))
+            if (Input.GetButtonDown("Submit1")&& dio)
+            {
+                p1 = true;
+            }
+            if (Input.GetButtonDown("Submit2")&& dio)
+            {
+                p2 = true;
+            }
+            if (p1 && p2)
             {
                 if (dio)
                 {
                     dio = false;
-
+                    p1 = false;
+                    p2 = false;
                     Interact();
                 }
             }

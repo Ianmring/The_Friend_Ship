@@ -7,6 +7,8 @@ public class TriggerBeat : MonoBehaviour
     // Start is called before the first frame update
 
     bool isready;
+    bool p1;
+    bool p2;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<movement>())
@@ -17,17 +19,29 @@ public class TriggerBeat : MonoBehaviour
     }
     private void Update()
     {
-       
-            if (Input.GetButtonDown("Submit") )
+        if (isready)
+        {
+            if (Input.GetButtonDown("Submit1"))
             {
-                if (!GetComponent<MissionBeat>().isdone && isready && !GetComponent<MissionBeat>().mana.collectprize)
+                p1 = true;
+
+            }
+            if (Input.GetButtonDown("Submit2"))
+            {
+                p2 = true;
+            }
+            if (p1 && p2)
+            {
+                if (!GetComponent<MissionBeat>().isdone && !GetComponent<MissionBeat>().mana.collectprize)
                 {
                     this.gameObject.GetComponent<MissionBeat>().Beat();
                     Destroy(this);
                 }
-               
+
                 //Destroy(this);
             }
+        }
+       
         
     }
 
