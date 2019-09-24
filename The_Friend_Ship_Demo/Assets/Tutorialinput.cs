@@ -21,7 +21,7 @@ public class Tutorialinput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!end) { 
+       
         switch (mov.moving)
         {
             case movement.Moving.Forwad:
@@ -84,7 +84,7 @@ public class Tutorialinput : MonoBehaviour
                     break;
 
             }
-        }
+        
 
         if (set[0] && set[1] && set[2] && set[3] && mov.moving == movement.Moving.Not && mov.turning == movement.Turning.Not)
         {
