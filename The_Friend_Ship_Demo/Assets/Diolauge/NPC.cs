@@ -1,6 +1,6 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 public class NPC : Interactable
 {
 
@@ -20,6 +20,12 @@ public class NPC : Interactable
 
     bool p1;
     bool p2;
+
+    public SpriteRenderer Button1;
+    public SpriteRenderer Button2;
+
+    int p1I;
+    int p2I;
     public override void Interact()
     {
         if (this.enabled)
@@ -51,24 +57,42 @@ public class NPC : Interactable
     {
         if (diointoer)
         {
-            if (Input.GetButtonDown("Submit1")&& dio)
+            Button1.gameObject.SetActive(true);
+            Button2.gameObject.SetActive(true);
+            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())&& dio)
             {
                 p1 = true;
+                Button1.color = Color.green;
             }
-            if (Input.GetButtonDown("Submit2")&& dio)
+            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString()) && dio)
             {
                 p2 = true;
+                Button2.color = Color.green;
+
             }
+
             if (p1 && p2)
             {
+
                 if (dio)
                 {
+              
+              
+
                     dio = false;
                     p1 = false;
                     p2 = false;
+
                     Interact();
                 }
             }
+        }
+        else
+        {
+            Button1.color = Color.yellow;
+            Button2.color = Color.yellow;
+            Button1.gameObject.SetActive(false);
+            Button2.gameObject.SetActive(false);
         }
     }
     public void StartAMission()

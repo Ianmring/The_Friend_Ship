@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMat
-  m_Shader: {fileID: 4800000, guid: fb0d85da34f945c49a24c1e29bb85bbd, type: 3}
+  m_Name: Quest
+  m_Shader: {fileID: 4800000, guid: c45bf07080f40a449a17a61457ccde7d, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 3
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,13 +19,13 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BarTexture:
+        m_Texture: {fileID: 2800000, guid: dbb4ac852cd5cc5469224eae3881c24f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CausticPattern:
-        m_Texture: {fileID: 2800000, guid: 8aaa18f3fe53a434498630ce125718e5, type: 3}
-        m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -37,10 +37,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DistortionClouds:
-        m_Texture: {fileID: 2800000, guid: 5a9db5f1cb473584f9892e86a5d00c05, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -63,82 +59,64 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _WaterColor:
-        m_Texture: {fileID: 2800000, guid: d669184718888c5419faaabdabae603c, type: 3}
-        m_Scale: {x: 2, y: 2}
-        m_Offset: {x: 0, y: 0}
-    - _node_3415:
-        m_Texture: {fileID: 2800000, guid: 8aaa18f3fe53a434498630ce125718e5, type: 3}
+    - _RadialMask:
+        m_Texture: {fileID: 2800000, guid: caf8afb07096bdb4187e23f58268e67e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_3415_copy:
-        m_Texture: {fileID: 2800000, guid: d669184718888c5419faaabdabae603c, type: 3}
+    - _UVFlowMap:
+        m_Texture: {fileID: 2800000, guid: 5f6f046c940707d41ace13f7a1065790, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_4554:
-        m_Texture: {fileID: 2800000, guid: 8aaa18f3fe53a434498630ce125718e5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _node_6178:
+    - _node_1687:
         m_Texture: {fileID: 2800000, guid: d669184718888c5419faaabdabae603c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_6499:
-        m_Texture: {fileID: 2800000, guid: d669184718888c5419faaabdabae603c, type: 3}
+    - _node_3352:
+        m_Texture: {fileID: 2800000, guid: 75b5de75ff82a42479f42918f5ffe10d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_8517:
-        m_Texture: {fileID: 2800000, guid: 5a9db5f1cb473584f9892e86a5d00c05, type: 3}
+    - _node_3612:
+        m_Texture: {fileID: 2800000, guid: 6c34cf2cb7cece74596b18a750c060c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_8517_copy:
-        m_Texture: {fileID: 2800000, guid: 5a9db5f1cb473584f9892e86a5d00c05, type: 3}
+    - _node_5540:
+        m_Texture: {fileID: 2800000, guid: 6d6573a3310170e4cb1ed4105a13c7e3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_939:
-        m_Texture: {fileID: 2800000, guid: 54b28ffc72981634e86d424bc91b7271, type: 3}
+    - _node_5722:
+        m_Texture: {fileID: 2800000, guid: 45ebf3c069ce6e44bbaae67c5e449217, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _node_9866:
-        m_Texture: {fileID: 2800000, guid: 5a9db5f1cb473584f9892e86a5d00c05, type: 3}
+    - _node_6768:
+        m_Texture: {fileID: 2800000, guid: b819e8b3dcffd92409b18a2627d7983d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_9918:
+        m_Texture: {fileID: 2800000, guid: 3f081306e9030714b9aecde5bb09c80b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Brightness: 0.8
     - _BumpScale: 1
-    - _ClampThing: 20
     - _Cutoff: 0.5
-    - _D_Flow_Speed: 0.2
-    - _D_Flow_Speed_Panning: 0.5
     - _DetailNormalMapScale: 1
-    - _Distortion: 0.02
-    - _DistortionPanning: 0
-    - _DistortionSpeed: -0.01
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Max: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Opacity: 0
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpinSpeed: -5
     - _SrcBlend: 1
-    - _Transparency: 0.65
-    - _Treshold: 0
     - _UVSec: 0
-    - _WaterSpeed: 0.02
-    - _WaveBrightness: 1.1
     - _ZWrite: 1
-    - _min: 0
-    - _node_1010: 0.8
-    - _node_1330: 0.1
-    - _node_1438: 0
-    - _node_8095: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorAdjust: {r: 0.9056604, g: 0.7941617, b: 0.5339979, a: 1}
+    - _Color: {r: 0.29013354, g: 1, b: 0.25, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _node_507: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    - _node_2428: {r: 0.5506853, g: 0.84903157, b: 0.9339623, a: 1}
+    - _node_4868: {r: 0, g: 0.4512007, b: 0.6039216, a: 1}
+    - _node_8070: {r: 0.5, g: 0.5, b: 0.5, a: 1}

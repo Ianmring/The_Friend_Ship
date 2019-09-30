@@ -9,9 +9,13 @@ public class TriggerBeat : MonoBehaviour
     bool isready;
     bool p1;
     bool p2;
+
+    public SpriteRenderer p1I;
+    public SpriteRenderer p2I;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<movement>())
+        if (other.gameObject.GetComponent<movement>() && GetComponent<MissionBeat>().mana.currentbeat !=0)
         {
             isready = true;
 
@@ -21,34 +25,52 @@ public class TriggerBeat : MonoBehaviour
     {
         if (isready)
         {
-            if (Input.GetButtonDown("Submit1"))
+            p1I.gameObject.SetActive(true);
+            p2I.gameObject.SetActive(true);
+            if ((Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())))
             {
                 p1 = true;
-
+                p1I.color = Color.green;
             }
-            if (Input.GetButtonDown("Submit2"))
+            if ((Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())))
             {
                 p2 = true;
+                p2I.color = Color.green;
+
             }
             if (p1 && p2)
             {
                 if (!GetComponent<MissionBeat>().isdone && !GetComponent<MissionBeat>().mana.collectprize)
                 {
                     this.gameObject.GetComponent<MissionBeat>().Beat();
-                    Destroy(this);
+                    StartCoroutine("Timecolor");
+
+                 
                 }
 
-                //Destroy(this);
             }
+        }
+        else
+        {
+            p1I.gameObject.SetActive(false);
+            p2I.gameObject.SetActive(false);
         }
        
         
     }
+    IEnumerator Timecolor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.GetComponentInChildren<Renderer>().material.color = Color.green;
+        Destroy(p1I);
+        Destroy(p2I);
 
+        Destroy(this.GetComponentInChildren<Renderer>().gameObject);
+    }
     private void OnTriggerExit(Collider other)
     {
-        
-            isready = false;
+
+        isready = false;
 
         
     }

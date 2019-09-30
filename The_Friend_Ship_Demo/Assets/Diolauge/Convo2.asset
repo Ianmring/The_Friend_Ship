@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   Sentences:
-  - What are you doing talking to me?
-  - Get back out there and find my stuff!
+  - Have you found a good spot?
+  - You Better Hurry!
   Character_in_Conversation:
-  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
-  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
-  currentexpressions: 0300000004000000
+  - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
+  - {fileID: 11400000, guid: c176c4828fa93a840885af8ce4514049, type: 2}
+  currentexpressions: 0000000000000000

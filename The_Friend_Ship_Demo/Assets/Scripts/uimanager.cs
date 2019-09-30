@@ -29,7 +29,7 @@ public class uimanager : MonoBehaviour
 
     public bool[] playersready;
 
-    StandaloneInputModule input;
+   public StandaloneInputModule Input { get; set; }
     EventSystem events;
 
     public bool isopen;
@@ -53,7 +53,7 @@ public class uimanager : MonoBehaviour
         playernums = Players.noone;
         int slotnums;
 
-        input = GetComponent<StandaloneInputModule>();
+        Input = GetComponent<StandaloneInputModule>();
         events = GetComponent<EventSystem>();
         slotnums = Canvase.transform.childCount;
 
@@ -127,7 +127,7 @@ public class uimanager : MonoBehaviour
 
     private void Update()
     {
-
+      
         if (playersready[0] && playersready[1])
         {
             playernums = Players.noone;
@@ -149,8 +149,8 @@ public class uimanager : MonoBehaviour
             storeisopen = false;
             P1.GetComponent<inventorygeneral>().isyourturn = false;
             P2.GetComponent<inventorygeneral>().isyourturn = false;
-            P1.GetComponent<inventorygeneral>().Handoff();
-            P2.GetComponent<inventorygeneral>().Handoff();
+       //     P1.GetComponent<inventorygeneral>().Handoff();
+           //P2.GetComponent<inventorygeneral>().Handoff();
             playersready[0] = false;
             playersready[1] = false;
             //  EventSystem.current.SetSelectedGameObject(null);
@@ -180,39 +180,41 @@ public class uimanager : MonoBehaviour
         Menus[3].SetActive(false);
         Menus[4].SetActive(false);
        // Triggerupdate();
-        UpdateMenuCont(0);
+        UpdateMenuCont();
         Updateinvmenu();
         EventSystem.current.SetSelectedGameObject(Storebuttons[0]);
 
     }
-    public void Triggerupdate() {
-        switch (playernums)
-        {
-            case Players.player1:
-                Menus[3].SetActive(true);
-                Menus[4].SetActive(false);
+   
+    //public void Triggerupdate()
+    //{
+    //    switch (playernums)
+    //    {
+    //        case Players.player1:
+    //            Menus[3].SetActive(true);
+    //            Menus[4].SetActive(false);
 
-                P1.GetComponent<inventorygeneral>().isyourturn = true;
-                P2.GetComponent<inventorygeneral>().isyourturn = false;
-                P1.GetComponent<inventorygeneral>().Handoff();
-                P2.GetComponent<inventorygeneral>().Handoff();
+    //            P1.GetComponent<inventorygeneral>().isyourturn = true;
+    //            P2.GetComponent<inventorygeneral>().isyourturn = false;
+    //            P1.GetComponent<inventorygeneral>().Handoff();
+    //            P2.GetComponent<inventorygeneral>().Handoff();
 
-                break;
-            case Players.player2:
-                Menus[3].SetActive(false);
-                Menus[4].SetActive(true);
+    //            break;
+    //        case Players.player2:
+    //            Menus[3].SetActive(false);
+    //            Menus[4].SetActive(true);
 
-                P1.GetComponent<inventorygeneral>().isyourturn = false;
-                P2.GetComponent<inventorygeneral>().isyourturn = true;
-                P1.GetComponent<inventorygeneral>().Handoff();
-                P2.GetComponent<inventorygeneral>().Handoff();
-                break;
-
-        
-        }
+    //            P1.GetComponent<inventorygeneral>().isyourturn = false;
+    //            P2.GetComponent<inventorygeneral>().isyourturn = true;
+    //            P1.GetComponent<inventorygeneral>().Handoff();
+    //            P2.GetComponent<inventorygeneral>().Handoff();
+    //            break;
 
 
-    }
+    //    }
+
+
+    //}
    
     public void setslotint(int newslot)
     {
@@ -236,26 +238,26 @@ public class uimanager : MonoBehaviour
         }
         Storemenus[newslot].SetActive(true);
     }
-    public void UpdateMenuCont(int playnum)
+    public void UpdateMenuCont()
     {
 
-        if (menuisopen && !storeisopen)
-        {
+        //if (menuisopen && !storeisopen)
+        //{
            
-            input.horizontalAxis = "Horizontal_P"+ playnum+"_M";
-            input.verticalAxis = "Vertical_P"+playnum+"_M";
-                input.submitButton = "Submit" + playnum;
+        //    input.horizontalAxis = "Horizontal_P"+ playnum+"_M";
+        //    input.verticalAxis = "Vertical_P"+playnum+"_M";
+        //        input.submitButton = "Submit" + playnum;
             
    
             
-        }
-        else if (storeisopen && !menuisopen)
-        {
-            input.horizontalAxis = "Horizontal_M";
-            input.verticalAxis = "Vertical_M";
-            input.submitButton = "Submit";
+        //}
+        //else if (storeisopen && !menuisopen)
+        //{
+            Input.horizontalAxis = "Horizontal_M";
+            Input.verticalAxis = "Vertical_M";
+       
 
-        }
+       // }
 
 
     }

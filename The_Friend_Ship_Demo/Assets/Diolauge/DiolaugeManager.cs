@@ -22,6 +22,8 @@ public class DiolaugeManager : MonoBehaviour
 
     public Image expression;
     Diolauge currentDiolauge;
+    public Image PB1;
+    public Image PB2;
 
     //  int mood;
     int currentconvopoint;
@@ -32,6 +34,9 @@ public class DiolaugeManager : MonoBehaviour
 
     bool p1;
     bool p2;
+
+    [SerializeField] public int p1I { get; set; }
+   [SerializeField] public int p2I { get; set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +61,8 @@ public class DiolaugeManager : MonoBehaviour
         {
             Sentences.Enqueue(Sentence);
         }
-
+        PB1.color = Color.yellow;
+        PB2.color = Color.yellow;
         DisplayNextSentence();
     }
 
@@ -76,22 +82,29 @@ public class DiolaugeManager : MonoBehaviour
 
 
         StopAllCoroutines();
+        StartCoroutine("Timecolor");
+
         StartCoroutine(TypeSentence(sentence));
     }
     public void Update()
     {
         if (indio)
         {
-            if (Input.GetButtonDown("Submit1"))
+            if (Input.GetButtonDown("Submit" + p1I.ToString()))
             {
                 p1 = true;
+                PB1.color = Color.green;
+
             }
-            if (Input.GetButtonDown("Submit2"))
+            if (Input.GetButtonDown("Submit" + p2I.ToString()))
             {
                 p2 = true;
+                PB2.color = Color.green;
+
             }
             if (p1 && p2 )
             {
+
                 p1 = false;
                 p2 = false;
                 DisplayNextSentence();
@@ -108,7 +121,12 @@ public class DiolaugeManager : MonoBehaviour
             yield return new WaitForSeconds(0.03f);
         }
     }
-
+    IEnumerator Timecolor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PB1.color = Color.yellow;
+        PB2.color = Color.yellow;
+    }
     void EndDiolauge()
     {
         if (CurrentNPC != null)
@@ -131,7 +149,7 @@ public class DiolaugeManager : MonoBehaviour
             //currentDiolauge = null;
                
             anim.SetTrigger("Close");
-        
+           
         }
         //else
         //{
@@ -142,4 +160,7 @@ public class DiolaugeManager : MonoBehaviour
 
 
     }
-}
+
+
+
+    }

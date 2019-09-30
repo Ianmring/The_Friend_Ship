@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   Sentences:
-  - Now SCRAM!!
+  - Again, thank you so much!
   Character_in_Conversation:
-  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
-  currentexpressions: 04000000
+  - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
+  currentexpressions: 00000000

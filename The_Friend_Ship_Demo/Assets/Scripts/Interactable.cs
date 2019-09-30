@@ -1,7 +1,6 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-
 [RequireComponent(typeof(SphereCollider))]
 
 public class Interactable : MonoBehaviour
@@ -18,6 +17,7 @@ public class Interactable : MonoBehaviour
 
    public bool diointoer;
     public bool dio;
+
     public void Start()
     {
 
@@ -45,6 +45,7 @@ public class Interactable : MonoBehaviour
             }
             else
             {
+                
                 diointoer = true;
             }
         }
@@ -55,6 +56,7 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+
         diointoer = false;
     }
     private void OnDrawGizmosSelected()

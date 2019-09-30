@@ -25,12 +25,12 @@ MonoBehaviour:
   - 'Thanks? '
   - Oh you're welcome deer!
   - Actually could you help us out with something?
-  - Could you go around to the local beachs listen to radios around the area?
-  - 'We want good music to relax on the beach. '
-  - Sure, We can do that
-  - Great! we like to listen to ADULT CONTEMPORARY
-  - Sweetie, Why did you yell adult contemporary?
-  - I wanted to make sure they heard me
+  - Could you go check out the local beachs for us?
+  - We want to make sure they're safe for us to relax on.
+  - Sure, we can do that.
+  - Great! Thank you so much!
+  - It means alot to us!
+  - It really does!
   Character_in_Conversation:
   - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
   - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
@@ -45,4 +45,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c176c4828fa93a840885af8ce4514049, type: 2}
   - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
   - {fileID: 11400000, guid: c176c4828fa93a840885af8ce4514049, type: 2}
-  currentexpressions: 00000000000000000000000006000000030000000500000006000000000000000000000002000000000000000300000000000000
+  currentexpressions: 00000000000000000000000006000000030000000500000006000000000000000000000002000000000000000000000000000000

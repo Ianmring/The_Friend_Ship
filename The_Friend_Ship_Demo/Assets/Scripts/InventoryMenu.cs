@@ -73,7 +73,7 @@ public class InventoryMenu : MonoBehaviour
 
         slots[slots.Count-1].Addtiem(item);
 
-        uimanager.UIinstance.Triggerupdate();
+     //   uimanager.UIinstance.Triggerupdate();
 
 
 
@@ -88,7 +88,7 @@ public class InventoryMenu : MonoBehaviour
         Keyslots.Add(Keyslot.GetComponent<Inventoryslot>());
 
         Keyslots[Keyslots.Count - 1].Addtiem(item);
-        uimanager.UIinstance.Triggerupdate();
+       // uimanager.UIinstance.Triggerupdate();
 
        
     }
@@ -103,7 +103,7 @@ public class InventoryMenu : MonoBehaviour
         Oareslots.Add(Oareslot.GetComponent<Inventoryslot>());
 
         Oareslots[Oareslots.Count - 1].Addtiem(item);
-        uimanager.UIinstance.Triggerupdate();
+       // uimanager.UIinstance.Triggerupdate();
 
       
 
@@ -119,7 +119,7 @@ public class InventoryMenu : MonoBehaviour
         Hatlots.Add(Hatslot.GetComponent<Inventoryslot>());
 
         Hatlots[Hatlots.Count - 1].Addtiem(item);
-        uimanager.UIinstance.Triggerupdate();
+       // uimanager.UIinstance.Triggerupdate();
 
        
     }
@@ -133,7 +133,7 @@ public class InventoryMenu : MonoBehaviour
             if (Item.itemname == item.name)
             {
                 Item.itemcount += count;
-                uimanager.UIinstance.Triggerupdate();
+              //  uimanager.UIinstance.Triggerupdate();
 
             }
         }
@@ -146,7 +146,7 @@ public class InventoryMenu : MonoBehaviour
             if (Item.itemname == item.name)
             {
                 Item.itemcount += count;
-                uimanager.UIinstance.Triggerupdate();
+               // uimanager.UIinstance.Triggerupdate();
 
             }
         }
@@ -159,7 +159,7 @@ public class InventoryMenu : MonoBehaviour
             if (Item.itemname == item.name)
             {
                 Item.itemcount += count;
-                uimanager.UIinstance.Triggerupdate();
+             //   uimanager.UIinstance.Triggerupdate();
 
             }
         }
@@ -172,7 +172,7 @@ public class InventoryMenu : MonoBehaviour
             if (Item.itemname == item.name)
             {
                 Item.itemcount += count;
-                uimanager.UIinstance.Triggerupdate();
+              //  uimanager.UIinstance.Triggerupdate();
 
             }
         }

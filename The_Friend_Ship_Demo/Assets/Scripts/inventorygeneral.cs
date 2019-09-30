@@ -68,11 +68,11 @@ public class inventorygeneral : MonoBehaviour
         //}
 
 
-        if (Input.GetButtonUp("AddtoPslot"))
-        {
-            FindObjectOfType<uimanager>().Triggerupdate();
+        //if (Input.GetButtonUp("AddtoPslot"))
+        //{
+        //    FindObjectOfType<uimanager>().Triggerupdate();
 
-        }
+        //}
     }
 
    
@@ -120,65 +120,65 @@ public class inventorygeneral : MonoBehaviour
     //}
 
 
-    public void Handoff()
-    {
-      //Update_Slots();
+    //public void Handoff()
+    //{
+    //  //Update_Slots();
       
-            if (player.UIMana.isopen && isyourturn && player.UIMana.menuisopen)
-            {
+    //        if (player.UIMana.isopen && isyourturn && player.UIMana.menuisopen)
+    //        {
 
-            //foreach (var slot in Personal_Slots)
-            //{
-            //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
-            //    {
-            //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-            //    }
-            //    // Container.GetComponentInParent<GameObject>().SetActive(true);
-            //    slot.isinteract = true;
-            //    slot.ChangeActive();
-            //}
-            if (TriggerItem.KeyItem == null)
-            {
-                return;
-            }
-            else
-            {
-                TriggerItem.KeyItem.isinteract = true;
-                TriggerItem.KeyItem.ChangeActive();
-            }
+    //        //foreach (var slot in Personal_Slots)
+    //        //{
+    //        //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
+    //        //    {
+    //        //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
+    //        //    }
+    //        //    // Container.GetComponentInParent<GameObject>().SetActive(true);
+    //        //    slot.isinteract = true;
+    //        //    slot.ChangeActive();
+    //        //}
+    //        if (TriggerItem.KeyItem == null)
+    //        {
+    //            return;
+    //        }
+    //        else
+    //        {
+    //            TriggerItem.KeyItem.isinteract = true;
+    //            TriggerItem.KeyItem.ChangeActive();
+    //        }
            
 
 
-        }
+    //    }
 
 
-        else
-            {
-            //foreach (var slot in Personal_Slots)
-            //{
-            //    // Container.GetComponentInParent<GameObject>().SetActive(false);
-            //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
-            //    {
-            //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-            //    }
-            //    slot.isinteract = false;
-            //    slot.ChangeActive();
-            //}
-            if (TriggerItem.KeyItem == null)
-            {
-                return;
-            }
-            else
-            {
-                TriggerItem.KeyItem.isinteract = false;
-                TriggerItem.KeyItem.ChangeActive();
-            }
+    //    else
+    //        {
+    //        //foreach (var slot in Personal_Slots)
+    //        //{
+    //        //    // Container.GetComponentInParent<GameObject>().SetActive(false);
+    //        //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
+    //        //    {
+    //        //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
+    //        //    }
+    //        //    slot.isinteract = false;
+    //        //    slot.ChangeActive();
+    //        //}
+    //        if (TriggerItem.KeyItem == null)
+    //        {
+    //            return;
+    //        }
+    //        else
+    //        {
+    //            TriggerItem.KeyItem.isinteract = false;
+    //            TriggerItem.KeyItem.ChangeActive();
+    //        }
 
-        }
+    //    }
 
 
 
-    }
+    //}
  
     //public void Subinvt()
     //{

@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   Sentences:
-  - you did it
+  - They all seem safe, so pick any one.
+  - Oh thank you so much, sweeties!
+  - It means a lot to us that you'd risk your precious lives looking for a good beach.
+  - No problem.
   Character_in_Conversation:
-  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
-  currentexpressions: 00000000
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
+  - {fileID: 11400000, guid: c151450335a138c44a8ec233990f07b7, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  currentexpressions: 02000000000000000000000003000000

@@ -32,7 +32,17 @@ public class playerselect : MonoBehaviour
         for (int x = 0; x < names.Length; x++)
         {
             // print(names[x].Length);
-            gameman.instance.controllercount++;
+
+            if (!string.IsNullOrEmpty(names[x]))
+            {
+                Debug.Log("D");
+
+                gameman.instance.controllercount++;
+            }
+            else
+            {
+                Debug.Log("L");
+            }
             if (names[x].Length == 33)
             {
                 iscontorller = true;
@@ -62,7 +72,9 @@ public class playerselect : MonoBehaviour
 
             P1.GetComponent<Playergen>().direction = 0;
                 P1.GetComponent<Playergen>().playernum = 1;
-                GameObject P2;
+            FindObjectOfType<DiolaugeManager>().p1I = 1;
+
+            GameObject P2;
                 P2 = Instantiate(player, Boat.transform);
                 P2.transform.position = Player2.transform.position;
                 P2.transform.SetParent(Player2.transform);
@@ -71,6 +83,7 @@ public class playerselect : MonoBehaviour
 
             P2.GetComponent<Playergen>().direction = 1;
                 P2.GetComponent<Playergen>().playernum = 2;
+            FindObjectOfType<DiolaugeManager>().p2I = 2;
 
 
             //p1 = 1;
@@ -96,6 +109,7 @@ public class playerselect : MonoBehaviour
 
             P1A.GetComponent<Playergen>().direction = 0;
                 P1A.GetComponent<Playergen>().playernum = 2;
+            FindObjectOfType<DiolaugeManager>().p1I = 2;
 
 
             GameObject P2A;
@@ -107,7 +121,8 @@ public class playerselect : MonoBehaviour
 
             P2A.GetComponent<Playergen>().direction = 1;
                 P2A.GetComponent<Playergen>().playernum = 1;
-
+            FindObjectOfType<DiolaugeManager>().p2I = 1;
+            
 
             //p1 = 2;
             //p2 = 1;

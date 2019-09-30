@@ -81,7 +81,7 @@ public class Inventoryslot : MonoBehaviour
     
     private void Update()
     {
-        if (button.gameObject == EventSystem.current.currentSelectedGameObject)
+        if (button.gameObject == EventSystem.current.currentSelectedGameObject && item != null)
         {
             Description_Name.text = item.name;
 
@@ -117,7 +117,83 @@ public class Inventoryslot : MonoBehaviour
 
 
             }
-            
+
+
+
+            if (Input.GetButtonDown("Submit" + mana.P1.GetComponent<Playergen>().playernum))
+            {
+                inventorygeneral invt0;
+                invt0 = mana.P1.GetComponent<inventorygeneral>();
+                if (invt0.TriggerItem.KeyItem == null)
+                {
+                    if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                    {
+
+
+
+                        item.Use();
+                        itemcount--;
+
+
+                    }
+                    else if (item.Type == Item.type.Keyitem)
+                    {
+                        if (invt0.Keyitem == item)
+                        {
+                            return;
+                        }
+                        invt0.AddKey(item, false);
+                        itemcount--;
+                        //   return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                Checkitemcount();
+
+            }
+
+
+
+            if (Input.GetButtonDown("Submit" +mana.P2.GetComponent<Playergen>().playernum))
+            {
+                inventorygeneral invt1;
+                invt1 = mana.P2.GetComponent<inventorygeneral>();
+                if (invt1.TriggerItem.KeyItem == null)
+                {
+                    {
+
+                    }
+                    if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+                    {
+
+
+
+                        item.Use();
+                        itemcount--;
+
+
+                    }
+                    else if (item.Type == Item.type.Keyitem)
+                    {
+                        if (invt1.Keyitem == item)
+                        {
+                            return;
+                        }
+                        invt1.AddKey(item, false);
+                        itemcount--;
+                        //   return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                  Checkitemcount();
+
+            }
         }
        
         count.text = itemcount.ToString();
@@ -136,87 +212,87 @@ public class Inventoryslot : MonoBehaviour
 
     public void UseItem()
     {
-        if (item != null)
-        {
-            inventorygeneral invt0;
-            invt0 = mana.P1.GetComponent<inventorygeneral>();
-            inventorygeneral invt1;
-            invt1 = mana.P2.GetComponent<inventorygeneral>();
+        //if (item != null)
+        //{
+        //    inventorygeneral invt0;
+        //    invt0 = mana.P1.GetComponent<inventorygeneral>();
+        //    inventorygeneral invt1;
+        //    invt1 = mana.P2.GetComponent<inventorygeneral>();
 
            
-            switch (mana.playernums)
-            {
-                case uimanager.Players.player1:
+        //    switch (mana.playernums)
+        //    {
+        //        case uimanager.Players.player1:
 
-                    if (invt0.TriggerItem.KeyItem == null)
-                    {
-                        if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-                        {
-
-
-
-                            item.Use();
-                            itemcount--;
-
-
-                        }
-                        else if (item.Type == Item.type.Keyitem)
-                        {
-                            if (invt0.Keyitem == item)
-                            {
-                                return;
-                            }
-                            invt0.AddKey(item, false);
-                            itemcount--;
-                            //   return;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                    break;
-                case uimanager.Players.player2:
-                    if (invt1.TriggerItem.KeyItem == null)
-                    {
-                        {
-
-                        }
-                        if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-                        {
+        //            if (invt0.TriggerItem.KeyItem == null)
+        //            {
+        //                if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+        //                {
 
 
 
-                            item.Use();
-                            itemcount--;
+        //                    item.Use();
+        //                    itemcount--;
 
 
-                        }
-                        else if (item.Type == Item.type.Keyitem)
-                        {
-                            if (invt1.Keyitem == item)
-                            {
-                                return;
-                            }
-                            invt1.AddKey(item, false);
-                            itemcount--;
-                            //   return;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
+        //                }
+        //                else if (item.Type == Item.type.Keyitem)
+        //                {
+        //                    if (invt0.Keyitem == item)
+        //                    {
+        //                        return;
+        //                    }
+        //                    invt0.AddKey(item, false);
+        //                    itemcount--;
+        //                    //   return;
+        //                }
+        //                else
+        //                {
+        //                    return;
+        //                }
+        //            }
+        //            break;
+        //        case uimanager.Players.player2:
+        //            if (invt1.TriggerItem.KeyItem == null)
+        //            {
+        //                {
+
+        //                }
+        //                if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
+        //                {
 
 
-                    break;
 
-            }
-           // itemcount--;
-            Checkitemcount();
+        //                    item.Use();
+        //                    itemcount--;
+
+
+        //                }
+        //                else if (item.Type == Item.type.Keyitem)
+        //                {
+        //                    if (invt1.Keyitem == item)
+        //                    {
+        //                        return;
+        //                    }
+        //                    invt1.AddKey(item, false);
+        //                    itemcount--;
+        //                    //   return;
+        //                }
+        //                else
+        //                {
+        //                    return;
+        //                }
+        //            }
+
+
+        //            break;
+
+        //    }
+        //   // itemcount--;
+        //    Checkitemcount();
                
 
-        }
+        //}
     }
 
     public void Checkitemcount()
