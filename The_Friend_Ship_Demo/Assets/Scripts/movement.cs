@@ -29,7 +29,6 @@ public class movement : MonoBehaviour {
 
   
 
-    bool isforward;
     bool isbackward;
     public float[] directions;
 
@@ -138,9 +137,15 @@ public class movement : MonoBehaviour {
             rig.mass = 10;
             turning = Turning.Not;
             directC.gameObject.SetActive(false);
-        }      
-      
-        
+        }
+
+
+        //if (turning == Turning.Not && moving == Moving.Not)
+        //{
+        //    isforward = false;
+        //    isbackward = false;
+
+        //}
 
     }
 
@@ -150,7 +155,7 @@ public class movement : MonoBehaviour {
         if (directions[0] < 0 && directions[1] < 0)
         {
             moving = Moving.Forwad;
-            isforward = true;
+            isbackward = false;
 
       
             // ismoving = true;
@@ -167,7 +172,7 @@ public class movement : MonoBehaviour {
         else
         {
             moving = Moving.Not;
-
+         
         }
     }
     void Direction()
@@ -191,10 +196,10 @@ public class movement : MonoBehaviour {
         {
 
             turning = Turning.Not;
+          
         }
     }
-
-
+   
 
     private void FixedUpdate()
     {
@@ -222,13 +227,14 @@ public class movement : MonoBehaviour {
             case Turning.Clockwise:
 
                // rig.AddTorque(Vector3.up, turnspeed * Time.deltaTime * mag);
-                if (moving == Moving.Not && isforward)
+                if (moving == Moving.Not && !isbackward)
                 {
-                    rig.AddForce(transform.forward.normalized * speed/5);
+                    rig.AddForce(transform.forward.normalized * speed);
                 }
-                if (moving == Moving.Not && isbackward)
+                else if (moving == Moving.Not && isbackward)
                 {
-                    rig.AddForce(-transform.forward.normalized * speed/5);
+                    Debug.Log("CD");
+                    rig.AddForce(-transform.forward.normalized * speed);
 
                 }
 
@@ -236,14 +242,17 @@ public class movement : MonoBehaviour {
             case Turning.AniClockwise:
 
 
-                if (moving == Moving.Not && isforward)
+                if (moving == Moving.Not )
                 {
-                    rig.AddForce(transform.forward.normalized * speed/5);
+
+                    rig.AddForce(transform.forward.normalized * speed);
 
                 }
-                if (moving == Moving.Not && isbackward)
+                else if (moving == Moving.Not && isbackward)
                 {
-                    rig.AddForce(-transform.forward.normalized * speed/5);
+                    Debug.Log("AD");
+
+                    rig.AddForce(-transform.forward.normalized * speed);
 
                 }
 
@@ -251,6 +260,7 @@ public class movement : MonoBehaviour {
 
             case Turning.Not:
                 t1 = true;
+             
                 StopAllCoroutines();
 
                 break;

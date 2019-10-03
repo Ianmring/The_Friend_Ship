@@ -16605,6 +16605,16 @@ PrefabInstance:
       propertyPath: Handels.Array.data[1]
       value: 
       objectReference: {fileID: 366540103}
+    - target: {fileID: 2692510986355240214, guid: da67bb965610c8b46a4963b772fd7e06,
+        type: 3}
+      propertyPath: maxturnspeed
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692510986355240214, guid: da67bb965610c8b46a4963b772fd7e06,
+        type: 3}
+      propertyPath: minturnspeed
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2692510986355240209, guid: da67bb965610c8b46a4963b772fd7e06,
         type: 3}
       propertyPath: m_LocalPosition.x
