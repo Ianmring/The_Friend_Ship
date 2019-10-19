@@ -32,6 +32,8 @@ public class camscript : MonoBehaviour {
         {
             cam.orthographic = true;
             cam.nearClipPlane = -100;
+            transform.eulerAngles = AngleI;
+
             transform.position = character.transform.position + offsetI;
         }
         else

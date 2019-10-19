@@ -36,7 +36,7 @@ public class PlayerStats : CurrentStats
 
         Equipmana.instance.onEqupmentchange += onequipmentchanged;
         basehealth = 3;
-        basespeed = 100;
+        basespeed = 110;
         updatehealthandArmor();
 
     }

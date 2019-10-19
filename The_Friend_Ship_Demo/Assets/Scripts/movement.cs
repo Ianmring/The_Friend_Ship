@@ -24,27 +24,32 @@ public class movement : MonoBehaviour {
     public float maxturnspeed;
    float turnspeed;
 
-     float zoom;
+    float zoom;
     Rigidbody rig;
 
-  
+   public Vector3 Currentang;
 
     bool isbackward;
     public float[] directions;
-
+    public float[] directionsx;
+    public float[] Turnx;
     public enum Moving { Forwad, Backwards, Not};
 
     public enum Turning { Clockwise, AniClockwise, Not };
 
-    public enum Directions { up, upleft, left, downleft, down, downright, right, upright}
+     enum Directions { up, upleft, left, downleft, down, downright, right, upright}
+
+   public enum PlayerSteering { P1,P2}
+
+  public  PlayerSteering steer;
 
     public int direction;
 
-   public Moving moving { get; set; }
-   public Turning turning { get; set; }
-    public Directions Dir;
+    public Moving moving;
+    public Turning turning;
+     Directions Dir;
 
-    public Slider[] Slides;
+   // public Slider[] Slides;
 
     public RectTransform directC;
 
@@ -55,7 +60,7 @@ public class movement : MonoBehaviour {
     //public RectTransform directL;
     playerselect playa;
 
-    public float zroto;
+     float zroto;
 
     public launcher P1F;
     public launcher P2F;
@@ -63,13 +68,16 @@ public class movement : MonoBehaviour {
   public  MainLauncher ML;
 
   public  SpriteRenderer spit;
-    float mag;
+    public float mag;
 
     public bool move= true;
 
+    public bool isturning;
     public bool PlayersSet;
 
     public bool altoveride;
+    int steerint;
+    int dirint;
 
     bool t1;
     void Start () {
@@ -77,6 +85,8 @@ public class movement : MonoBehaviour {
         move = true;
         playa = FindObjectOfType<playerselect>();
         rig = GetComponent<Rigidbody>();
+        steer = PlayerSteering.P2;
+        Switchplayerpos();
         moving = Moving.Not;
         turning = Turning.Not;
         checkDirection();
@@ -106,21 +116,22 @@ public class movement : MonoBehaviour {
          
         }
 
-
+      
         if (move)
         {
 
-            mag = (Mathf.Abs(directions[0]) + Mathf.Abs(directions[1])) / 2;
+           
             rig.mass = 1;
             directC.gameObject.SetActive(true);
+            Currentang = GetComponent<Transform>().eulerAngles;
             Move();
             Direction();
-            Slides[0].value = directions[0];
-            Slides[1].value = directions[1];
+            //Slides[0].value = directions[0];
+            //Slides[1].value = directions[1];
             zoom = rig.velocity.magnitude;
+            
 
-
-            if (zoom >= maxspeed - maxspeed / 5)
+            if (zoom >= 1)
             {
                 turnspeed = minturnspeed;
             }
@@ -149,55 +160,217 @@ public class movement : MonoBehaviour {
 
     }
 
+    public void Switchplayerpos() {
 
-    void Move()
-    {
-        if (directions[0] < 0 && directions[1] < 0)
-        {
-            moving = Moving.Forwad;
-            isbackward = false;
+        switch (steer) {
+            case PlayerSteering.P1:
+                steerint = 1;
+                dirint = 0;
+                steer = PlayerSteering.P2;
+                break;
+            case PlayerSteering.P2:
+                steerint = 0;
+                dirint = 1;
+                steer = PlayerSteering.P1;
 
-      
-            // ismoving = true;
-        }
-        else if (directions[0] > 0 && directions[1] > 0)
-        {
-            moving = Moving.Backwards;
-            isbackward = true;
+                break;
 
-
-            //ismoving = true;
-
-        }
-        else
-        {
-            moving = Moving.Not;
-         
         }
     }
-    void Direction()
+    void Move()
     {
-        if (directions[0] > 0 && directions[1] < 0)
-        {
-            turning = Turning.Clockwise;
-            StartCoroutine("TurnClockwise");
+        if (!isturning) {
+            switch (Dir) {
+                case Directions.up:
+                    mag = Mathf.Abs(directions[dirint]);
+                    if (directions[dirint] < 0) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
 
 
+                        // ismoving = true;
+                    } else if (directions[dirint] > 0 ) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                case Directions.upleft:
+                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
+                    if (directionsx[dirint] < 0  && directions[dirint] < 0 ) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directionsx[dirint] > 0  && directions[dirint] > 0 ) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                case Directions.left:
+                    mag = Mathf.Abs(directionsx[dirint]);
+                    if (directionsx[dirint] < 0 ) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directionsx[dirint] > 0 ) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                case Directions.downleft:
+                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
+                    if (directionsx[dirint] < 0  && directions[dirint] > 0) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directionsx[dirint] > 0  && directions[dirint] < 0) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                case Directions.down:
+                    mag = Mathf.Abs(directions[dirint]);
+                    if (directions[dirint] > 0 ) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directions[dirint] < 0) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                    
+                case Directions.downright:
+                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
+                    if (directionsx[dirint] > 0  && directions[dirint] > 0) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directionsx[dirint] < 0 && directions[dirint] < 0) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                case Directions.right:
+                    mag = (Mathf.Abs(directionsx[dirint]));
+
+                    if (directionsx[dirint] > 0) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directionsx[dirint] < 0 ) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+                case Directions.upright:
+                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint])  + Mathf.Abs(directionsx[dirint])),0,1) ;
+
+                    if (directionsx[dirint] > 0  && directions[dirint] < 0 ) {
+                        moving = Moving.Forwad;
+                        isbackward = false;
+
+
+                        // ismoving = true;
+                    } else if (directionsx[dirint] < 0  && directions[dirint] > 0 ) {
+                        moving = Moving.Backwards;
+                        isbackward = true;
+
+
+                        //ismoving = true;
+
+                    } else {
+                        moving = Moving.Not;
+
+                    }
+                    break;
+
+           
+            }
 
         }
-        else if (directions[0] < 0 && directions[1] > 0)
-        {
-            turning = Turning.AniClockwise;
-            StartCoroutine("TurnAntiClockwise");
+    }
+    void Direction() {
+        if (moving == Moving.Not) {
+            if (Turnx[steerint] > 0) {
+                turning = Turning.Clockwise;
+
+                StartCoroutine("TurnClockwise");
 
 
+
+            } else if (Turnx[steerint] < 0) {
+                turning = Turning.AniClockwise;
+
+                StartCoroutine("TurnAntiClockwise");
+
+
+            } else {
+
+                turning = Turning.Not;
+            }
         }
-        else
-        {
-
-            turning = Turning.Not;
-          
-        }
+           
     }
    
 
@@ -216,7 +389,8 @@ public class movement : MonoBehaviour {
                 break;
             case Moving.Not:
 
-                
+                isturning = true;
+
                 break;
             default:
                 break;
@@ -227,30 +401,27 @@ public class movement : MonoBehaviour {
             case Turning.Clockwise:
 
                // rig.AddTorque(Vector3.up, turnspeed * Time.deltaTime * mag);
-                if (moving == Moving.Not && !isbackward)
+                if (moving == Moving.Not && !isbackward && zoom > 1)
                 {
                     rig.AddForce(transform.forward.normalized * speed);
                 }
-                else if (moving == Moving.Not && isbackward)
+                else if (moving == Moving.Not && isbackward && zoom > 1)
                 {
-                    Debug.Log("CD");
                     rig.AddForce(-transform.forward.normalized * speed);
 
                 }
-
                 break;
             case Turning.AniClockwise:
 
 
-                if (moving == Moving.Not )
+                if (moving == Moving.Not && !isbackward && zoom > 1)
                 {
 
                     rig.AddForce(transform.forward.normalized * speed);
 
                 }
-                else if (moving == Moving.Not && isbackward)
+                else if (moving == Moving.Not && isbackward && zoom > 1)
                 {
-                    Debug.Log("AD");
 
                     rig.AddForce(-transform.forward.normalized * speed);
 
@@ -260,14 +431,12 @@ public class movement : MonoBehaviour {
 
             case Turning.Not:
                 t1 = true;
-             
+                isturning = false;
+
                 StopAllCoroutines();
 
                 break;
-            default:
-         
-
-                break;
+            
         }
 
 
@@ -289,27 +458,35 @@ public class movement : MonoBehaviour {
         switch (direction)
         {
             case 0:
-                Dir = Directions.up;              
+                Dir = Directions.up;
+
                 break;
             case 1:
+
                 Dir = Directions.upright;
                 break;
             case 2:
+
                 Dir = Directions.right;
                 break;
             case 3:
+
                 Dir = Directions.downright;
                 break;
             case 4:
+
                 Dir = Directions.down;
                 break;
             case 5:
+
                 Dir = Directions.downleft;
                 break;
             case 6:
+
                 Dir = Directions.left;
                 break;
             case 7:
+
                 Dir = Directions.upleft;
                 break;
           

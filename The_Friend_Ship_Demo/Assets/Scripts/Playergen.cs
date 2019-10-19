@@ -61,8 +61,8 @@ public class Playergen : MonoBehaviour
 
       
             Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
-
-        
+        Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
+        Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() +"_Turn");
 
 
 
@@ -121,90 +121,15 @@ public class Playergen : MonoBehaviour
                     //  UIMana.currentselected = 0;
 
                 }
-                //else
-                //{
-                //    switch (direction)
-                //    {
-                //        case 0:
-                //            if (Input.GetButtonUp("MenuUP" + playernum.ToString()))
-                //            {
-                //                invent.currentitem++;
-                //                Debug.Log("UP");
-                //                //   invent.Update_Slots();
 
-                //            }
-                //            if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()))
-                //            {
-                //                invent.currentitem--;
-                //                Debug.Log("UP");
+                if (Input.GetButtonUp("Handoff" + playernum.ToString()) && (int)movement.MovInstance.steer == direction) {
 
-                //                //  invent.Update_Slots();
-                //            }
-                //            break;
-                //        case 1:
-                //            if (Input.GetButtonUp("MenuUP" + playernum.ToString()))
-                //            {
-                //                invent.currentitem--;
-                //                Debug.Log("UP");
+                    movement.MovInstance.Switchplayerpos();
+                }
 
-                //                //    invent.Update_Slots();
-
-                //            }
-                //            if (Input.GetButtonUp("MenuDOWN" + playernum.ToString()))
-                //            {
-                //                invent.currentitem++;
-                //                Debug.Log("UP");
-
-                //                //      invent.Update_Slots();
-                //            }
-                //            break;
-
-                //    }
-
-
-                //}
-            }
-            else
+            } else
             {
-                //if (Input.GetButtonUp("Handoff" + playernum.ToString()))
-                //{
-                //    switch (direction)
-                //    {
-                //        case 0:
-                //            UIMana.playernums = uimanager.Players.player2;
-                //            UIMana.Triggerupdate();
-
-
-                //            break;
-                //        case 1:
-                //            UIMana.playernums = uimanager.Players.player1;
-                //            UIMana.Triggerupdate();
-
-                //            break;
-
-                //        default:
-                //            break;
-                //    }
-
-
-                //    switch (playernum)
-                //    {
-                //        case 1:
-                //            newplayernum = 2;
-                //            break;
-                //        case 2:
-                //            newplayernum = 1;
-                //            break;
-
-
-                //        default:
-                //            break;
-                //    }
-
-                //    UIMana.UpdateMenuCont(newplayernum);
-
-
-                //}
+               
                 if (Input.GetButtonUp("Submit" + playernum.ToString()))
                 {
                     switch (direction)
