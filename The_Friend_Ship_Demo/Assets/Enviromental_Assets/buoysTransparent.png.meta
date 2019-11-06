@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: a41d8af6660f27b479ccc0f860e66f3c
+guid: 16a7d51c1396cad47880848f0a734a2a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7583527952651145415
+    second: buoysTransparent_0
+  - first:
+      213: -4104481248651852958
+    second: buoysTransparent_1
+  - first:
+      213: 7245355322226671771
+    second: buoysTransparent_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,11 +91,74 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: buoysTransparent_0
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 117
+        width: 181
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0e1eec0235752449323a111a016eb2
+      internalID: -7583527952651145415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buoysTransparent_1
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 108
+        width: 168
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92185274b586cb499b84e2619652add
+      internalID: -4104481248651852958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buoysTransparent_2
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 120
+        width: 117
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ea073862226bf4ab76f74083738157
+      internalID: 7245355322226671771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fcb687d6fa3bdcd46afd6a0925ea97a3
+    spriteID: 42ec770822efb2346873f60560952ff3
     internalID: 0
     vertices: []
     indices: 

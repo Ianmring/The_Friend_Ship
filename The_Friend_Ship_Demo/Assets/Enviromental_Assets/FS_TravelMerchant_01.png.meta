@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: a41d8af6660f27b479ccc0f860e66f3c
+guid: 24f50a3732085bf47b9475c874141410
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5480143986284322786
+    second: FS_TravelMerchant_01_0
+  - first:
+      213: 2206131928415864553
+    second: FS_TravelMerchant_01_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,11 +88,53 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: FS_TravelMerchant_01_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 337
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547ba98a15173aa45a482dc93ff6b951
+      internalID: 5480143986284322786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_TravelMerchant_01_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 47
+        width: 347
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e60ce860b02c24084195cfd3e0d2cb
+      internalID: 2206131928415864553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fcb687d6fa3bdcd46afd6a0925ea97a3
+    spriteID: 227463fa00a1c9b49ad60966f217f2a7
     internalID: 0
     vertices: []
     indices: 

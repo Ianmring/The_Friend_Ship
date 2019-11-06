@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: ca3fbc5987f944f4bb3e54bde24b7cf3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -596040312497272645
+    second: beachtowels_0
+  - first:
+      213: 2438318084463759914
+    second: beachtowels_1
+  - first:
+      213: -7904024968228188801
+    second: beachtowels_2
+  - first:
+      213: 7086716804237699087
+    second: beachtowels_3
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beachtowels_0
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 96
+        width: 418
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 101, y: -103}
+        - {x: 113, y: -93}
+        - {x: 114, y: -93}
+        - {x: 132, y: -81}
+        - {x: 142, y: -76}
+        - {x: 154, y: -68}
+        - {x: 157, y: -65}
+        - {x: 164, y: -61}
+        - {x: 167, y: -58}
+        - {x: 176, y: -53}
+        - {x: 181, y: -50}
+        - {x: 188, y: -46}
+        - {x: 190, y: -44}
+        - {x: 203, y: -35}
+        - {x: 209, y: -35}
+        - {x: 209, y: -27}
+        - {x: 207, y: -25}
+        - {x: 203, y: -23}
+        - {x: 192, y: -17}
+        - {x: 183, y: -11}
+        - {x: 179, y: -9}
+        - {x: 173, y: -4}
+        - {x: 162, y: 1}
+        - {x: 160, y: 3}
+        - {x: 154, y: 7}
+        - {x: 147, y: 11}
+        - {x: 138, y: 17}
+        - {x: 134, y: 19}
+        - {x: 129, y: 23}
+        - {x: 126, y: 23}
+        - {x: 119, y: 28}
+        - {x: 110, y: 32}
+        - {x: 108, y: 34}
+        - {x: 101, y: 38}
+        - {x: 92, y: 42}
+        - {x: 90, y: 44}
+        - {x: 85, y: 47}
+        - {x: 76, y: 52}
+        - {x: 64, y: 58}
+        - {x: 59, y: 62}
+        - {x: 24, y: 82}
+        - {x: 11, y: 88}
+        - {x: 8, y: 90}
+        - {x: -60, y: 124}
+        - {x: -76, y: 124}
+        - {x: -79, y: 123}
+        - {x: -84, y: 121}
+        - {x: -96, y: 114}
+        - {x: -98, y: 114}
+        - {x: -103, y: 112}
+        - {x: -132, y: 98}
+        - {x: -143, y: 92}
+        - {x: -150, y: 88}
+        - {x: -152, y: 86}
+        - {x: -161, y: 82}
+        - {x: -171, y: 76}
+        - {x: -201, y: 56}
+        - {x: -209, y: 48}
+        - {x: -209, y: 41}
+        - {x: -194, y: 34}
+        - {x: -185, y: 28}
+        - {x: -176, y: 24}
+        - {x: -174, y: 22}
+        - {x: -160, y: 14}
+        - {x: -148, y: 8}
+        - {x: -145, y: 5}
+        - {x: -140, y: 2}
+        - {x: -132, y: -3}
+        - {x: -129, y: -6}
+        - {x: -121, y: -12}
+        - {x: -113, y: -17}
+        - {x: -110, y: -20}
+        - {x: -103, y: -24}
+        - {x: -100, y: -27}
+        - {x: -94, y: -31}
+        - {x: -85, y: -36}
+        - {x: -81, y: -39}
+        - {x: -76, y: -42}
+        - {x: -68, y: -48}
+        - {x: -59, y: -52}
+        - {x: -54, y: -55}
+        - {x: -45, y: -60}
+        - {x: -33, y: -66}
+        - {x: -31, y: -68}
+        - {x: -16, y: -77}
+        - {x: 5, y: -89}
+        - {x: 15, y: -95}
+        - {x: 22, y: -99}
+        - {x: 28, y: -102}
+        - {x: 28, y: -103}
+        - {x: 30, y: -105}
+        - {x: 36, y: -107}
+        - {x: 43, y: -111}
+        - {x: 54, y: -117}
+        - {x: 59, y: -121}
+        - {x: 65, y: -124}
+        - {x: 75, y: -124}
+        - {x: 82, y: -119}
+        - {x: 86, y: -115}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: d3ec77b79ef3224419e39b07650a25db
+      internalID: -596040312497272645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beachtowels_1
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 324
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116014b08f349ab499bf42284574800f
+      internalID: 2438318084463759914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beachtowels_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 40
+        width: 418
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 107, y: -99}
+        - {x: 115, y: -93}
+        - {x: 122, y: -89}
+        - {x: 127, y: -85}
+        - {x: 138, y: -79}
+        - {x: 148, y: -73}
+        - {x: 156, y: -67}
+        - {x: 168, y: -59}
+        - {x: 173, y: -55}
+        - {x: 184, y: -49}
+        - {x: 191, y: -44}
+        - {x: 203, y: -35}
+        - {x: 204, y: -36}
+        - {x: 209, y: -36}
+        - {x: 209, y: -28}
+        - {x: 208, y: -26}
+        - {x: 197, y: -21}
+        - {x: 188, y: -15}
+        - {x: 184, y: -12}
+        - {x: 173, y: -5}
+        - {x: 161, y: 1}
+        - {x: 156, y: 5}
+        - {x: 150, y: 9}
+        - {x: 140, y: 15}
+        - {x: 136, y: 18}
+        - {x: 125, y: 23}
+        - {x: 123, y: 25}
+        - {x: 112, y: 31}
+        - {x: 98, y: 39}
+        - {x: 87, y: 45}
+        - {x: 80, y: 49}
+        - {x: 68, y: 55}
+        - {x: 66, y: 57}
+        - {x: 61, y: 60}
+        - {x: 49, y: 67}
+        - {x: 42, y: 71}
+        - {x: 30, y: 77}
+        - {x: 28, y: 79}
+        - {x: -26, y: 106}
+        - {x: -29, y: 108}
+        - {x: -45, y: 116}
+        - {x: -47, y: 116}
+        - {x: -61, y: 124}
+        - {x: -74, y: 124}
+        - {x: -80, y: 122}
+        - {x: -89, y: 118}
+        - {x: -99, y: 112}
+        - {x: -101, y: 112}
+        - {x: -110, y: 109}
+        - {x: -123, y: 102}
+        - {x: -125, y: 100}
+        - {x: -149, y: 88}
+        - {x: -156, y: 84}
+        - {x: -167, y: 78}
+        - {x: -172, y: 75}
+        - {x: -184, y: 67}
+        - {x: -200, y: 56}
+        - {x: -203, y: 53}
+        - {x: -209, y: 48}
+        - {x: -209, y: 40}
+        - {x: -192, y: 32}
+        - {x: -190, y: 30}
+        - {x: -174, y: 22}
+        - {x: -172, y: 20}
+        - {x: -151, y: 8}
+        - {x: -146, y: 2}
+        - {x: -137, y: 0}
+        - {x: -117, y: -15}
+        - {x: -109, y: -20}
+        - {x: -109, y: -22}
+        - {x: -107, y: -24}
+        - {x: -97, y: -29}
+        - {x: -79, y: -41}
+        - {x: -70, y: -45}
+        - {x: -71, y: -47}
+        - {x: -68, y: -50}
+        - {x: -65, y: -50}
+        - {x: -62, y: -51}
+        - {x: -57, y: -54}
+        - {x: -48, y: -59}
+        - {x: -41, y: -63}
+        - {x: -24, y: -73}
+        - {x: -19, y: -76}
+        - {x: -17, y: -79}
+        - {x: -13, y: -78}
+        - {x: -7, y: -83}
+        - {x: 12, y: -93}
+        - {x: 17, y: -97}
+        - {x: 24, y: -100}
+        - {x: 27, y: -105}
+        - {x: 29, y: -107}
+        - {x: 35, y: -106}
+        - {x: 38, y: -109}
+        - {x: 50, y: -116}
+        - {x: 56, y: -119}
+        - {x: 63, y: -124}
+        - {x: 76, y: -124}
+        - {x: 83, y: -119}
+        - {x: 87, y: -115}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: 9463ac3ee0b40d347a0340ef019c71a9
+      internalID: -7904024968228188801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beachtowels_3
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 63
+        width: 147
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb41776da6e699441908803e301a3496
+      internalID: 7086716804237699087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 547a240f23b8f4b44a52f90afbb355fe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

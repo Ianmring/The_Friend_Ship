@@ -123,13 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224a75a51e93d2b478d24a20dcf19268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  butt: {fileID: 0}
   direction: 0
   playernum: 0
-  Mats:
-  - {fileID: 2100000, guid: 92f6c64028dbb6a4fa195d20d5ed8bf1, type: 2}
-  - {fileID: 2100000, guid: 9e7dd424c5f5e224da9ff325cbd08d30, type: 2}
   playerrend: {fileID: 2354370249851884031}
-  isdemo: 0
+  isdemo: 1
   UIMana: {fileID: 0}
 --- !u!114 &8028817674074426827
 MonoBehaviour:

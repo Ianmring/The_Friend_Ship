@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: a41d8af6660f27b479ccc0f860e66f3c
+guid: 7cd19a7d5f6bc014a8554dd634b02dc1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8378161655608627266
+    second: sand_castleTransparent_1
+  - first:
+      213: -518638096496623329
+    second: sand_castleTransparent_2
+  - first:
+      213: -6465554424111481366
+    second: sand_castleTransparent_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,11 +91,74 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sand_castleTransparent_1
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 46
+        width: 244
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d62bf4e8e331294a81f14caa1a17f31
+      internalID: -8378161655608627266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sand_castleTransparent_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 47
+        width: 318
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605ba753f14480743a4abdd7e84391df
+      internalID: -518638096496623329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sand_castleTransparent_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 46
+        width: 222
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a3d8c06cc6cee458fc23e442b52565
+      internalID: -6465554424111481366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fcb687d6fa3bdcd46afd6a0925ea97a3
+    spriteID: 84711a11ed0768f42b3a47c80c7be80d
     internalID: 0
     vertices: []
     indices: 

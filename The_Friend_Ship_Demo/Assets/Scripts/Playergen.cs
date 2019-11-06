@@ -74,6 +74,11 @@ public class Playergen : MonoBehaviour
 
         }
 
+        if (Input.GetButtonUp("Handoff" + playernum.ToString())) {
+            Debug.Log("move");
+            movement.MovInstance.Switchplayerpos();
+        }
+
         #region UIControl
 
         if (!isdemo)
@@ -122,10 +127,7 @@ public class Playergen : MonoBehaviour
 
                 }
 
-                if (Input.GetButtonUp("Handoff" + playernum.ToString()) && (int)movement.MovInstance.steer == direction) {
-
-                    movement.MovInstance.Switchplayerpos();
-                }
+                
 
             } else
             {
