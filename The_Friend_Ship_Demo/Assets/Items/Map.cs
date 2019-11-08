@@ -28,20 +28,20 @@ public class Map : MonoBehaviour
         if (slot.Playernum == 0)
         {
             check = mov.Handels[0].GetComponentInChildren<uiChecklist>();
-            check.gameObject.SetActive(false);
+          //  check.gameObject.SetActive(false);
 
             map = mov.Handels[0].GetComponentInChildren<uiMap>();
-            map.gameObject.SetActive(true);
+          //  map.gameObject.SetActive(true);
             launch = uimanager.UIinstance.P1.GetComponent<launcher>();
             slide = GameObject.Find("P1Equip").GetComponentInChildren<Slider>();
         }
         if (slot.Playernum == 1)
         {
             check = mov.Handels[1].GetComponentInChildren<uiChecklist>();
-            check.gameObject.SetActive(false);
+           // check.gameObject.SetActive(false);
 
             map = mov.Handels[1].GetComponentInChildren<uiMap>();
-            map.gameObject.SetActive(true);
+          //  map.gameObject.SetActive(true);
             launch = uimanager.UIinstance.P2.GetComponent<launcher>();
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();
         }

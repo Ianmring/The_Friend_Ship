@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5f4149b08b24a4282f0eaedf47ad89, type: 3}
   m_Name: Battery
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 3
   name: Battery
   icon: {fileID: 21300000, guid: cc4adb4e8be76f94cbbcf42417237586, type: 3}
   isdefault: 0

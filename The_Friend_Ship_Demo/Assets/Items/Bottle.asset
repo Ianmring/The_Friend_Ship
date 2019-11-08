@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5f4149b08b24a4282f0eaedf47ad89, type: 3}
   m_Name: Bottle
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 3
   name: Bottle
   icon: {fileID: 21300000, guid: dfcde59cf2d1e9b41a72551ba1de4709, type: 3}
   isdefault: 0

@@ -26,6 +26,12 @@ public class Playergen : MonoBehaviour
    public uimanager UIMana;
 
     inventorygeneral invent;
+
+    public float Itemselect;
+
+   public bool selecting;
+
+    bool isselectingitem;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,10 +57,11 @@ public class Playergen : MonoBehaviour
             default:
                 break;
         }
+        selecting = true;
 
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -63,7 +70,22 @@ public class Playergen : MonoBehaviour
             Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
         Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
         Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() +"_Turn");
+        Itemselect = Input.GetAxis("ItemScrool" + playernum.ToString());
 
+        if (UIMana.menuisopen && isselectingitem) {
+            if (Itemselect > .1 && selecting) {
+                InventoryMenu.invmeninstance.Itemup(direction);
+                selecting = false;
+            } else if (Itemselect < -.1 && selecting) {
+                InventoryMenu.invmeninstance.ItemDown(direction);
+                selecting = false;
+
+            } else if (Itemselect == 0) {
+                selecting = true;
+
+            }
+        }
+       
 
 
         if (Input.GetButton("Exit" + playernum.ToString()))
@@ -84,52 +106,6 @@ public class Playergen : MonoBehaviour
         if (!isdemo)
         {
             if (!UIMana.isopen)
-            {
-                if (Input.GetButtonUp("Restart" + playernum.ToString()))
-                {
-
-                    //switch (direction)
-                    //{
-                    //    case 0:
-
-                    //        UIMana.playernums = uimanager.Players.player1;
-                    //        UIMana.isopen = true;
-                    //        UIMana.menuisopen = true;
-                    //        UIMana.storeisopen = false;
-                    //        UIMana.Triggerupdate();
-                    //        EventSystem.current.SetSelectedGameObject(UIMana.buttons[UIMana.currentselected]);
-
-                    //        break;
-                    //    case 1:
-                    //        UIMana.playernums = uimanager.Players.player2;
-                    //        UIMana.isopen = true;
-                    //        UIMana.menuisopen = true;
-                    //        UIMana.storeisopen = false;
-                    //        UIMana.Triggerupdate();
-
-
-                    //        break;
-
-                    //    default:
-                    //        break;
-                    //}
-                    UIMana.isopen = true;
-                    UIMana.menuisopen = true;
-                    UIMana.storeisopen = false;
-                    UIMana.Menus[2].SetActive(!UIMana.Menus[2].activeSelf);
-
-
-                    UIMana.UpdateMenuCont();
-                    //UIMana.Updateinvmenu();
-                    UIMana.StartCoroutine("DelayHighlight");
-
-                    //  UIMana.currentselected = 0;
-
-                }
-
-                
-
-            } else
             {
                
                 if (Input.GetButtonUp("Submit" + playernum.ToString()))
@@ -158,33 +134,26 @@ public class Playergen : MonoBehaviour
                       
                     }
                 }
-                    if ((Input.GetButtonUp("MenuUP" + playernum.ToString()) ) || (Input.GetButtonUp("MenuUP" + playernum.ToString()) && UIMana.storeisopen))
-                {
-                 //   Debug.Log("UP2");
+                 
 
-                    UIMana.currentselected++;
-                    UIMana.Updateinvmenu();
-
-                }
-                if ((Input.GetButtonUp("MenuDOWN" + playernum.ToString()) ) || (Input.GetButtonUp("MenuDOWN" + playernum.ToString()) && UIMana.storeisopen))
-                {
-                    //Debug.Log("UP2");
-
-                    UIMana.currentselected--;
-                    UIMana.Updateinvmenu();
-                }
-
-
-                if (Input.GetButtonUp("Restart" + playernum.ToString()))
-                {
-                    UIMana.playersready[direction] = !UIMana.playersready[direction];
-                }
-
-
+               
 
             }
             #endregion
-       
+            if (Input.GetButtonDown("MenuUP" + playernum.ToString())) {
+                UIMana.playersready[direction] = true;
+                isselectingitem = true;
+            }
+            if (Input.GetButtonUp("MenuUP" + playernum.ToString())) {
+                //   Debug.Log("UP2");
+                Debug.Log("UP");
+                InventoryMenu.invmeninstance.equipitem(direction);
+                invent.AddKey(InventoryMenu.invmeninstance.currentactiveitem[direction], false);
+                UIMana.playersready[direction] = false;
+                isselectingitem = false;
+
+
+            }
         }
         
     

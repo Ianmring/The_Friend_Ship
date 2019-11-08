@@ -26,6 +26,8 @@ public class inventorygeneral : MonoBehaviour
     public bool isyourturn;
 
     public KeyitemTrigger TriggerItem;
+
+    GameObject currentitemobj;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +87,13 @@ public class inventorygeneral : MonoBehaviour
         }
         else
         {
+            if (Kitem != null) {
+
+                Destroy(currentitemobj);
+                currentitemobj = null;
+                TriggerItem.ClearItem();
+                    
+            }
             GameObject PSlot;
             PersonalItemSlot slot;
             PSlot = Instantiate(currentslot, KIContainer);
@@ -99,7 +108,7 @@ public class inventorygeneral : MonoBehaviour
 
           //  slot.isitem = isitem;
             TriggerItem.Additem(slot, GLauncher , isitem);
-
+            currentitemobj = PSlot;
             // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
 
 

@@ -92,25 +92,7 @@ public class PersonalItemSlot : MonoBehaviour
         {
             iskeyitem = false;
 
-            count.text = "T";
 
-            switch (item.Type)
-            {
-                case Item.type.Disposeable:
-                    imag.color = Color.cyan;
-                    break;
-                case Item.type.Oare:
-                    imag.color = Color.yellow;
-                    break;
-                case Item.type.Hat:
-                    imag.color = Color.magenta;
-                    break;
-                case Item.type.Keyitem:
-                    imag.color = Color.green;                 
-
-                    break;
-                
-            }
             this.gameObject.AddComponent<Throwable>();
 
         }
@@ -140,31 +122,14 @@ public class PersonalItemSlot : MonoBehaviour
         invt.TriggerItem.ClearItem();
         itemcount = 1;
 
-        switch (currentitem.Type)
-        {
-            case Item.type.Disposeable:
-                Inventory.instance.Add(currentitem, itemcount);
-
-                break;
-            case Item.type.Oare:
-                Inventory.instance.AddOare(currentitem, itemcount);
-
-                break;
-            case Item.type.Hat:
-                Inventory.instance.AddHat(currentitem, itemcount);
-
-                break;
-            case Item.type.Keyitem:
+       
+            
+          
                 Inventory.instance.AddKey(currentitem, itemcount);
 
-                break;
-            default:
-                break;
-        }
 
 
         // FindObjectOfType<uimanager>().Updateslotsgen();
-        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
         //itemcount = 0;
 
 

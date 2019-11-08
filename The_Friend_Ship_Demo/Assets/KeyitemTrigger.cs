@@ -28,8 +28,8 @@ public class KeyitemTrigger : MonoBehaviour
     }
     public void ClearItem()
     {
-        KeyItem.gameObject.SendMessage("Turnoff", SendMessageOptions.DontRequireReceiver);
-        KeyItem.invt.Keyitem = null;
+       // KeyItem.gameObject.SendMessage("Turnoff", SendMessageOptions.DontRequireReceiver);
+      //  KeyItem.invt.Keyitem = null;
         KeyItem = null;
         KI = null;
         isactive = false;

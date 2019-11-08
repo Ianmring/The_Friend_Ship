@@ -31,34 +31,8 @@ public class itempickup : Interactable
         invt = Inventory.instance;
 
 
-        switch (item.Type)
-        {
-            case Item.type.Disposeable:
-                bool waspickedup = Inventory.instance.Add(item, 1);
-                if (waspickedup)
-                {
-                    Destroy(this.gameObject);
-
-                }
-                break;
-            case Item.type.Oare:
-                bool waspickedupO = Inventory.instance.AddOare(item, 1);
-                if (waspickedupO)
-                {
-                    Destroy(this.gameObject);
-
-                }
-                break;
-            case Item.type.Hat:
-                bool waspickedupH = Inventory.instance.AddHat(item, 1);
-                if (waspickedupH)
-                {
-                    Destroy(this.gameObject);
-
-                }
-
-                break;
-            case Item.type.Keyitem:
+       
+          
 
                 #region keyitemcheck
               
@@ -108,11 +82,9 @@ public class itempickup : Interactable
                 #endregion
 
 
-                break;
-            default:
-                break;
+          
         }
 
 
     }
-}
+

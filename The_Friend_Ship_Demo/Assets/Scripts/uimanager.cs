@@ -41,11 +41,9 @@ public class uimanager : MonoBehaviour
 
 
     public int currentselected = 0;
-    public GameObject[] inventorymenus;
-    public GameObject[] buttons;
+    //public GameObject[] buttons;
 
-    public GameObject[] Storemenus;
-    public GameObject[] Storebuttons;
+    //public GameObject[] Storebuttons;
     int countt;
 
     void Start()
@@ -68,58 +66,7 @@ public class uimanager : MonoBehaviour
             Menus[i] = Canvase.transform.GetChild(i).gameObject;
         }
 
-        inventorymenus = new GameObject[4];
-        buttons = new GameObject[4];
-        Storemenus = new GameObject[4];
-        Storebuttons = new GameObject[4];
-
-        for (int i = 0; i < Menus[2].transform.childCount; i++)
-        {
-            if (Menus[2].transform.GetChild(i).GetComponent<GridLayoutGroup>())
-            {
-
-                inventorymenus[countt] = Menus[2].transform.GetChild(i).gameObject;
-                countt++;
-            }
-          
-        }
-        countt = 0;
-        for (int i = 0; i < Menus[2].transform.childCount; i++)
-        {
-            if (Menus[2].transform.GetChild(i).GetComponent<Button>())
-            {
-
-                buttons[countt] = Menus[2].transform.GetChild(i).gameObject;
-                countt++;
-            }
-
-        }
-        countt = 0;
-
-        for (int i = 0; i < Menus[5].transform.childCount; i++)
-        {
-            if (Menus[5].transform.GetChild(i).GetComponent<GridLayoutGroup>())
-            {
-
-                Storemenus[countt] = Menus[5].transform.GetChild(i).gameObject;
-                countt++;
-            }
-
-        }
-        countt = 0;
-
-        for (int i = 0; i < Menus[5].transform.childCount; i++)
-        {
-            if (Menus[5].transform.GetChild(i).GetComponent<Button>())
-            {
-
-                Storebuttons[countt] = Menus[5].transform.GetChild(i).gameObject;
-                countt++;
-            }
-
-        }
-        countt = 0;
-        EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
+     
         Updateinvmenu();
         #endregion
 
@@ -128,32 +75,21 @@ public class uimanager : MonoBehaviour
     private void Update()
     {
       
-        if (playersready[0] && playersready[1])
-        {
-            playernums = Players.noone;
-             EventSystem.current.SetSelectedGameObject(null);
-            if (menuisopen)
-            {
-                Menus[2].SetActive(!Menus[2].activeSelf);
+        if (playersready[0] || playersready[1])
+        {                  
+            Menus[2].SetActive(true);        
+                       
+            isopen = true;
+            menuisopen = true;
+            storeisopen = false;
+         
+       //   
+        } else {
+            Menus[2].SetActive(false);
 
-            }
-            else if (storeisopen)
-            {
-                Menus[5].SetActive(!Menus[5].activeSelf);
-
-            }
-            Menus[3].SetActive(true);
-            Menus[4].SetActive(true);
             isopen = false;
             menuisopen = false;
             storeisopen = false;
-            P1.GetComponent<inventorygeneral>().isyourturn = false;
-            P2.GetComponent<inventorygeneral>().isyourturn = false;
-       //     P1.GetComponent<inventorygeneral>().Handoff();
-           //P2.GetComponent<inventorygeneral>().Handoff();
-            playersready[0] = false;
-            playersready[1] = false;
-            //  EventSystem.current.SetSelectedGameObject(null);
         }
 
         if (isopen || DiolaugeManager.DioInstance.indio)
@@ -182,7 +118,7 @@ public class uimanager : MonoBehaviour
        // Triggerupdate();
         UpdateMenuCont();
         Updateinvmenu();
-        EventSystem.current.SetSelectedGameObject(Storebuttons[0]);
+       // EventSystem.current.SetSelectedGameObject(Storebuttons[0]);
 
     }
    
@@ -216,28 +152,7 @@ public class uimanager : MonoBehaviour
 
     //}
    
-    public void setslotint(int newslot)
-    {
-        for (int i = 0; i < inventorymenus.Length; i++)
-        {
-            if (inventorymenus[i].activeInHierarchy)
-            {
-                inventorymenus[i].SetActive(false);
-            }
-        }
-        inventorymenus[newslot].SetActive(true);
-    }
-    public void setStlotint(int newslot)
-    {
-        for (int i = 0; i < Storemenus.Length; i++)
-        {
-            if (Storemenus[i].activeInHierarchy)
-            {
-                Storemenus[i].SetActive(false);
-            }
-        }
-        Storemenus[newslot].SetActive(true);
-    }
+   
     public void UpdateMenuCont()
     {
 
@@ -264,75 +179,27 @@ public class uimanager : MonoBehaviour
 
     public void Updateinvmenu()
     {
-        if (menuisopen && !storeisopen)
-        {
-            if (currentselected < 0)
-            {
-                currentselected = 0;
-            }
-            else if (currentselected > inventorymenus.Length - 1)
-            {
-                currentselected = inventorymenus.Length - 1;
-            }
-
-
-            for (int i = 0; i < inventorymenus.Length; i++)
-            {
-                if (inventorymenus[i].activeInHierarchy)
-                {
-                    inventorymenus[i].SetActive(false);
-                }
-            }
-            inventorymenus[currentselected].SetActive(true);
-            EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
-        }
-        else if (storeisopen && !menuisopen)
-        {
-            if (currentselected < 0)
-            {
-                currentselected = 0;
-            }
-            else if (currentselected > Storemenus.Length - 1)
-            {
-                currentselected = Storemenus.Length - 1;
-            }
-
-
-            for (int i = 0; i < Storemenus.Length; i++)
-            {
-                if (Storemenus[i].activeInHierarchy)
-                {
-                    Storemenus[i].SetActive(false);
-                }
-            }
-            Storemenus[currentselected].SetActive(true);
-            
-            EventSystem.current.SetSelectedGameObject(Storebuttons[currentselected]);
-            // }
-        }
-       
-
-        //  EventSystem.current.SetSelectedGameObject(buttons[currentselected].GetComponentInChildren<GameObject>());
+        
 
     }
-    IEnumerator DelayHighlight()
-    {
-        yield return new WaitForSeconds(0.001f);
+    //IEnumerator DelayHighlight()
+    //{
+    //    yield return new WaitForSeconds(0.001f);
 
-        if (EventSystem.current.currentSelectedGameObject == buttons[currentselected])
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
+    //    if (EventSystem.current.currentSelectedGameObject == buttons[currentselected])
+    //    {
+    //        EventSystem.current.SetSelectedGameObject(null);
+    //        EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
 
-        }
-        else
-        {
-            EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
+    //    }
+    //    else
+    //    {
+    //        EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
 
-        }
+    //    }
 
 
-    }
+    //}
 
 
 }

@@ -27,43 +27,16 @@ public class StoreIconSlot : MonoBehaviour
     {
 
 
-        for (int i = 0; i < info.costItems.Length; i++)
-        {
-            for (int x = 0; x < Inv.slots.Count; x++)
-            {
-                if (info.costItems[i] == Inv.slots[x].item  && info.costAmmounts[i] <= Inv.slots[x].itemcount)
-                {
-                    Inv.slots[x].itemcount = Inv.slots[x].itemcount - info.costAmmounts[i];
-                    Inv.slots[x].Checkitemcount();
-                    numitems++;
-                    numcosts++;
-                   
-                 
-                }
-        
-            }
-        }
+      
 
         if (numitems == info.costItems.Length && numcosts == info.costAmmounts.Length)
         {
             Debug.Log("Items Match");
 
-            switch (info.ItemTobuy.Type)
-            {
-                case Item.type.Disposeable:
-                    Inventory.instance.Add(info.ItemTobuy, 1);
-                    break;
-                case Item.type.Oare:
-                    Inventory.instance.AddOare(info.ItemTobuy, 1);
-                    break;
-                case Item.type.Hat:
-                    Inventory.instance.AddHat(info.ItemTobuy, 1);
-                    break;
-                case Item.type.Keyitem:
+   
                     Inventory.instance.AddKey(info.ItemTobuy, 1);
-                    break;
 
-            }
+            
             numcosts = 0;
             numitems = 0;
             quantity--;

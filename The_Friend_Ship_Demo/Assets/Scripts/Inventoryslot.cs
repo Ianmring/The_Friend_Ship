@@ -126,17 +126,8 @@ public class Inventoryslot : MonoBehaviour
                 invt0 = mana.P1.GetComponent<inventorygeneral>();
                 if (invt0.TriggerItem.KeyItem == null)
                 {
-                    if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-                    {
-
-
-
-                        item.Use();
-                        itemcount--;
-
-
-                    }
-                    else if (item.Type == Item.type.Keyitem)
+                    
+                    if (item.Type == Item.type.Keyitem)
                     {
                         if (invt0.Keyitem == item)
                         {
@@ -163,20 +154,9 @@ public class Inventoryslot : MonoBehaviour
                 invt1 = mana.P2.GetComponent<inventorygeneral>();
                 if (invt1.TriggerItem.KeyItem == null)
                 {
-                    {
-
-                    }
-                    if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-                    {
-
-
-
-                        item.Use();
-                        itemcount--;
-
-
-                    }
-                    else if (item.Type == Item.type.Keyitem)
+                   
+                    
+                     if (item.Type == Item.type.Keyitem)
                     {
                         if (invt1.Keyitem == item)
                         {
@@ -210,116 +190,15 @@ public class Inventoryslot : MonoBehaviour
     }
     
 
-    public void UseItem()
-    {
-        //if (item != null)
-        //{
-        //    inventorygeneral invt0;
-        //    invt0 = mana.P1.GetComponent<inventorygeneral>();
-        //    inventorygeneral invt1;
-        //    invt1 = mana.P2.GetComponent<inventorygeneral>();
-
-           
-        //    switch (mana.playernums)
-        //    {
-        //        case uimanager.Players.player1:
-
-        //            if (invt0.TriggerItem.KeyItem == null)
-        //            {
-        //                if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-        //                {
-
-
-
-        //                    item.Use();
-        //                    itemcount--;
-
-
-        //                }
-        //                else if (item.Type == Item.type.Keyitem)
-        //                {
-        //                    if (invt0.Keyitem == item)
-        //                    {
-        //                        return;
-        //                    }
-        //                    invt0.AddKey(item, false);
-        //                    itemcount--;
-        //                    //   return;
-        //                }
-        //                else
-        //                {
-        //                    return;
-        //                }
-        //            }
-        //            break;
-        //        case uimanager.Players.player2:
-        //            if (invt1.TriggerItem.KeyItem == null)
-        //            {
-        //                {
-
-        //                }
-        //                if (item.Type == Item.type.Hat || item.Type == Item.type.Oare)
-        //                {
-
-
-
-        //                    item.Use();
-        //                    itemcount--;
-
-
-        //                }
-        //                else if (item.Type == Item.type.Keyitem)
-        //                {
-        //                    if (invt1.Keyitem == item)
-        //                    {
-        //                        return;
-        //                    }
-        //                    invt1.AddKey(item, false);
-        //                    itemcount--;
-        //                    //   return;
-        //                }
-        //                else
-        //                {
-        //                    return;
-        //                }
-        //            }
-
-
-        //            break;
-
-        //    }
-        //   // itemcount--;
-        //    Checkitemcount();
-               
-
-        //}
-    }
-
+  
     public void Checkitemcount()
     {
       //  itemcount--;
         if (itemcount < 1)
         {
-            EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[ uimanager.UIinstance.currentselected]);
-            switch (item.Type)
-            {
-                case Item.type.Disposeable:
-                    FindObjectOfType<InventoryMenu>().slots.Remove(this);
-                    break;
-                case Item.type.Oare:
-                    FindObjectOfType<InventoryMenu>().Oareslots.Remove(this);
-
-                    break;
-                case Item.type.Hat:
-                    FindObjectOfType<InventoryMenu>().Hatlots.Remove(this);
-
-                    break;
-                case Item.type.Keyitem:
+          
                     FindObjectOfType<InventoryMenu>().Keyslots.Remove(this);
-                    break;
-                default:
-                    break;
-            }
+                  
             Inventory.instance.Remove(item);
             Destroy(this.gameObject);
 

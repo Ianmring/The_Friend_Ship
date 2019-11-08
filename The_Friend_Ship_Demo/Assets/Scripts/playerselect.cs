@@ -31,10 +31,12 @@ public class playerselect : MonoBehaviour {
 
     public Text ctdwntext;
 
+  //  public Text InstructionalText;
     //public int playernumbers;
     void Start() {
 
-        
+        ctdwntext.text = "Player 1 Press A";
+
         Boat = FindObjectOfType<movement>().gameObject;
         Player1 = FindObjectOfType<Player1>().gameObject;
         Player2 = FindObjectOfType<Player2>().gameObject;
@@ -73,86 +75,36 @@ public class playerselect : MonoBehaviour {
             p1chk.SetActive(false);
             p2chk.SetActive(false);
             countdown = false;
-
+            ctdwntext.text = "Player 1 Press A";
 
         }
 
         if (Input.GetButton("Submit1") && play == player1.notselected) {
             play = player1.Cont1;
+            ctdwntext.text = "Player 2 Press A";
+
             p1chk.SetActive(true);
         } else if (Input.GetButton("Submit1") && play == player1.Cont2)  {
+           
 
             p2chk.SetActive(true);
             countdown = true;
 
-            GameObject P1;
-        P1 = Instantiate(player, Boat.transform);
-
-        P1.transform.position = Player1.transform.position;
-        P1.transform.SetParent(Player1.transform);
-
-
-        P1.GetComponent<Playergen>().direction = 0;
-        P1.GetComponent<Playergen>().playernum = 2;
-        FindObjectOfType<DiolaugeManager>().p1I = 2;
-
-        GameObject P2;
-        P2 = Instantiate(player, Boat.transform);
-        P2.transform.position = Player2.transform.position;
-        P2.transform.SetParent(Player2.transform);
-
-
-
-        P2.GetComponent<Playergen>().direction = 1;
-        P2.GetComponent<Playergen>().playernum = 1;
-        FindObjectOfType<DiolaugeManager>().p2I = 1;
-
-
-        //p1 = 1;
-        //p2 = 2;
-        contchosen = true;
-
-        FindObjectOfType<movement>().PlayersSet = true;
+          
             StartCoroutine("Waittogoaway");
 
 
         }
         if (Input.GetButton("Submit2") && play == player1.notselected) {
             play = player1.Cont2;
+            ctdwntext.text = "Player 2 Press A";
+
             p1chk.SetActive(true);
 
         } else if(Input.GetButton("Submit2") && play == player1.Cont1) {
             p2chk.SetActive(true);
             countdown = true;
-            GameObject P1A;
-                P1A = Instantiate(player, Boat.transform);
-                P1A.transform.position = Player1.transform.position;
-                P1A.transform.SetParent(Player1.transform);
-
-          
-
-            P1A.GetComponent<Playergen>().direction = 0;
-                P1A.GetComponent<Playergen>().playernum = 1;
-            FindObjectOfType<DiolaugeManager>().p1I = 1;
-
-
-            GameObject P2A;
-                P2A = Instantiate(player, Boat.transform);
-                P2A.transform.position = Player2.transform.position;
-                P2A.transform.SetParent(Player2.transform);
-
-          
-
-            P2A.GetComponent<Playergen>().direction = 1;
-                P2A.GetComponent<Playergen>().playernum = 2;
-            FindObjectOfType<DiolaugeManager>().p2I = 2;
-            
-
-            //p1 = 2;
-            //p2 = 1;
-
-            contchosen = true;
-            FindObjectOfType<movement>().PlayersSet = true;
+           
 
             StartCoroutine("Waittogoaway");
           
@@ -166,11 +118,11 @@ public class playerselect : MonoBehaviour {
             
             
 
-            ctdwntext.text = Mathf.RoundToInt(timer -= Time.deltaTime).ToString();
+            ctdwntext.text = "Game will begin in : " + Mathf.RoundToInt(timer -= Time.deltaTime).ToString();
 
 
         } else {
-            ctdwntext.text = "";
+          //  ctdwntext.text = "";
             timer = 5;
         }
          
@@ -180,6 +132,74 @@ public class playerselect : MonoBehaviour {
         yield return new WaitForSeconds(4);
         Hold.SetActive(false);
 
+        switch (play) {
+
+            case player1.Cont1:
+                GameObject P1A;
+                P1A = Instantiate(player, Boat.transform);
+                P1A.transform.position = Player1.transform.position;
+                P1A.transform.SetParent(Player1.transform);
+
+
+
+                P1A.GetComponent<Playergen>().direction = 0;
+                P1A.GetComponent<Playergen>().playernum = 1;
+                FindObjectOfType<DiolaugeManager>().p1I = 1;
+
+
+                GameObject P2A;
+                P2A = Instantiate(player, Boat.transform);
+                P2A.transform.position = Player2.transform.position;
+                P2A.transform.SetParent(Player2.transform);
+
+
+
+                P2A.GetComponent<Playergen>().direction = 1;
+                P2A.GetComponent<Playergen>().playernum = 2;
+                FindObjectOfType<DiolaugeManager>().p2I = 2;
+
+
+                //p1 = 2;
+                //p2 = 1;
+
+                contchosen = true;
+                FindObjectOfType<movement>().PlayersSet = true;
+                break;
+            case player1.Cont2:
+                GameObject P1;
+                P1 = Instantiate(player, Boat.transform);
+
+                P1.transform.position = Player1.transform.position;
+                P1.transform.SetParent(Player1.transform);
+
+
+                P1.GetComponent<Playergen>().direction = 0;
+                P1.GetComponent<Playergen>().playernum = 2;
+                FindObjectOfType<DiolaugeManager>().p1I = 2;
+
+                GameObject P2;
+                P2 = Instantiate(player, Boat.transform);
+                P2.transform.position = Player2.transform.position;
+                P2.transform.SetParent(Player2.transform);
+
+
+
+                P2.GetComponent<Playergen>().direction = 1;
+                P2.GetComponent<Playergen>().playernum = 1;
+                FindObjectOfType<DiolaugeManager>().p2I = 1;
+
+
+                //p1 = 1;
+                //p2 = 2;
+                contchosen = true;
+
+                FindObjectOfType<movement>().PlayersSet = true;
+                break;
+            case player1.notselected:
+                break;
+            default:
+                break;
+        }
         Destroy(GetComponent<playerselect>());
     }
 }

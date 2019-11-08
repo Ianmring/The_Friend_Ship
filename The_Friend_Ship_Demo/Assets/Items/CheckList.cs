@@ -33,10 +33,10 @@ public class CheckList : MonoBehaviour
         if (slot.Playernum == 0)
         {
             check = mov.Handels[0].GetComponentInChildren<uiChecklist>();
-            check.gameObject.SetActive(true);
+           // check.gameObject.SetActive(true);
 
             map = mov.Handels[0].GetComponentInChildren<uiMap>();
-            map.gameObject.SetActive(false);
+           // map.gameObject.SetActive(false);
 
             launch = uimanager.UIinstance.P1.GetComponent<launcher>();
             slide = GameObject.Find("P1Equip").GetComponentInChildren<Slider>();
@@ -45,10 +45,10 @@ public class CheckList : MonoBehaviour
         if (slot.Playernum == 1)
         {
             check = mov.Handels[1].GetComponentInChildren<uiChecklist>();
-            check.gameObject.SetActive(true);
+           // check.gameObject.SetActive(true);
 
             map = mov.Handels[1].GetComponentInChildren<uiMap>();
-            map.gameObject.SetActive(false);
+          //  map.gameObject.SetActive(false);
 
             launch = uimanager.UIinstance.P2.GetComponent<launcher>();
             slide = GameObject.Find("P2Equip").GetComponentInChildren<Slider>();

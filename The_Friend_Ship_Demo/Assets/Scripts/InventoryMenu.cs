@@ -4,50 +4,44 @@ using UnityEngine;
 
 public class InventoryMenu : MonoBehaviour
 {
-    public Transform itemsparent;
+    #region Singelton
+    public static InventoryMenu invmeninstance;
+
+    private void Awake() {
+       invmeninstance = this;
+    }
+
+    #endregion
     public Transform keyitemparent;
-    public Transform Oareitemparent;
-    public Transform Hatitemparent;
-
-
-    //  public GameObject inventoryUI;
-
+   
     Inventory inventory;
 
     public GameObject slot;
 
-    // int dissolts;
-    //int keyslots;
-    //int oareslots;
-    //int hatslots;
-   public List<Inventoryslot> slots { get; set; } = new List<Inventoryslot>();
-   public List<Inventoryslot> Keyslots { get; set; } = new List<Inventoryslot>();
-  public   List<Inventoryslot> Oareslots { get; set; } = new List<Inventoryslot>();
-  public  List<Inventoryslot> Hatlots { get; set; } = new List<Inventoryslot>();
+   public List<Inventoryslot> Keyslots  = new List<Inventoryslot>();
 
+    public Transform[] selector;
 
     public GameObject inventoryUI;
+
+    public int[] itemselected;
+
+    public Item[] currentactiveitem;
+
     // Start is called before the first frame update
     void Start()
     {
+    
+        itemselected = new int[2];
+        currentactiveitem = new Item[2];
+        itemselected[0] = -1;
+        itemselected[1] = -1;
+
         inventoryUI.SetActive(false);
         inventory = Inventory.instance;
 
-        inventory.onitemchangedcallback += AddUI;
 
         inventory.onkeyitemchangedcallback += AddUIKey;
-
-        inventory.onOareitemchangedcallback += AddUIOare;
-
-        inventory.onHatitemchangedcallback += AddUIHat;
-
-
-
-        inventory.onitemSamecallback += UpdateSlotitem;
-
-        inventory.OnOareitemsamecallback += UpdateSlotOare;
-
-        inventory.onHatitemsamecallback += UpdateSlotHat;
 
         inventory.onKeyitemSamecallback += UpdateSlotKey;
 
@@ -59,26 +53,66 @@ public class InventoryMenu : MonoBehaviour
     void Update()
     {
         
-     
-    }
- public void AddUI(Item item , int count)
-    {
-        // Debug.Log(item.name);
-        GameObject disslot;
-       disslot = Instantiate(slot, itemsparent);
-        disslot.GetComponent<Inventoryslot>().itemcount += count;
-      //  slots = itemsparent.GetComponentsInChildren<Inventoryslot>();
-
-        slots.Add(disslot.GetComponent<Inventoryslot>());
-
-        slots[slots.Count-1].Addtiem(item);
-
-     //   uimanager.UIinstance.Triggerupdate();
-
-
+       
 
     }
-  public void AddUIKey(Item item, int count)
+
+    public void Itemup(int playernum) {
+
+        if (Keyslots.Count > 1) {
+
+            if (itemselected[0] == Keyslots.Count - 2 && itemselected[1] == Keyslots.Count - 1) {
+                itemselected[0] = Keyslots.Count - 2;
+            } else if (itemselected[1] == Keyslots.Count - 2 && itemselected[0] == Keyslots.Count - 1) {
+                itemselected[1] = Keyslots.Count - 2;
+            } else {
+            
+                itemselected[playernum]++;
+                if (itemselected[0] == itemselected[1]) {
+                    itemselected[playernum]++;
+                }
+                if (itemselected[playernum] > Keyslots.Count - 1) {
+                    itemselected[playernum] = Keyslots.Count - 1;
+                }
+                selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
+            }
+
+
+        }
+        
+    }
+    public void ItemDown(int playernum) {
+        if (Keyslots.Count > 1) {
+            if (itemselected[0] == 1 && itemselected[1] == 0) {
+                itemselected[0] = 1;
+            }
+            else if (itemselected[1] == 1 && itemselected[0] == 0) {
+                itemselected[1] = 1;
+            } else {
+
+                itemselected[playernum]--;
+                if (itemselected[0] == itemselected[1]) {
+                    itemselected[playernum]--;
+                }
+
+
+
+                if (itemselected[playernum] < 0) {
+                    itemselected[playernum] = 0;
+                }
+                selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
+            }
+
+
+           
+        }
+    }
+
+    public void equipitem(int playernum) {
+        currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
+    }
+
+    public void AddUIKey(Item item, int count)
     {
         GameObject Keyslot;
         Keyslot = Instantiate(slot, keyitemparent);
@@ -93,77 +127,6 @@ public class InventoryMenu : MonoBehaviour
        
     }
 
-  public void AddUIOare(Item item, int count)
-    {
-        GameObject Oareslot;
-       Oareslot = Instantiate(slot, Oareitemparent);
-      //  Oareslots = Oareitemparent.GetComponentsInChildren<Inventoryslot>();
-        Oareslot.GetComponent<Inventoryslot>().itemcount += count;
-
-        Oareslots.Add(Oareslot.GetComponent<Inventoryslot>());
-
-        Oareslots[Oareslots.Count - 1].Addtiem(item);
-       // uimanager.UIinstance.Triggerupdate();
-
-      
-
-    }
- public void AddUIHat(Item item, int count)
-    {
-        GameObject Hatslot;
-
-        Hatslot =Instantiate(slot, Hatitemparent);
-   //     Hatlots = Hatitemparent.GetComponentsInChildren<Inventoryslot>();
-        Hatslot.GetComponent<Inventoryslot>().itemcount += count;
-
-        Hatlots.Add(Hatslot.GetComponent<Inventoryslot>());
-
-        Hatlots[Hatlots.Count - 1].Addtiem(item);
-       // uimanager.UIinstance.Triggerupdate();
-
-       
-    }
-
-
-
-    void UpdateSlotitem(Item item, int count)
-    {
-        foreach (var Item in slots)
-        {
-            if (Item.itemname == item.name)
-            {
-                Item.itemcount += count;
-              //  uimanager.UIinstance.Triggerupdate();
-
-            }
-        }
-    }
-
-    void UpdateSlotOare(Item item, int count)
-    {
-        foreach (var Item in Oareslots)
-        {
-            if (Item.itemname == item.name)
-            {
-                Item.itemcount += count;
-               // uimanager.UIinstance.Triggerupdate();
-
-            }
-        }
-    }
-
-    void UpdateSlotHat(Item item, int count)
-    {
-        foreach (var Item in Hatlots)
-        {
-            if (Item.itemname == item.name)
-            {
-                Item.itemcount += count;
-             //   uimanager.UIinstance.Triggerupdate();
-
-            }
-        }
-    }
 
     void UpdateSlotKey(Item item, int count)
     {

@@ -127,7 +127,7 @@ MonoBehaviour:
   direction: 0
   playernum: 0
   playerrend: {fileID: 2354370249851884031}
-  isdemo: 1
+  isdemo: 0
   UIMana: {fileID: 0}
 --- !u!114 &8028817674074426827
 MonoBehaviour:
