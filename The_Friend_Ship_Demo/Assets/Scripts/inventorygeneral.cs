@@ -40,7 +40,7 @@ public class inventorygeneral : MonoBehaviour
         TriggerItem = GameObject.Find("KeyItem" + player.direction).GetComponent<KeyitemTrigger>();
       //  Selector = GameObject.Find("SelectedD" + player.direction).GetComponent<Transform>();
         currentitem = 0;
-
+        player.triggeritem = TriggerItem;
         //Update_Slots();
     }
 
@@ -81,142 +81,60 @@ public class inventorygeneral : MonoBehaviour
 
     public void AddKey(Item Kitem, bool isitem)
     {
+         
+
         if (Kitem == Keyitem)
         {
             return;
         }
         else
         {
-            if (Kitem != null) {
+            if (Kitem == null) {
+                Destroy(currentitemobj);
+                currentitemobj = null;
+                Keyitem = null;
+                TriggerItem.Additem(null, GLauncher, isitem);
+                TriggerItem.Rend.Clear();
+
+                return;
+            } else {
+
+
 
                 Destroy(currentitemobj);
                 currentitemobj = null;
-                TriggerItem.ClearItem();
-                    
+                GameObject PSlot;
+                PersonalItemSlot slot;
+                PSlot = Instantiate(currentslot, KIContainer);
+                slot = PSlot.GetComponent<PersonalItemSlot>();
+
+                slot.Additem(Kitem, isitem);
+                Keyitem = Kitem;
+
+                slot.Playernum = player.direction;
+                slot.invt = this;
+
+
+                //  slot.isitem = isitem;
+                //TriggerItem.ClearItem();
+               // Destroy(TriggerItem.currentobj);                 
+                
+                TriggerItem.Additem(slot, GLauncher, isitem);
+                currentitemobj = PSlot;
+                TriggerItem.Rend.Clear();
+                foreach (var item in PSlot.GetComponentsInChildren<CanvasRenderer>()) {
+                    TriggerItem.Rend.Add(item);
+                }
+                // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
+
+
+                //Update_Slots();
             }
-            GameObject PSlot;
-            PersonalItemSlot slot;
-            PSlot = Instantiate(currentslot, KIContainer);
-            slot = PSlot.GetComponent<PersonalItemSlot>();
-
-            slot.Additem(Kitem, isitem);
-            Keyitem = Kitem;
-
-            slot.Playernum = player.direction;
-            slot.invt = this;
-
-
-          //  slot.isitem = isitem;
-            TriggerItem.Additem(slot, GLauncher , isitem);
-            currentitemobj = PSlot;
-            // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
-
-
-            //Update_Slots();
         }
     }
 
 
-    //public void Update_Slots()
-    //{
-
-
-    //    //launch.updateLauncher();
-
-
-
-
-    //}
-
-
-    //public void Handoff()
-    //{
-    //  //Update_Slots();
-      
-    //        if (player.UIMana.isopen && isyourturn && player.UIMana.menuisopen)
-    //        {
-
-    //        //foreach (var slot in Personal_Slots)
-    //        //{
-    //        //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
-    //        //    {
-    //        //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-    //        //    }
-    //        //    // Container.GetComponentInParent<GameObject>().SetActive(true);
-    //        //    slot.isinteract = true;
-    //        //    slot.ChangeActive();
-    //        //}
-    //        if (TriggerItem.KeyItem == null)
-    //        {
-    //            return;
-    //        }
-    //        else
-    //        {
-    //            TriggerItem.KeyItem.isinteract = true;
-    //            TriggerItem.KeyItem.ChangeActive();
-    //        }
-           
-
-
-    //    }
-
-
-    //    else
-    //        {
-    //        //foreach (var slot in Personal_Slots)
-    //        //{
-    //        //    // Container.GetComponentInParent<GameObject>().SetActive(false);
-    //        //    if (slot.Button.gameObject == EventSystem.current.currentSelectedGameObject)
-    //        //    {
-    //        //        EventSystem.current.SetSelectedGameObject(uimanager.UIinstance.buttons[uimanager.UIinstance.currentselected]);
-    //        //    }
-    //        //    slot.isinteract = false;
-    //        //    slot.ChangeActive();
-    //        //}
-    //        if (TriggerItem.KeyItem == null)
-    //        {
-    //            return;
-    //        }
-    //        else
-    //        {
-    //            TriggerItem.KeyItem.isinteract = false;
-    //            TriggerItem.KeyItem.ChangeActive();
-    //        }
-
-    //    }
-
-
-
-    //}
- 
-    //public void Subinvt()
-    //{
-    //    Update_Slots();
-
-
-    //    if (Personal_Slots[currentitem].itemcount < 2)
-    //    {
-    //        //  items.Remove(Personal_Slots[currentitem].currentitem);
-
-    //        GameObject obj;
-    //        obj = Personal_Slots[currentitem].gameObject;
-    //        Personal_Slots.Remove(Personal_Slots[currentitem]);
-
-    //        Destroy(obj);
-    //        obj = null;
-
-
-    //    }
-    //    else
-    //    {
-    //        Personal_Slots[currentitem].itemcount--;
-
-    //    }
-    //  Update_Slots();
-    //    //   Update_Slots();
-
-    //}
-   
+  
 
 
 }

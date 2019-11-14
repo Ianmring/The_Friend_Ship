@@ -17,5 +17,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6e92060e1f18ef340b8f3da066335ce3, type: 3}
   isdefault: 0
   OBJ: {fileID: 8536095704725143715, guid: 2d8cb488d256cf348b189c3449c144a9, type: 3}
+  UIOBJ: {fileID: 5534118185209474473, guid: 0054b4a566516b943b4b8ffb0f7f9b2d, type: 3}
   discription: 
   KeyItemType: 2

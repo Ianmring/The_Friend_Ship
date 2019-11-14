@@ -26,6 +26,9 @@ public class Playergen : MonoBehaviour
    public uimanager UIMana;
 
     inventorygeneral invent;
+    InventoryMenu invmen;
+
+  public  KeyitemTrigger triggeritem;
 
     public float Itemselect;
 
@@ -37,6 +40,7 @@ public class Playergen : MonoBehaviour
     {
 
         invent = GetComponent<inventorygeneral>();
+        invmen = FindObjectOfType<InventoryMenu>();
         UIMana = FindObjectOfType<uimanager>();
         playa = FindObjectOfType<playerselect>();
         Mov = GetComponentInParent<movement>();
@@ -63,14 +67,14 @@ public class Playergen : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
-      
-            Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
+
+        Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
         Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
-        Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() +"_Turn");
+        Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Turn");
         Itemselect = Input.GetAxis("ItemScrool" + playernum.ToString());
+
 
         if (UIMana.menuisopen && isselectingitem) {
             if (Itemselect > .1 && selecting) {
@@ -85,78 +89,56 @@ public class Playergen : MonoBehaviour
 
             }
         }
-       
 
 
-        if (Input.GetButton("Exit" + playernum.ToString()))
-        {
+
+
+
+
+
+            if (Input.GetButtonUp("Handoff" + playernum.ToString())) {
+                Debug.Log("move");
+                movement.MovInstance.Switchplayerpos();
+            }
+
+            if (Input.GetButtonDown("MenuUP" + playernum.ToString()) && invmen.Keyslots.Count > 1) {
+                UIMana.playersready[direction] = true;
+                isselectingitem = true;
+            Debug.Log("DOWN");
+
+        }
+        if (Input.GetButtonUp("MenuUP" + playernum.ToString())) {
+                //   Debug.Log("UP2");
+
+                if (invmen.itemselected[direction] >= 0) {
+                    invmen.equipitem(direction);
+                    invent.AddKey(invmen.currentactiveitem[direction], false);
+                } else {
+                    invmen.equipitem(direction);
+                    invent.AddKey(null, false);
+
+                }
+                UIMana.playersready[direction] = false;
+                isselectingitem = false;
+            Debug.Log("UP");
+
+
+        }
+        if (Input.GetButton("Exit" + playernum.ToString())) {
             Debug.Log("Quit");
             Application.Quit();
 
 
         }
-
-        if (Input.GetButtonUp("Handoff" + playernum.ToString())) {
-            Debug.Log("move");
-            movement.MovInstance.Switchplayerpos();
-        }
-
-        #region UIControl
-
-        if (!isdemo)
-        {
-            if (!UIMana.isopen)
-            {
-               
-                if (Input.GetButtonUp("Submit" + playernum.ToString()))
-                {
-                    switch (direction)
-                    {
-                        case 0:
-                          
-                            butt = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-                            UIMana.playernums = uimanager.Players.player1;
-
-                            butt.Select();
-                            UIMana.Input.submitButton = "Submit" + playernum.ToString();
-
-                            break;
-                        case 1:
-                            
-                            butt = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-                            UIMana.playernums = uimanager.Players.player2;
-
-                            butt.Select();
-                            UIMana.Input.submitButton = "Submit" + playernum.ToString();
-
-                            break;
-
-                      
-                    }
-                }
-                 
-
-               
-
-            }
-            #endregion
-            if (Input.GetButtonDown("MenuUP" + playernum.ToString())) {
-                UIMana.playersready[direction] = true;
-                isselectingitem = true;
-            }
-            if (Input.GetButtonUp("MenuUP" + playernum.ToString())) {
-                //   Debug.Log("UP2");
-                Debug.Log("UP");
-                InventoryMenu.invmeninstance.equipitem(direction);
-                invent.AddKey(InventoryMenu.invmeninstance.currentactiveitem[direction], false);
-                UIMana.playersready[direction] = false;
-                isselectingitem = false;
+    }
+    
 
 
-            }
-        }
+
+      
+    
         
     
       
     }
-}
+

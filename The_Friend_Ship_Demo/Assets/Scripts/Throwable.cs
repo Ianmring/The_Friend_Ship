@@ -33,7 +33,7 @@ public class Throwable : MonoBehaviour
             Rigidbody rig;
             rig = Instantiate(rid, FindObjectOfType<MainLauncher>().transform.position, FindObjectOfType<MainLauncher>().transform.rotation) as Rigidbody;
             rig.AddForce(FindObjectOfType<MainLauncher>().transform.right * Launchmulit);
-            slot.invt.TriggerItem.ClearItem();
+          //  slot.invt.TriggerItem.ClearItem();
             Destroy(this.gameObject);
         } 
 

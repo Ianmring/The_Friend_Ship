@@ -36,6 +36,8 @@ public class InventoryMenu : MonoBehaviour
         currentactiveitem = new Item[2];
         itemselected[0] = -1;
         itemselected[1] = -1;
+        selector[0].gameObject.SetActive(false);
+        selector[1].gameObject.SetActive(false);
 
         inventoryUI.SetActive(false);
         inventory = Inventory.instance;
@@ -66,7 +68,7 @@ public class InventoryMenu : MonoBehaviour
             } else if (itemselected[1] == Keyslots.Count - 2 && itemselected[0] == Keyslots.Count - 1) {
                 itemselected[1] = Keyslots.Count - 2;
             } else {
-            
+                selector[playernum].gameObject.SetActive(true);
                 itemselected[playernum]++;
                 if (itemselected[0] == itemselected[1]) {
                     itemselected[playernum]++;
@@ -83,12 +85,13 @@ public class InventoryMenu : MonoBehaviour
     }
     public void ItemDown(int playernum) {
         if (Keyslots.Count > 1) {
-            if (itemselected[0] == 1 && itemselected[1] == 0) {
-                itemselected[0] = 1;
+            if (itemselected[0] == 0 && itemselected[1] == -1) {
+                itemselected[0] = 0;
             }
-            else if (itemselected[1] == 1 && itemselected[0] == 0) {
-                itemselected[1] = 1;
+            else if (itemselected[1] == 0 && itemselected[0] == -1) {
+                itemselected[1] = 0;
             } else {
+                selector[playernum].gameObject.SetActive(true);
 
                 itemselected[playernum]--;
                 if (itemselected[0] == itemselected[1]) {
@@ -97,10 +100,17 @@ public class InventoryMenu : MonoBehaviour
 
 
 
-                if (itemselected[playernum] < 0) {
-                    itemselected[playernum] = 0;
+                if (itemselected[playernum] < -1) {
+                    itemselected[playernum] = -1;
                 }
-                selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
+
+                if (itemselected[playernum] < 0) {
+                    selector[playernum].gameObject.SetActive(false);
+
+                } else {
+                    selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
+
+                }
             }
 
 
@@ -109,7 +119,12 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void equipitem(int playernum) {
-        currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
+        if (itemselected[playernum] < 0) {
+            currentactiveitem[playernum] = null;
+        } else {
+            currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
+
+        }
     }
 
     public void AddUIKey(Item item, int count)

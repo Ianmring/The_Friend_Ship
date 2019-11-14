@@ -11,6 +11,7 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public bool isdefault = false;
     public GameObject OBJ = null;
+    public GameObject UIOBJ = null;
     public string discription = null;
     
  

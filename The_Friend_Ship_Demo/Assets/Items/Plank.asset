@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5f4149b08b24a4282f0eaedf47ad89, type: 3}
   m_Name: Plank
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 3
   name: Plank
   icon: {fileID: 21300000, guid: 053c2abeed8c2414e8f7dbf06bf5a101, type: 3}
   isdefault: 0
   OBJ: {fileID: 2374785943306631573, guid: 921b1ec8dd05c534bbc8d031ec293afa, type: 3}
+  UIOBJ: {fileID: 5534118185209474473, guid: c4892e8ddee62a64ab3a6feb56201dbb, type: 3}
   discription: 

@@ -18,7 +18,7 @@ public class launcher : MonoBehaviour
 
    // public Rigidbody rocketPrefab;
     //public PersonalItemSlot Slot;
-    float DirVTotal;
+   float DirVTotal;
     float DirHTotal;
 
     public float dirTotal;
@@ -31,15 +31,18 @@ public class launcher : MonoBehaviour
 public    inventorygeneral invt;
 
     public Vector3 Dir;
-    Playergen playa;
+   public Playergen playa;
     public float Yvect;
 
     MainLauncher mainL;
+
+    [SerializeField]
+    float test;
     // Start is called before the first frame update
     void Start()
     {
 
-
+        test = 1;
         playa = GetComponent<Playergen>();
         dirData = GameObject.FindObjectOfType<movement>();
         Player = GetComponent<Transform>();
@@ -82,9 +85,9 @@ public    inventorygeneral invt;
             DirHTotal = Mathf.Abs(DirH);
             DirVTotal = Mathf.Abs(DirV);
 
-           // dirTotal = (DirHTotal + DirVTotal) / 2;
+            // dirTotal = (DirHTotal + DirVTotal) / 2;
 
-
+            test = 1 + (-IReady);
 
             Yvect = transform.eulerAngles.y;
 

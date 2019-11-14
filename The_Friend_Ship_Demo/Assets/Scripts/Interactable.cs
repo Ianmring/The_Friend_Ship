@@ -31,7 +31,7 @@ public class Interactable : MonoBehaviour
     }
     public virtual void Interact()
     {
-        Debug.Log("do");
+
     }
     private void OnTriggerEnter(Collider other)
     {

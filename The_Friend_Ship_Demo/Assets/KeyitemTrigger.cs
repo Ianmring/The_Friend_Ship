@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class KeyitemTrigger : MonoBehaviour
+    public class KeyitemTrigger : MonoBehaviour
 {
 
     public PersonalItemSlot KeyItem;
@@ -10,62 +11,100 @@ public class KeyitemTrigger : MonoBehaviour
     MainLauncher mainl;
     public launcher PL;
 
-    public bool isactive;
 
     public KeyItem KI;
 
+    [SerializeField]
+   public GameObject currentobj;
+
+    [SerializeField]
+    Slider Itemslide;
+
+    [SerializeField]
+  public List<CanvasRenderer> Rend ;
    public bool Isitem { get; set; }
+
+    public bool isusing;
+
+    public bool isaway;
     // Start is called before the first frame update
     public void Additem(PersonalItemSlot Kitem, launcher L, bool isitem)
     {
+        if (Kitem == null) {
+            Destroy(currentobj);
+            currentobj = null;
+            KeyItem = null;
+            KI = null;
+            Itemslide = null;
+            return;
+        }
+       Destroy(currentobj);
+        currentobj = null;
+
         Isitem = isitem;
         KeyItem = Kitem;
         KI = Kitem.currentitem as KeyItem;
+        Itemslide = GetComponentInParent<Slider>();
+        GameObject Item;
+        UIMovement UIgo;
+        Item = Instantiate(Kitem.currentitem.UIOBJ, Itemslide.handleRect);
+        currentobj = Item;
+        
+        UIgo = Item.GetComponent<UIMovement>();
+        UIgo.Trig = this;
+        UIgo.player = L.playa;
         // mainl = ML;
         PL = L;
-        isactive = true;
 
-    }
-    public void ClearItem()
-    {
-       // KeyItem.gameObject.SendMessage("Turnoff", SendMessageOptions.DontRequireReceiver);
-      //  KeyItem.invt.Keyitem = null;
-        KeyItem = null;
-        KI = null;
-        isactive = false;
 
 
     }
+    //public void ClearItem()
+    //{
+
+
+    //    KeyItem = null;
+    //    KI = null;
+    //    isactive = false;
+
+
+    //    Destroy(currentobj);
+    //}
 
     // Update is called once per frame
-    void Update()
-    {
-        //if (KeyItem==null)
-        //{
-        //    isactive = false;
-        //}
+    void Update() {
 
-        if (isactive)
-        {
-            if (PL.IReady > 0)
-            {
-                //   movement.MovInstance.altoveride = true;
-
-                dosomething();
-            }
-            else
-            {
-                //   movement.MovInstance.altoveride = false;
-
-                DontDoSomething();
-
-            }
-        }
-        else
-        {
-            // Debug.Log("NO");
+        if (PL == null) {
             return;
+        } else {
+            Itemslide.value = PL.IReady;
+
         }
+
+
+
+        if (PL.IReady > 0) {
+            isaway = false;
+            GetComponent<CanvasRenderer>().SetAlpha(.5f + (-Itemslide.value));
+            foreach (var item in Rend) {
+                item.SetAlpha(1 + (-Itemslide.value));
+            }
+            if (PL.IReady > .8f) {
+                isusing = true;
+            } else {
+                isusing = false;
+
+            }
+        } else {
+            isaway = true;
+            GetComponent<CanvasRenderer>().SetAlpha(.5f);
+            foreach (var item in Rend) {
+                item.SetAlpha(1);
+            }
+
+        } 
+        
+        
 
 
 
@@ -75,32 +114,12 @@ public class KeyitemTrigger : MonoBehaviour
     {
         if (Isitem )
         {
-            this.gameObject.GetComponentInChildren<Throwable>().Dothething();
+          //  this.gameObject.GetComponentInChildren<Throwable>().Dothething();
 
         }
         else
         {
-            switch (KI.KeyItemType)
-            {
-
-                case global::KeyItem.KeyitemType.ParaScope:
-                    this.gameObject.GetComponentInChildren<Parascope>().Dothething();
-
-                    break;
-                case global::KeyItem.KeyitemType.Map:
-                    this.gameObject.GetComponentInChildren<Map>().Dothething();
-
-                    break;
-                case global::KeyItem.KeyitemType.Compass:
-                    this.gameObject.GetComponentInChildren<Compass>().Dothething();
-
-                    break;
-                case global::KeyItem.KeyitemType.ClipBoard:
-                    this.gameObject.GetComponentInChildren<CheckList>().Dothething();
-
-
-                    break;
-            }
+           
         }
     }
 
@@ -108,33 +127,12 @@ public class KeyitemTrigger : MonoBehaviour
     {
         if (Isitem )
         {
-            this.gameObject.GetComponentInChildren<Throwable>().DoDo();
+          //  this.gameObject.GetComponentInChildren<Throwable>().DoDo();
 
         }
         else
         {
-            switch (KI.KeyItemType)
-            {
-
-                case global::KeyItem.KeyitemType.ParaScope:
-                    this.gameObject.GetComponentInChildren<Parascope>().DoDo();
-
-                    break;
-                case global::KeyItem.KeyitemType.Map:
-                    this.gameObject.GetComponentInChildren<Map>().DoDo();
-
-                    break;
-                case global::KeyItem.KeyitemType.Compass:
-                    this.gameObject.GetComponentInChildren<Compass>().DoDo();
-
-                    break;
-                case global::KeyItem.KeyitemType.ClipBoard:
-                    this.gameObject.GetComponentInChildren<CheckList>().DoDo();
-
-                    break;
-
-
-            }
+           
 
         }
     }

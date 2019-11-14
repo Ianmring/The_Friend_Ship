@@ -66,26 +66,7 @@ public class PersonalItemSlot : MonoBehaviour
 
             iskeyitem = true;
             count.text = "I";
-            switch (Kitem.KeyItemType)
-            {
-               
-                case KeyItem.KeyitemType.ParaScope:
-                    this.gameObject.AddComponent<Parascope>();
-                    break;
-                case KeyItem.KeyitemType.Map:
-                    this.gameObject.AddComponent<Map>();
-
-                    break;
-                case KeyItem.KeyitemType.Compass:
-                    this.gameObject.AddComponent<Compass>();
-
-                    break;
-                case KeyItem.KeyitemType.ClipBoard:
-                    this.gameObject.AddComponent<CheckList>();
-
-                    break;
-              
-            }
+          
 
         }
         else
@@ -115,31 +96,7 @@ public class PersonalItemSlot : MonoBehaviour
     // Update is called once per frame
    
 
-    public void Transferall()
-    {
-      //  FindObjectOfType<uimanager>().Updateslotsgen();
-
-        invt.TriggerItem.ClearItem();
-        itemcount = 1;
-
-       
-            
-          
-                Inventory.instance.AddKey(currentitem, itemcount);
-
-
-
-        // FindObjectOfType<uimanager>().Updateslotsgen();
-        //itemcount = 0;
-
-
-      //  invt.Update_Slots();
-        //return;
-
-        Destroy(this.gameObject);
-
-    }
-
+  
  
   
 }
