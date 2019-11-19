@@ -28,6 +28,8 @@ public class InventoryMenu : MonoBehaviour
 
     public Item[] currentactiveitem;
 
+    Vector3 unequp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +38,9 @@ public class InventoryMenu : MonoBehaviour
         currentactiveitem = new Item[2];
         itemselected[0] = -1;
         itemselected[1] = -1;
-        selector[0].gameObject.SetActive(false);
-        selector[1].gameObject.SetActive(false);
+        unequp = selector[0].transform.position;
+
+     
 
         inventoryUI.SetActive(false);
         inventory = Inventory.instance;
@@ -85,12 +88,12 @@ public class InventoryMenu : MonoBehaviour
     }
     public void ItemDown(int playernum) {
         if (Keyslots.Count > 1) {
-            if (itemselected[0] == 0 && itemselected[1] == -1) {
-                itemselected[0] = 0;
-            }
-            else if (itemselected[1] == 0 && itemselected[0] == -1) {
-                itemselected[1] = 0;
-            } else {
+            //if (itemselected[0] == 0 && itemselected[1] == -1) {
+            //    itemselected[0] = 0;
+            //}
+            //else if (itemselected[1] == 0 && itemselected[0] == -1) {
+            //    itemselected[1] = 0;
+            //} else {
                 selector[playernum].gameObject.SetActive(true);
 
                 itemselected[playernum]--;
@@ -102,16 +105,18 @@ public class InventoryMenu : MonoBehaviour
 
                 if (itemselected[playernum] < -1) {
                     itemselected[playernum] = -1;
-                }
+                selector[playernum].transform.position = unequp;
+
+            }
 
                 if (itemselected[playernum] < 0) {
-                    selector[playernum].gameObject.SetActive(false);
+                selector[playernum].transform.position = unequp;
 
                 } else {
                     selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
 
                 }
-            }
+           // }
 
 
            

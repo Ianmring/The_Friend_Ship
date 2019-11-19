@@ -74,7 +74,7 @@ using UnityEngine.UI;
     // Update is called once per frame
     void Update() {
 
-        if (PL == null) {
+        if (PL == null || Itemslide == null) {
             return;
         } else {
             Itemslide.value = PL.IReady;

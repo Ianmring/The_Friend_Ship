@@ -183,176 +183,194 @@ public class movement : MonoBehaviour {
     }
     void Move()
     {
-       
-            switch (Dir) {
-                case Directions.up:
-                    mag = Mathf.Abs(directions[dirint]);
-                    if (directions[dirint] < -0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        mag = Mathf.Abs(directions[dirint]);
+        if (directions[dirint] < -0.3) {
+            moving = Moving.Forwad;
+            isbackward = false;
 
 
-                        // ismoving = true;
-                    } else if (directions[dirint] > 0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+            // ismoving = true;
+        } else if (directions[dirint] > 0.3) {
+            moving = Moving.Backwards;
+            isbackward = true;
 
 
-                        //ismoving = true;
+            //ismoving = true;
 
-                    } else {
-                        moving = Moving.Not;
+        } else {
+            moving = Moving.Not;
 
-                    }
-                    break;
-                case Directions.upleft:
-                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
-                    if (directionsx[dirint] < -0.3 && directions[dirint] < -0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
-
-
-                        // ismoving = true;
-                    } else if (directionsx[dirint] > 0.3 && directions[dirint] > 0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        }
+        #region oldmov
+        //switch (Dir) {
+        //        case Directions.up:
+        //            mag = Mathf.Abs(directions[dirint]);
+        //            if (directions[dirint] < -0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
-
-                    } else {
-                        moving = Moving.Not;
-
-                    }
-                    break;
-                case Directions.left:
-                    mag = Mathf.Abs(directionsx[dirint]);
-                    if (directionsx[dirint] < -0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        //                // ismoving = true;
+        //            } else if (directions[dirint] > 0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
 
-                        // ismoving = true;
-                    } else if (directionsx[dirint] > 0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+        //        case Directions.upleft:
+        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
+        //            if (directionsx[dirint] < -0.3 && directions[dirint] < -0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
-
-                    } else {
-                        moving = Moving.Not;
-
-                    }
-                    break;
-                case Directions.downleft:
-                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
-                    if (directionsx[dirint] < -0.3 && directions[dirint] > 0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        //                // ismoving = true;
+        //            } else if (directionsx[dirint] > 0.3 && directions[dirint] > 0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
 
-                        // ismoving = true;
-                    } else if (directionsx[dirint] > 0.3 && directions[dirint] < -0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+        //        case Directions.left:
+        //            mag = Mathf.Abs(directionsx[dirint]);
+        //            if (directionsx[dirint] < -0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
-
-                    } else {
-                        moving = Moving.Not;
-
-                    }
-                    break;
-                case Directions.down:
-                    mag = Mathf.Abs(directions[dirint]);
-                    if (directions[dirint] > 0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        //                // ismoving = true;
+        //            } else if (directionsx[dirint] > 0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
 
-                        // ismoving = true;
-                    } else if (directions[dirint] < -0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+        //        case Directions.downleft:
+        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
+        //            if (directionsx[dirint] < -0.3 && directions[dirint] > 0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
-
-                    } else {
-                        moving = Moving.Not;
-
-                    }
-                    break;
-                    
-                case Directions.downright:
-                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
-                    if (directionsx[dirint] > 0.3 && directions[dirint] > 0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        //                // ismoving = true;
+        //            } else if (directionsx[dirint] > 0.3 && directions[dirint] < -0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
 
-                        // ismoving = true;
-                    } else if (directionsx[dirint] < -0.3 && directions[dirint] < -0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+        //        case Directions.down:
+        //            mag = Mathf.Abs(directions[dirint]);
+        //            if (directions[dirint] > 0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
-
-                    } else {
-                        moving = Moving.Not;
-
-                    }
-                    break;
-                case Directions.right:
-                    mag = (Mathf.Abs(directionsx[dirint]));
-
-                    if (directionsx[dirint] > 0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        //                // ismoving = true;
+        //            } else if (directions[dirint] < -0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
 
-                        // ismoving = true;
-                    } else if (directionsx[dirint] < -0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+
+        //        case Directions.downright:
+        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
+        //            if (directionsx[dirint] > 0.3 && directions[dirint] > 0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
-
-                    } else {
-                        moving = Moving.Not;
-
-                    }
-                    break;
-                case Directions.upright:
-                    mag = Mathf.Clamp((Mathf.Abs(directions[dirint])  + Mathf.Abs(directionsx[dirint])),0,1) ;
-
-                    if (directionsx[dirint] > 0.3 && directions[dirint] < -0.3) {
-                        moving = Moving.Forwad;
-                        isbackward = false;
+        //                // ismoving = true;
+        //            } else if (directionsx[dirint] < -0.3 && directions[dirint] < -0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
 
-                        // ismoving = true;
-                    } else if (directionsx[dirint] < -0.3 && directions[dirint] > 0.3) {
-                        moving = Moving.Backwards;
-                        isbackward = true;
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+        //        case Directions.right:
+        //            mag = (Mathf.Abs(directionsx[dirint]));
+
+        //            if (directionsx[dirint] > 0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
 
 
-                        //ismoving = true;
+        //                // ismoving = true;
+        //            } else if (directionsx[dirint] < -0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
 
-                    } else {
-                        moving = Moving.Not;
 
-                    }
-                    break;
+        //                //ismoving = true;
 
-           
-            }
+        //            } else {
+        //                moving = Moving.Not;
 
-        
+        //            }
+        //            break;
+        //        case Directions.upright:
+        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint])  + Mathf.Abs(directionsx[dirint])),0,1) ;
+
+        //            if (directionsx[dirint] > 0.3 && directions[dirint] < -0.3) {
+        //                moving = Moving.Forwad;
+        //                isbackward = false;
+
+
+        //                // ismoving = true;
+        //            } else if (directionsx[dirint] < -0.3 && directions[dirint] > 0.3) {
+        //                moving = Moving.Backwards;
+        //                isbackward = true;
+
+
+        //                //ismoving = true;
+
+        //            } else {
+        //                moving = Moving.Not;
+
+        //            }
+        //            break;
+
+
+        //    }
+
+        #endregion
     }
     void Direction() {
      

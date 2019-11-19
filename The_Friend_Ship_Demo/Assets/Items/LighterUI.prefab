@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3132174172202694880}
   - component: {fileID: 4472579433019778162}
   - component: {fileID: 1506560343679630221}
-  - component: {fileID: 678652603701394392}
+  - component: {fileID: -8391547258212458225}
   m_Layer: 5
-  m_Name: WoodenPlankUI
+  m_Name: LighterUI
   m_TagString: OBJ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 0, y: 40.2}
+  m_SizeDelta: {x: 30, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &26630936596083957
 CanvasRenderer:
@@ -104,7 +104,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -7370427750399504857, guid: e9241d7db823b8a40b4f1465427f958a,
+  m_Sprite: {fileID: 7047310441521186486, guid: f0748bcb3043f1d4aa25c9f40410c6f8,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 47.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -138,9 +138,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 120, y: 30}
+  m_Size: {x: 30, y: 23.6}
   m_EdgeRadius: 0
---- !u!114 &678652603701394392
+--- !u!114 &-8391547258212458225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,6 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5534118185209474473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1cc6ed15e9b194b86cf62fa83bda17, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e6dfc72a35dc9e4eb91085a3a23d179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightstates:
+  - {fileID: 7025018752759822252, guid: f0748bcb3043f1d4aa25c9f40410c6f8, type: 3}
+  - {fileID: 7047310441521186486, guid: f0748bcb3043f1d4aa25c9f40410c6f8, type: 3}
+  islight: 0
