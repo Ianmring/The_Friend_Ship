@@ -26,8 +26,8 @@ public class itempickup : Interactable
         inventorygeneral p1;
         inventorygeneral p2;
 
-        p1 = movement.MovInstance.P1F.invt;
-        p2 = movement.MovInstance.P2F.invt;
+        p1 = movement.MovInstance.p1I;
+        p2 = movement.MovInstance.p2I;
         invt = Inventory.instance;
 
 
@@ -73,7 +73,7 @@ public class itempickup : Interactable
                     bool waspickedupK = Inventory.instance.AddKey(item, 1);
                     if (waspickedupK)
                     {
-                        Destroy(this.gameObject);
+                gameObject.SetActive(false);
                         return;
                     }
                 }

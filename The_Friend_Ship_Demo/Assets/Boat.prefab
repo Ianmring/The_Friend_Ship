@@ -401,13 +401,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743117738}
-  m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2692510986355240209}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!212 &1743117740
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 3, z: 4.5}
+  m_Size: {x: 2.5, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2692510986355240214
 MonoBehaviour:
@@ -532,16 +532,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  maxspeed: 15
-  minturnspeed: 0.2
-  maxturnspeed: 0.2
+  maxspeed: 7
+  minturnspeed: 0.4
+  maxturnspeed: 0.3
   zoom: 0
   Currentang: {x: 0, y: 0, z: 0}
   directions:
   - 0
   - 0
-  directionsx: []
-  Turnx: []
+  directionsx:
+  - 0
+  - 0
+  Turnx:
+  - 0
+  - 0
   steer: 0
   direction: 0
   moving: 0

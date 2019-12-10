@@ -12,10 +12,7 @@ public class Throwable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 
     public void Dothething()
     {
@@ -31,18 +28,12 @@ public class Throwable : MonoBehaviour
             
 
             Rigidbody rig;
-            rig = Instantiate(rid, FindObjectOfType<MainLauncher>().transform.position, FindObjectOfType<MainLauncher>().transform.rotation) as Rigidbody;
-            rig.AddForce(FindObjectOfType<MainLauncher>().transform.right * Launchmulit);
+            //rig = Instantiate(rid, FindObjectOfType<MainLauncher>().transform.position, FindObjectOfType<MainLauncher>().transform.rotation) as Rigidbody;
+            //rig.AddForce(FindObjectOfType<MainLauncher>().transform.right * Launchmulit);
           //  slot.invt.TriggerItem.ClearItem();
             Destroy(this.gameObject);
         } 
 
     }
-    public void DoDo()
-    {
-
-
-
-
-    }
+    
 }

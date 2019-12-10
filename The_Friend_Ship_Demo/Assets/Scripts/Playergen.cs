@@ -34,7 +34,15 @@ public class Playergen : MonoBehaviour
 
    public bool selecting;
 
-    bool isselectingitem;
+  public  bool isselectingitem;
+
+
+    public float Ready;
+    public float IReady;
+    public float DirH;
+    public float DirV;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,56 +78,18 @@ public class Playergen : MonoBehaviour
     void Update() {
 
 
-        Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
-        Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
-        Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Turn");
-        Itemselect = Input.GetAxis("ItemScrool" + playernum.ToString());
 
 
-        if (UIMana.menuisopen && isselectingitem) {
-            if (Itemselect > .1 && selecting) {
-                InventoryMenu.invmeninstance.Itemup(direction);
-                selecting = false;
-            } else if (Itemselect < -.1 && selecting) {
-                InventoryMenu.invmeninstance.ItemDown(direction);
-                selecting = false;
-
-            } else if (Itemselect == 0) {
-                selecting = true;
-
-            }
-        }
-
-
-
-
-
-
-
-            if (Input.GetButtonUp("Handoff" + playernum.ToString())) {
+        if (Input.GetButtonUp("Handoff" + playernum.ToString())) {
                 Debug.Log("move");
                 movement.MovInstance.Switchplayerpos();
             }
 
-            if (Input.GetButtonDown("MenuUP" + playernum.ToString()) && invmen.Keyslots.Count > 1) {
-                UIMana.playersready[direction] = true;
-                isselectingitem = true;
-            Debug.Log("DOWN");
-
-        }
         if (Input.GetButtonUp("MenuUP" + playernum.ToString())) {
-                //   Debug.Log("UP2");
+       
 
-                if (invmen.itemselected[direction] >= 0) {
-                    invmen.equipitem(direction);
-                    invent.AddKey(invmen.currentactiveitem[direction], false);
-                } else {
-                    invmen.equipitem(direction);
-                    invent.AddKey(null, false);
-
-                }
-                UIMana.playersready[direction] = false;
-                isselectingitem = false;
+            UIMana.playersready[direction] = !UIMana.playersready[direction];
+            isselectingitem = !isselectingitem;
             Debug.Log("UP");
 
 
@@ -131,14 +101,55 @@ public class Playergen : MonoBehaviour
 
         }
     }
-    
+    private void FixedUpdate() {
 
+        Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
+        Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
+        Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Turn");
+        Itemselect = Input.GetAxis("ItemScrool" + playernum.ToString());
+        DirH = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Launch");
+        DirV = Input.GetAxis("Vertical_P" + playernum.ToString() + "_Launch");
+        Ready = Input.GetAxis("Player_" + playernum.ToString() + "_Aim");
+        IReady = Input.GetAxis("Player_" + playernum.ToString() + "_Key");
 
+        if (UIMana.menuisopen && isselectingitem) {
+            if (Itemselect > .1 && selecting) {
+                InventoryMenu.invmeninstance.Itemup(direction);
+                if (invmen.itemselected[direction] >= 0) {
+                    invmen.equipitem(direction);
+                    invent.AddKey(invmen.currentactiveitem[direction], false);
+                } else {
+                    invmen.equipitem(direction);
+                    invent.AddKey(null, false);
 
-      
-    
-        
-    
-      
+                }
+                selecting = false;
+            } else if (Itemselect < -.1 && selecting) {
+                InventoryMenu.invmeninstance.ItemDown(direction);
+                if (invmen.itemselected[direction] >= 0) {
+                    invmen.equipitem(direction);
+                    invent.AddKey(invmen.currentactiveitem[direction], false);
+                } else {
+                    invmen.equipitem(direction);
+                    invent.AddKey(null, false);
+
+                }
+                selecting = false;
+
+            } else if (Itemselect == 0) {
+                selecting = true;
+
+            }
+        }
     }
+
+
+
+
+
+
+
+
+
+}
 

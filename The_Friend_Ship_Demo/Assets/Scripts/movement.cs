@@ -55,7 +55,7 @@ public class movement : MonoBehaviour {
 
    // public Slider[] Slides;
 
-    public RectTransform directC;
+ //   public RectTransform directC;
 
     public GameObject[] Handels;
 
@@ -66,10 +66,9 @@ public class movement : MonoBehaviour {
 
      float zroto;
 
-    public launcher P1F;
-    public launcher P2F;
+    public inventorygeneral p1I;
+   public inventorygeneral p2I;
 
-  public  MainLauncher ML;
 
   public  SpriteRenderer spit;
     public float mag;
@@ -87,6 +86,8 @@ public class movement : MonoBehaviour {
 
     public Text P1st;
     public Text P2st;
+
+
 
     void Start () {
 
@@ -106,24 +107,7 @@ public class movement : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (PlayersSet)
-        {
-            if ((P1F.IReady > 0 && ML.p1I.TriggerItem.KeyItem != null && !ML.p1I.TriggerItem.Isitem) || (P2F.IReady > 0 && ML.p2I.TriggerItem.KeyItem != null && !ML.p2I.TriggerItem.Isitem) || altoveride)
-            {
-                move = false;
-            }
-
-            //else if (P1F.Slot == null || P2F.Slot == null)
-            //{
-            //    move = true;
-            //}
-            else if (!altoveride)
-            {
-                move = true;
-            }
-
-         
-        }
+     
 
       
         if (move)
@@ -131,24 +115,19 @@ public class movement : MonoBehaviour {
 
            
             rig.mass = 1;
-            directC.gameObject.SetActive(true);
             Currentang = GetComponent<Transform>().eulerAngles;
             Move();
             Direction();
-            //Slides[0].value = directions[0];
-            //Slides[1].value = directions[1];   
-
+     
             rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
             zoom = rig.velocity.magnitude;
             turnspeed = zoom >= 1 ? minturnspeed : maxturnspeed;
             zroto = transform.localEulerAngles.y;
-            directC.eulerAngles = new Vector3(0, 0, -zroto);
         }
         else
         {
             rig.mass = 10;
             turning = Turning.Not;
-            directC.gameObject.SetActive(false);
         }
 
 
@@ -201,176 +180,7 @@ public class movement : MonoBehaviour {
             moving = Moving.Not;
 
         }
-        #region oldmov
-        //switch (Dir) {
-        //        case Directions.up:
-        //            mag = Mathf.Abs(directions[dirint]);
-        //            if (directions[dirint] < -0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directions[dirint] > 0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-        //        case Directions.upleft:
-        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
-        //            if (directionsx[dirint] < -0.3 && directions[dirint] < -0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directionsx[dirint] > 0.3 && directions[dirint] > 0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-        //        case Directions.left:
-        //            mag = Mathf.Abs(directionsx[dirint]);
-        //            if (directionsx[dirint] < -0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directionsx[dirint] > 0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-        //        case Directions.downleft:
-        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
-        //            if (directionsx[dirint] < -0.3 && directions[dirint] > 0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directionsx[dirint] > 0.3 && directions[dirint] < -0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-        //        case Directions.down:
-        //            mag = Mathf.Abs(directions[dirint]);
-        //            if (directions[dirint] > 0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directions[dirint] < -0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-
-        //        case Directions.downright:
-        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint]) + Mathf.Abs(directionsx[dirint])), 0, 1);
-        //            if (directionsx[dirint] > 0.3 && directions[dirint] > 0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directionsx[dirint] < -0.3 && directions[dirint] < -0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-        //        case Directions.right:
-        //            mag = (Mathf.Abs(directionsx[dirint]));
-
-        //            if (directionsx[dirint] > 0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directionsx[dirint] < -0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-        //        case Directions.upright:
-        //            mag = Mathf.Clamp((Mathf.Abs(directions[dirint])  + Mathf.Abs(directionsx[dirint])),0,1) ;
-
-        //            if (directionsx[dirint] > 0.3 && directions[dirint] < -0.3) {
-        //                moving = Moving.Forwad;
-        //                isbackward = false;
-
-
-        //                // ismoving = true;
-        //            } else if (directionsx[dirint] < -0.3 && directions[dirint] > 0.3) {
-        //                moving = Moving.Backwards;
-        //                isbackward = true;
-
-
-        //                //ismoving = true;
-
-        //            } else {
-        //                moving = Moving.Not;
-
-        //            }
-        //            break;
-
-
-        //    }
-
-        #endregion
+     
     }
     void Direction() {
      

@@ -11,6 +11,8 @@ public class Interactable : MonoBehaviour
 
     public SphereCollider thiscol;
 
+
+
     public enum InteactionType { obj, NPC, QuestMark };
 
     public InteactionType Type;
@@ -50,14 +52,13 @@ public class Interactable : MonoBehaviour
             }
         }
     }
-    public void Update()
-    {
-        
-    }
+
     private void OnTriggerExit(Collider other)
     {
 
         diointoer = false;
+        dio = true;
+
     }
     private void OnDrawGizmosSelected()
     {

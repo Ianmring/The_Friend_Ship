@@ -25,7 +25,7 @@ public class camscript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 
         if (iso)
@@ -46,16 +46,7 @@ public class camscript : MonoBehaviour {
         }
             
 
-    
-
-
-        //cam.orthographic = false;
-        //cam.nearClipPlane = 0.01f;
-        //transform.position = character.transform.position + offset;
-
-        //transform.eulerAngles = Angle;
-        //transform.rotation = offsetangel;
-
+   
 
     }
 }

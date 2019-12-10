@@ -35,29 +35,35 @@ public class DiolaugeManager : MonoBehaviour
     bool p1;
     bool p2;
 
+
+    public int currentstorymoment;
     [SerializeField] public int p1I { get; set; }
    [SerializeField] public int p2I { get; set; }
+
     // Start is called before the first frame update
+
+
     void Start()
     {
         Sentences = new Queue<string>();
     }
 
     // Update is called once per frame
-    public void Startdio(Diolauge Dio, NPC StartNPC)
+    public void Startdio(Diolauge Dio)
     {
         indio = true;
+        movement.MovInstance.move = false;
         currentconvopoint = 0;
         anim.SetTrigger("Open");
-        CurrentNPC = StartNPC;
         currentDiolauge = Dio;
         nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
 
         expression.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
-
         Sentences.Clear();
 
-        foreach (var Sentence in currentDiolauge.Sentences)
+        string[] txtstring = Dio.txtsentences.text.Split('\n');
+
+        foreach (var Sentence in txtstring)
         {
             Sentences.Enqueue(Sentence);
         }
@@ -129,28 +135,18 @@ public class DiolaugeManager : MonoBehaviour
     }
     void EndDiolauge()
     {
-        if (CurrentNPC != null)
-        {
-            CurrentNPC.dio = true;
-            CurrentNPC.diointoer = false;
-            if (CurrentNPC.npctype == NPC.NPCTYPE.NPC && CurrentNPC.missionDone && !CurrentNPC.missionclosed)
-            {
-                CurrentNPC.Endmission();
-            }
-            else if (CurrentNPC.npctype == NPC.NPCTYPE.NPC && !CurrentNPC.missionDone && !CurrentNPC.missionclosed)
-            {
-                CurrentNPC.StartAMission();
-               
-            }
+      
             indio = false;
-            p1 = false;
+        movement.MovInstance.move = true;
+
+        p1 = false;
             p2 = false;
             //CurrentNPC = null;
             //currentDiolauge = null;
                
             anim.SetTrigger("Close");
            
-        }
+        
         //else
         //{
         //    anim.SetTrigger("Close");
@@ -161,6 +157,6 @@ public class DiolaugeManager : MonoBehaviour
 
     }
 
-
+   
 
     }

@@ -20,9 +20,7 @@ public class inventorygeneral : MonoBehaviour
 
     //public Transform Selector;
 
-  public  MainLauncher launch { get; set; }
 
-    public launcher GLauncher { get; set; }
     public bool isyourturn;
 
     public KeyitemTrigger TriggerItem;
@@ -31,11 +29,16 @@ public class inventorygeneral : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        launch = FindObjectOfType<MainLauncher>();
-        GLauncher = GetComponent<launcher>();
         player = GetComponent<Playergen>();
         INVNUM = player.direction;
-      //  Container = GameObject.Find("D" + player.direction + "_Inv").GetComponent<Transform>();
+
+        if (INVNUM == 0) {
+            movement.MovInstance.p1I = this;
+        } else {
+            movement.MovInstance.p2I = this;
+
+        }
+        //  Container = GameObject.Find("D" + player.direction + "_Inv").GetComponent<Transform>();
         KIContainer = GameObject.Find("KeyItem" + player.direction).GetComponent<Transform>();
         TriggerItem = GameObject.Find("KeyItem" + player.direction).GetComponent<KeyitemTrigger>();
       //  Selector = GameObject.Find("SelectedD" + player.direction).GetComponent<Transform>();
@@ -45,37 +48,7 @@ public class inventorygeneral : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
 
-        //if (Personal_Slots.Count<= 0)
-        //{
-        //    currentitem = 0;
-
-        //    return;
-        //}
-        //else
-        //{
-        //            if (currentitem > Personal_Slots.Count-1 )
-        //    {
-        //        currentitem = Personal_Slots.Count-1;
-        //    }
-        //    else if (currentitem < 0)
-        //    {
-        //        currentitem = 0;
-        //    }
-
-        //    Selector.transform.position = Personal_Slots[currentitem].transform.position;
-            
-        //}
-
-
-        //if (Input.GetButtonUp("AddtoPslot"))
-        //{
-        //    FindObjectOfType<uimanager>().Triggerupdate();
-
-        //}
-    }
 
    
 
@@ -93,8 +66,7 @@ public class inventorygeneral : MonoBehaviour
                 Destroy(currentitemobj);
                 currentitemobj = null;
                 Keyitem = null;
-                TriggerItem.Additem(null, GLauncher, isitem);
-                TriggerItem.Rend.Clear();
+                TriggerItem.Additem(null, player, isitem);
 
                 return;
             } else {
@@ -119,16 +91,9 @@ public class inventorygeneral : MonoBehaviour
                 //TriggerItem.ClearItem();
                // Destroy(TriggerItem.currentobj);                 
                 
-                TriggerItem.Additem(slot, GLauncher, isitem);
+                TriggerItem.Additem(slot, player, isitem);
                 currentitemobj = PSlot;
-                TriggerItem.Rend.Clear();
-                foreach (var item in PSlot.GetComponentsInChildren<CanvasRenderer>()) {
-                    TriggerItem.Rend.Add(item);
-                }
-                // Personal_Slots.Add(PSlot.GetComponent<PersonalItemSlot>());
-
-
-                //Update_Slots();
+            
             }
         }
     }

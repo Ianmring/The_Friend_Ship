@@ -67,7 +67,6 @@ public class uimanager : MonoBehaviour
         }
 
      
-        Updateinvmenu();
         #endregion
 
     }
@@ -77,7 +76,7 @@ public class uimanager : MonoBehaviour
       
         if (playersready[0] || playersready[1])
         {                  
-            Menus[2].SetActive(true);        
+            Menus[1].SetActive(true);        
                        
             isopen = true;
             menuisopen = true;
@@ -85,7 +84,7 @@ public class uimanager : MonoBehaviour
          
        //   
         } else {
-            Menus[2].SetActive(false);
+            Menus[1].SetActive(false);
 
             isopen = false;
             menuisopen = false;
@@ -117,57 +116,17 @@ public class uimanager : MonoBehaviour
         Menus[4].SetActive(false);
        // Triggerupdate();
         UpdateMenuCont();
-        Updateinvmenu();
        // EventSystem.current.SetSelectedGameObject(Storebuttons[0]);
 
     }
    
-    //public void Triggerupdate()
-    //{
-    //    switch (playernums)
-    //    {
-    //        case Players.player1:
-    //            Menus[3].SetActive(true);
-    //            Menus[4].SetActive(false);
-
-    //            P1.GetComponent<inventorygeneral>().isyourturn = true;
-    //            P2.GetComponent<inventorygeneral>().isyourturn = false;
-    //            P1.GetComponent<inventorygeneral>().Handoff();
-    //            P2.GetComponent<inventorygeneral>().Handoff();
-
-    //            break;
-    //        case Players.player2:
-    //            Menus[3].SetActive(false);
-    //            Menus[4].SetActive(true);
-
-    //            P1.GetComponent<inventorygeneral>().isyourturn = false;
-    //            P2.GetComponent<inventorygeneral>().isyourturn = true;
-    //            P1.GetComponent<inventorygeneral>().Handoff();
-    //            P2.GetComponent<inventorygeneral>().Handoff();
-    //            break;
-
-
-    //    }
-
-
-    //}
+   
    
    
     public void UpdateMenuCont()
     {
 
-        //if (menuisopen && !storeisopen)
-        //{
-           
-        //    input.horizontalAxis = "Horizontal_P"+ playnum+"_M";
-        //    input.verticalAxis = "Vertical_P"+playnum+"_M";
-        //        input.submitButton = "Submit" + playnum;
-            
-   
-            
-        //}
-        //else if (storeisopen && !menuisopen)
-        //{
+     
             Input.horizontalAxis = "Horizontal_M";
             Input.verticalAxis = "Vertical_M";
        
@@ -177,29 +136,7 @@ public class uimanager : MonoBehaviour
 
     }
 
-    public void Updateinvmenu()
-    {
-        
-
-    }
-    //IEnumerator DelayHighlight()
-    //{
-    //    yield return new WaitForSeconds(0.001f);
-
-    //    if (EventSystem.current.currentSelectedGameObject == buttons[currentselected])
-    //    {
-    //        EventSystem.current.SetSelectedGameObject(null);
-    //        EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
-
-    //    }
-    //    else
-    //    {
-    //        EventSystem.current.SetSelectedGameObject(buttons[currentselected]);
-
-    //    }
-
-
-    //}
+  
 
 
 }

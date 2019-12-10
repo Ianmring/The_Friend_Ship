@@ -54,108 +54,7 @@ public class Inventory : MonoBehaviour
     //public List<Item> Hat = new List<Item>();
     public List<Item> KeyItems = new List<Item>();
 
-    //public bool Add (Item item, int count)
-    //{
-    //  //  uimanager.UIinstance.Updateslotsgen();
-    //    if (!item.isdefault)
-    //    {
-    //        if (items.Count >= space[0])
-    //        {
-    //            Debug.Log("Inventory full");
-    //            return false;
-    //        }
-
-    //        if (items.Contains(item))
-    //        {
-    //            if (onitemSamecallback != null)
-    //            {
-    //                onitemSamecallback.Invoke(item, count);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            items.Add(item);
-
-    //            if (onitemchangedcallback != null)
-    //            {
-    //                onitemchangedcallback.Invoke(item, count);
-
-    //            }
-    //        }
-
-    //    }
-    //    return true;
-    //}
-    //public bool AddOare(Item item , int count)
-    //{
-    //  //  uimanager.UIinstance.Updateslotsgen();
-
-    //    if (!item.isdefault)
-    //    {
-    //        if (Oare.Count >= space[1])
-    //        {
-    //            Debug.Log("Inventory full");
-    //            return false;
-    //        }
-
-    //        if (Oare.Contains(item))
-    //        {
-    //            if(OnOareitemsamecallback != null)
-    //            {
-    //                OnOareitemsamecallback.Invoke(item, count);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            Oare.Add(item);
-
-    //            if (onOareitemchangedcallback != null)
-    //            {
-    //                onOareitemchangedcallback.Invoke(item, count);
-
-    //            }
-    //        }
-
-           
-
-    //    }
-    //    return true;
-    //}
-
-  
-    //public bool AddHat(Item item, int count)
-    //{
-    //  //  uimanager.UIinstance.Updateslotsgen();
-
-    //    if (!item.isdefault)
-    //    {
-    //        if (Hat.Count >= space[2])
-    //        {
-    //            Debug.Log("Inventory full");
-    //            return false;
-    //        }
-
-    //        if (Hat.Contains(item))
-    //        {
-    //            if (onHatitemsamecallback != null)
-    //            {
-    //                onHatitemsamecallback.Invoke(item, count);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            Hat.Add(item);
-
-    //            if (onHatitemchangedcallback != null)
-    //            {
-    //                onHatitemchangedcallback.Invoke(item, count);
-
-    //            }
-    //        }
-
-    //    }
-    //    return true;
-    //}
+    
 
     public bool AddKey(Item item, int count)
     {
@@ -195,13 +94,7 @@ public class Inventory : MonoBehaviour
        
                 KeyItems.Remove(item);             
           
-        
-
-        //if (onitemchangedcallback != null)
-        //{
-        //    onitemchangedcallback.Invoke(item);
-
-        //}
+ 
     }
 
 

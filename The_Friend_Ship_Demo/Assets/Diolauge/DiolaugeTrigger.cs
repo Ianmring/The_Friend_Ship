@@ -5,21 +5,20 @@ using UnityEngine;
 public class DiolaugeTrigger : MonoBehaviour
 {
 
-    public Diolauge Dio;
+   public Diolauge Dio;
+
+    DiolaugeManager dioman;
+    public void Start() {
+        dioman = FindObjectOfType<DiolaugeManager>();
+    }
     // Start is called before the first frame update
-    void Start()
+
+    public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.GetComponent<movement>()) {
+            dioman.Startdio(Dio);
+            gameObject.SetActive(false);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void Triggerdio()
-    {
-     //   FindObjectOfType<DiolaugeManager>().Startdio(Dio);
+        }
     }
 }

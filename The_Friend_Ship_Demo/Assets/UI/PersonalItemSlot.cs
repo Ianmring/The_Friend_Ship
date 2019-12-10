@@ -47,16 +47,7 @@ public class PersonalItemSlot : MonoBehaviour
         imag = Button.gameObject.GetComponent<Image>();
 
 
-        //if (item.Type == Item.type.Keyitem)
-        //{
-        //    iskeyitem = true;
-        //    Kitem = currentitem as KeyItem;
-
-        //}
-        //else
-        //{
-        //    Kitem = null;
-        //}
+      
 
 
         if (currentitem.GetType() == typeof(KeyItem) && !isitemI)
@@ -77,9 +68,7 @@ public class PersonalItemSlot : MonoBehaviour
             this.gameObject.AddComponent<Throwable>();
 
         }
-        //invt.Update_Slots(); 
-
-        //  Debug.Log(currentitem.GetType());
+   
 
     }
     public void ChangeActive()

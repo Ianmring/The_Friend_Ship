@@ -30,7 +30,7 @@ public class Inventoryslot : MonoBehaviour
 
     public void Awake()
     {
-        Description_Name = GameObject.Find("name").GetComponentInParent<Text>();
+
         button = GetComponentInChildren<Button>();
     }
     public void Start()
@@ -79,107 +79,7 @@ public class Inventoryslot : MonoBehaviour
     }
  
     
-    private void Update()
-    {
-        //if (button.gameObject == EventSystem.current.currentSelectedGameObject && item != null)
-        //{
-        //    Description_Name.text = item.name;
-
-        //    if (Input.GetButtonDown("AddtoPslot"))
-        //    {
-        //        inventorygeneral invt0;
-        //        invt0 = mana.P1.GetComponent<inventorygeneral>();
-        //        inventorygeneral invt1;
-        //        invt1 = mana.P2.GetComponent<inventorygeneral>();
-
-
-        //        switch (mana.playernums)
-        //        {
-        //            case uimanager.Players.player1:
-
-        //                if (invt0.TriggerItem.KeyItem == null)
-        //                {
-        //                    invt0.AddKey(item, true);
-        //                    itemcount--;
-        //                }
-        //                break;
-        //            case uimanager.Players.player2:
-        //                if (invt1.TriggerItem.KeyItem == null)
-        //                {
-        //                    invt1.AddKey(item, true);
-        //                    itemcount--;
-        //                }
-        //                break;
-
-        //        }
-        //        Checkitemcount();
-
-
-
-        //    }
-
-
-
-        //    if (Input.GetButtonDown("Submit" + mana.P1.GetComponent<Playergen>().playernum))
-        //    {
-        //        inventorygeneral invt0;
-        //        invt0 = mana.P1.GetComponent<inventorygeneral>();
-        //        if (invt0.TriggerItem.KeyItem == null)
-        //        {
-                    
-        //            if (item.Type == Item.type.Keyitem)
-        //            {
-        //                if (invt0.Keyitem == item)
-        //                {
-        //                    return;
-        //                }
-        //                invt0.AddKey(item, false);
-        //                itemcount--;
-        //                //   return;
-        //            }
-        //            else
-        //            {
-        //                return;
-        //            }
-        //        }
-        //        Checkitemcount();
-
-        //    }
-
-
-
-        //    if (Input.GetButtonDown("Submit" +mana.P2.GetComponent<Playergen>().playernum))
-        //    {
-        //        inventorygeneral invt1;
-        //        invt1 = mana.P2.GetComponent<inventorygeneral>();
-        //        if (invt1.TriggerItem.KeyItem == null)
-        //        {
-                   
-                    
-        //             if (item.Type == Item.type.Keyitem)
-        //            {
-        //                if (invt1.Keyitem == item)
-        //                {
-        //                    return;
-        //                }
-        //                invt1.AddKey(item, false);
-        //                itemcount--;
-        //                //   return;
-        //            }
-        //            else
-        //            {
-        //                return;
-        //            }
-        //        }
-        //          Checkitemcount();
-
-        //    }
-        //}
-       
-        //count.text = itemcount.ToString();
-
-
-    }
+  
     public void clearslot()
     {
         item = null;

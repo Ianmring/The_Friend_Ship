@@ -31,6 +31,8 @@ public class playerselect : MonoBehaviour {
 
     public Text ctdwntext;
 
+    public Diolauge dio;
+
   //  public Text InstructionalText;
     //public int playernumbers;
     void Start() {
@@ -200,6 +202,8 @@ public class playerselect : MonoBehaviour {
             default:
                 break;
         }
+
+        FindObjectOfType<DiolaugeManager>().Startdio(dio);
         Destroy(GetComponent<playerselect>());
     }
 }

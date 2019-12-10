@@ -1,0 +1,570 @@
+fileFormatVersion: 2
+guid: 7dad3a65f9e22b94ca4da30572b1c353
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7871963669285802246
+    second: The_Friendship_UI_Dialogue_NoText_0
+  - first:
+      213: 6777890772859843756
+    second: The_Friendship_UI_Dialogue_NoText_1
+  - first:
+      213: 5807844280627128435
+    second: The_Friendship_UI_Dialogue_NoText_2
+  - first:
+      213: 1148360640109031010
+    second: The_Friendship_UI_Dialogue_NoText_3
+  - first:
+      213: -4739543439175319342
+    second: The_Friendship_UI_Dialogue_NoText_4
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: The_Friendship_UI_Dialogue_NoText_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 465
+        width: 389
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 191.5, y: -57.5}
+        - {x: 194.5, y: -54.5}
+        - {x: 194.5, y: -47.5}
+        - {x: 192.5, y: -45.5}
+        - {x: 187.5, y: -42.5}
+        - {x: 180.5, y: -40.5}
+        - {x: 188.5, y: -31.5}
+        - {x: 190.5, y: -18.5}
+        - {x: 185.5, y: -16.5}
+        - {x: 180.5, y: -15.5}
+        - {x: 172.5, y: -22.5}
+        - {x: 170.5, y: -11.5}
+        - {x: 163.5, y: -0.5}
+        - {x: 149.5, y: 12.5}
+        - {x: 139.5, y: 24.5}
+        - {x: 133.5, y: 29.5}
+        - {x: 123.5, y: 33.5}
+        - {x: 119.5, y: 34.5}
+        - {x: 110.5, y: 36.5}
+        - {x: 98.5, y: 38.5}
+        - {x: -6.5, y: 40.5}
+        - {x: -6.5, y: 52.5}
+        - {x: -11.5, y: 58.5}
+        - {x: -14.5, y: 59.5}
+        - {x: -143.5, y: 59.5}
+        - {x: -143.5, y: 66.5}
+        - {x: -145.5, y: 68.5}
+        - {x: -151.5, y: 68.5}
+        - {x: -158.5, y: 64.5}
+        - {x: -162.5, y: 59.5}
+        - {x: -166.5, y: 71.5}
+        - {x: -169.5, y: 76.5}
+        - {x: -181.5, y: 76.5}
+        - {x: -182.5, y: 74.5}
+        - {x: -182.5, y: 66.5}
+        - {x: -180.5, y: 58.5}
+        - {x: -178.5, y: 54.5}
+        - {x: -190.5, y: 54.5}
+        - {x: -194.5, y: 52.5}
+        - {x: -194.5, y: 42.5}
+        - {x: -187.5, y: 38.5}
+        - {x: -179.5, y: 34.5}
+        - {x: -181.5, y: 24.5}
+        - {x: -182.5, y: -1.5}
+        - {x: -182.5, y: -10.5}
+        - {x: -179.5, y: -17.5}
+        - {x: -175.5, y: -26.5}
+        - {x: -163.5, y: -36.5}
+        - {x: -159.5, y: -44.5}
+        - {x: -148.5, y: -55.5}
+        - {x: 134.5, y: -55.5}
+        - {x: 134.5, y: -56.5}
+        - {x: 137.5, y: -60.5}
+        - {x: 155.5, y: -60.5}
+        - {x: 156.5, y: -67.5}
+        - {x: 158.5, y: -74.5}
+        - {x: 160.5, y: -76.5}
+        - {x: 169.5, y: -76.5}
+        - {x: 173.5, y: -71.5}
+        - {x: 175.5, y: -56.5}
+        - {x: 181.5, y: -57.5}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: f7105dd80b6f46e48afe3ffa9a85fb76
+      internalID: -7871963669285802246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Dialogue_NoText_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 329
+        width: 388
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 192, y: -56}
+        - {x: 194, y: -55}
+        - {x: 194, y: -46}
+        - {x: 189, y: -43}
+        - {x: 179, y: -41}
+        - {x: 188, y: -29}
+        - {x: 190, y: -24}
+        - {x: 190, y: -21}
+        - {x: 185, y: -16}
+        - {x: 183, y: -16}
+        - {x: 175, y: -22}
+        - {x: 172, y: -18}
+        - {x: 171, y: -10}
+        - {x: 165, y: -1}
+        - {x: 152, y: 11}
+        - {x: 140, y: 25}
+        - {x: 134, y: 30}
+        - {x: 129, y: 31}
+        - {x: 123, y: 35}
+        - {x: 111, y: 37}
+        - {x: 103, y: 38}
+        - {x: -17, y: 38}
+        - {x: -17, y: 40}
+        - {x: -22, y: 47}
+        - {x: -37, y: 57}
+        - {x: -49, y: 61}
+        - {x: -55, y: 61}
+        - {x: -67, y: 63}
+        - {x: -75, y: 64}
+        - {x: -96, y: 66}
+        - {x: -111, y: 67}
+        - {x: -128, y: 68}
+        - {x: -150, y: 68}
+        - {x: -150, y: 70}
+        - {x: -162, y: 69}
+        - {x: -165, y: 66}
+        - {x: -167, y: 72}
+        - {x: -170, y: 76}
+        - {x: -182, y: 76}
+        - {x: -181, y: 63}
+        - {x: -179, y: 61}
+        - {x: -180, y: 56}
+        - {x: -192, y: 55}
+        - {x: -194, y: 52}
+        - {x: -194, y: 45}
+        - {x: -191, y: 42}
+        - {x: -179, y: 39}
+        - {x: -179, y: 27}
+        - {x: -181, y: 24}
+        - {x: -182, y: 8}
+        - {x: -182, y: 4}
+        - {x: -181, y: -12}
+        - {x: -179, y: -17}
+        - {x: -174, y: -21}
+        - {x: -173, y: -27}
+        - {x: -161, y: -38}
+        - {x: -160, y: -44}
+        - {x: -148, y: -55}
+        - {x: -130, y: -56}
+        - {x: 137, y: -56}
+        - {x: 141, y: -59}
+        - {x: 146, y: -59}
+        - {x: 155, y: -58}
+        - {x: 157, y: -64}
+        - {x: 159, y: -72}
+        - {x: 162, y: -76}
+        - {x: 170, y: -76}
+        - {x: 173, y: -69}
+        - {x: 179, y: -56}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: 055bff71ce24668438e8778fa7478a96
+      internalID: 6777890772859843756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Dialogue_NoText_2
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 389
+        width: 389
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 179.5, y: -57}
+        - {x: 191.5, y: -57}
+        - {x: 194.5, y: -54}
+        - {x: 194.5, y: -49}
+        - {x: 190.5, y: -45}
+        - {x: 179.5, y: -40}
+        - {x: 186.5, y: -33}
+        - {x: 190.5, y: -25}
+        - {x: 189.5, y: -21}
+        - {x: 186.5, y: -18}
+        - {x: 182.5, y: -17}
+        - {x: 176.5, y: -21}
+        - {x: 172.5, y: -20}
+        - {x: 169.5, y: -10}
+        - {x: 166.5, y: -4}
+        - {x: 150.5, y: 13}
+        - {x: 136.5, y: 28}
+        - {x: 133.5, y: 29}
+        - {x: 127.5, y: 29}
+        - {x: 123.5, y: 33}
+        - {x: 120.5, y: 34}
+        - {x: 111.5, y: 36}
+        - {x: 103.5, y: 37}
+        - {x: -16.5, y: 37}
+        - {x: -17.5, y: 40}
+        - {x: -24.5, y: 48}
+        - {x: -32.5, y: 53}
+        - {x: -39.5, y: 57}
+        - {x: -58.5, y: 61}
+        - {x: -64.5, y: 62}
+        - {x: -75.5, y: 63}
+        - {x: -92.5, y: 65}
+        - {x: -105.5, y: 66}
+        - {x: -126.5, y: 66}
+        - {x: -127.5, y: 67}
+        - {x: -165.5, y: 67}
+        - {x: -167.5, y: 73}
+        - {x: -171.5, y: 76}
+        - {x: -181.5, y: 76}
+        - {x: -182.5, y: 67}
+        - {x: -178.5, y: 57}
+        - {x: -179.5, y: 54}
+        - {x: -187.5, y: 54}
+        - {x: -191.5, y: 53}
+        - {x: -194.5, y: 51}
+        - {x: -194.5, y: 45}
+        - {x: -192.5, y: 42}
+        - {x: -187.5, y: 40}
+        - {x: -179.5, y: 37}
+        - {x: -179.5, y: 25}
+        - {x: -181.5, y: 22}
+        - {x: -181.5, y: -8}
+        - {x: -179.5, y: -18}
+        - {x: -174.5, y: -22}
+        - {x: -174.5, y: -24}
+        - {x: -172.5, y: -29}
+        - {x: -162.5, y: -37}
+        - {x: -157.5, y: -47}
+        - {x: -150.5, y: -53}
+        - {x: -146.5, y: -55}
+        - {x: -133.5, y: -55}
+        - {x: -129.5, y: -57}
+        - {x: 136.5, y: -57}
+        - {x: 139.5, y: -59}
+        - {x: 152.5, y: -59}
+        - {x: 157.5, y: -58}
+        - {x: 157.5, y: -67}
+        - {x: 158.5, y: -72}
+        - {x: 161.5, y: -76}
+        - {x: 169.5, y: -76}
+        - {x: 171.5, y: -73}
+        - {x: 173.5, y: -67}
+        - {x: 174.5, y: -56}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: e2cb011d0e035cd429066cccd734150f
+      internalID: 5807844280627128435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Dialogue_NoText_3
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 187
+        width: 389
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 177.5, y: -57}
+        - {x: 182.5, y: -58}
+        - {x: 190.5, y: -58}
+        - {x: 194.5, y: -55}
+        - {x: 194.5, y: -49}
+        - {x: 193.5, y: -47}
+        - {x: 184.5, y: -43}
+        - {x: 179.5, y: -41}
+        - {x: 182.5, y: -38}
+        - {x: 188.5, y: -29}
+        - {x: 189.5, y: -26}
+        - {x: 189.5, y: -22}
+        - {x: 185.5, y: -18}
+        - {x: 182.5, y: -18}
+        - {x: 177.5, y: -20}
+        - {x: 170.5, y: -15}
+        - {x: 169.5, y: -11}
+        - {x: 164.5, y: -3}
+        - {x: 151.5, y: 10}
+        - {x: 139.5, y: 24}
+        - {x: 134.5, y: 28}
+        - {x: 128.5, y: 31}
+        - {x: 121.5, y: 34}
+        - {x: 116.5, y: 34}
+        - {x: 111.5, y: 37}
+        - {x: 99.5, y: 38}
+        - {x: -17.5, y: 37}
+        - {x: -17.5, y: 39}
+        - {x: -25.5, y: 47}
+        - {x: -31.5, y: 52}
+        - {x: -36.5, y: 55}
+        - {x: -43.5, y: 57}
+        - {x: -51.5, y: 59}
+        - {x: -79.5, y: 63}
+        - {x: -90.5, y: 64}
+        - {x: -117.5, y: 65}
+        - {x: -118.5, y: 66}
+        - {x: -137.5, y: 67}
+        - {x: -158.5, y: 67}
+        - {x: -165.5, y: 65}
+        - {x: -167.5, y: 71}
+        - {x: -172.5, y: 76}
+        - {x: -181.5, y: 76}
+        - {x: -182.5, y: 67}
+        - {x: -177.5, y: 53}
+        - {x: -178.5, y: 54}
+        - {x: -193.5, y: 53}
+        - {x: -194.5, y: 51}
+        - {x: -194.5, y: 44}
+        - {x: -191.5, y: 41}
+        - {x: -186.5, y: 39}
+        - {x: -179.5, y: 37}
+        - {x: -179.5, y: 25}
+        - {x: -181.5, y: 22}
+        - {x: -181.5, y: -15}
+        - {x: -174.5, y: -23}
+        - {x: -173.5, y: -27}
+        - {x: -166.5, y: -34}
+        - {x: -160.5, y: -41}
+        - {x: -156.5, y: -49}
+        - {x: -148.5, y: -55}
+        - {x: -145.5, y: -56}
+        - {x: -130.5, y: -57}
+        - {x: 136.5, y: -57}
+        - {x: 139.5, y: -60}
+        - {x: 152.5, y: -60}
+        - {x: 156.5, y: -61}
+        - {x: 157.5, y: -73}
+        - {x: 160.5, y: -76}
+        - {x: 171.5, y: -76}
+        - {x: 174.5, y: -67}
+        - {x: 174.5, y: -59}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: 437c2b13b2b219144b74f8906ad0d667
+      internalID: 1148360640109031010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Dialogue_NoText_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 247
+        width: 389
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 177.5, y: -56}
+        - {x: 182.5, y: -57}
+        - {x: 190.5, y: -57}
+        - {x: 194.5, y: -54}
+        - {x: 194.5, y: -47}
+        - {x: 193.5, y: -46}
+        - {x: 184.5, y: -42}
+        - {x: 179.5, y: -40}
+        - {x: 182.5, y: -37}
+        - {x: 188.5, y: -28}
+        - {x: 189.5, y: -25}
+        - {x: 189.5, y: -20}
+        - {x: 185.5, y: -17}
+        - {x: 182.5, y: -17}
+        - {x: 172.5, y: -19}
+        - {x: 169.5, y: -9}
+        - {x: 165.5, y: -2}
+        - {x: 152.5, y: 10}
+        - {x: 139.5, y: 25}
+        - {x: 133.5, y: 30}
+        - {x: 127.5, y: 30}
+        - {x: 124.5, y: 33}
+        - {x: 117.5, y: 35}
+        - {x: 112.5, y: 38}
+        - {x: 100.5, y: 39}
+        - {x: -16.5, y: 38}
+        - {x: -17.5, y: 40}
+        - {x: -22.5, y: 47}
+        - {x: -31.5, y: 53}
+        - {x: -38.5, y: 57}
+        - {x: -46.5, y: 59}
+        - {x: -56.5, y: 61}
+        - {x: -86.5, y: 65}
+        - {x: -98.5, y: 66}
+        - {x: -117.5, y: 66}
+        - {x: -118.5, y: 67}
+        - {x: -136.5, y: 67}
+        - {x: -137.5, y: 68}
+        - {x: -158.5, y: 68}
+        - {x: -165.5, y: 66}
+        - {x: -167.5, y: 72}
+        - {x: -171.5, y: 76}
+        - {x: -180.5, y: 76}
+        - {x: -182.5, y: 74}
+        - {x: -180.5, y: 60}
+        - {x: -178.5, y: 54}
+        - {x: -188.5, y: 54}
+        - {x: -192.5, y: 53}
+        - {x: -194.5, y: 51}
+        - {x: -194.5, y: 44}
+        - {x: -189.5, y: 40}
+        - {x: -179.5, y: 38}
+        - {x: -179.5, y: 26}
+        - {x: -181.5, y: 23}
+        - {x: -181.5, y: -7}
+        - {x: -180.5, y: -13}
+        - {x: -179.5, y: -16}
+        - {x: -174.5, y: -21}
+        - {x: -173.5, y: -27}
+        - {x: -162.5, y: -37}
+        - {x: -158.5, y: -45}
+        - {x: -151.5, y: -51}
+        - {x: -147.5, y: -54}
+        - {x: -143.5, y: -55}
+        - {x: -130.5, y: -56}
+        - {x: 136.5, y: -56}
+        - {x: 139.5, y: -59}
+        - {x: 156.5, y: -59}
+        - {x: 157.5, y: -72}
+        - {x: 161.5, y: -76}
+        - {x: 169.5, y: -76}
+        - {x: 171.5, y: -75}
+        - {x: 174.5, y: -66}
+        - {x: 174.5, y: -58}
+      physicsShape: []
+      tessellationDetail: 0.5
+      bones: []
+      spriteID: 6b53f32cd12f205449a2610c19ea2ee1
+      internalID: -4739543439175319342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8116ba53195553440a7e1a2c9f8eee0b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

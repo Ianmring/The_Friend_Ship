@@ -17,4 +17,6 @@ MonoBehaviour:
   - Its an un assuming doc
   Character_in_Conversation:
   - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  currentexpressions: 00000000
+  - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
+  currentexpressions: 0000000000000000
+  txtsentences: {fileID: 4900000, guid: 863b4c91a90466c42a2e2f987f5f40e3, type: 3}

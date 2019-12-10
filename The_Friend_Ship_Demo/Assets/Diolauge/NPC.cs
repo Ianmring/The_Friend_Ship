@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class NPC : Interactable
 {
-
+    public int[] storytriggers;
     public Diolauge[] Diolaugeoptions;
    public  int currentdiolauge =0;
 
-    public Mission_Start_End startmissionB;
-    MissionOrgonizer missorgo;
+   
     public enum NPCTYPE {NPC, Shop, Description};
 
     public NPCTYPE npctype;
@@ -24,12 +23,16 @@ public class NPC : Interactable
     public SpriteRenderer Button1;
     public SpriteRenderer Button2;
 
+    public DiolaugeManager diomana;
     int p1I;
     int p2I;
+
+   
     public override void Interact()
     {
         if (this.enabled)
         {
+            diomana = FindObjectOfType<DiolaugeManager>();
             NPCInteract(currentdiolauge);
             base.Interact();
 
@@ -37,14 +40,19 @@ public class NPC : Interactable
 
     }
 
-    public void Awake()
-    {
-        missorgo = FindObjectOfType<MissionOrgonizer>();
-        startmissionB = GetComponent<Mission_Start_End>();
-    }
+  
     public void NPCInteract(int diotoload)
     {
-        FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload], this);
+
+        if (diomana.currentstorymoment == storytriggers[diotoload]) {
+            currentdiolauge++;
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload]);
+            currentdiolauge++;
+
+        } else {
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload]);
+
+        }
 
         // Debug.Log("Is NPC interact");
     }
@@ -95,23 +103,7 @@ public class NPC : Interactable
             Button2.gameObject.SetActive(false);
         }
     }
-    public void StartAMission()
-    {
-        missionstated = true;
-        startmissionB.MissionStart();
-        currentdiolauge = 1;
-
-    }
-    public void Endmission()
-    {
-        Debug.Log("MissionEnd");
-        missorgo.ActiveMissions.Remove(startmissionB.mana);
-        missorgo.CompletedMissions.Add(startmissionB.mana);
-        missorgo.currentQuest = null;
-        missorgo.UpdateMissionComp();
-        currentdiolauge++;
-        missionclosed = true;
-    }
+   
     // Update is called once per frame
    
 }

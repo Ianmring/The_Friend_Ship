@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
     public PersonalItemSlot KeyItem;
 
-    MainLauncher mainl;
-    public launcher PL;
+    public Playergen PL;
 
 
     public KeyItem KI;
@@ -20,15 +19,13 @@ using UnityEngine.UI;
     [SerializeField]
     Slider Itemslide;
 
-    [SerializeField]
-  public List<CanvasRenderer> Rend ;
    public bool Isitem { get; set; }
 
     public bool isusing;
 
     public bool isaway;
     // Start is called before the first frame update
-    public void Additem(PersonalItemSlot Kitem, launcher L, bool isitem)
+    public void Additem(PersonalItemSlot Kitem, Playergen L, bool isitem)
     {
         if (Kitem == null) {
             Destroy(currentobj);
@@ -52,89 +49,37 @@ using UnityEngine.UI;
         
         UIgo = Item.GetComponent<UIMovement>();
         UIgo.Trig = this;
-        UIgo.player = L.playa;
+        UIgo.player = L;
         // mainl = ML;
         PL = L;
 
 
 
     }
-    //public void ClearItem()
-    //{
-
-
-    //    KeyItem = null;
-    //    KI = null;
-    //    isactive = false;
-
-
-    //    Destroy(currentobj);
-    //}
-
+  
     // Update is called once per frame
-    void Update() {
+    void LateUpdate() {
 
         if (PL == null || Itemslide == null) {
             return;
-        } else {
-            Itemslide.value = PL.IReady;
-
         }
-
-
-
-        if (PL.IReady > 0) {
+        else if (PL.isselectingitem) {
+            Itemslide.value = 1;
             isaway = false;
-            GetComponent<CanvasRenderer>().SetAlpha(.5f + (-Itemslide.value));
-            foreach (var item in Rend) {
-                item.SetAlpha(1 + (-Itemslide.value));
-            }
-            if (PL.IReady > .8f) {
-                isusing = true;
-            } else {
-                isusing = false;
+            isusing = true;
 
-            }
-        } else {
+        }
+        else {
+            Itemslide.value = 0;
+
             isaway = true;
-            GetComponent<CanvasRenderer>().SetAlpha(.5f);
-            foreach (var item in Rend) {
-                item.SetAlpha(1);
-            }
+            isusing = false;
 
-        } 
-        
-        
-
+        }
 
 
     }
 
-    public void dosomething()
-    {
-        if (Isitem )
-        {
-          //  this.gameObject.GetComponentInChildren<Throwable>().Dothething();
-
-        }
-        else
-        {
-           
-        }
-    }
-
-    public void DontDoSomething()
-    {
-        if (Isitem )
-        {
-          //  this.gameObject.GetComponentInChildren<Throwable>().DoDo();
-
-        }
-        else
-        {
-           
-
-        }
-    }
+  
 }
 

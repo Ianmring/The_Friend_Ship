@@ -14,13 +14,14 @@ public class Diolauge : ScriptableObject
 
 
 
-    public string name;
+   // public string name;
 
-    [TextArea(3, 4)]
-    public string[] Sentences;
+   // [TextArea(3, 4)]
+   // public string[] Sentences;
     public Character[] Character_in_Conversation;
     public Expression[] currentexpressions;
 
+    public TextAsset txtsentences;
 
  //   public Sentence[] convo;
 }

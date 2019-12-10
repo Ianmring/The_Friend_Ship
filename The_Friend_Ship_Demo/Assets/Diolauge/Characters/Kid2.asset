@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e150fd8aca8d141bcfe387f165bc81, type: 3}
   m_Name: Kid2
   m_EditorClassIdentifier: 
-  Name: Kid A
+  Name: Kid 1
   expressions:
   - {fileID: -5364538173299595898, guid: f173071702789c949ad5d5ebb690a49b, type: 3}
   - {fileID: 713641089232570335, guid: f173071702789c949ad5d5ebb690a49b, type: 3}
