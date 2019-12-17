@@ -26,6 +26,7 @@ public class DiolaugeManager : MonoBehaviour
     public Image PB2;
 
     //  int mood;
+    [SerializeField]
     int currentconvopoint;
 
     NPC CurrentNPC;
@@ -40,17 +41,20 @@ public class DiolaugeManager : MonoBehaviour
     [SerializeField] public int p1I { get; set; }
    [SerializeField] public int p2I { get; set; }
 
+    GameObject currentdiogame;
     // Start is called before the first frame update
-
+   public uimanager mana;
 
     void Start()
     {
         Sentences = new Queue<string>();
+        mana = uimanager.UIinstance;
     }
 
     // Update is called once per frame
-    public void Startdio(Diolauge Dio)
+    public void Startdio(Diolauge Dio , GameObject game)
     {
+
         indio = true;
         movement.MovInstance.move = false;
         currentconvopoint = 0;
@@ -70,6 +74,16 @@ public class DiolaugeManager : MonoBehaviour
         PB1.color = Color.yellow;
         PB2.color = Color.yellow;
         DisplayNextSentence();
+        if (game == null) {
+            return;
+        } else {
+            currentdiogame = game;
+            currentdiogame.SetActive(false);
+        }
+
+        mana.p1.enabled = false;
+        mana.p2.enabled = false;
+
     }
 
     public void DisplayNextSentence()
@@ -141,10 +155,24 @@ public class DiolaugeManager : MonoBehaviour
 
         p1 = false;
             p2 = false;
-            //CurrentNPC = null;
-            //currentDiolauge = null;
-               
+        //CurrentNPC = null;
+        //currentDiolauge = null;
+        mana.p1.enabled = true;
+        mana.p2.enabled = true;
+
+        if (currentdiogame == null) {
             anim.SetTrigger("Close");
+
+        }
+        else
+	{
+            anim.SetTrigger("Close");
+
+            currentdiogame.SetActive(true);
+            currentdiogame = null;
+
+        }
+     
            
         
         //else

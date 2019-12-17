@@ -52,7 +52,7 @@ public class playerselect : MonoBehaviour {
             if (!string.IsNullOrEmpty(names[x])) {
                 Debug.Log("D");
 
-                gameman.instance.controllercount++;
+               // gameman.instance.controllercount++;
             } else {
                 Debug.Log("L");
             }
@@ -203,7 +203,7 @@ public class playerselect : MonoBehaviour {
                 break;
         }
 
-        FindObjectOfType<DiolaugeManager>().Startdio(dio);
+        FindObjectOfType<DiolaugeManager>().Startdio(dio , null);
         Destroy(GetComponent<playerselect>());
     }
 }

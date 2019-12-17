@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   name: Plastic Rings
+  layer: 0
   icon: {fileID: 21300000, guid: 97a9914e0a9127a4c8ae8466483eaf13, type: 3}
   isdefault: 0
   OBJ: {fileID: 6854513753695256166, guid: fe16055355bfdce489dc57714e29cdf3, type: 3}
+  UIOBJ: {fileID: 0}
   discription: 

@@ -8,20 +8,16 @@ using UnityEngine;
 public class Diolauge : ScriptableObject
 {
     // Start is called before the first frame update
-
-    //public string convoname;
+    public string thingtodo;
+    public string situation;
     public enum Expression { happy, sad, talking, confused, angry, laughing, surprised, silly };
 
 
-
-   // public string name;
-
-   // [TextArea(3, 4)]
-   // public string[] Sentences;
     public Character[] Character_in_Conversation;
     public Expression[] currentexpressions;
 
     public TextAsset txtsentences;
 
+    
  //   public Sentence[] convo;
 }

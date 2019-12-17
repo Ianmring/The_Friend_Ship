@@ -42,11 +42,11 @@ public class Playergen : MonoBehaviour
     public float DirH;
     public float DirV;
 
-
+    public Canvas playercanvas;
+    public GameObject curssor;
     // Start is called before the first frame update
     void Start()
     {
-
         invent = GetComponent<inventorygeneral>();
         invmen = FindObjectOfType<InventoryMenu>();
         UIMana = FindObjectOfType<uimanager>();
@@ -57,12 +57,15 @@ public class Playergen : MonoBehaviour
         {
             case 0:
               //  playerrend.material = Mats[direction];
-                UIMana.P1 = this.gameObject;
+                playercanvas = UIMana.p1;
+                curssor = UIMana.P1curss;
                 break;
 
             case 1:
              //  playerrend.material = Mats[direction];
-                UIMana.P2 = this.gameObject;
+                playercanvas = UIMana.p2;
+                curssor = UIMana.P2curss;
+
                 break;
 
 
@@ -90,6 +93,8 @@ public class Playergen : MonoBehaviour
 
             UIMana.playersready[direction] = !UIMana.playersready[direction];
             isselectingitem = !isselectingitem;
+            curssor.SetActive(!curssor.activeSelf);
+
             Debug.Log("UP");
 
 

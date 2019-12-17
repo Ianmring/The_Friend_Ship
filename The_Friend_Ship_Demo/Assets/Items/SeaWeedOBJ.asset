@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   name: SeaWeed
+  layer: 0
   icon: {fileID: 21300000, guid: 3dea8fd142ffad54c85c447e7066aa49, type: 3}
   isdefault: 0
   OBJ: {fileID: 3902731907900628101, guid: 37d53568b35e4e044899dab8e4e0f258, type: 3}
+  UIOBJ: {fileID: 0}
   discription: 

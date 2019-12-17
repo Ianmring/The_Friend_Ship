@@ -8,42 +8,44 @@ public class camscript : MonoBehaviour {
 
    Transform character;
     Camera cam;
-    public Vector3 offset;
-    public Vector3 Angle;
 
+   public Transform targettrans = null;
     public Vector3 offsetI;
     public Vector3 AngleI;
 
-    public bool iso; 
+    public bool isfollwoing;
 
+    public float smoothspeed = 0.125f;
 
     
     //public Quaternion offsetangel;
     void Start () {
         cam = GetComponent<Camera>();
+        cam.nearClipPlane = -100;
         character = FindObjectOfType<movement>().GetComponent<Transform>();
-	}
+        transform.position = character.transform.position + offsetI;
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 
-        if (iso)
-        {
-            cam.orthographic = true;
-            cam.nearClipPlane = -100;
-            transform.eulerAngles = AngleI;
+       
+        transform.eulerAngles = AngleI;
 
-            transform.position = character.transform.position + offsetI;
+        if (isfollwoing) {
+            Vector3 desiredpos = character.transform.position + offsetI;
+            Vector3 smoothedpos = Vector3.Lerp(transform.position, desiredpos, smoothspeed);
+            transform.position = smoothedpos;
+        } else if (targettrans != null){
+            Vector3 smoothtrans = Vector3.Lerp(transform.position, targettrans.position + offsetI, .1f);
+            transform.position = smoothtrans;
+
+        } else {
+            return;
         }
-        else
-        {
-            cam.orthographic = false;
-            // cam.nearClipPlane = -100;
-            transform.eulerAngles = Angle;
-
-            transform.position = character.transform.position + offset;
-        }
+      
+       
             
 
    

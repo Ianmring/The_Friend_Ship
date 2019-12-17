@@ -2,23 +2,159 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiolaugeTrigger : MonoBehaviour
-{
+public class DiolaugeTrigger : MonoBehaviour {
 
-   public Diolauge Dio;
+    public Diolauge NotMentionDio;
+    public Diolauge MentionDio;
+    public Diolauge IntermDio;
 
     DiolaugeManager dioman;
+
+    bool caninteract;
+    [SerializeField]
+    bool cantrigger;
+    public Diolauge[] diooptions;
+    [SerializeField]
+
+    public SpriteRenderer Button1;
+    public SpriteRenderer Button2;
+
+    bool p1;
+    bool p2;
+
+    public enum meetstates { notmentioned, mentioned, interm}
+
+   public meetstates meet;
+  
+    string ToDo;
+
+   public DiolaugeTrigger[] peoplemeet;
+
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
-    }
-    // Start is called before the first frame update
+     //   meet = meetstates.notmentioned;
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<movement>()) {
-            dioman.Startdio(Dio);
-            gameObject.SetActive(false);
+    }
+    private void OnEnable() {
+
+        caninteract = false;
+        StartCoroutine("Abletointeract");
+    }
+    private void OnTriggerEnter(Collider other) {
+        
+        
+            if (other.GetComponent<movement>() && !cantrigger) {
+            Button1.gameObject.SetActive(true);
+            Button2.gameObject.SetActive(true);
+            cantrigger = true;
+
+            } 
+
+        
+
+    }
+    private void OnTriggerExit(Collider other) {
+        if (other.GetComponent<movement>()) {
+         
+          
+            Button1.gameObject.SetActive(false);
+            Button2.gameObject.SetActive(false);
+           cantrigger = false;
 
         }
+    }
+    public void LateUpdate() {
+
+        if (cantrigger) {
+            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
+                p1 = true;
+                Button1.color = Color.green;
+            }
+            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
+                p2 = true;
+                Button2.color = Color.green;
+
+            }
+            if (p1 && p2) {
+                StartCoroutine("TriggerdioWait");
+
+        }
+        
+
+       
+    }
+
+   
+
+    }
+    IEnumerator TriggerdioWait() {
+        yield return new WaitForSeconds(.1f);
+
+        switch (meet) {
+            case meetstates.notmentioned:
+                dioman.Startdio(NotMentionDio, this.gameObject);
+                              
+                    ToDo = MentionDio.thingtodo;
+                
+                break;
+            case meetstates.mentioned:
+                dioman.Startdio(MentionDio, this.gameObject);
+                meet = meetstates.interm;
+
+                foreach (var people in peoplemeet) {
+                    people.meet = meetstates.mentioned;
+                }
+                              
+                    ToDo = MentionDio.thingtodo;
+                
+                break;
+            case meetstates.interm:
+                dioman.Startdio(IntermDio, this.gameObject);
+                                
+                    ToDo = IntermDio.thingtodo;
+                
+                break;
+           
+        }
+            
+        p1 = false;
+        p2 = false;
+       
+        cantrigger = false;
+
+    }
+    IEnumerator Abletointeract()
+    {
+        if (ToDo != null) {
+            gameObject.SendMessage(ToDo, SendMessageOptions.DontRequireReceiver);
+        }
+        Button1.color = Color.yellow;
+        Button2.color = Color.yellow;
+        yield return new WaitForSeconds(.5f);
+        caninteract = true;
+       // cantrigger = false;
+        
+    }
+
+    public void Tstartdio(string dio, string Messagetosend) {
+
+        if (Messagetosend != "N/A" || Messagetosend != null) {
+            ToDo = Messagetosend;
+        } 
+
+        if (meet == meetstates.interm) {
+            for (int i = 0; i < diooptions.Length; i++) {
+                if (diooptions[i].situation == dio) {
+                    if (caninteract) {
+                        dioman.Startdio(diooptions[i], this.gameObject);
+                        return;
+                        //gameObject.SetActive(false);
+                    }
+                }
+            }           
+
+        }         
+     
+
     }
 }

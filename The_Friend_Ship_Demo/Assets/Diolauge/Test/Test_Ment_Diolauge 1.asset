@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
-  m_Name: Test_Description_Diolauge
+  m_Name: Test_Ment_Diolauge 1
   m_EditorClassIdentifier: 
-  name: 
-  Sentences:
-  - Its an un assuming doc
+  thingtodo: 
+  situation: 
   Character_in_Conversation:
   - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  currentexpressions: 0000000000000000
-  txtsentences: {fileID: 4900000, guid: 863b4c91a90466c42a2e2f987f5f40e3, type: 3}
+  currentexpressions: 00000000
+  txtsentences: {fileID: 4900000, guid: 4cb1696afc5ba0d4e85e849a6d0ebff9, type: 3}

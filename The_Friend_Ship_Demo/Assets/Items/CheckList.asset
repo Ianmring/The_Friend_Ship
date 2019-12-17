@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   name: CheckList
+  layer: 0
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   isdefault: 0
   OBJ: {fileID: 5271233568894735566, guid: 42fd4c500248cc24dba1fea86052c3b8, type: 3}

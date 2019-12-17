@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     public enum type { Disposeable, Oare, Hat , Keyitem};
     public type Type;
     new public string name = "New Item";
+    public int layer;
     public Sprite icon = null;
     public bool isdefault = false;
     public GameObject OBJ = null;

@@ -16,7 +16,7 @@ public class distancedio : MonoBehaviour
     private void OnTriggerExit(Collider other) {
        
         if (other.gameObject.GetComponent<movement>()) {
-       dioman.Startdio(dio);
+       dioman.Startdio(dio , null);
             gameObject.SetActive(false);
 
         }

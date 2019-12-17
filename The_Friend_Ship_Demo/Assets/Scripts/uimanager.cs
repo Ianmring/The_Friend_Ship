@@ -36,11 +36,16 @@ public class uimanager : MonoBehaviour
     public bool menuisopen;
     public bool storeisopen;
 
-    public GameObject P1 { get; set; }
-    public GameObject P2 { get; set; }
 
+    public GameObject P1curss;
+    public GameObject P2curss;
+
+    public Canvas p1;
+    public Canvas p2;
 
     public int currentselected = 0;
+
+    DiolaugeManager manadio;
     //public GameObject[] buttons;
 
     //public GameObject[] Storebuttons;
@@ -53,6 +58,7 @@ public class uimanager : MonoBehaviour
 
         Input = GetComponent<StandaloneInputModule>();
         events = GetComponent<EventSystem>();
+        manadio = DiolaugeManager.DioInstance;
         slotnums = Canvase.transform.childCount;
 
         #region gettingmenus
@@ -65,16 +71,18 @@ public class uimanager : MonoBehaviour
         {
             Menus[i] = Canvase.transform.GetChild(i).gameObject;
         }
+        P1curss.SetActive(false);
+        P2curss.SetActive(false);
 
-     
         #endregion
 
     }
 
+
     private void Update()
     {
       
-        if (playersready[0] || playersready[1])
+        if ((playersready[0] || playersready[1]) && !manadio.indio)
         {                  
             Menus[1].SetActive(true);        
                        

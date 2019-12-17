@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 207808177170753367}
   - component: {fileID: 26630936596083957}
-  - component: {fileID: 1157679443199748668}
   - component: {fileID: 3132174172202694880}
   - component: {fileID: 4472579433019778162}
   - component: {fileID: 1506560343679630221}
@@ -49,20 +48,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5534118185209474473}
   m_CullTransparentMesh: 0
---- !u!114 &1157679443199748668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5534118185209474473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf83c1a193aad14d8eb0ed31897dddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Trig: {fileID: 0}
-  player: {fileID: 0}
 --- !u!50 &3132174172202694880
 Rigidbody2D:
   serializedVersion: 4

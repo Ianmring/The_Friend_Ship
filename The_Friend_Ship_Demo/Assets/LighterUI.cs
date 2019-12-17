@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LighterUI : MonoBehaviour
+public class LighterUI : UIMovement
 {
-    UIMovement uimain;
-    Playergen player;
-    KeyitemTrigger trigg;
    public Sprite[] lightstates;
     Image lighter;
     public bool islight;
     int numberofstrikes;
     int strikes;
-
-    void Start() {
-        uimain = gameObject.GetComponent<UIMovement>();
-        player = uimain.player;
-        trigg = uimain.Trig;
+    bool isstruck;
+  
+    public override void startingfunt() {
+        base.startingfunt();
         lighter = GetComponent<Image>();
         numberofstrikes = Random.Range(5, 8);
     }
-
-    // Update is called once per frame
-    void Update() {
-        if (Input.GetButtonUp("Submit" + player.playernum.ToString()) && trigg.isusing && !islight && strikes < numberofstrikes) {
+    public override void Lateupfunt() {
+        base.Lateupfunt();
+        if (player.Ready > .5f && !isstruck && Trig.isusing && !islight && strikes < numberofstrikes) {
             strikes++;
-        } else if (strikes >= numberofstrikes && trigg.isusing) {
+            isstruck = true;
+
+
+        } else if (strikes >= numberofstrikes && Trig.isusing) {
             islight = true;
-        } else if (!trigg.isusing) {
+        } else if (!Trig.isusing) {
             islight = false;
             strikes = 0;
+        } else if (player.Ready < .5f && !islight) {
+            isstruck = false;
         }
 
         if (islight) {
@@ -39,8 +39,9 @@ public class LighterUI : MonoBehaviour
             lighter.sprite = lightstates[0];
         }
 
-
     }
+    // Update is called once per frame
+  
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "OBJ") {
             Debug.Log("collide");

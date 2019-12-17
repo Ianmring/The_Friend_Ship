@@ -7,16 +7,7 @@ public class NPC : Interactable
     public Diolauge[] Diolaugeoptions;
    public  int currentdiolauge =0;
 
-   
-    public enum NPCTYPE {NPC, Shop, Description};
-
-    public NPCTYPE npctype;
-    // Start is called before the first frame update
-    public bool missionstated;
-    public bool missionDone;
-    public bool missionclosed;
-
-
+  
     bool p1;
     bool p2;
 
@@ -46,11 +37,11 @@ public class NPC : Interactable
 
         if (diomana.currentstorymoment == storytriggers[diotoload]) {
             currentdiolauge++;
-            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload]);
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload], this.gameObject);
             currentdiolauge++;
 
         } else {
-            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload]);
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload] , this.gameObject);
 
         }
 
@@ -61,7 +52,7 @@ public class NPC : Interactable
     {
 
     }
-    private new void Update()
+    private void Update()
     {
         if (diointoer)
         {
