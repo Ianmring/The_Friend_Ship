@@ -43,6 +43,9 @@ public class uimanager : MonoBehaviour
     public Canvas p1;
     public Canvas p2;
 
+    public Playergen oneplayer;
+    public Playergen twoplayer;
+
     public int currentselected = 0;
 
     DiolaugeManager manadio;
@@ -82,22 +85,7 @@ public class uimanager : MonoBehaviour
     private void Update()
     {
       
-        if ((playersready[0] || playersready[1]) && !manadio.indio)
-        {                  
-            Menus[1].SetActive(true);        
-                       
-            isopen = true;
-            menuisopen = true;
-            storeisopen = false;
-         
-       //   
-        } else {
-            Menus[1].SetActive(false);
-
-            isopen = false;
-            menuisopen = false;
-            storeisopen = false;
-        }
+      
 
         if (isopen || DiolaugeManager.DioInstance.indio)
         {
@@ -113,6 +101,56 @@ public class uimanager : MonoBehaviour
 
 
     }
+
+  
+    public void toggleinvet() {
+
+        if (manadio.indio) {
+            playersready[0] = false;
+            playersready[1] = false;
+        }
+
+        
+    
+
+        if ((playersready[0] || playersready[1])) {
+            Menus[1].SetActive(true);
+
+            isopen = true;
+            menuisopen = true;
+            storeisopen = false;
+
+            //   
+        } else {
+            Menus[1].SetActive(false);
+            InventoryMenu.invmeninstance.Resetitemselected();
+            movement.MovInstance.p1I.AddKey(null, false);
+            movement.MovInstance.p2I.AddKey(null, false);
+
+
+            isopen = false;
+            menuisopen = false;
+            storeisopen = false;
+           
+        }
+
+        if (playersready[0]) {
+            oneplayer.isselectingitem = true;
+            oneplayer.curssor.SetActive(true);
+        } else {
+            oneplayer.isselectingitem = false;
+            oneplayer.curssor.SetActive(false);
+        }
+
+        if (playersready[1]) {
+            twoplayer.isselectingitem = true;
+            twoplayer.curssor.SetActive(true);
+        } else {
+            twoplayer.isselectingitem = false;
+            twoplayer.curssor.SetActive(false);
+        }
+    }
+
     public void Shopupdate()
     {
         Menus[5].SetActive(true);

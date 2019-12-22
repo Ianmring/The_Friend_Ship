@@ -19,6 +19,8 @@ public class coinui : UIMovement
     string coinstate;
 
     string SendState;
+
+    bool done;
     // Start is called before the first frame update
     public override void startingfunt() {
         base.startingfunt();
@@ -52,9 +54,14 @@ public class coinui : UIMovement
         base.Interactui();
         DiolaugeTrigger trigger;
         if (targetobj.GetComponent<DiolaugeTrigger>()) {
+            if (done) {
+                InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
+            }
             trigger = targetobj.GetComponent<DiolaugeTrigger>();
             trigger.Tstartdio(coinstate, SendState);
-
+            if (done) {
+                Destroy(this.gameObject);
+            }
                       
         }
         
@@ -81,7 +88,8 @@ public class coinui : UIMovement
         if (sideAgold && sidebgold) {
             coinstate = "CoinPainted";
             SendState = "Dothing";
-
+            bigdecistion = true;
+            done = true;
         }
 
     }

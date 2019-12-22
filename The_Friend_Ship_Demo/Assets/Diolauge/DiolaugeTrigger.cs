@@ -7,6 +7,7 @@ public class DiolaugeTrigger : MonoBehaviour {
     public Diolauge NotMentionDio;
     public Diolauge MentionDio;
     public Diolauge IntermDio;
+    public Diolauge PostDio;
 
     DiolaugeManager dioman;
 
@@ -19,16 +20,21 @@ public class DiolaugeTrigger : MonoBehaviour {
     public SpriteRenderer Button1;
     public SpriteRenderer Button2;
 
+    public GameObject And;
+    public GameObject Or;
+
     bool p1;
     bool p2;
 
-    public enum meetstates { notmentioned, mentioned, interm}
+    public enum meetstates { notmentioned, mentioned, interm , post}
 
    public meetstates meet;
   
     string ToDo;
 
    public DiolaugeTrigger[] peoplemeet;
+
+    bool minordeciss;
 
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
@@ -38,6 +44,8 @@ public class DiolaugeTrigger : MonoBehaviour {
     private void OnEnable() {
 
         caninteract = false;
+        
+      
         StartCoroutine("Abletointeract");
     }
     private void OnTriggerEnter(Collider other) {
@@ -75,14 +83,28 @@ public class DiolaugeTrigger : MonoBehaviour {
                 Button2.color = Color.green;
 
             }
-            if (p1 && p2) {
+
+            if (p1 && p2 && !minordeciss) {
                 StartCoroutine("TriggerdioWait");
 
-        }
-        
+            } else if((p1 || p2) && minordeciss) {
+                StartCoroutine("TriggerdioWait");
 
-       
-    }
+            }
+
+            if (minordeciss) {
+                Or.SetActive(true);
+                And.SetActive(false);
+
+            } else if (!minordeciss) {
+                Or.SetActive(false);
+                And.SetActive(true);
+            }
+
+        } else {
+            Or.SetActive(false);
+            And.SetActive(false);
+        }
 
    
 
@@ -92,27 +114,44 @@ public class DiolaugeTrigger : MonoBehaviour {
 
         switch (meet) {
             case meetstates.notmentioned:
+                minordeciss = true;
+
                 dioman.Startdio(NotMentionDio, this.gameObject);
-                              
-                    ToDo = MentionDio.thingtodo;
+
+                ToDo = MentionDio.thingtodo;
                 
                 break;
             case meetstates.mentioned:
+                minordeciss = true;
+
                 dioman.Startdio(MentionDio, this.gameObject);
+
                 meet = meetstates.interm;
 
                 foreach (var people in peoplemeet) {
                     people.meet = meetstates.mentioned;
+                    people.minordeciss = false;
                 }
                               
-                    ToDo = MentionDio.thingtodo;
+                ToDo = MentionDio.thingtodo;
                 
                 break;
             case meetstates.interm:
+                minordeciss = true;
+
                 dioman.Startdio(IntermDio, this.gameObject);
-                                
-                    ToDo = IntermDio.thingtodo;
+
+                ToDo = IntermDio.thingtodo;
                 
+                break;
+
+            case meetstates.post:
+                minordeciss = true;
+
+                dioman.Startdio(PostDio, this.gameObject);
+
+                ToDo = PostDio.thingtodo;
+
                 break;
            
         }

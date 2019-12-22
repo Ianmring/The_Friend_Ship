@@ -8,8 +8,11 @@ public class distancedio : MonoBehaviour
 
     public Diolauge dio;
     DiolaugeManager dioman;
+    public GameObject target;
+    camscript cam;
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
+        cam = FindObjectOfType<camscript>();
     }
 
     // Update is called once per frame
@@ -18,7 +21,8 @@ public class distancedio : MonoBehaviour
         if (other.gameObject.GetComponent<movement>()) {
        dioman.Startdio(dio , null);
             gameObject.SetActive(false);
-
+            cam.targettrans = target.transform;
+            cam.isfollwoing = false;
         }
     }
 }

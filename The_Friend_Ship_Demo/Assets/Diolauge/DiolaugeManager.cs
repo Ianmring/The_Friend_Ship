@@ -18,6 +18,8 @@ public class DiolaugeManager : MonoBehaviour
 
     public Animator anim;
 
+    camscript cam;
+
     public Queue<string> Sentences;
 
     public Image expression;
@@ -49,6 +51,7 @@ public class DiolaugeManager : MonoBehaviour
     {
         Sentences = new Queue<string>();
         mana = uimanager.UIinstance;
+        cam = FindObjectOfType<camscript>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class DiolaugeManager : MonoBehaviour
     {
 
         indio = true;
+
         movement.MovInstance.move = false;
         currentconvopoint = 0;
         anim.SetTrigger("Open");
@@ -83,7 +87,11 @@ public class DiolaugeManager : MonoBehaviour
 
         mana.p1.enabled = false;
         mana.p2.enabled = false;
-
+        if (mana.Menus[1].activeSelf) {
+            
+            mana.toggleinvet();
+        }
+       
     }
 
     public void DisplayNextSentence()
@@ -151,6 +159,7 @@ public class DiolaugeManager : MonoBehaviour
     {
       
             indio = false;
+
         movement.MovInstance.move = true;
 
         p1 = false;
@@ -160,6 +169,7 @@ public class DiolaugeManager : MonoBehaviour
         mana.p1.enabled = true;
         mana.p2.enabled = true;
 
+        cam.isfollwoing = true;
         if (currentdiogame == null) {
             anim.SetTrigger("Close");
 
@@ -172,9 +182,10 @@ public class DiolaugeManager : MonoBehaviour
             currentdiogame = null;
 
         }
-     
-           
-        
+       
+       // mana.toggleinvet();
+
+
         //else
         //{
         //    anim.SetTrigger("Close");
@@ -185,6 +196,6 @@ public class DiolaugeManager : MonoBehaviour
 
     }
 
-   
 
-    }
+
+}

@@ -19,6 +19,7 @@ public class LighterUI : UIMovement
     }
     public override void Lateupfunt() {
         base.Lateupfunt();
+
         if (player.Ready > .5f && !isstruck && Trig.isusing && !islight && strikes < numberofstrikes) {
             strikes++;
             isstruck = true;

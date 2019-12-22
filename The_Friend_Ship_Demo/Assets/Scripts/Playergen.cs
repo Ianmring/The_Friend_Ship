@@ -59,13 +59,14 @@ public class Playergen : MonoBehaviour
               //  playerrend.material = Mats[direction];
                 playercanvas = UIMana.p1;
                 curssor = UIMana.P1curss;
+                UIMana.oneplayer = this;
                 break;
 
             case 1:
              //  playerrend.material = Mats[direction];
                 playercanvas = UIMana.p2;
                 curssor = UIMana.P2curss;
-
+                UIMana.twoplayer = this;
                 break;
 
 
@@ -92,9 +93,13 @@ public class Playergen : MonoBehaviour
        
 
             UIMana.playersready[direction] = !UIMana.playersready[direction];
-            isselectingitem = !isselectingitem;
-            curssor.SetActive(!curssor.activeSelf);
 
+          //  isselectingitem = !isselectingitem;
+       //     curssor.SetActive(!curssor.activeSelf);
+            UIMana.toggleinvet();
+
+          
+            
             Debug.Log("UP");
 
 
@@ -106,6 +111,7 @@ public class Playergen : MonoBehaviour
 
         }
     }
+    
     private void FixedUpdate() {
 
         Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());

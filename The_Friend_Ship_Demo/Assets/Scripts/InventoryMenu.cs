@@ -30,6 +30,7 @@ public class InventoryMenu : MonoBehaviour
 
     Vector3 unequp;
 
+    GameObject objecttodestory;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,12 +83,7 @@ public class InventoryMenu : MonoBehaviour
     }
     public void ItemDown(int playernum) {
         if (Keyslots.Count > 1) {
-            //if (itemselected[0] == 0 && itemselected[1] == -1) {
-            //    itemselected[0] = 0;
-            //}
-            //else if (itemselected[1] == 0 && itemselected[0] == -1) {
-            //    itemselected[1] = 0;
-            //} else {
+
                 selector[playernum].gameObject.SetActive(true);
 
                 itemselected[playernum]--;
@@ -140,7 +136,28 @@ public class InventoryMenu : MonoBehaviour
 
        
     }
+    public void RemoveUIKey(int Playernum) {
 
+        int itemnum;
+        
+        itemnum = itemselected[Playernum];
+        objecttodestory = Keyslots[itemnum].gameObject;
+        Keyslots.RemoveAt(itemnum);
+        Destroy(objecttodestory);
+        objecttodestory = null;
+        
+    }
+    public void Resetitemselected() {
+        itemselected[0] = 0;
+        ItemDown(0);
+        itemselected[1] = 0;
+        ItemDown(1);
+       
+        equipitem(0);
+        equipitem(1);
+        
+
+    }
 
     void UpdateSlotKey(Item item, int count)
     {

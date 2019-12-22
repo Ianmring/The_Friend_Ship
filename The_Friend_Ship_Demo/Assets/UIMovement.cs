@@ -17,11 +17,17 @@ public class UIMovement : MonoBehaviour
   public  GameObject targetobj;
 
     Vector3 finalpo;
+
+    public bool bigdecistion;
+
+    bool p1;
+    bool p2;
     // Start is called before the first frame update
     void Start()
     {
         startingfunt();
     }
+    
     void LateUpdate() 
     {
 
@@ -33,6 +39,7 @@ public class UIMovement : MonoBehaviour
         player = Trig.PL;
         movmag = 20;
         player.playercanvas.sortingOrder = Trig.KI.layer;
+       
         switch (player.direction) {
             case 0:
                 xmin = Screen.width * .4f;
@@ -46,13 +53,15 @@ public class UIMovement : MonoBehaviour
                 break;
 
         }
+        p1 = false;
+        p2 = false;
     }
     public virtual void Lateupfunt() {
-        if (!Trig.isaway) {       
+        if (!Trig.isaway) {
 
-           // transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
-           
-            transform.position = Vector3.Lerp(trans.position, finalpo , .25f);
+            // transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
+
+            transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
             finalpo = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
             transform.position = new Vector3(Mathf.Clamp(trans.position.x, xmin, xmax), Mathf.Clamp(trans.position.y, 0, Screen.height));
         } else {
@@ -60,22 +69,50 @@ public class UIMovement : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Submit" + player.playernum)) {
+        if (bigdecistion) {
 
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(trans.position);
-            if (Physics.Raycast(ray, out hit)) {
-             //   Debug.Log(hit.collider.gameObject);
-                targetobj = hit.collider.gameObject;
-                Interactui();
+            if (Input.GetButtonDown("Submit1")) {
+                p1 = true;
+              
+            }
+            if (Input.GetButtonDown("Submit2")) {
+                p2 = true;
+
             }
 
-            //Vector3 point;
-            //point = Camera.main.ScreenToWorldPoint(new Vector3(trans.position.x, trans.position.y));
+            if (p1 && p2) {
 
-            //Debug.Log(point);
-        } else {
-            targetobj = null;
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(trans.position);
+                if (Physics.Raycast(ray, out hit)) {
+                    //   Debug.Log(hit.collider.gameObject);
+                    targetobj = hit.collider.gameObject;
+                    Interactui();
+                }
+                p1 = false;
+                p2 = false;
+                bigdecistion = false;
+
+            } else {
+                targetobj = null;
+            }
+        } 
+        else {
+
+
+            if (Input.GetButtonDown("Submit" + player.playernum)) {
+
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(trans.position);
+                if (Physics.Raycast(ray, out hit)) {
+                    //   Debug.Log(hit.collider.gameObject);
+                    targetobj = hit.collider.gameObject;
+                    Interactui();
+                }
+
+            } else {
+                targetobj = null;
+            }
         }
     }
 
