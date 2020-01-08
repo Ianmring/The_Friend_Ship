@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 public class Inventoryslot : MonoBehaviour
@@ -19,7 +20,7 @@ public class Inventoryslot : MonoBehaviour
 
     public int itemcount;
 
-    public Text namee;
+    public TextMeshProUGUI namee;
 
     Text Description_Name;
 

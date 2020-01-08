@@ -90,25 +90,14 @@ public class Playergen : MonoBehaviour
             }
 
         if (Input.GetButtonUp("MenuUP" + playernum.ToString())) {
-       
-
             UIMana.playersready[direction] = !UIMana.playersready[direction];
-
-          //  isselectingitem = !isselectingitem;
-       //     curssor.SetActive(!curssor.activeSelf);
-            UIMana.toggleinvet();
-
-          
-            
+            UIMana.toggleinvet();                    
             Debug.Log("UP");
 
 
         }
-        if (Input.GetButton("Exit" + playernum.ToString())) {
-            Debug.Log("Quit");
-            Application.Quit();
-
-
+        if (Input.GetButtonUp("Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
+            UIMana.PauseMenu();
         }
     }
     

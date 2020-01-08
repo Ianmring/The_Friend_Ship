@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 
@@ -22,10 +23,9 @@ public class uimanager : MonoBehaviour
 
     public GameObject Canvase;
     public GameObject[] Menus;
-    public enum Players { player1, player2, noone }
-    public Players playernums;
+   
 
-    public GameObject first;
+    public Button first;
 
     public bool[] playersready;
 
@@ -34,7 +34,6 @@ public class uimanager : MonoBehaviour
 
     public bool isopen;
     public bool menuisopen;
-    public bool storeisopen;
 
 
     public GameObject P1curss;
@@ -42,6 +41,8 @@ public class uimanager : MonoBehaviour
 
     public Canvas p1;
     public Canvas p2;
+
+    
 
     public Playergen oneplayer;
     public Playergen twoplayer;
@@ -56,7 +57,6 @@ public class uimanager : MonoBehaviour
 
     void Start()
     {
-        playernums = Players.noone;
         int slotnums;
 
         Input = GetComponent<StandaloneInputModule>();
@@ -82,26 +82,7 @@ public class uimanager : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-      
-      
-
-        if (isopen || DiolaugeManager.DioInstance.indio)
-        {
-            movement.MovInstance.altoveride = true;
-        }
-        else
-        {
-            movement.MovInstance.altoveride = false;
-
-        }
-
-
-
-
-    }
-
+   
   
     public void toggleinvet() {
 
@@ -114,15 +95,14 @@ public class uimanager : MonoBehaviour
     
 
         if ((playersready[0] || playersready[1])) {
-            Menus[1].SetActive(true);
+            Menus[0].SetActive(true);
 
             isopen = true;
             menuisopen = true;
-            storeisopen = false;
 
             //   
         } else {
-            Menus[1].SetActive(false);
+            Menus[0].SetActive(false);
             InventoryMenu.invmeninstance.Resetitemselected();
             movement.MovInstance.p1I.AddKey(null, false);
             movement.MovInstance.p2I.AddKey(null, false);
@@ -130,7 +110,6 @@ public class uimanager : MonoBehaviour
 
             isopen = false;
             menuisopen = false;
-            storeisopen = false;
            
         }
 
@@ -149,42 +128,53 @@ public class uimanager : MonoBehaviour
             twoplayer.isselectingitem = false;
             twoplayer.curssor.SetActive(false);
         }
-    }
 
-    public void Shopupdate()
+        if (isopen || DiolaugeManager.DioInstance.indio) {
+            movement.MovInstance.altoveride = true;
+        } else {
+            movement.MovInstance.altoveride = false;
+
+        }
+    }
+   
+    public void PauseMenu()
     {
-        Menus[5].SetActive(true);
-        isopen = true;
-        menuisopen = false;
-        storeisopen = true;
-        playernums = uimanager.Players.player1;
-        Menus[3].SetActive(false);
-        Menus[4].SetActive(false);
-       // Triggerupdate();
-        UpdateMenuCont();
-       // EventSystem.current.SetSelectedGameObject(Storebuttons[0]);
+        events.SetSelectedGameObject(null);
 
+        Debug.Log("pause");
+        if (menuisopen) {
+            Menus[0].SetActive(!Menus[0].activeSelf);
+            oneplayer.isselectingitem = !oneplayer.isselectingitem;
+            oneplayer.curssor.SetActive(!oneplayer.curssor.activeSelf);
+            twoplayer.isselectingitem = !twoplayer.isselectingitem;
+            twoplayer.curssor.SetActive(!twoplayer.curssor.activeSelf);
+        }
+      
+        for (int i = 1; i < 7; i++) {
+            Menus[i].SetActive(!Menus[i].activeSelf);
+        }
+
+        
+        
+        isopen = !isopen;
+        movement.MovInstance.move = !movement.MovInstance.move;
+        events.SetSelectedGameObject(first.gameObject);
     }
-   
-   
-   
-   
-    public void UpdateMenuCont()
-    {
-
-     
-            Input.horizontalAxis = "Horizontal_M";
-            Input.verticalAxis = "Vertical_M";
-       
-
-       // }
-
-
+    public void Quit() {
+        Application.Quit();
+    }
+   public void Test() {
+        Debug.Log("test");
     }
 
-  
+
 
 
 }
+
+
+
+
+
 
    

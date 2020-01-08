@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingtodo: 
   situation: CoinPainted
+  ThingToDoTxt: Go through
   Character_in_Conversation:
   - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
   currentexpressions: 00000000

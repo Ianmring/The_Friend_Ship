@@ -10,6 +10,8 @@ public class Diolauge : ScriptableObject
     // Start is called before the first frame update
     public string thingtodo;
     public string situation;
+
+    public string ThingToDoTxt;
     public enum Expression { happy, sad, talking, confused, angry, laughing, surprised, silly };
 
 

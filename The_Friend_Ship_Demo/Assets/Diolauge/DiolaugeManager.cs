@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class DiolaugeManager : MonoBehaviour
 {
         #region Singelton
@@ -13,8 +14,8 @@ public class DiolaugeManager : MonoBehaviour
  = this;
     }
     #endregion
-    public Text nameText;
-    public Text DioText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI DioText;
 
     public Animator anim;
 
@@ -26,7 +27,9 @@ public class DiolaugeManager : MonoBehaviour
     Diolauge currentDiolauge;
     public Image PB1;
     public Image PB2;
+    public TextMeshProUGUI ThingtoDo;
 
+    public string TXTThingtodo;
     //  int mood;
     [SerializeField]
     int currentconvopoint;
@@ -65,7 +68,10 @@ public class DiolaugeManager : MonoBehaviour
         anim.SetTrigger("Open");
         currentDiolauge = Dio;
         nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
-
+        if (Dio.ThingToDoTxt != "") {
+            TXTThingtodo = Dio.ThingToDoTxt;
+        } 
+     //   TXTThingtodo = Dio.ThingToDoTxt;
         expression.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
         Sentences.Clear();
 
@@ -170,6 +176,10 @@ public class DiolaugeManager : MonoBehaviour
         mana.p2.enabled = true;
 
         cam.isfollwoing = true;
+    
+        ThingtoDo.text = "Thing to do -> " + TXTThingtodo;
+        
+    
         if (currentdiogame == null) {
             anim.SetTrigger("Close");
 

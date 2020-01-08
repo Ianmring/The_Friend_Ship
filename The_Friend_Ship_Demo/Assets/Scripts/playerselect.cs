@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class playerselect : MonoBehaviour {
     // Start is called before the first frame update
     public bool iscontorller;
@@ -18,6 +19,8 @@ public class playerselect : MonoBehaviour {
     GameObject Player2;
 
 
+    public camscript cameraref;
+
     public GameObject p1chk;
     public GameObject p2chk;
 
@@ -29,11 +32,12 @@ public class playerselect : MonoBehaviour {
 
     float timer;
 
-    public Text ctdwntext;
+    public TextMeshProUGUI ctdwntext;
 
     public Diolauge dio;
 
-  //  public Text InstructionalText;
+    public bool menuoff;
+    //  public Text InstructionalText;
     //public int playernumbers;
     void Start() {
 
@@ -52,7 +56,7 @@ public class playerselect : MonoBehaviour {
             if (!string.IsNullOrEmpty(names[x])) {
                 Debug.Log("D");
 
-               // gameman.instance.controllercount++;
+                // gameman.instance.controllercount++;
             } else {
                 Debug.Log("L");
             }
@@ -63,77 +67,98 @@ public class playerselect : MonoBehaviour {
 
         }
 
+        for (int i = 1; i < 6; i++) {
+            uimanager.UIinstance.Menus[i].SetActive(false);
+        }
     }
+    public void canselect() {
+        StartCoroutine("Waittoselect");
 
+        uimanager.UIinstance.Menus[7].SetActive(true);
+        uimanager.UIinstance.Menus[9].SetActive(false);
+
+
+    }
     // Update is called once per frame
     void Update() {
         //if (!contchosen && iscontorller)
         //{
-
-        if (Input.GetButton("Cancel1") || Input.GetButton("Cancel2")) {
-            StopAllCoroutines();
-            play = player1.notselected;
-    
-            p1chk.SetActive(false);
-            p2chk.SetActive(false);
-            countdown = false;
-            ctdwntext.text = "Player 1 Press A";
-
-        }
-
-        if (Input.GetButton("Submit1") && play == player1.notselected) {
-            play = player1.Cont1;
-            ctdwntext.text = "Player 2 Press A";
-
-            p1chk.SetActive(true);
-        } else if (Input.GetButton("Submit1") && play == player1.Cont2)  {
-           
-
-            p2chk.SetActive(true);
-            countdown = true;
-
-          
-            StartCoroutine("Waittogoaway");
+        if (menuoff) {
 
 
-        }
-        if (Input.GetButton("Submit2") && play == player1.notselected) {
-            play = player1.Cont2;
-            ctdwntext.text = "Player 2 Press A";
+            if (Input.GetButtonDown("Cancel1") || Input.GetButtonDown("Cancel2")) {
+                StopAllCoroutines();
+                play = player1.notselected;
 
-            p1chk.SetActive(true);
-
-        } else if(Input.GetButton("Submit2") && play == player1.Cont1) {
-            p2chk.SetActive(true);
-            countdown = true;
-           
-
-            StartCoroutine("Waittogoaway");
-          
-               //  iscontorller = true;
+                p1chk.SetActive(false);
+                p2chk.SetActive(false);
+                countdown = false;
+                ctdwntext.text = "Player 1 Press A";
 
             }
-        //iscontorller = true;
-        // }
-        if (countdown) {
 
-            
-            
+            if (Input.GetButtonDown("Submit1") && play == player1.notselected) {
+                play = player1.Cont1;
+                ctdwntext.text = "Player 2 Press A";
 
-            ctdwntext.text = "Game will begin in : " + Mathf.RoundToInt(timer -= Time.deltaTime).ToString();
+                p1chk.SetActive(true);
+            } else if (Input.GetButtonDown("Submit1") && play == player1.Cont2) {
 
 
-        } else {
-          //  ctdwntext.text = "";
-            timer = 5;
+                p2chk.SetActive(true);
+                countdown = true;
+
+
+                StartCoroutine("Waittogoaway");
+
+
+            }
+            if (Input.GetButtonDown("Submit2") && play == player1.notselected) {
+                play = player1.Cont2;
+                ctdwntext.text = "Player 2 Press A";
+
+                p1chk.SetActive(true);
+
+            } else if (Input.GetButtonDown("Submit2") && play == player1.Cont1) {
+                p2chk.SetActive(true);
+                countdown = true;
+
+
+                StartCoroutine("Waittogoaway");
+
+                //  iscontorller = true;
+
+            }
+            //iscontorller = true;
+            // }
+            if (countdown) {
+
+
+
+
+                ctdwntext.text = "Game will begin in : " + Mathf.RoundToInt(timer -= Time.deltaTime).ToString();
+
+
+            } else {
+                //  ctdwntext.text = "";
+                timer = 5;
+            }
+
+
         }
-         
+
+    }
+    IEnumerator Waittoselect() {
+        yield return new WaitForSeconds(.5f);
+        menuoff = true;
 
     }
     IEnumerator Waittogoaway() {
         yield return new WaitForSeconds(4);
         Hold.SetActive(false);
-
+        for (int i = 1; i < 6; i++) {
+            uimanager.UIinstance.Menus[i].SetActive(true);
+        }
         switch (play) {
 
             case player1.Cont1:
@@ -202,8 +227,10 @@ public class playerselect : MonoBehaviour {
             default:
                 break;
         }
-
-        FindObjectOfType<DiolaugeManager>().Startdio(dio , null);
+        cameraref.isfollwoing = true;
+        uimanager.UIinstance.p1.gameObject.SetActive(true);
+        uimanager.UIinstance.p2.gameObject.SetActive(true);
+        FindObjectOfType<DiolaugeManager>().Startdio(dio, null);
         Destroy(GetComponent<playerselect>());
     }
 }

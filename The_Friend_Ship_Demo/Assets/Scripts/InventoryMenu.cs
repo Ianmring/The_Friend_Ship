@@ -114,12 +114,16 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void equipitem(int playernum) {
-        if (itemselected[playernum] < 0) {
-            currentactiveitem[playernum] = null;
-        } else {
-            currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
 
+        if (Keyslots.Count >1) {
+            if (itemselected[playernum] < 0) {
+                currentactiveitem[playernum] = null;
+            } else {
+                currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
+
+            }
         }
+        
     }
 
     public void AddUIKey(Item item, int count)

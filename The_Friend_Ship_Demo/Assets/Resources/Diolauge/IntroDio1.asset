@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
   m_Name: IntroDio1
   m_EditorClassIdentifier: 
+  thingtodo: 
+  situation: 
+  ThingToDoTxt: Find Land
   Character_in_Conversation:
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
   - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
