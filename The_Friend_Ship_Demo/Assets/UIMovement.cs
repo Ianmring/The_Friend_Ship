@@ -7,6 +7,7 @@ public class UIMovement : MonoBehaviour
     public RectTransform trans;
    public KeyitemTrigger Trig;
    public Playergen player;
+   public Inventoryslot ISlot;
     float movmag;
     float xmax;
     float xmin;
@@ -22,6 +23,10 @@ public class UIMovement : MonoBehaviour
 
     bool p1;
     bool p2;
+
+    public bool onbench;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +42,7 @@ public class UIMovement : MonoBehaviour
     public virtual void startingfunt() {
         trans = GetComponent<RectTransform>();
         player = Trig.PL;
+        ISlot = player.invmen.Islots[player.direction];
         movmag = 20;
         player.playercanvas.sortingOrder = Trig.KI.layer;
        
@@ -56,14 +62,17 @@ public class UIMovement : MonoBehaviour
         p1 = false;
         p2 = false;
     }
+    public void Newcontroller(Playergen Play) {
+
+    }
     public virtual void Lateupfunt() {
         if (!Trig.isaway) {
 
-            // transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
-
-            transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
-            finalpo = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
+            //  transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
             transform.position = new Vector3(Mathf.Clamp(trans.position.x, xmin, xmax), Mathf.Clamp(trans.position.y, 0, Screen.height));
+            finalpo = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
+            transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
+
         } else {
             transform.localPosition = new Vector3(0f, 0f);
 
@@ -113,6 +122,18 @@ public class UIMovement : MonoBehaviour
             } else {
                 targetobj = null;
             }
+        }
+
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Bench") {
+            ISlot.ontable = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Bench") {
+            ISlot.ontable = false;
         }
     }
 

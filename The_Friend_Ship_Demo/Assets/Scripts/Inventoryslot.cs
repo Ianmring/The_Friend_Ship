@@ -10,7 +10,7 @@ public class Inventoryslot : MonoBehaviour
 
     public Text count;
 
-    public bool istaken;
+  //  public bool istaken;
    // public Button removebutton;
 
    public Item item;
@@ -24,15 +24,16 @@ public class Inventoryslot : MonoBehaviour
 
     Text Description_Name;
 
-    Button button;
 
     uimanager mana;
 
+    public bool ontable;
+
+    public GameObject OBJ;
 
     public void Awake()
     {
 
-        button = GetComponentInChildren<Button>();
     }
     public void Start()
     {
@@ -42,9 +43,6 @@ public class Inventoryslot : MonoBehaviour
     public void Addtiem(Item newitem)
     {
 
-   //     namee = GetComponentInChildren<Text>();
-               // itemcount++;
-            istaken = true;
             item = newitem;
             icon.sprite = item.icon;
             itemname = item.name;
@@ -53,30 +51,6 @@ public class Inventoryslot : MonoBehaviour
         icon.enabled = true;
         namee.text = item.name;
 
-        Image imag;
-
-        button = GetComponentInChildren<Button>();
-
-         imag = button.gameObject.GetComponent<Image>();
-        switch (newitem.Type)
-        {
-            case Item.type.Disposeable:
-                imag.color = Color.cyan;
-                    break;
-            case Item.type.Oare:
-                imag.color = Color.yellow;
-
-                break;
-            case Item.type.Hat:
-                imag.color = Color.magenta;
-
-                break;
-            case Item.type.Keyitem:
-
-                imag.color = Color.green;
-                break;
-        }
-         // removebutton.interactable = true;
     }
  
     
@@ -87,23 +61,19 @@ public class Inventoryslot : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
 
-       // removebutton.interactable = false;
     }
     
 
   
     public void Checkitemcount()
     {
-      //  itemcount--;
         if (itemcount < 1)
         {
           
-                    FindObjectOfType<InventoryMenu>().Keyslots.Remove(this);
-                  
+            FindObjectOfType<InventoryMenu>().Keyslots.Remove(this);                  
             Inventory.instance.Remove(item);
             Destroy(this.gameObject);
 
-            //   istaken = false;
         }
         else
         {

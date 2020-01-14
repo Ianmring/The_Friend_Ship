@@ -29,6 +29,8 @@ public class uimanager : MonoBehaviour
 
     public bool[] playersready;
 
+    bool[] storedplayerready;
+
    public StandaloneInputModule Input { get; set; }
     EventSystem events;
 
@@ -77,6 +79,7 @@ public class uimanager : MonoBehaviour
         P1curss.SetActive(false);
         P2curss.SetActive(false);
 
+        storedplayerready = new bool[2];
         #endregion
 
     }
@@ -86,15 +89,15 @@ public class uimanager : MonoBehaviour
   
     public void toggleinvet() {
 
-        if (manadio.indio) {
-            playersready[0] = false;
-            playersready[1] = false;
-        }
+        //if (manadio.indio) {
+        //    playersready[0] = false;
+        //    playersready[1] = false;
+        //}
 
         
     
 
-        if ((playersready[0] || playersready[1])) {
+        if ((playersready[0] || playersready[1]) && !manadio.indio) {
             Menus[0].SetActive(true);
 
             isopen = true;
@@ -103,9 +106,12 @@ public class uimanager : MonoBehaviour
             //   
         } else {
             Menus[0].SetActive(false);
+
+
             InventoryMenu.invmeninstance.Resetitemselected();
-            movement.MovInstance.p1I.AddKey(null, false);
-            movement.MovInstance.p2I.AddKey(null, false);
+
+            movement.MovInstance.p1I.AddKey(null,  false);
+            movement.MovInstance.p2I.AddKey(null,  false);
 
 
             isopen = false;

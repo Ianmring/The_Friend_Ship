@@ -28,6 +28,8 @@ public class InventoryMenu : MonoBehaviour
 
     public Item[] currentactiveitem;
 
+    public Inventoryslot[] Islots;
+
     Vector3 unequp;
 
     GameObject objecttodestory;
@@ -37,6 +39,7 @@ public class InventoryMenu : MonoBehaviour
     
         itemselected = new int[2];
         currentactiveitem = new Item[2];
+        Islots = new Inventoryslot[2];
         itemselected[0] = -1;
         itemselected[1] = -1;
         unequp = selector[0].transform.position;
@@ -120,7 +123,7 @@ public class InventoryMenu : MonoBehaviour
                 currentactiveitem[playernum] = null;
             } else {
                 currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
-
+                Islots[playernum] = Keyslots[itemselected[playernum]];
             }
         }
         

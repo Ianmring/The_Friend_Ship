@@ -26,7 +26,7 @@ public class Playergen : MonoBehaviour
    public uimanager UIMana;
 
     inventorygeneral invent;
-    InventoryMenu invmen;
+    public InventoryMenu invmen;
 
   public  KeyitemTrigger triggeritem;
 
@@ -114,7 +114,7 @@ public class Playergen : MonoBehaviour
 
         if (UIMana.menuisopen && isselectingitem) {
             if (Itemselect > .1 && selecting) {
-                InventoryMenu.invmeninstance.Itemup(direction);
+               invmen.Itemup(direction);
                 if (invmen.itemselected[direction] >= 0) {
                     invmen.equipitem(direction);
                     invent.AddKey(invmen.currentactiveitem[direction], false);
@@ -125,10 +125,10 @@ public class Playergen : MonoBehaviour
                 }
                 selecting = false;
             } else if (Itemselect < -.1 && selecting) {
-                InventoryMenu.invmeninstance.ItemDown(direction);
+              invmen.ItemDown(direction);
                 if (invmen.itemselected[direction] >= 0) {
                     invmen.equipitem(direction);
-                    invent.AddKey(invmen.currentactiveitem[direction], false);
+                    invent.AddKey(invmen.currentactiveitem[direction],  false);
                 } else {
                     invmen.equipitem(direction);
                     invent.AddKey(null, false);

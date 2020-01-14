@@ -18,6 +18,7 @@ public class playerselect : MonoBehaviour {
     GameObject Player1;
     GameObject Player2;
 
+    public GameObject toot;
 
     public camscript cameraref;
 
@@ -230,7 +231,7 @@ public class playerselect : MonoBehaviour {
         cameraref.isfollwoing = true;
         uimanager.UIinstance.p1.gameObject.SetActive(true);
         uimanager.UIinstance.p2.gameObject.SetActive(true);
-        FindObjectOfType<DiolaugeManager>().Startdio(dio, null);
+        FindObjectOfType<DiolaugeManager>().Startdio(dio, toot);
         Destroy(GetComponent<playerselect>());
     }
 }

@@ -87,11 +87,13 @@ public class movement : MonoBehaviour {
     public Text P1st;
     public Text P2st;
 
-
+    public bool canswitch;
 
     void Start () {
 
         move = true;
+        canswitch = true;
+
         playa = FindObjectOfType<playerselect>();
         rig = GetComponent<Rigidbody>();
         steer = PlayerSteering.P1;
@@ -101,7 +103,6 @@ public class movement : MonoBehaviour {
         spit = GetComponentInChildren<SpriteRenderer>();
         direction = 2;
         checkDirection();
-
     }
 
     // Update is called once per frame
@@ -141,23 +142,26 @@ public class movement : MonoBehaviour {
     }
 
     public void Switchplayerpos() {
+        if(canswitch){
+            switch (steer) {
+                case PlayerSteering.P1:
+                    steerint = 1;
+                    dirint = 0;
+                    steer = PlayerSteering.P2;
+                    P1st.text = "Moving";
+                    P2st.text = "Steering";
+                    break;
+                case PlayerSteering.P2:
+                    steerint = 0;
+                    dirint = 1;
+                    steer = PlayerSteering.P1;
+                    P1st.text = "Steering";
+                    P2st.text = "Moving";
+                    break;
 
-        switch (steer) {
-            case PlayerSteering.P1:
-                steerint = 1;
-                dirint = 0;
-                steer = PlayerSteering.P2;
-                P1st.text = "Moving";
-                P2st.text = "Steering";
-                break;
-            case PlayerSteering.P2:
-                steerint = 0;
-                dirint = 1;
-                steer = PlayerSteering.P1;
-                P1st.text = "Steering";
-                P2st.text = "Moving";
-                break;
-
+            }
+            FindObjectOfType<Tutorial_Manager>().MoveTutorial();
+            canswitch = false;
         }
     }
     void Move()

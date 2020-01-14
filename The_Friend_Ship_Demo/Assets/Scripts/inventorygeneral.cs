@@ -25,7 +25,9 @@ public class inventorygeneral : MonoBehaviour
 
     public KeyitemTrigger TriggerItem;
 
-    GameObject currentitemobj;
+
+    GameObject PSlot;
+    PersonalItemSlot slot;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +47,19 @@ public class inventorygeneral : MonoBehaviour
         currentitem = 0;
         player.triggeritem = TriggerItem;
         //Update_Slots();
+
+       
+        PSlot = Instantiate(currentslot, KIContainer);
+        slot = PSlot.GetComponent<PersonalItemSlot>();
+        slot.invt = this;
+        slot.Playernum = player.direction;
+
     }
 
     // Update is called once per frame
 
 
-   
+
 
     public void AddKey(Item Kitem, bool isitem)
     {
@@ -63,36 +72,19 @@ public class inventorygeneral : MonoBehaviour
         else
         {
             if (Kitem == null) {
-                Destroy(currentitemobj);
-                currentitemobj = null;
+        
                 Keyitem = null;
+                slot.Additem(null, isitem);
                 TriggerItem.Additem(null, player, isitem);
 
                 return;
             } else {
 
-
-
-                Destroy(currentitemobj);
-                currentitemobj = null;
-                GameObject PSlot;
-                PersonalItemSlot slot;
-                PSlot = Instantiate(currentslot, KIContainer);
-                slot = PSlot.GetComponent<PersonalItemSlot>();
-
                 slot.Additem(Kitem, isitem);
-                Keyitem = Kitem;
-
-                slot.Playernum = player.direction;
-                slot.invt = this;
-
-
-                //  slot.isitem = isitem;
-                //TriggerItem.ClearItem();
-               // Destroy(TriggerItem.currentobj);                 
+                Keyitem = Kitem;         
                 
                 TriggerItem.Additem(slot, player, isitem);
-                currentitemobj = PSlot;
+              //  currentitemobj = PSlot;
             
             }
         }

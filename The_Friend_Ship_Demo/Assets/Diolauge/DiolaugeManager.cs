@@ -89,15 +89,21 @@ public class DiolaugeManager : MonoBehaviour
         } else {
             currentdiogame = game;
             currentdiogame.SetActive(false);
+            
+
+        }
+
+        for (int i = 2; i < 6; i++) {
+            mana.Menus[i].SetActive(false);
         }
 
         mana.p1.enabled = false;
         mana.p2.enabled = false;
-        if (mana.Menus[1].activeSelf) {
-            
+        if (mana.Menus[1].activeSelf && (uimanager.UIinstance.playersready[0] || uimanager.UIinstance.playersready[1])) {
+
             mana.toggleinvet();
         }
-       
+
     }
 
     public void DisplayNextSentence()
@@ -178,8 +184,16 @@ public class DiolaugeManager : MonoBehaviour
         cam.isfollwoing = true;
     
         ThingtoDo.text = "Thing to do -> " + TXTThingtodo;
-        
-    
+
+        for (int i = 2; i < 6; i++) {
+            mana.Menus[i].SetActive(true);
+        }
+
+        if (mana.Menus[1].activeSelf && (uimanager.UIinstance.playersready[0] || uimanager.UIinstance.playersready[1])) {
+
+            mana.toggleinvet();
+        }
+
         if (currentdiogame == null) {
             anim.SetTrigger("Close");
 
@@ -189,6 +203,7 @@ public class DiolaugeManager : MonoBehaviour
             anim.SetTrigger("Close");
 
             currentdiogame.SetActive(true);
+            currentdiogame.SendMessage("Fin" , SendMessageOptions.DontRequireReceiver);
             currentdiogame = null;
 
         }

@@ -11,7 +11,7 @@ public class PersonalItemSlot : MonoBehaviour
     public int Playernum;
     public Item currentitem;
     public int itemcount;
-    public Text Name;
+  //  public Text Name;
     public GameObject OBJ;
     KeyItem Kitem;
 
@@ -27,29 +27,36 @@ public class PersonalItemSlot : MonoBehaviour
 
     public void Additem(Item item, bool isitemI)
     {
-        currentitem = item;
-        OBJ = item.OBJ;
-        Name.text = item.name;
+        
+        // Name.text = item.name;
 
 
-      
-
-
-        if (currentitem.GetType() == typeof(KeyItem) && !isitemI)
-        {
-            Kitem = currentitem as KeyItem;
-
-            iskeyitem = true;         
-
-        }
-        else
-        {
+        if (item == null) {
+            currentitem = null;
+            OBJ = null;
             iskeyitem = false;
 
+        } else {
+            currentitem = item;
+            OBJ = item.OBJ;
+            Kitem = currentitem as KeyItem;
+            iskeyitem = true;
 
-            this.gameObject.AddComponent<Throwable>();
 
         }
+
+        //if (currentitem.GetType() == typeof(KeyItem) && !isitemI)
+        //{
+
+
+        //}
+        //else
+        //{
+
+
+        //    this.gameObject.AddComponent<Throwable>();
+
+        //}
    
 
     }
