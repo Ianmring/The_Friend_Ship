@@ -65,14 +65,20 @@ public class Playergen : MonoBehaviour
             case 1:
              //  playerrend.material = Mats[direction];
                 playercanvas = UIMana.p2;
+           //     UIMana.OBJSelector[direction].PointAssignplayer(this, triggeritem);
                 curssor = UIMana.P2curss;
                 UIMana.twoplayer = this;
                 break;
 
 
             default:
+              
+
                 break;
         }
+        invmen.GenInv[direction] = invent;
+        UIMana.OBJSelector[direction].PointAssignplayer(this, triggeritem);
+
         selecting = true;
 
     }
@@ -117,10 +123,10 @@ public class Playergen : MonoBehaviour
                invmen.Itemup(direction);
                 if (invmen.itemselected[direction] >= 0) {
                     invmen.equipitem(direction);
-                    invent.AddKey(invmen.currentactiveitem[direction], false);
+                   // invent.AddKey(invmen.currentactiveitem[direction], false);
                 } else {
                     invmen.equipitem(direction);
-                    invent.AddKey(null, false);
+               //     invent.AddKey(null, false);
 
                 }
                 selecting = false;
@@ -128,10 +134,10 @@ public class Playergen : MonoBehaviour
               invmen.ItemDown(direction);
                 if (invmen.itemselected[direction] >= 0) {
                     invmen.equipitem(direction);
-                    invent.AddKey(invmen.currentactiveitem[direction],  false);
+                  //  invent.AddKey(invmen.currentactiveitem[direction],  false);
                 } else {
                     invmen.equipitem(direction);
-                    invent.AddKey(null, false);
+                 //   invent.AddKey(null, false);
 
                 }
                 selecting = false;

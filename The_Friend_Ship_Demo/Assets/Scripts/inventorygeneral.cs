@@ -6,7 +6,7 @@ public class inventorygeneral : MonoBehaviour
 {
     public int INVNUM;
 
-    Playergen player;
+    public Playergen player;
 
     public int currentitem;
 
@@ -46,9 +46,11 @@ public class inventorygeneral : MonoBehaviour
       //  Selector = GameObject.Find("SelectedD" + player.direction).GetComponent<Transform>();
         currentitem = 0;
         player.triggeritem = TriggerItem;
+        TriggerItem.PL = player;
         //Update_Slots();
 
-       
+        uimanager.UIinstance.OBJSelector[player.direction].PointAssignplayer(player, TriggerItem);
+
         PSlot = Instantiate(currentslot, KIContainer);
         slot = PSlot.GetComponent<PersonalItemSlot>();
         slot.invt = this;

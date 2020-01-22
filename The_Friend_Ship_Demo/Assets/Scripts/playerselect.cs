@@ -38,6 +38,8 @@ public class playerselect : MonoBehaviour {
     public Diolauge dio;
 
     public bool menuoff;
+
+    public Item[] Itemstoadd;
     //  public Text InstructionalText;
     //public int playernumbers;
     void Start() {
@@ -150,7 +152,7 @@ public class playerselect : MonoBehaviour {
 
     }
     IEnumerator Waittoselect() {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
         menuoff = true;
 
     }
@@ -228,10 +230,13 @@ public class playerselect : MonoBehaviour {
             default:
                 break;
         }
-        cameraref.isfollwoing = true;
+        cameraref.Normal();
         uimanager.UIinstance.p1.gameObject.SetActive(true);
         uimanager.UIinstance.p2.gameObject.SetActive(true);
-        FindObjectOfType<DiolaugeManager>().Startdio(dio, toot);
+        for (int i = 0; i < Itemstoadd.Length; i++) {
+            Inventory.instance.AddKey(Itemstoadd[i], 1);
+        }
+        FindObjectOfType<DiolaugeManager>().Startdio(dio, toot, false);
         Destroy(GetComponent<playerselect>());
     }
 }

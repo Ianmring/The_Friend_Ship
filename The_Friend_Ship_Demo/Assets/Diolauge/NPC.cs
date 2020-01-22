@@ -37,11 +37,11 @@ public class NPC : Interactable
 
         if (diomana.currentstorymoment == storytriggers[diotoload]) {
             currentdiolauge++;
-            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload], this.gameObject);
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload], this.gameObject , true);
             currentdiolauge++;
 
         } else {
-            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload] , this.gameObject);
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload] , this.gameObject,true);
 
         }
 

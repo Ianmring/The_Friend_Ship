@@ -89,9 +89,11 @@ public class movement : MonoBehaviour {
 
     public bool canswitch;
 
+    public bool go ;
     void Start () {
 
         move = true;
+        go = true;
         canswitch = true;
 
         playa = FindObjectOfType<playerselect>();
@@ -166,28 +168,29 @@ public class movement : MonoBehaviour {
     }
     void Move()
     {
-        mag = Mathf.Abs(directions[dirint]);
-        if (directions[dirint] < -0.3) {
-            moving = Moving.Forwad;
-            isbackward = false;
+        if (go) {
+            mag = Mathf.Abs(directions[dirint]);
+            if (directions[dirint] < -0.3) {
+                moving = Moving.Forwad;
+                isbackward = false;
 
 
-            // ismoving = true;
-        } else if (directions[dirint] > 0.3) {
-            moving = Moving.Backwards;
-            isbackward = true;
+                // ismoving = true;
+            } else if (directions[dirint] > 0.3) {
+                moving = Moving.Backwards;
+                isbackward = true;
 
 
-            //ismoving = true;
+                //ismoving = true;
 
-        } else {
-            moving = Moving.Not;
+            } else {
+                moving = Moving.Not;
 
+            }
         }
-     
     }
     void Direction() {
-     
+        if (go) {
             if (Turnx[steerint] > 0.3) {
                 turning = Turning.Clockwise;
 
@@ -205,7 +208,7 @@ public class movement : MonoBehaviour {
 
                 turning = Turning.Not;
             }
-        
+        }
            
     }
    

@@ -40,19 +40,19 @@ public class BuckettUi : UIMovement
          
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) {      
-    
-        if (collision.gameObject.GetComponent<coinui>()) {
+    public override void EnterUI(Collider2D Coli) {
+        base.EnterUI(Coli);
+        if (Coli.gameObject.GetComponent<coinui>()) {
             isoncoin = true;
-            coin = collision.gameObject.GetComponent<coinui>();
+            coin = Coli.gameObject.GetComponent<coinui>();
         }
     }
-    private void OnTriggerExit2D(Collider2D collision) {
-
-        if (collision.gameObject.GetComponent<coinui>()) {
+    public override void ExitUI(Collider2D Coli) {
+        base.ExitUI(Coli);
+        if (Coli.gameObject.GetComponent<coinui>()) {
             isoncoin = false;
             coin = null;
         }
     }
+   
 }

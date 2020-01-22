@@ -30,18 +30,19 @@ public class DiolaugeManager : MonoBehaviour
     public TextMeshProUGUI ThingtoDo;
 
     public string TXTThingtodo;
+    public string thingtodo;
     //  int mood;
-    [SerializeField]
-    int currentconvopoint;
+  public  int currentconvopoint;
 
     NPC CurrentNPC;
+
 
    public bool indio;
 
     bool p1;
     bool p2;
 
-
+    bool Ineractobj;
     public int currentstorymoment;
     [SerializeField] public int p1I { get; set; }
    [SerializeField] public int p2I { get; set; }
@@ -58,20 +59,22 @@ public class DiolaugeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Startdio(Diolauge Dio , GameObject game)
+    public void Startdio(Diolauge Dio , GameObject game , bool interact)
     {
 
         indio = true;
 
         movement.MovInstance.move = false;
-        currentconvopoint = 0;
         anim.SetTrigger("Open");
         currentDiolauge = Dio;
         nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
         if (Dio.ThingToDoTxt != "") {
             TXTThingtodo = Dio.ThingToDoTxt;
-        } 
-     //   TXTThingtodo = Dio.ThingToDoTxt;
+        }
+        if (Dio.thingtodo != "") {
+            thingtodo = Dio.thingtodo;
+        }
+        //   TXTThingtodo = Dio.ThingToDoTxt;
         expression.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
         Sentences.Clear();
 
@@ -84,12 +87,12 @@ public class DiolaugeManager : MonoBehaviour
         PB1.color = Color.yellow;
         PB2.color = Color.yellow;
         DisplayNextSentence();
-        if (game == null) {
-            return;
-        } else {
-            currentdiogame = game;
+        currentdiogame = game;
+        Ineractobj = interact;
+        if (Ineractobj) {
             currentdiogame.SetActive(false);
-            
+        } else {
+            return;
 
         }
 
@@ -169,8 +172,9 @@ public class DiolaugeManager : MonoBehaviour
     }
     void EndDiolauge()
     {
-      
-            indio = false;
+        currentconvopoint = 0;
+
+        indio = false;
 
         movement.MovInstance.move = true;
 
@@ -181,10 +185,9 @@ public class DiolaugeManager : MonoBehaviour
         mana.p1.enabled = true;
         mana.p2.enabled = true;
 
-        cam.isfollwoing = true;
+        cam.Normal();
     
         ThingtoDo.text = "Thing to do -> " + TXTThingtodo;
-
         for (int i = 2; i < 6; i++) {
             mana.Menus[i].SetActive(true);
         }
@@ -194,30 +197,24 @@ public class DiolaugeManager : MonoBehaviour
             mana.toggleinvet();
         }
 
-        if (currentdiogame == null) {
-            anim.SetTrigger("Close");
-
-        }
-        else
-	{
+        if (Ineractobj) {
             anim.SetTrigger("Close");
 
             currentdiogame.SetActive(true);
-            currentdiogame.SendMessage("Fin" , SendMessageOptions.DontRequireReceiver);
-            currentdiogame = null;
+            currentdiogame.SendMessage("Fin", SendMessageOptions.DontRequireReceiver);
+        } else
+	{     
+            anim.SetTrigger("Close");
+            if (thingtodo != "") {
+                currentdiogame.SendMessage(thingtodo, SendMessageOptions.DontRequireReceiver);
+
+            }
+            thingtodo = "";
 
         }
-       
-       // mana.toggleinvet();
+        currentdiogame = null;
 
-
-        //else
-        //{
-        //    anim.SetTrigger("Close");
-        //    Debug.Log("end");
-        //    return;
-        //}
-
+     
 
     }
 

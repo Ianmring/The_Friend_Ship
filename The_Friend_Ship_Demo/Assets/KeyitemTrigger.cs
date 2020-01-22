@@ -17,7 +17,7 @@ using UnityEngine.UI;
    public GameObject currentobj;
 
     [SerializeField]
-    Slider Itemslide;
+  public  Slider Itemslide;
 
    public bool Isitem { get; set; }
 
@@ -25,23 +25,26 @@ using UnityEngine.UI;
 
     public bool isaway;
     // Start is called before the first frame update
+    public void Start() {
+        Itemslide = GetComponentInParent<Slider>();
+
+    }
     public void Additem(PersonalItemSlot Kitem, Playergen L, bool isitem)
     {
         if (Kitem == null) {
-            Destroy(currentobj);
+        //    Destroy(currentobj);
             currentobj = null;
             KeyItem = null;
             KI = null;
             Itemslide = null;
             return;
         }
-       Destroy(currentobj);
-        currentobj = null;
+     //  Destroy(currentobj);
+      //  currentobj = null;
 
         Isitem = isitem;
         KeyItem = Kitem;
         KI = Kitem.currentitem as KeyItem;
-        Itemslide = GetComponentInParent<Slider>();
         GameObject Item;
         UIMovement UIgo;
         Item = Instantiate(Kitem.currentitem.UIOBJ, Itemslide.handleRect);
@@ -51,7 +54,7 @@ using UnityEngine.UI;
         UIgo.Trig = this;
         UIgo.player = L;
         // mainl = ML;
-        PL = L;
+      //  PL = L;
 
 
 

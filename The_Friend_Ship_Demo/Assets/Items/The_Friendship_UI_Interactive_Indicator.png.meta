@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 5055799621582454287a4421e16f4530
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5944031497664283141
+    second: The_Friendship_UI_Interactive_Indicator_0
+  - first:
+      213: 5455680346430024130
+    second: The_Friendship_UI_Interactive_Indicator_1
+  - first:
+      213: -4325522113477021100
+    second: The_Friendship_UI_Interactive_Indicator_2
+  - first:
+      213: -6766434507030083699
+    second: The_Friendship_UI_Interactive_Indicator_3
+  - first:
+      213: 1270119262535624162
+    second: The_Friendship_UI_Interactive_Indicator_4
+  - first:
+      213: 4984391074622378576
+    second: The_Friendship_UI_Interactive_Indicator_5
+  - first:
+      213: -4034815376041424416
+    second: The_Friendship_UI_Interactive_Indicator_6
+  - first:
+      213: 1531158043181249162
+    second: The_Friendship_UI_Interactive_Indicator_7
+  - first:
+      213: 9103873102679482210
+    second: The_Friendship_UI_Interactive_Indicator_8
+  - first:
+      213: -9092255542039412629
+    second: The_Friendship_UI_Interactive_Indicator_9
+  - first:
+      213: -4885392741332800066
+    second: The_Friendship_UI_Interactive_Indicator_10
+  - first:
+      213: -367702875610985851
+    second: The_Friendship_UI_Interactive_Indicator_11
+  - first:
+      213: 4126169904369078751
+    second: The_Friendship_UI_Interactive_Indicator_12
+  - first:
+      213: 3083913649215029692
+    second: The_Friendship_UI_Interactive_Indicator_13
+  - first:
+      213: -8997298883144156746
+    second: The_Friendship_UI_Interactive_Indicator_14
+  - first:
+      213: -1467106756989837630
+    second: The_Friendship_UI_Interactive_Indicator_15
+  - first:
+      213: -8407430253301759131
+    second: The_Friendship_UI_Interactive_Indicator_16
+  - first:
+      213: 6249442287063130939
+    second: The_Friendship_UI_Interactive_Indicator_17
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 467
+        width: 161
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b110e7e77cafbf4488c96832dfcf3cf9
+      internalID: 5944031497664283141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 466
+        width: 161
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc7cb01851c6304fa2545066da2c07c
+      internalID: 5455680346430024130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 465
+        width: 159
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa134750324fdd84abd371e6339ec8d9
+      internalID: -4325522113477021100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_3
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 464
+        width: 153
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d01c5f43a884b3c4a8db0e51a71bac99
+      internalID: -6766434507030083699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_4
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 465
+        width: 135
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990de753e7e723a42bc52390c0366fec
+      internalID: 1270119262535624162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 388
+        width: 69
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105885acc6bc2834b8cb6161c8d037a3
+      internalID: 4984391074622378576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_6
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 301
+        width: 51
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139f4ce20b057864084294e405741f91
+      internalID: -4034815376041424416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_7
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 298
+        width: 84
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8c83a7f775a5a4caeea89f3871665e
+      internalID: 1531158043181249162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_8
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 312
+        width: 52
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a7765827073b54c9e706c3dc5075d3
+      internalID: 9103873102679482210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_9
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 310
+        width: 103
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c3d2c694db1c449b8768d6305df6f4
+      internalID: -9092255542039412629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 297
+        width: 232
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96116b1120b3e924b9987c5716c06722
+      internalID: -4885392741332800066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_11
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 240
+        width: 69
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e833d6ebeb9d848aac9a633d13a30d
+      internalID: -367702875610985851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_12
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 159
+        width: 69
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7477caca6f3ccc94480eebd11eb7ec94
+      internalID: 4126169904369078751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_13
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 71
+        width: 51
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497012b09b3f9d844b97ba6d48747916
+      internalID: 3083913649215029692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_14
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 68
+        width: 93
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa854c5323e20764ba48b5b574fb6cbc
+      internalID: -8997298883144156746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_15
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 94
+        width: 103
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71bcfc0512865a448ee0ea9f9318b4f
+      internalID: -1467106756989837630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_16
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 80
+        width: 232
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82312b352e8f81246891ccb8364795ea
+      internalID: -8407430253301759131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The_Friendship_UI_Interactive_Indicator_17
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 10
+        width: 69
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca7369784d096e439965b6a418a7c5f
+      internalID: 6249442287063130939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 65d33daf02f193d46a4b12b9bcbb7305
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -30,6 +30,7 @@ public class InventoryMenu : MonoBehaviour
 
     public Inventoryslot[] Islots;
 
+    public inventorygeneral[] GenInv;
     Vector3 unequp;
 
     GameObject objecttodestory;
@@ -40,6 +41,7 @@ public class InventoryMenu : MonoBehaviour
         itemselected = new int[2];
         currentactiveitem = new Item[2];
         Islots = new Inventoryslot[2];
+        GenInv = new inventorygeneral[2];
         itemselected[0] = -1;
         itemselected[1] = -1;
         unequp = selector[0].transform.position;
@@ -104,9 +106,9 @@ public class InventoryMenu : MonoBehaviour
 
                 if (itemselected[playernum] < 0) {
                 selector[playernum].transform.position = unequp;
-
                 } else {
-                    selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
+
+                selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
 
                 }
            // }
@@ -120,10 +122,37 @@ public class InventoryMenu : MonoBehaviour
 
         if (Keyslots.Count >1) {
             if (itemselected[playernum] < 0) {
-                currentactiveitem[playernum] = null;
+                if (Islots[playernum] != null) {
+                    Islots[playernum].isslected = false;
+                    Islots[playernum].UpdateSlot();
+                }
+                uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(true);
+
+
+
             } else {
+
+                uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(false);
+
+                if (Islots[playernum] != null && Islots[playernum].isspawned) {
+                    Islots[playernum].isslected = false;
+                    Islots[playernum].UpdateSlot();
+                  
+
+                }
+
+
                 currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
                 Islots[playernum] = Keyslots[itemselected[playernum]];
+
+
+                if (Islots[playernum] != null && Islots[playernum].isspawned) {
+                    Islots[playernum].isslected = true;
+                    Islots[playernum].UpdateSlot();
+                    Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
+                } else {
+                    GenInv[playernum].AddKey(currentactiveitem[playernum], false);
+                }
             }
         }
         
@@ -162,7 +191,23 @@ public class InventoryMenu : MonoBehaviour
        
         equipitem(0);
         equipitem(1);
-        
+
+        foreach (var item in Keyslots) {
+
+            if (item.OBJ != null) {
+                item.isslected = false;
+                item.UpdateSlot();
+            }
+            
+        }
+        Islots[0] = null;
+        currentactiveitem[0] = null;
+        Islots[1] = null;
+        currentactiveitem[1] = null;
+        //uimanager.UIinstance.OBJSelector[0].gameObject.SetActive(false);
+        //uimanager.UIinstance.OBJSelector[1].gameObject.SetActive(false);
+        //uimanager.UIinstance.OBJSelector[0].Centerpos();
+        //uimanager.UIinstance.OBJSelector[1].Centerpos();
 
     }
 

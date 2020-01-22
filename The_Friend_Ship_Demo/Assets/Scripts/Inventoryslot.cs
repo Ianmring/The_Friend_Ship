@@ -29,7 +29,11 @@ public class Inventoryslot : MonoBehaviour
 
     public bool ontable;
 
-    public GameObject OBJ;
+    public bool isspawned;
+
+    public bool isslected;
+
+    public UIMovement OBJ;
 
     public void Awake()
     {
@@ -38,7 +42,7 @@ public class Inventoryslot : MonoBehaviour
     public void Start()
     {
         mana = FindObjectOfType<uimanager>();
-
+        isslected = true;
     }
     public void Addtiem(Item newitem)
     {
@@ -54,7 +58,18 @@ public class Inventoryslot : MonoBehaviour
     }
  
     
-  
+  public void UpdateSlot() {
+
+        if (!ontable && !isslected) { 
+
+           OBJ.gameObject.SetActive(false);
+
+        } else {
+          OBJ.gameObject.SetActive(true);
+
+        }
+    }
+
     public void clearslot()
     {
         item = null;
@@ -63,7 +78,16 @@ public class Inventoryslot : MonoBehaviour
 
     }
     
+    public void ReassignSlot(Playergen Play, KeyitemTrigger Trigg) {
+        OBJ.Assignplayer(Play, Trigg);
+        if (!ontable) {
+            OBJ.transform.SetParent(Trigg.Itemslide.handleRect);
+            OBJ.trans.position = Trigg.Itemslide.handleRect.position;
+           // Play.playercanvas.sortingOrder = Trigg.KI.layer;
 
+        }
+
+    }
   
     public void Checkitemcount()
     {

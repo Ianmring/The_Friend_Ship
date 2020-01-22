@@ -17,12 +17,14 @@ public class distancedio : MonoBehaviour
 
     // Update is called once per frame
     private void OnTriggerExit(Collider other) {
-       
+        
         if (other.gameObject.GetComponent<movement>()) {
-       dioman.Startdio(dio , null);
-            gameObject.SetActive(false);
-            cam.targettrans = target.transform;
-            cam.isfollwoing = false;
+       dioman.Startdio(dio , this.gameObject, false);
+           // gameObject.SetActive(false);
+
+            cam.CamOver(target.transform, 8.5f, 1, false);
+            //cam.targettrans = target.transform;
+            //cam.isfollwoing = false;
         }
     }
 }

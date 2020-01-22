@@ -116,7 +116,7 @@ public class DiolaugeTrigger : MonoBehaviour {
             case meetstates.notmentioned:
                 minordeciss = true;
 
-                dioman.Startdio(NotMentionDio, this.gameObject);
+                dioman.Startdio(NotMentionDio, this.gameObject , true);
 
                 ToDo = MentionDio.thingtodo;
                 
@@ -124,7 +124,7 @@ public class DiolaugeTrigger : MonoBehaviour {
             case meetstates.mentioned:
                 minordeciss = true;
 
-                dioman.Startdio(MentionDio, this.gameObject);
+                dioman.Startdio(MentionDio, this.gameObject , true);
 
                 meet = meetstates.interm;
 
@@ -139,7 +139,7 @@ public class DiolaugeTrigger : MonoBehaviour {
             case meetstates.interm:
                 minordeciss = true;
 
-                dioman.Startdio(IntermDio, this.gameObject);
+                dioman.Startdio(IntermDio, this.gameObject, true);
 
                 ToDo = IntermDio.thingtodo;
                 
@@ -148,7 +148,7 @@ public class DiolaugeTrigger : MonoBehaviour {
             case meetstates.post:
                 minordeciss = true;
 
-                dioman.Startdio(PostDio, this.gameObject);
+                dioman.Startdio(PostDio, this.gameObject, true);
 
                 ToDo = PostDio.thingtodo;
 
@@ -179,13 +179,13 @@ public class DiolaugeTrigger : MonoBehaviour {
 
         if (Messagetosend != "N/A" || Messagetosend != null) {
             ToDo = Messagetosend;
-        } 
+        }
 
         if (meet == meetstates.interm) {
             for (int i = 0; i < diooptions.Length; i++) {
                 if (diooptions[i].situation == dio) {
                     if (caninteract) {
-                        dioman.Startdio(diooptions[i], this.gameObject);
+                        dioman.Startdio(diooptions[i], this.gameObject , true);
                         return;
                         //gameObject.SetActive(false);
                     }

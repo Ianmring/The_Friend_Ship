@@ -42,10 +42,11 @@ public class LighterUI : UIMovement
 
     }
     // Update is called once per frame
-  
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "OBJ") {
+    public override void EnterUI(Collider2D Coli) {
+        base.EnterUI(Coli);
+        if (Coli.gameObject.tag == "OBJ") {
             Debug.Log("collide");
         }
     }
+   
 }

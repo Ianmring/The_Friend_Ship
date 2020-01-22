@@ -8,22 +8,19 @@ using TMPro;
 [System.Serializable]
 
 
-public class uimanager : MonoBehaviour
-
-{
+public class uimanager : MonoBehaviour {
 
     #region Singelton
     public static uimanager UIinstance;
 
-    private void Awake()
-    {
+    private void Awake() {
         UIinstance = this;
     }
     #endregion
 
     public GameObject Canvase;
     public GameObject[] Menus;
-   
+
 
     public Button first;
 
@@ -31,7 +28,7 @@ public class uimanager : MonoBehaviour
 
     bool[] storedplayerready;
 
-   public StandaloneInputModule Input { get; set; }
+    public StandaloneInputModule Input { get; set; }
     EventSystem events;
 
     public bool isopen;
@@ -45,6 +42,8 @@ public class uimanager : MonoBehaviour
     public Canvas p2;
 
     
+
+    public Selector[] OBJSelector;
 
     public Playergen oneplayer;
     public Playergen twoplayer;
@@ -103,15 +102,18 @@ public class uimanager : MonoBehaviour
             isopen = true;
             menuisopen = true;
 
+          
+
             //   
         } else {
             Menus[0].SetActive(false);
 
-
+            //OBJSelector[0].trans.position = OBJSelector[0].Center;
+            //OBJSelector[1].trans.position = OBJSelector[1].Center;
             InventoryMenu.invmeninstance.Resetitemselected();
 
-            movement.MovInstance.p1I.AddKey(null,  false);
-            movement.MovInstance.p2I.AddKey(null,  false);
+            //movement.MovInstance.p1I.AddKey(null,  false);
+            //movement.MovInstance.p2I.AddKey(null,  false);
 
 
             isopen = false;
@@ -122,17 +124,26 @@ public class uimanager : MonoBehaviour
         if (playersready[0]) {
             oneplayer.isselectingitem = true;
             oneplayer.curssor.SetActive(true);
+            OBJSelector[0].gameObject.SetActive(true);
+         //   OBJSelector[0].Centerpos();
+
         } else {
             oneplayer.isselectingitem = false;
             oneplayer.curssor.SetActive(false);
+           OBJSelector[0].Centerpos();
+            OBJSelector[0].gameObject.SetActive(false);
         }
 
         if (playersready[1]) {
             twoplayer.isselectingitem = true;
             twoplayer.curssor.SetActive(true);
+            OBJSelector[1].gameObject.SetActive(true);
+           // OBJSelector[1].Centerpos();
         } else {
             twoplayer.isselectingitem = false;
             twoplayer.curssor.SetActive(false);
+            OBJSelector[1].Centerpos();
+            OBJSelector[1].gameObject.SetActive(false);
         }
 
         if (isopen || DiolaugeManager.DioInstance.indio) {
