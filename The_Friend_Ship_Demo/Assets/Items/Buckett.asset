@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   name: Buckett
-  icon: {fileID: 21300000, guid: ed885b074d7fcb943975942ede846ccc, type: 3}
+  layer: 0
+  icon: {fileID: -4696760917660491729, guid: 4b2bb9fdf72ccd24e8478044d4f0439a, type: 3}
   isdefault: 0
   OBJ: {fileID: 700163440048271888, guid: 613eab8617287c740b9ac25a2b8aafae, type: 3}
   UIOBJ: {fileID: 5534118185209474473, guid: 401d17af2d209f241893f2f13e2efd68, type: 3}
   discription: 
+  spritedimension: {x: 85, y: 100}
   KeyItemType: 0

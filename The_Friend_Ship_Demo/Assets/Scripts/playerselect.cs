@@ -22,8 +22,8 @@ public class playerselect : MonoBehaviour {
 
     public camscript cameraref;
 
-    public GameObject p1chk;
-    public GameObject p2chk;
+    public Image p1chk;
+    public Image p2chk;
 
     public enum player1 { Cont1, Cont2, notselected }
 
@@ -40,6 +40,8 @@ public class playerselect : MonoBehaviour {
     public bool menuoff;
 
     public Item[] Itemstoadd;
+
+    public Item Trilmix;
     //  public Text InstructionalText;
     //public int playernumbers;
     void Start() {
@@ -73,6 +75,9 @@ public class playerselect : MonoBehaviour {
         for (int i = 1; i < 6; i++) {
             uimanager.UIinstance.Menus[i].SetActive(false);
         }
+
+        p1chk.color = Color.yellow;
+        p2chk.color = Color.yellow;
     }
     public void canselect() {
         StartCoroutine("Waittoselect");
@@ -93,8 +98,8 @@ public class playerselect : MonoBehaviour {
                 StopAllCoroutines();
                 play = player1.notselected;
 
-                p1chk.SetActive(false);
-                p2chk.SetActive(false);
+                p1chk.color = Color.yellow;
+                p2chk.color = Color.yellow;
                 countdown = false;
                 ctdwntext.text = "Player 1 Press A";
 
@@ -104,11 +109,11 @@ public class playerselect : MonoBehaviour {
                 play = player1.Cont1;
                 ctdwntext.text = "Player 2 Press A";
 
-                p1chk.SetActive(true);
+                p1chk.color = Color.green;
             } else if (Input.GetButtonDown("Submit1") && play == player1.Cont2) {
 
 
-                p2chk.SetActive(true);
+                p2chk.color = Color.green;
                 countdown = true;
 
 
@@ -120,10 +125,10 @@ public class playerselect : MonoBehaviour {
                 play = player1.Cont2;
                 ctdwntext.text = "Player 2 Press A";
 
-                p1chk.SetActive(true);
+                p1chk.color = Color.green;
 
             } else if (Input.GetButtonDown("Submit2") && play == player1.Cont1) {
-                p2chk.SetActive(true);
+                p2chk.color = Color.green;
                 countdown = true;
 
 
@@ -236,6 +241,10 @@ public class playerselect : MonoBehaviour {
         for (int i = 0; i < Itemstoadd.Length; i++) {
             Inventory.instance.AddKey(Itemstoadd[i], 1);
         }
+
+        Inventory.instance.AddKey(Trilmix, 1);
+        Inventory.instance.AddKey(Trilmix, 1);
+
         FindObjectOfType<DiolaugeManager>().Startdio(dio, toot, false);
         Destroy(GetComponent<playerselect>());
     }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fc61a32582e5e4ab07a3e7f69e7ebe, type: 3}
+  m_Name: TrailMix
+  m_EditorClassIdentifier: 
+  Type: 3
+  name: Trail Mix
+  layer: -1
+  icon: {fileID: 3308197442021331658, guid: 8ef8e35030c97af40b944f4b57807389, type: 3}
+  isdefault: 0
+  OBJ: {fileID: 0}
+  UIOBJ: {fileID: 3457357670612087231, guid: 22f4a37a5d085e543a9db1d20ce333c7, type: 3}
+  discription: 
+  spritedimension: {x: 100, y: 100}
+  KeyItemType: 0

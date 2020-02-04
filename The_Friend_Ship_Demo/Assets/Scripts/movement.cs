@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 
 public class movement : MonoBehaviour {
@@ -84,8 +84,8 @@ public class movement : MonoBehaviour {
 
     bool t1;
 
-    public Text P1st;
-    public Text P2st;
+    public TextMeshProUGUI P1st;
+    public TextMeshProUGUI P2st;
 
     public bool canswitch;
 

@@ -124,26 +124,37 @@ public class uimanager : MonoBehaviour {
         if (playersready[0]) {
             oneplayer.isselectingitem = true;
             oneplayer.curssor.SetActive(true);
-            OBJSelector[0].gameObject.SetActive(true);
-         //   OBJSelector[0].Centerpos();
+            if (InventoryMenu.invmeninstance.itemselected[0] < 0) {
+                OBJSelector[0].gameObject.SetActive(true);
+
+            }
+            //   OBJSelector[0].Centerpos();
 
         } else {
             oneplayer.isselectingitem = false;
             oneplayer.curssor.SetActive(false);
-           OBJSelector[0].Centerpos();
-            OBJSelector[0].gameObject.SetActive(false);
+            if (InventoryMenu.invmeninstance.itemselected[0] < 0) {
+                OBJSelector[0].Centerpos();
+                OBJSelector[0].gameObject.SetActive(false);
+
+            }
         }
 
         if (playersready[1]) {
             twoplayer.isselectingitem = true;
             twoplayer.curssor.SetActive(true);
-            OBJSelector[1].gameObject.SetActive(true);
-           // OBJSelector[1].Centerpos();
+            if (InventoryMenu.invmeninstance.itemselected[1] < 0) {
+                OBJSelector[1].gameObject.SetActive(true);
+
+            }           // OBJSelector[1].Centerpos();
         } else {
             twoplayer.isselectingitem = false;
             twoplayer.curssor.SetActive(false);
-            OBJSelector[1].Centerpos();
-            OBJSelector[1].gameObject.SetActive(false);
+            if (InventoryMenu.invmeninstance.itemselected[1] < 0) {
+                OBJSelector[1].Centerpos();
+                OBJSelector[1].gameObject.SetActive(false);
+
+            }
         }
 
         if (isopen || DiolaugeManager.DioInstance.indio) {

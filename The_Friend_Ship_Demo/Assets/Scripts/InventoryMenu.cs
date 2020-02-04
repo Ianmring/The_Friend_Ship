@@ -18,6 +18,8 @@ public class InventoryMenu : MonoBehaviour
 
     public GameObject slot;
 
+    public GameObject interactionarea;
+
    public List<Inventoryslot> Keyslots  = new List<Inventoryslot>();
 
     public Transform[] selector;
@@ -34,6 +36,8 @@ public class InventoryMenu : MonoBehaviour
     Vector3 unequp;
 
     GameObject objecttodestory;
+
+    int itemslot;
     // Start is called before the first frame update
     void Start()
     {
@@ -134,10 +138,15 @@ public class InventoryMenu : MonoBehaviour
 
                 uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(false);
 
-                if (Islots[playernum] != null && Islots[playernum].isspawned) {
-                    Islots[playernum].isslected = false;
-                    Islots[playernum].UpdateSlot();
-                  
+                if (Islots[playernum] != null && Islots[playernum].isspawned ) {
+                    if ( Islots[playernum].itemplace == itemselected[0] || Islots[playernum].itemplace == itemselected[1]) {
+                        Islots[playernum].isslected = true;
+                        Islots[playernum].UpdateSlot();
+                    } else {
+                        Islots[playernum].isslected = false;
+                        Islots[playernum].UpdateSlot();
+                    }
+
 
                 }
 
@@ -145,6 +154,7 @@ public class InventoryMenu : MonoBehaviour
                 currentactiveitem[playernum] = Keyslots[itemselected[playernum]].item;
                 Islots[playernum] = Keyslots[itemselected[playernum]];
 
+               
 
                 if (Islots[playernum] != null && Islots[playernum].isspawned) {
                     Islots[playernum].isslected = true;
@@ -160,17 +170,25 @@ public class InventoryMenu : MonoBehaviour
 
     public void AddUIKey(Item item, int count)
     {
-        GameObject Keyslot;
-        Keyslot = Instantiate(slot, keyitemparent);
+        GameObject KeyslotI;
+        KeyslotI = Instantiate(slot, keyitemparent);
         //Keyslots = keyitemparent.GetComponentsInChildren<Inventoryslot>();
-        Keyslot.GetComponent<Inventoryslot>().itemcount += count;
+        KeyslotI.GetComponent<Inventoryslot>().itemcount += count;
 
-        Keyslots.Add(Keyslot.GetComponent<Inventoryslot>());
+        Keyslots.Add(KeyslotI.GetComponent<Inventoryslot>());
 
         Keyslots[Keyslots.Count - 1].Addtiem(item);
-       // uimanager.UIinstance.Triggerupdate();
+        // uimanager.UIinstance.Triggerupdate();
+        if (Keyslots.Count > 0) {
+            for (int i = 0; i < Keyslots.Count; i++) {
+                Keyslots[i].itemplace = itemslot;
+                itemslot++;
 
-       
+            }
+        }
+        itemslot = 0;
+
+
     }
     public void RemoveUIKey(int Playernum) {
 

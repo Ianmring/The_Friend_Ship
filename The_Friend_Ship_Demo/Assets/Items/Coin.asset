@@ -20,4 +20,5 @@ MonoBehaviour:
   OBJ: {fileID: 1838545714987622681, guid: c263cec0736428349be02e1ebb6a3f49, type: 3}
   UIOBJ: {fileID: 5534118185209474473, guid: 87a1667ccd32425419bb7ed8200b7e4b, type: 3}
   discription: 
+  spritedimension: {x: 90, y: 90}
   KeyItemType: 0

@@ -201,7 +201,6 @@ public class DiolaugeManager : MonoBehaviour
             anim.SetTrigger("Close");
 
             currentdiogame.SetActive(true);
-            currentdiogame.SendMessage("Fin", SendMessageOptions.DontRequireReceiver);
         } else
 	{     
             anim.SetTrigger("Close");
@@ -212,6 +211,8 @@ public class DiolaugeManager : MonoBehaviour
             thingtodo = "";
 
         }
+        currentdiogame.SendMessage("Fin", SendMessageOptions.DontRequireReceiver);
+
         currentdiogame = null;
 
      

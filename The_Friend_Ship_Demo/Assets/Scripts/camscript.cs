@@ -29,7 +29,7 @@ public class camscript : MonoBehaviour {
         cam = GetComponent<Camera>();
         cam.nearClipPlane = -100;
         character = FindObjectOfType<movement>().GetComponent<Transform>();
-        transform.position = character.transform.position + offsetI;
+       // transform.position = character.transform.position + offsetI;
     }
 	
 	// Update is called once per frame

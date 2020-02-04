@@ -35,6 +35,8 @@ public class Inventoryslot : MonoBehaviour
 
     public UIMovement OBJ;
 
+    public int itemplace;
+
     public void Awake()
     {
 
@@ -43,6 +45,10 @@ public class Inventoryslot : MonoBehaviour
     {
         mana = FindObjectOfType<uimanager>();
         isslected = true;
+        icon.GetComponent<RectTransform>().sizeDelta = new Vector2(item.spritedimension.x , item.spritedimension.y);
+        icon.GetComponent<RectTransform>().localPosition = new Vector2(item.spritelocation.x, item.spritelocation.y);
+
+
     }
     public void Addtiem(Item newitem)
     {
@@ -60,12 +66,12 @@ public class Inventoryslot : MonoBehaviour
     
   public void UpdateSlot() {
 
-        if (!ontable && !isslected) { 
+        if (ontable || isslected) { 
 
-           OBJ.gameObject.SetActive(false);
+           OBJ.gameObject.SetActive(true);
 
         } else {
-          OBJ.gameObject.SetActive(true);
+          OBJ.gameObject.SetActive(false);
 
         }
     }

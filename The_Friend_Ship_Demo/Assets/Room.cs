@@ -69,7 +69,7 @@ public class Room : MonoBehaviour
         inroom = true;
         Colide.size = EntrenceScale;
         cam.CamOver(Center.transform, 7, 3, false);
-        cam.character.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z);
+        cam.character.transform.position = new Vector3(transform.position.x , transform.position.y, transform.position.z+3);
         yield return new WaitForSeconds(2);
 
         cam.FadeIn();
@@ -91,7 +91,7 @@ public class Room : MonoBehaviour
         inroom = false;
         Colide.size = Colide.size = new Vector3(2, 4, 2);
         cam.Normal();
-        cam.character.transform.position = new Vector3(transform.position.x - 3, transform.position.y, transform.position.z);
+        cam.character.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
         yield return new WaitForSeconds(2);
 
         cam.FadeIn();

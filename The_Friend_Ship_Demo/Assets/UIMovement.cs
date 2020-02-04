@@ -26,11 +26,16 @@ public class UIMovement : MonoBehaviour
 
     public bool onbench;
 
+    public testanim anim;
 
+    public GameObject Buttons;
     // Start is called before the first frame update
     void Start()
     {
+
+      
         startingfunt();
+
     }
     
     void LateUpdate() 
@@ -47,17 +52,23 @@ public class UIMovement : MonoBehaviour
         ISlot.isspawned = true;
         movmag = 20;
         player.playercanvas.sortingOrder = Trig.KI.layer;
-       
+        anim = GetComponentInChildren<testanim>();
+        Buttons = anim.gameObject;
+
+        
         switch (player.direction) {
             case 0:
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
+                Buttons.transform.localPosition = new Vector3(150, 0);
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
+                Buttons.transform.localPosition = new Vector3(-150, 0);
+
                 break;
 
         }
@@ -81,11 +92,15 @@ public class UIMovement : MonoBehaviour
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
+                Buttons.transform.localPosition = new Vector3(200, 0);
+
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
+                Buttons.transform.localPosition = new Vector3(-200, 0);
+
                 break;
 
         }

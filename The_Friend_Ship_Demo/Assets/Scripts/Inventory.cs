@@ -68,15 +68,7 @@ public class Inventory : MonoBehaviour
                 return false;
             }
 
-            if (KeyItems.Contains(item))
-            {
-                if (onKeyitemSamecallback != null)
-                {
-                    onKeyitemSamecallback.Invoke(item, count);
-                }
-            }
-            else
-            {
+           
                 KeyItems.Add(item);
 
                 if (onkeyitemchangedcallback != null)
@@ -84,7 +76,7 @@ public class Inventory : MonoBehaviour
                     onkeyitemchangedcallback.Invoke(item, count);
 
                 }
-            }
+            
 
         }
         return true;
