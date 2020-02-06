@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5206605923186238710}
   - component: {fileID: 8637415860552099739}
   - component: {fileID: 3457357670612087230}
-  - component: {fileID: 6501615562675478482}
+  - component: {fileID: 7009760609230413630}
   m_Layer: 5
   m_Name: TrailBit
   m_TagString: OBJ
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7163186188204304611
 CanvasRenderer:
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6501615562675478482
+--- !u!114 &7009760609230413630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

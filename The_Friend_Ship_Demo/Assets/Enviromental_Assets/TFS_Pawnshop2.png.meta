@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 91add5f28ce774145a70bd15ed694b6c
+guid: 3adea4114ccb9e44ab3b844a4a03f03a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1366677981984774684
-    second: bushes_0
-  - first:
-      213: -5686578069567181167
-    second: bushes_1
-  - first:
-      213: 7400571199512165984
-    second: bushes_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -49,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,74 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: bushes_0
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 137
-        width: 374
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8b280af6bf93f14db9da175245ccce7
-      internalID: -1366677981984774684
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bushes_1
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 136
-        width: 22
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38310fbaae0fb55469249ff31338d24f
-      internalID: -5686578069567181167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bushes_2
-      rect:
-        serializedVersion: 2
-        x: 424
-        y: 111
-        width: 241
-        height: 217
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7751e2fbd7f10f341b1868a43c05dda2
-      internalID: 7400571199512165984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3f1cf618e322d3f4ea442f592ff4e2c1
+    spriteID: 2f8c99b32cef64c41b8a6d0dedf383dd
     internalID: 0
     vertices: []
     indices: 

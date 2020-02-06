@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.AI;
 
 public class movement : MonoBehaviour {
 
@@ -90,12 +90,18 @@ public class movement : MonoBehaviour {
     public bool canswitch;
 
     public bool go ;
+
+    NavMeshAgent age;
+
+    public bool going;
+
+    public float currentang;
     void Start () {
 
         move = true;
         go = true;
         canswitch = true;
-
+        age = GetComponent<NavMeshAgent>();
         playa = FindObjectOfType<playerselect>();
         rig = GetComponent<Rigidbody>();
         steer = PlayerSteering.P1;
@@ -133,6 +139,23 @@ public class movement : MonoBehaviour {
             turning = Turning.Not;
         }
 
+      
+        //switch () {
+        //    case 90:
+        //        currentang = 90; 
+        //        break;
+        //    case 180:
+        //        currentang = 180; 
+        //        break;
+        //    case 270:
+        //        currentang = 270; spit.sprite = imagedir[6];
+        //        break;
+        //    case 0:
+        //        currentang = 0; spit.sprite = imagedir[1];
+        //        break;
+         
+        //}
+     //   spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
 
         //if (turning == Turning.Not && moving == Moving.Not)
         //{
@@ -168,6 +191,37 @@ public class movement : MonoBehaviour {
     }
     void Move()
     {
+        //spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
+
+        //if (going) {
+        //    if (Currentang.y > 45 && Currentang.y < 135) {
+        //        spit.sprite = imagedir[2];
+        //    } else if (Currentang.y > 135 && Currentang.y < 225) {
+        //        spit.sprite = imagedir[4];
+        //    } else if (Currentang.y > 225 && Currentang.y < 315) {
+        //        spit.sprite = imagedir[6];
+        //    } else if (Currentang.y > 315 || Currentang.y < 45) {
+        //        spit.sprite = imagedir[0];
+        //    }
+        //}
+       
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //RaycastHit hit;
+        //if (Input.GetMouseButtonDown(0)) {
+        //    if (Physics.Raycast(ray, out hit)) {
+        //        age.destination = hit.point;
+        //    }
+
+        //}
+
+        //if (age.remainingDistance <= age.stoppingDistance) {
+        //    going = false;
+        //} else {
+        //    going = true;
+        //}
+
+
         if (go) {
             mag = Mathf.Abs(directions[dirint]);
             if (directions[dirint] < -0.3) {
@@ -302,7 +356,7 @@ public class movement : MonoBehaviour {
                 break;
             case 1:
 
-                Dir = Directions.upright;
+                Dir = Directions.right;
                 break;
             case 2:
 
@@ -310,7 +364,7 @@ public class movement : MonoBehaviour {
                 break;
             case 3:
 
-                Dir = Directions.downright;
+                Dir = Directions.right;
                 break;
             case 4:
 
@@ -318,7 +372,7 @@ public class movement : MonoBehaviour {
                 break;
             case 5:
 
-                Dir = Directions.downleft;
+                Dir = Directions.left;
                 break;
             case 6:
 
@@ -326,7 +380,7 @@ public class movement : MonoBehaviour {
                 break;
             case 7:
 
-                Dir = Directions.upleft;
+                Dir = Directions.left;
                 break;
           
         }

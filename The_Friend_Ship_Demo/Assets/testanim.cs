@@ -14,10 +14,10 @@ public class testanim : MonoBehaviour
             anima.Add(item);
             AnimButtons.Add(item.gameObject);
         }
-        anima[0].SetTrigger("Start");
-        anima[1].SetTrigger("Start");
-        anima[2].SetTrigger("Start");
-        anima[3].SetTrigger("Start");
+        //anima[0].SetTrigger("Start");
+        //anima[1].SetTrigger("Start");
+        //anima[2].SetTrigger("Start");
+        //anima[3].SetTrigger("Start");
 
         foreach (var item in AnimButtons) {
             item.SetActive(false);
