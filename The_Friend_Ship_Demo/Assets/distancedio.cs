@@ -19,9 +19,10 @@ public class distancedio : MonoBehaviour
     private void OnTriggerExit(Collider other) {
         
         if (other.gameObject.GetComponent<movement>()) {
-       dioman.Startdio(dio , this.gameObject, false);
-           // gameObject.SetActive(false);
+            Debug.Log("OUT");
 
+            dioman.Startdio(dio , this.gameObject, false);
+            // gameObject.SetActive(false);
             cam.CamOver(target.transform, 8.5f, 1, false);
             //cam.targettrans = target.transform;
             //cam.isfollwoing = false;

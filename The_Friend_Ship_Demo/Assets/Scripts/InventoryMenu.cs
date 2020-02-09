@@ -162,6 +162,7 @@ public class InventoryMenu : MonoBehaviour
                     Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
                 } else {
                     GenInv[playernum].AddKey(currentactiveitem[playernum], false);
+
                 }
             }
         }

@@ -13,7 +13,9 @@ public class DiolaugeTrigger : MonoBehaviour {
 
     bool caninteract;
     [SerializeField]
-    bool cantrigger;
+  public  bool cantrigger;
+    public bool going;
+  public  bool there;
     public Diolauge[] diooptions;
     [SerializeField]
 
@@ -23,8 +25,8 @@ public class DiolaugeTrigger : MonoBehaviour {
     public GameObject And;
     public GameObject Or;
 
-    bool p1;
-    bool p2;
+ public   bool p1;
+public    bool p2;
 
     public enum meetstates { notmentioned, mentioned, interm , post}
 
@@ -49,31 +51,30 @@ public class DiolaugeTrigger : MonoBehaviour {
         StartCoroutine("Abletointeract");
     }
     private void OnTriggerEnter(Collider other) {
-        
-        
-            if (other.GetComponent<movement>() && !cantrigger) {
-            Button1.gameObject.SetActive(true);
-            Button2.gameObject.SetActive(true);
-            cantrigger = true;
 
-            } 
 
-        
+        if (other.GetComponent<movement>()) {
+            there = true;
+
+        }
+
+
 
     }
     private void OnTriggerExit(Collider other) {
-        if (other.GetComponent<movement>()) {
-         
-          
-            Button1.gameObject.SetActive(false);
-            Button2.gameObject.SetActive(false);
-           cantrigger = false;
+        if (other.GetComponent<movement>() ) {
+
+
+            there = false;
 
         }
     }
     public void LateUpdate() {
 
         if (cantrigger) {
+
+            Button1.gameObject.SetActive(true);
+            Button2.gameObject.SetActive(true);
             if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
                 p1 = true;
                 Button1.color = Color.green;
@@ -83,13 +84,19 @@ public class DiolaugeTrigger : MonoBehaviour {
                 Button2.color = Color.green;
 
             }
-
-            if (p1 && p2 && !minordeciss) {
-                StartCoroutine("TriggerdioWait");
+            if (p1 && p2 && !minordeciss ) {
+                movement.MovInstance.age.destination = transform.localPosition;
+                going = true;
+                if (there && going) {
+                    StartCoroutine("TriggerdioWait");
+                }
 
             } else if((p1 || p2) && minordeciss) {
-                StartCoroutine("TriggerdioWait");
-
+                movement.MovInstance.age.destination = transform.localPosition;
+                going = true;
+                if (there && going) {
+                    StartCoroutine("TriggerdioWait");
+                }
             }
 
             if (minordeciss) {
@@ -102,6 +109,8 @@ public class DiolaugeTrigger : MonoBehaviour {
             }
 
         } else {
+            Button1.gameObject.SetActive(false);
+            Button2.gameObject.SetActive(false);
             Or.SetActive(false);
             And.SetActive(false);
         }
@@ -160,6 +169,7 @@ public class DiolaugeTrigger : MonoBehaviour {
         p2 = false;
        
         cantrigger = false;
+        going = false;
 
     }
     IEnumerator Abletointeract()

@@ -29,7 +29,7 @@ public class movement : MonoBehaviour {
    float turnspeed;
 
    public float zoom;
-    Rigidbody rig;
+  //  Rigidbody rig;
 
    public Vector3 Currentang;
 
@@ -37,9 +37,13 @@ public class movement : MonoBehaviour {
     public float[] directions;
     public float[] directionsx;
     public float[] Turnx;
-    public enum Moving { Forwad, Backwards, Not};
 
-    public enum Turning { Clockwise, AniClockwise, Not };
+    public float[] DirxM;
+    public float[] DiryM;
+
+     enum Moving { Forwad, Backwards, Not};
+
+     enum Turning { Clockwise, AniClockwise, Not };
 
      enum Directions { up, upleft, left, downleft, down, downright, right, upright}
 
@@ -47,10 +51,10 @@ public class movement : MonoBehaviour {
 
   public  PlayerSteering steer;
 
-    public int direction;
+   // public int direction;
 
-    public Moving moving;
-    public Turning turning;
+     Moving moving;
+     Turning turning;
      Directions Dir;
 
    // public Slider[] Slides;
@@ -79,8 +83,8 @@ public class movement : MonoBehaviour {
     public bool PlayersSet;
 
     public bool altoveride;
-    int steerint;
-    int dirint;
+   public int steerint;
+   public int dirint;
 
     bool t1;
 
@@ -91,71 +95,69 @@ public class movement : MonoBehaviour {
 
     public bool go ;
 
-    NavMeshAgent age;
+   public NavMeshAgent age;
 
     public bool going;
 
     public float currentang;
+
+    public PlayersSelector Pointer;
+
+    public GameObject X;
     void Start () {
 
-        move = true;
         go = true;
         canswitch = true;
         age = GetComponent<NavMeshAgent>();
         playa = FindObjectOfType<playerselect>();
-        rig = GetComponent<Rigidbody>();
+   //     rig = GetComponent<Rigidbody>();
         steer = PlayerSteering.P1;
         Switchplayerpos();
         moving = Moving.Not;
         turning = Turning.Not;
         spit = GetComponentInChildren<SpriteRenderer>();
-        direction = 2;
-        checkDirection();
+        X.SetActive(false);
+
+
+        //   direction = 2;
+
+        //checkDirection();
     }
 
     // Update is called once per frame
     void Update () {
 
-     
 
-      
-        if (move)
+        spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
+
+
+        if (move && !uimanager.UIinstance.isopen)
         {
 
            
-            rig.mass = 1;
+          //  rig.mass = 1;
             Currentang = GetComponent<Transform>().eulerAngles;
             Move();
-            Direction();
+            //Direction();
      
-            rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
-            zoom = rig.velocity.magnitude;
+         //   rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
+         //   zoom = rig.velocity.magnitude;
             turnspeed = zoom >= 1 ? minturnspeed : maxturnspeed;
             zroto = transform.localEulerAngles.y;
+            Pointer.gameObject.SetActive(true);
         }
-        else
-        {
-            rig.mass = 10;
+        else {
+
+            age.destination = transform.localPosition;
+
             turning = Turning.Not;
+            Pointer.gameObject.SetActive(false);
+
         }
 
-      
-        //switch () {
-        //    case 90:
-        //        currentang = 90; 
-        //        break;
-        //    case 180:
-        //        currentang = 180; 
-        //        break;
-        //    case 270:
-        //        currentang = 270; spit.sprite = imagedir[6];
-        //        break;
-        //    case 0:
-        //        currentang = 0; spit.sprite = imagedir[1];
-        //        break;
-         
-        //}
-     //   spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
+
+
+        //   spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
 
         //if (turning == Turning.Not && moving == Moving.Not)
         //{
@@ -191,20 +193,32 @@ public class movement : MonoBehaviour {
     }
     void Move()
     {
-        //spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
 
-        //if (going) {
-        //    if (Currentang.y > 45 && Currentang.y < 135) {
-        //        spit.sprite = imagedir[2];
-        //    } else if (Currentang.y > 135 && Currentang.y < 225) {
-        //        spit.sprite = imagedir[4];
-        //    } else if (Currentang.y > 225 && Currentang.y < 315) {
-        //        spit.sprite = imagedir[6];
-        //    } else if (Currentang.y > 315 || Currentang.y < 45) {
-        //        spit.sprite = imagedir[0];
-        //    }
-        //}
-       
+        if (going) {
+            if (Currentang.y > 45 && Currentang.y < 135) {
+                spit.sprite = imagedir[2];
+            } else if (Currentang.y > 135 && Currentang.y < 225) {
+                spit.sprite = imagedir[4];
+            } else if (Currentang.y > 225 && Currentang.y < 315) {
+                spit.sprite = imagedir[6];
+            } else if (Currentang.y > 315 || Currentang.y < 45) {
+                spit.sprite = imagedir[0];
+            }
+        }
+        if (age.remainingDistance <= age.stoppingDistance) {
+            going = false;
+            X.SetActive(false);
+        } else {
+            going = true;
+            if (Pointer.diotrigg == null) {
+                X.SetActive(true);
+                X.transform.position = age.destination;
+            }
+           
+
+        }
+
+        #region OldMov
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         //RaycastHit hit;
@@ -215,60 +229,37 @@ public class movement : MonoBehaviour {
 
         //}
 
-        //if (age.remainingDistance <= age.stoppingDistance) {
-        //    going = false;
-        //} else {
-        //    going = true;
+
+
+
+        //if (go) {
+        //    mag = Mathf.Abs(directions[dirint]);
+        //    if (directions[dirint] < -0.3) {
+        //        moving = Moving.Forwad;
+        //        isbackward = false;
+
+
+        //        // ismoving = true;
+        //    } else if (directions[dirint] > 0.3) {
+        //        moving = Moving.Backwards;
+        //        isbackward = true;
+
+
+        //        //ismoving = true;
+
+        //    } else {
+        //        moving = Moving.Not;
+
+        //    }
         //}
-
-
-        if (go) {
-            mag = Mathf.Abs(directions[dirint]);
-            if (directions[dirint] < -0.3) {
-                moving = Moving.Forwad;
-                isbackward = false;
-
-
-                // ismoving = true;
-            } else if (directions[dirint] > 0.3) {
-                moving = Moving.Backwards;
-                isbackward = true;
-
-
-                //ismoving = true;
-
-            } else {
-                moving = Moving.Not;
-
-            }
-        }
+        #endregion
     }
-    void Direction() {
-        if (go) {
-            if (Turnx[steerint] > 0.3) {
-                turning = Turning.Clockwise;
-
-                StartCoroutine("TurnClockwise");
 
 
-
-            } else if (Turnx[steerint] < -0.3) {
-                turning = Turning.AniClockwise;
-
-                StartCoroutine("TurnAntiClockwise");
-
-
-            } else {
-
-                turning = Turning.Not;
-            }
-        }
-           
-    }
-   
 
     private void FixedUpdate()
     {
+        /*
         switch (moving)
         {
             case Moving.Forwad:
@@ -331,10 +322,35 @@ public class movement : MonoBehaviour {
                 break;
             
         }
-
+        */
 
     }
-  public void checkDirection()
+    #region oldmov 
+    /*
+     * 
+     *  void Direction() {
+        if (go) {
+            if (Turnx[steerint] > 0.3) {
+                turning = Turning.Clockwise;
+
+                StartCoroutine("TurnClockwise");
+
+
+
+            } else if (Turnx[steerint] < -0.3) {
+                turning = Turning.AniClockwise;
+
+                StartCoroutine("TurnAntiClockwise");
+
+
+            } else {
+
+                turning = Turning.Not;
+            }
+        }
+           
+    }
+    public void checkDirection()
     {
         if (direction < 0)
         {
@@ -420,10 +436,11 @@ public class movement : MonoBehaviour {
 
         StopCoroutine("TurnAntiClockwise");
     }
-
+    */
+    #endregion
 }
 
-   
+
 
 
 

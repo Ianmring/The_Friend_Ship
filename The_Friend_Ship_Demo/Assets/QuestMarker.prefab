@@ -277,7 +277,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2211887862950315495}
   - component: {fileID: 570376261}
-  - component: {fileID: 1837269485}
   - component: {fileID: 1837269484}
   m_Layer: 12
   m_Name: QuestMarker
@@ -319,19 +318,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &1837269485
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2211887862950315492}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1837269484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,11 +335,15 @@ MonoBehaviour:
   IntermDio: {fileID: 11400000, guid: 6b52c37653b4d1b47b3cf86ab0790351, type: 2}
   PostDio: {fileID: 0}
   cantrigger: 0
+  going: 0
+  there: 0
   diooptions: []
   Button1: {fileID: 1758078216}
   Button2: {fileID: 1722421146}
   And: {fileID: 51584138853681385}
   Or: {fileID: 5072133452334555824}
+  p1: 0
+  p2: 0
   meet: 1
   peoplemeet:
   - {fileID: 0}

@@ -98,7 +98,7 @@ public class uimanager : MonoBehaviour {
 
         if ((playersready[0] || playersready[1]) && !manadio.indio) {
             Menus[0].SetActive(true);
-
+            Menus[Menus.Length-1].SetActive(false);
             isopen = true;
             menuisopen = true;
 
@@ -107,6 +107,7 @@ public class uimanager : MonoBehaviour {
             //   
         } else {
             Menus[0].SetActive(false);
+            Menus[Menus.Length-1].SetActive(true);
 
             //OBJSelector[0].trans.position = OBJSelector[0].Center;
             //OBJSelector[1].trans.position = OBJSelector[1].Center;

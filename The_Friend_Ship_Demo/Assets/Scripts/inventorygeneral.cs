@@ -67,12 +67,7 @@ public class inventorygeneral : MonoBehaviour
     {
          
 
-        if (Kitem == Keyitem)
-        {
-            return;
-        }
-        else
-        {
+        
             if (Kitem == null) {
         
                 Keyitem = null;
@@ -89,7 +84,7 @@ public class inventorygeneral : MonoBehaviour
               //  currentitemobj = PSlot;
             
             }
-        }
+        
     }
 
 

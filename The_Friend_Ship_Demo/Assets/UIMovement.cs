@@ -34,7 +34,6 @@ public class UIMovement : MonoBehaviour
     {
 
       
-        startingfunt();
 
     }
     
@@ -44,7 +43,8 @@ public class UIMovement : MonoBehaviour
         Lateupfunt();
 
     }
-    public virtual void startingfunt() {
+    public virtual void Startfunt() {
+
         trans = GetComponent<RectTransform>();
         player = Trig.PL;
         ISlot = player.invmen.Islots[player.direction];
@@ -55,7 +55,7 @@ public class UIMovement : MonoBehaviour
         anim = GetComponentInChildren<testanim>();
         Buttons = anim.gameObject;
 
-        
+
         switch (player.direction) {
             case 0:
                 xmin = Screen.width * .4f;
@@ -74,6 +74,11 @@ public class UIMovement : MonoBehaviour
         }
         p1 = false;
         p2 = false;
+        startingfunt();
+
+    }
+    public virtual void startingfunt() {
+       
     }
 
     public void Assignplayer(Playergen play, KeyitemTrigger Trigg) {
@@ -114,7 +119,7 @@ public class UIMovement : MonoBehaviour
             if (ISlot.isslected) {
                 //  transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
                 transform.position = new Vector3(Mathf.Clamp(trans.position.x, xmin, xmax), Mathf.Clamp(trans.position.y, 0, Screen.height));
-                finalpo = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
+                finalpo = new Vector3(trans.position.x + (player.MovH * movmag), trans.position.y + (player.MovV * movmag));
                 transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
             } else {
                 return;

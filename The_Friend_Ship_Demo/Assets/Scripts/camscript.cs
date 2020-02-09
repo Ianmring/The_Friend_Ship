@@ -33,7 +33,7 @@ public class camscript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 
        
@@ -42,13 +42,13 @@ public class camscript : MonoBehaviour {
         if (isfollwoing) {
             Vector3 desiredpos = character.transform.position + offsetI;
             Vector3 smoothedpos = Vector3.Lerp(transform.position, desiredpos, smoothspeed);
-            float smoothzoom = Mathf.Lerp(cam.orthographicSize, TargetZoom, .2f);
+            float smoothzoom = Mathf.Lerp(cam.orthographicSize, TargetZoom, smoothspeed);
             cam.orthographicSize = smoothzoom;
             transform.position = smoothedpos;
         } else if (targettrans != null){
-            Vector3 smoothtrans = Vector3.Lerp(transform.position, targettrans.position + offsetI, .1f);
+            Vector3 smoothtrans = Vector3.Lerp(transform.position, targettrans.position + offsetI, .01f);
             transform.position = smoothtrans;
-            float smoothzoom = Mathf.Lerp(cam.orthographicSize, TargetZoom, .2f);
+            float smoothzoom = Mathf.Lerp(cam.orthographicSize, TargetZoom, smoothspeed);
             cam.orthographicSize = smoothzoom;
         } 
        
@@ -77,7 +77,7 @@ public class camscript : MonoBehaviour {
     }
     public void Normal() {
         targettrans = null;
-        TargetZoom = 8;
+        TargetZoom = 12;
         isfollwoing = true;
         cam.cullingMask = -1;
 

@@ -31,17 +31,16 @@ using UnityEngine.UI;
     }
     public void Additem(PersonalItemSlot Kitem, Playergen L, bool isitem)
     {
-        if (Kitem == null) {
-        //    Destroy(currentobj);
-            currentobj = null;
-            KeyItem = null;
-            KI = null;
-            Itemslide = null;
-            return;
-        }
-     //  Destroy(currentobj);
-      //  currentobj = null;
-
+        //if (Kitem == null) {
+        ////    Destroy(currentobj);
+        //    currentobj = null;
+        //    KeyItem = null;
+        //    KI = null;
+        //    Itemslide = null;
+        //    return;
+        //}
+        //  Destroy(currentobj);
+        //  currentobj = null;
         Isitem = isitem;
         KeyItem = Kitem;
         KI = Kitem.currentitem as KeyItem;
@@ -53,13 +52,15 @@ using UnityEngine.UI;
         UIgo = Item.GetComponent<UIMovement>();
         UIgo.Trig = this;
         UIgo.player = L;
+        UIgo.Startfunt();
+        
         // mainl = ML;
-      //  PL = L;
+        //  PL = L;
 
 
 
     }
-  
+
     // Update is called once per frame
     void LateUpdate() {
 

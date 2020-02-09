@@ -41,6 +41,8 @@ public class Playergen : MonoBehaviour
     public float IReady;
     public float DirH;
     public float DirV;
+    public float MovH;
+    public float MovV;
 
     public Canvas playercanvas;
     public GameObject curssor;
@@ -115,9 +117,12 @@ public class Playergen : MonoBehaviour
         Itemselect = Input.GetAxis("ItemScrool" + playernum.ToString());
         DirH = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Launch");
         DirV = Input.GetAxis("Vertical_P" + playernum.ToString() + "_Launch");
+        MovH = Mov.directionsx[direction];
+        MovV = Mov.directions[direction];
         Ready = Input.GetAxis("Player_" + playernum.ToString() + "_Aim");
         IReady = Input.GetAxis("Player_" + playernum.ToString() + "_Key");
-
+        Mov.DirxM[direction] = DirH;
+        Mov.DiryM[direction] = DirV;
         if (UIMana.menuisopen && isselectingitem) {
             if (Itemselect > .1 && selecting) {
                invmen.Itemup(direction);

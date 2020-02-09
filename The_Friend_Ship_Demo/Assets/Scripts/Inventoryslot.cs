@@ -44,9 +44,9 @@ public class Inventoryslot : MonoBehaviour
     public void Start()
     {
         mana = FindObjectOfType<uimanager>();
-        isslected = true;
-        icon.GetComponent<RectTransform>().sizeDelta = new Vector2(item.spritedimension.x , item.spritedimension.y);
-        icon.GetComponent<RectTransform>().localPosition = new Vector2(item.spritelocation.x, item.spritelocation.y);
+      //  isslected = true;
+        //icon.GetComponent<RectTransform>().sizeDelta = new Vector2(item.spritedimension.x , item.spritedimension.y);
+        //icon.GetComponent<RectTransform>().localPosition = new Vector2(item.spritelocation.x, item.spritelocation.y);
 
 
     }
@@ -54,11 +54,11 @@ public class Inventoryslot : MonoBehaviour
     {
 
             item = newitem;
-            icon.sprite = item.icon;
+          //  icon.sprite = item.icon;
             itemname = item.name;
         Itype = newitem.Type;
 
-        icon.enabled = true;
+        //icon.enabled = true;
         namee.text = item.name;
 
     }
@@ -79,8 +79,8 @@ public class Inventoryslot : MonoBehaviour
     public void clearslot()
     {
         item = null;
-        icon.sprite = null;
-        icon.enabled = false;
+        //icon.sprite = null;
+        //icon.enabled = false;
 
     }
     

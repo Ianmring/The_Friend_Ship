@@ -1839,12 +1839,11 @@ MonoBehaviour:
   Bench: {fileID: 0}
   bagstates:
   - {fileID: -5427649129724351365, guid: 7146ca35cd65615459e7e0adee18105b, type: 3}
-  bits: []
-  candys: []
+  Thingsinbag: []
   candiesinbag: 0
   etcinbag: 0
-  trailtoget: {fileID: 0}
-  candytoget: {fileID: 0}
+  thingtoget: {fileID: 0}
+  lastthing: {fileID: 0}
 --- !u!1 &3701862254274722792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2027,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -5427649129724351365, guid: 7146ca35cd65615459e7e0adee18105b,
+  m_Sprite: {fileID: -4745654837925296931, guid: efcbd04f046d5c140a61331dc9d9fac8,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
