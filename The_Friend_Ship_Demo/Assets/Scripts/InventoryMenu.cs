@@ -160,6 +160,7 @@ public class InventoryMenu : MonoBehaviour
                     Islots[playernum].isslected = true;
                     Islots[playernum].UpdateSlot();
                     Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
+                    GenInv[playernum].player.playercanvas.sortingOrder = currentactiveitem[playernum].layer;
                 } else {
                     GenInv[playernum].AddKey(currentactiveitem[playernum], false);
 

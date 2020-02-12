@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: fc7e4600a894d4442afdbda3ee690050
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6325397865789782373
+    second: watch_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,11 +85,32 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: watch_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 30
+        width: 305
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc96a547008fb442bbee30decfd2d8d
+      internalID: 6325397865789782373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 878dc069d98e7c24fb0a8648a6e4ebb7
     internalID: 0
     vertices: []
     indices: 

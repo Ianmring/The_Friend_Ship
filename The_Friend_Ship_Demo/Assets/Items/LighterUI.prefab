@@ -56,7 +56,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5534118185209474473}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -137,6 +137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6dfc72a35dc9e4eb91085a3a23d179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trans: {fileID: 0}
+  Trig: {fileID: 0}
+  player: {fileID: 0}
+  ISlot: {fileID: 0}
+  hold: 0
+  targetobj: {fileID: 0}
+  bigdecistion: 0
+  onbench: 0
+  anim: {fileID: 0}
+  Buttons: {fileID: 0}
+  move: 0
   lightstates:
   - {fileID: 7025018752759822252, guid: f0748bcb3043f1d4aa25c9f40410c6f8, type: 3}
   - {fileID: 7047310441521186486, guid: f0748bcb3043f1d4aa25c9f40410c6f8, type: 3}

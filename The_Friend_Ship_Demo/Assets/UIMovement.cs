@@ -29,6 +29,8 @@ public class UIMovement : MonoBehaviour
     public testanim anim;
 
     public GameObject Buttons;
+
+    public bool move;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class UIMovement : MonoBehaviour
 
     }
     public virtual void Startfunt() {
-
+        move = true;
         trans = GetComponent<RectTransform>();
         player = Trig.PL;
         ISlot = player.invmen.Islots[player.direction];
@@ -90,7 +92,9 @@ public class UIMovement : MonoBehaviour
         ISlot.OBJ = this;
        // ISlot.isspawned = true;
         movmag = 20;
-       // play.playercanvas.sortingOrder = Trig.KI.layer;
+        //Debug.Log("new sorting layer: " + play.playercanvas.sortingOrder);
+        // Debug.Log("new player: " + Trigg.PL.direction);
+
 
         switch (play.direction) {
             case 0:
@@ -109,13 +113,14 @@ public class UIMovement : MonoBehaviour
                 break;
 
         }
+
        //transform.SetParent(Trig.Itemslide.handleRect);
     }
     public void Newcontroller(Playergen Play) {
 
     }
     public virtual void Lateupfunt() {
-        if (!Trig.isaway) {
+        if (!Trig.isaway && move) {
             if (ISlot.isslected) {
                 //  transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
                 transform.position = new Vector3(Mathf.Clamp(trans.position.x, xmin, xmax), Mathf.Clamp(trans.position.y, 0, Screen.height));

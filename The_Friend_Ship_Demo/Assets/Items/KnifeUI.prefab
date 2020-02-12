@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5956451288974002829}
   - component: {fileID: 4435208894504197557}
   - component: {fileID: 4261512919800637543}
+  - component: {fileID: 5094918702785836801}
   m_Layer: 11
   m_Name: Image
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 2004792943942528744, guid: f793b30b0863d8a4a80445d440d40a03,
+  m_Sprite: {fileID: -5685144210346848338, guid: 39c562dc0e871774ea586e602b86b41d,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -75,6 +76,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!70 &5094918702785836801
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277300232431850163}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4, y: 42.5}
+  m_Size: {x: 10.83, y: 15.08}
+  m_Direction: 0
 --- !u!1 &9058597651623910398
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,8 +163,10 @@ MonoBehaviour:
   onbench: 0
   anim: {fileID: 0}
   Buttons: {fileID: 0}
-  multi: 0
+  move: 0
   dir: {fileID: 5956451288974002829}
+  Box: {fileID: 0}
+  animationgo: 0
 --- !u!50 &6834528805976257708
 Rigidbody2D:
   serializedVersion: 4

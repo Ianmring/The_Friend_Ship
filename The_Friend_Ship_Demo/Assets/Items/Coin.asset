@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   name: Coin
-  layer: -1
+  layer: 0
   icon: {fileID: 21300000, guid: 5e15afa449dcb6a428618ca4fec33bf6, type: 3}
   isdefault: 0
   OBJ: {fileID: 1838545714987622681, guid: c263cec0736428349be02e1ebb6a3f49, type: 3}
   UIOBJ: {fileID: 5534118185209474473, guid: 87a1667ccd32425419bb7ed8200b7e4b, type: 3}
   discription: 
   spritedimension: {x: 90, y: 90}
+  spritelocation: {x: 0, y: 0}
   KeyItemType: 0

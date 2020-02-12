@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fc61a32582e5e4ab07a3e7f69e7ebe, type: 3}
+  m_Name: Box
+  m_EditorClassIdentifier: 
+  Type: 3
+  name: Lock Box
+  layer: 0
+  icon: {fileID: 7326564742308422333, guid: 635fbb2b33f8c434382253385cc4599d, type: 3}
+  isdefault: 0
+  OBJ: {fileID: 0}
+  UIOBJ: {fileID: 9058597651623910398, guid: dd212f3e7eb17704f873df8a2113d025, type: 3}
+  discription: 
+  spritedimension: {x: 0, y: 0}
+  spritelocation: {x: 0, y: 0}
+  KeyItemType: 0

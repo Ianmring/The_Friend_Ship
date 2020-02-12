@@ -44,7 +44,7 @@ public class Inventoryslot : MonoBehaviour
     public void Start()
     {
         mana = FindObjectOfType<uimanager>();
-      //  isslected = true;
+        isslected = true;
         //icon.GetComponent<RectTransform>().sizeDelta = new Vector2(item.spritedimension.x , item.spritedimension.y);
         //icon.GetComponent<RectTransform>().localPosition = new Vector2(item.spritelocation.x, item.spritelocation.y);
 
@@ -89,7 +89,7 @@ public class Inventoryslot : MonoBehaviour
         if (!ontable) {
             OBJ.transform.SetParent(Trigg.Itemslide.handleRect);
             OBJ.trans.position = Trigg.Itemslide.handleRect.position;
-           // Play.playercanvas.sortingOrder = Trigg.KI.layer;
+         //   Play.playercanvas.sortingOrder = Trigg.KI.layer;
 
         }
 

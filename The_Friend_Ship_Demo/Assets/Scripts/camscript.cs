@@ -77,7 +77,7 @@ public class camscript : MonoBehaviour {
     }
     public void Normal() {
         targettrans = null;
-        TargetZoom = 12;
+        TargetZoom = 11;
         isfollwoing = true;
         cam.cullingMask = -1;
 

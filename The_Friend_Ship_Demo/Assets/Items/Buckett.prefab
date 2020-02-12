@@ -57,7 +57,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5534118185209474473}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   onbench: 0
   anim: {fileID: 0}
   Buttons: {fileID: 0}
+  move: 0
   coin: {fileID: 0}
 --- !u!1001 &7112639347939874977
 PrefabInstance:
