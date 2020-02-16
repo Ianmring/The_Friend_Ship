@@ -75,6 +75,19 @@ public class Inventoryslot : MonoBehaviour
 
         }
     }
+    private void LateUpdate() {
+
+        if (OBJ != null) {
+            if (ontable || isslected) {
+
+                OBJ.gameObject.SetActive(true);
+
+            } else {
+                OBJ.gameObject.SetActive(false);
+
+            }
+        }
+    }
 
     public void clearslot()
     {

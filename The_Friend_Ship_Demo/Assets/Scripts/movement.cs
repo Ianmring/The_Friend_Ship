@@ -210,14 +210,19 @@ public class movement : MonoBehaviour {
             X.SetActive(false);
         } else {
             going = true;
-            if (Pointer.diotrigg == null) {
+
+            if (Pointer.onmark || Pointer.goingS) {
+                X.SetActive(false);
+            } else {
                 X.SetActive(true);
                 X.transform.position = age.destination;
             }
+
            
 
-        }
 
+        }
+        
         #region OldMov
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

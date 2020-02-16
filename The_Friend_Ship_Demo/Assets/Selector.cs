@@ -36,7 +36,7 @@ public class Selector : MonoBehaviour
         if (player != null ) {
           
             transform.position = new Vector3(Mathf.Clamp(trans.position.x, xmin, xmax), Mathf.Clamp(trans.position.y, 0, Screen.height));
-            finalpo = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
+            finalpo = new Vector3(trans.position.x + (player.MovH * movmag), trans.position.y + (player.MovV * movmag));
             transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
         }
 

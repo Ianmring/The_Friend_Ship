@@ -31,6 +31,10 @@ public class UIMovement : MonoBehaviour
     public GameObject Buttons;
 
     public bool move;
+
+    public float sidescale;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,13 +67,13 @@ public class UIMovement : MonoBehaviour
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
-                Buttons.transform.localPosition = new Vector3(150, 0);
+                Buttons.transform.localPosition = new Vector3(sidescale, 0);
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
-                Buttons.transform.localPosition = new Vector3(-150, 0);
+                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
 
                 break;
 
@@ -101,14 +105,14 @@ public class UIMovement : MonoBehaviour
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
-                Buttons.transform.localPosition = new Vector3(200, 0);
+                Buttons.transform.localPosition = new Vector3(sidescale, 0);
 
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
-                Buttons.transform.localPosition = new Vector3(-200, 0);
+                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
 
                 break;
 
@@ -205,11 +209,20 @@ public class UIMovement : MonoBehaviour
     public virtual void ExitUI(Collider2D Coli) {
 
     }
+    public virtual void StayUI(Collider2D Coli) {
+
+    }
     public virtual void Interactui() {
 
     }
+    private void OnTriggerStay2D(Collider2D collision) {
+
+
+       
+        StayUI(collision);
+    }
     // Update is called once per frame
-   
+
 
 
 }

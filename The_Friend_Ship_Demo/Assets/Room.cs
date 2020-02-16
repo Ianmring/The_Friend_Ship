@@ -7,23 +7,23 @@ public class Room : MonoBehaviour
     camscript cam;
     public List<GameObject> Objectsoutarea;
 
-    BoxCollider Colide;
+   // BoxCollider Colide;
 
     public GameObject Center;
 
-    public GameObject Barrier;
+   // public GameObject Barrier;
     
 
     bool inroom;
 
-    public Vector3 EntrenceScale;
+    //public Vector3 EntrenceScale;
 
 
     // Start is called before the first frame update
     void Start()
     {
         cam = FindObjectOfType<camscript>();
-        Colide = this.GetComponent<BoxCollider>();
+        //Colide = this.GetComponent<BoxCollider>();
         
     }
   
@@ -64,12 +64,12 @@ public class Room : MonoBehaviour
                 item.SetActive(false);
             }
         }
-        Barrier.SetActive(false);
+      //  Barrier.SetActive(false);
 
         inroom = true;
-        Colide.size = EntrenceScale;
+      //  Colide.size = EntrenceScale;
         cam.CamOver(Center.transform, 7, 3, false);
-        cam.character.transform.position = new Vector3(transform.position.x , transform.position.y, transform.position.z+3);
+       // cam.character.transform.position = new Vector3(transform.position.x , transform.position.y, transform.position.z+3);
         yield return new WaitForSeconds(2);
 
         cam.FadeIn();
@@ -86,12 +86,12 @@ public class Room : MonoBehaviour
                 item.SetActive(true);
             }
         }
-        Barrier.SetActive(true);
+       // Barrier.SetActive(true);
 
         inroom = false;
-        Colide.size = Colide.size = new Vector3(2, 4, 2);
+       // Colide.size = Colide.size = new Vector3(0.1f, 1, 0.1f);
         cam.Normal();
-        cam.character.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
+       // cam.character.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
         yield return new WaitForSeconds(2);
 
         cam.FadeIn();

@@ -64,14 +64,14 @@ public class camscript : MonoBehaviour {
         targettrans = trans;
         TargetZoom = Zoom;
 
-        if (rend == 3) {
-            cam.cullingMask = 1 << 9 | 1 << 8 | 1 << 10 | 1<<11 ;
-        } else if (rend == 2) {
-            cam.cullingMask = 1 << 9 | 1 << 10 | 1 << 11;
+        //if (rend == 3) {
+        //    cam.cullingMask = 1 << 9 | 1 << 8 | 1 << 10 | 1<<11 ;
+        //} else if (rend == 2) {
+        //    cam.cullingMask = 1 << 9 | 1 << 10 | 1 << 11;
 
-        } else {
-            cam.cullingMask = -1;
-        }
+        //} else {
+        //    cam.cullingMask = -1;
+        //}
 
 
     }

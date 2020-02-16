@@ -19,11 +19,11 @@ public class DiolaugeTrigger : MonoBehaviour {
     public Diolauge[] diooptions;
     [SerializeField]
 
-    public SpriteRenderer Button1;
-    public SpriteRenderer Button2;
+    //public SpriteRenderer Button1;
+    //public SpriteRenderer Button2;
 
-    public GameObject And;
-    public GameObject Or;
+    //public GameObject And;
+    //public GameObject Or;
 
  public   bool p1;
 public    bool p2;
@@ -35,8 +35,11 @@ public    bool p2;
     string ToDo;
 
    public DiolaugeTrigger[] peoplemeet;
+    [SerializeField]
+   public bool minordeciss;
 
-    bool minordeciss;
+    public PlayersSelector select;
+
 
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
@@ -71,49 +74,55 @@ public    bool p2;
     }
     public void LateUpdate() {
 
-        if (cantrigger) {
+        //if (cantrigger) {
 
-            Button1.gameObject.SetActive(true);
-            Button2.gameObject.SetActive(true);
-            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
-                p1 = true;
-                Button1.color = Color.green;
-            }
-            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
-                p2 = true;
-                Button2.color = Color.green;
+            //Button1.gameObject.SetActive(true);
+            //Button2.gameObject.SetActive(true);
+            //if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
+            //    p1 = true;
+            //    Button1.color = Color.green;
+            //}
+            //if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
+            //    p2 = true;
+            //    Button2.color = Color.green;
 
-            }
+            //}
             if (p1 && p2 && !minordeciss ) {
-                movement.MovInstance.age.destination = transform.localPosition;
+                select.goingS = true;
+               // movement.MovInstance.age.destination = transform.localPosition;
                 going = true;
                 if (there && going) {
                     StartCoroutine("TriggerdioWait");
                 }
 
-            } else if((p1 || p2) && minordeciss) {
-                movement.MovInstance.age.destination = transform.localPosition;
+            }
+            if ((p1 || p2) && minordeciss) {
+                select.goingS = true;
+
+              //  movement.MovInstance.age.destination = transform.localPosition;
                 going = true;
                 if (there && going) {
                     StartCoroutine("TriggerdioWait");
                 }
             }
 
-            if (minordeciss) {
-                Or.SetActive(true);
-                And.SetActive(false);
+            //if (minordeciss) {
+            //    Or.SetActive(true);
+            //    And.SetActive(false);
 
-            } else if (!minordeciss) {
-                Or.SetActive(false);
-                And.SetActive(true);
-            }
+            //} else if (!minordeciss) {
+            //    Or.SetActive(false);
+            //    And.SetActive(true);
+            //}
 
-        } else {
-            Button1.gameObject.SetActive(false);
-            Button2.gameObject.SetActive(false);
-            Or.SetActive(false);
-            And.SetActive(false);
-        }
+        //} else {
+        //    Button1.gameObject.SetActive(false);
+        //    Button2.gameObject.SetActive(false);
+        //    Or.SetActive(false);
+        //    And.SetActive(false);
+        //    //Button1.color = Color.red;
+        //    //Button2.color = Color.blue;
+        //}
 
    
 
@@ -170,6 +179,7 @@ public    bool p2;
        
         cantrigger = false;
         going = false;
+        select.goingS = false;
 
     }
     IEnumerator Abletointeract()
@@ -177,8 +187,8 @@ public    bool p2;
         if (ToDo != null) {
             gameObject.SendMessage(ToDo, SendMessageOptions.DontRequireReceiver);
         }
-        Button1.color = Color.yellow;
-        Button2.color = Color.yellow;
+        //Button1.color = Color.yellow;
+        //Button2.color = Color.yellow;
         yield return new WaitForSeconds(.5f);
         caninteract = true;
        // cantrigger = false;

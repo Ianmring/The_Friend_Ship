@@ -25,72 +25,103 @@ public class KnifeUI : UIMovement
         cap = dir.GetComponent<CapsuleCollider2D>();
         rend = dir.GetComponent<Image>();
     }
+    private void OnEnable() {
+        if (rend != null) {
+            rend.enabled = true;
 
+        }
+    }
     public override void Lateupfunt() {
         base.Lateupfunt();
         if (move) {
             vek = Mathf.Atan2(-player.DirH, player.DirV) * Mathf.Rad2Deg;
             dir.eulerAngles = new Vector3(0, 0, vek);
-        }
-        if (animationgo) {
+        } 
+
+        if (animationgo && !Box.done && Box !=null) {
             anim.AnimButtons[animnum].SetActive(true);
             anim.anima[animnum].SetTrigger("Start");
         } else {
-            anim.anima[animnum].SetTrigger("Exit");
             anim.AnimButtons[animnum].SetActive(false);
-        }
-        switch (hold) {
-            case playerholding.p1:
-                animnum = 6;
-                if (player.IReady > .5f && Box != null) {
-                    Box.knifein = true;
-                    rend.enabled = false;
-                    move = false;
-                    animationgo = false;
 
-                } else if (player.IReady < .5f && Box != null) {
-
-                    Box.knifein = false;
-                    rend.enabled = true;
-
-                    move = true;
-
-
-                }
-                break;
-            case playerholding.p2:
-                animnum = 7;
-                if (player.Ready > .5f && Box != null) {
-                    Box.knifein = true;
-                    rend.enabled = false;
-                    move = false;
-                    animationgo = false;
-
-                } else if (player.Ready < .5f && Box != null) {
-
-                    Box.knifein = false;
-                    rend.enabled = true;
-
-                    move = true;
-
-
-                }
-                break;
-
+          //  anim.anima[animnum].SetTrigger("Exit");
         }
 
-       
-        //transform.rotation = Quaternion.LookRotation()
+
+        if (!ISlot.isslected) {
+            // rend.enabled = true;
+            if (Box != null) {
+                Box.knifein = false;
+                Box.open = false;
+            }
+           // Box = null;
+          //  move = false;
+        } 
+        
+        else {
+            switch (hold) {
+                case playerholding.p1:
+                    animnum = 6;
+                    if (player.IReady > .5f && Box != null) {
+                        Box.knifein = true;
+                        rend.enabled = false;
+                        move = false;
+                        animationgo = false;
+
+                    } else if (Box != null) {
+
+                        Box.knifein = false;
+                        move = true;
+
+                        rend.enabled = true;
+
+
+
+                    }
+                    break;
+                case playerholding.p2:
+                    animnum = 7;
+                    if (player.Ready > .5f && Box != null) {
+                        Box.knifein = true;
+                        rend.enabled = false;
+                        move = false;
+                        animationgo = false;
+
+                    } else if (Box != null) {
+
+                        Box.knifein = false;
+                        move = true;
+
+                        rend.enabled = true;
+
+
+
+                    }
+                    break;
+
+
+
+                    //transform.rotation = Quaternion.LookRotation()
+            }
+
+        }
     }
 
-    public override void EnterUI(Collider2D Coli) {
+    public override void StayUI(Collider2D Coli) {
 
         base.EnterUI(Coli);
 
-        if (Coli.GetComponent<BoxUI>() != null) {
-            animationgo = true;
+        if (Coli.GetComponent<BoxUI>() != null && ISlot.isslected) {
 
-            Box = Coli.GetComponent<BoxUI>();
+            if (Box == null) {
+                Box = Coli.GetComponent<BoxUI>();
+
+            }
+
+            if (!Box.knifein) {
+                animationgo = true;
+
+            }
         }
     }
     public override void ExitUI(Collider2D Coli) {
@@ -100,7 +131,10 @@ public class KnifeUI : UIMovement
             animationgo = false;
 
             Box.knifein = false;
-            rend.enabled = true;
+            if (Box!= null && ISlot.isslected) {
+               rend.enabled = true;
+
+            }
 
             move = true;
             Box = null;

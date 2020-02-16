@@ -18,7 +18,12 @@ public class PlayersSelector : MonoBehaviour {
 
     Animator anim;
     [SerializeField]
-   public DiolaugeTrigger diotrigg;
+ //  public DiolaugeTrigger diotrigg;
+    public XMarkgo marktrigg;
+
+    public bool onmark;
+
+    public bool goingS;
     //  RaycastHit hitt;
     // Start is called before the first frame update
     void Start() {
@@ -38,45 +43,60 @@ public class PlayersSelector : MonoBehaviour {
             finalpo = new Vector3(trans.position.x + (mov.DirxM[mov.steerint] * 20), trans.position.y + (mov.DiryM[mov.dirint] * 20));
             transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
 
-
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(trans.position);
-                if (Physics.Raycast(ray, out hit)) 
-                {
-                //   hitt = hit;
-
-                
-                if (hit.transform.GetComponent<DiolaugeTrigger>() != null) {
-                    diotrigg = hit.transform.GetComponent<DiolaugeTrigger>();
-                    if (!diotrigg.cantrigger) {
-                        diotrigg.cantrigger = true;
-                       
-                    }
-                  
-
-                } else {
-                    if (diotrigg != null && !diotrigg.going) {
-                        diotrigg.cantrigger = false;
-                        diotrigg = null;
-
-                    }
-
-                    if (Input.GetButtonDown("Submit")) {
-
-                        mov.age.destination = hit.point;
-                        anim.SetTrigger("Pointt");
-
-
-                    }
-                }
-
-                }
-
-
-
-
             // Debug.DrawLine(trans.position, hitt.collider.transform.position);
-        } 
+        }
 
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(trans.position);
+        if (Physics.Raycast(ray, out hit)) {
+            //   hitt = hit;
+
+
+            //if (hit.transform.GetComponent<DiolaugeTrigger>()) {
+            //    if (diotrigg == null) {
+            //        diotrigg = hit.transform.GetComponent<DiolaugeTrigger>();
+            //        diotrigg.select = this;
+            //    }
+
+            //    diotrigg.cantrigger = true;
+            //    onmark = true;
+
+
+
+            //} else if (diotrigg != null && !diotrigg.going) {
+            //    diotrigg.cantrigger = false;
+            //    onmark = false;
+
+            //}
+
+            if (hit.transform.GetComponent<XMarkgo>()) {
+              
+                    marktrigg = hit.transform.GetComponent<XMarkgo>();
+                    marktrigg.select = this;
+                
+
+                marktrigg.cantrigger = true;
+                onmark = true;
+
+
+            } else if (marktrigg != null && !marktrigg.going) {
+                marktrigg.cantrigger = false;
+                onmark = false;
+
+            }
+
+
+
+
+            if (Input.GetButtonDown("Submit") && !onmark && !goingS) {
+
+                mov.age.destination = hit.point;
+                anim.SetTrigger("Pointt");
+                goingS = false;
+
+
+            }
+
+        }
 
     } }

@@ -10,8 +10,11 @@ public class BoxUI : UIMovement
     public Image box;
     public Sprite[] boxstatesimages;
     CircleCollider2D colide;
-
+    public bool open;
     public bool knifein;
+  public  bool done;
+
+    bool Watchgotten;
     // Start is called before the first frame update
     public override void startingfunt() {
         base.startingfunt();
@@ -22,13 +25,32 @@ public class BoxUI : UIMovement
     // Update is called once per frame
     public override void Lateupfunt() {
         base.Lateupfunt();
-        if (knifein && currentboxstate != boxstates.Open) {
-            currentboxstate = boxstates.Pryed;
-        } else if (!knifein && currentboxstate != boxstates.Open) {
-            currentboxstate = boxstates.closed;
 
+        if (!done) {
+            if (knifein && !open) {
+                currentboxstate = boxstates.Pryed;
+            } else if (open && knifein) {
+                currentboxstate = boxstates.Open;
+                done = true;
+            } else {
+                currentboxstate = boxstates.closed;
+            }
         }
-
         box.sprite = boxstatesimages[(int)currentboxstate];
+
+        if ( open && ISlot.isslected && !Watchgotten) {
+            
+                anim.AnimButtons[0].SetActive(true);
+                anim.anima[0].SetTrigger("Start");
+            if (Input.GetButtonDown("Submit" + player.playernum)) {
+                Debug.Log("Watch");
+                Watchgotten = true;
+            }
+
+        } else {
+            anim.AnimButtons[0].SetActive(false);
+
+            //  anim.anima[animnum].SetTrigger("Exit");
+        }
     }
 }

@@ -139,7 +139,7 @@ public class InventoryMenu : MonoBehaviour
                 uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(false);
 
                 if (Islots[playernum] != null && Islots[playernum].isspawned ) {
-                    if ( Islots[playernum].itemplace == itemselected[0] || Islots[playernum].itemplace == itemselected[1]) {
+                    if ( Islots[playernum].itemplace == itemselected[playernum] ) {
                         Islots[playernum].isslected = true;
                         Islots[playernum].UpdateSlot();
                     } else {
