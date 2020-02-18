@@ -93,13 +93,17 @@ MonoBehaviour:
   anim: {fileID: 0}
   Buttons: {fileID: 0}
   move: 0
+  sidescale: 0
   currentboxstate: 0
   box: {fileID: 0}
   boxstatesimages:
   - {fileID: 7326564742308422333, guid: 635fbb2b33f8c434382253385cc4599d, type: 3}
   - {fileID: 2621067962626949683, guid: ce06bf38f8629b0479b170a721d0ecee, type: 3}
   - {fileID: 3902292150663890121, guid: 635fbb2b33f8c434382253385cc4599d, type: 3}
+  open: 0
   knifein: 0
+  done: 0
+  watch: {fileID: 11400000, guid: 318058805e188394eb81a61a100d56b8, type: 2}
 --- !u!114 &6903565140524057049
 MonoBehaviour:
   m_ObjectHideFlags: 0

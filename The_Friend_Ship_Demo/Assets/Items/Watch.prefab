@@ -211,6 +211,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   Buttons: {fileID: 0}
   move: 0
+  sidescale: 0
+  interactionItem: 0
 --- !u!1001 &3981448660663248358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 1327650262338057905, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1327650262338057905, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}

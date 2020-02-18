@@ -33,6 +33,10 @@ public class TrailmixUI : UIMovement
     bool poured;
     bool singlepour;
     bool doublepour;
+
+    public GameObject Mixholder;
+   public string bagstate;
+
     public override void startingfunt() {
         base.startingfunt();
         bitstospawn = 10;
@@ -43,7 +47,7 @@ public class TrailmixUI : UIMovement
 
 
             GameObject mixx;
-            mixx = Instantiate(mix, this.transform);
+            mixx = Instantiate(mix, Mixholder.transform);
             Thingsinbag.Add(mixx);
             etcinbag++;
         }
@@ -51,7 +55,7 @@ public class TrailmixUI : UIMovement
 
 
             GameObject mixx;
-            mixx = Instantiate(candy, this.transform);
+            mixx = Instantiate(candy, Mixholder.transform);
             Thingsinbag.Add(mixx);
             candiesinbag++;
 
@@ -114,7 +118,7 @@ public class TrailmixUI : UIMovement
             if (thingtoget != null && thingtoget.GetComponent<TrailBit>()) {
                 TrailBit  Trail;
                 Trail = thingtoget.GetComponent<TrailBit>();
-                thingtoget.transform.SetParent(this.transform);
+                thingtoget.transform.SetParent(Mixholder.transform);
                 Trail.movetoBag();
                 Thingsinbag.Add(Trail.gameObject);
                 lastthing = thingtoget;
@@ -124,7 +128,7 @@ public class TrailmixUI : UIMovement
            else if (thingtoget != null && thingtoget.GetComponent<candy>()) {
                 candy candyy;
                 candyy = thingtoget.GetComponent<candy>();
-                thingtoget.transform.SetParent(this.transform);
+                thingtoget.transform.SetParent(Mixholder.transform);
                 candyy.movetoBag();
                 Thingsinbag.Add(candyy.gameObject);
                 lastthing = thingtoget;
@@ -145,8 +149,42 @@ public class TrailmixUI : UIMovement
             anim.AnimButtons[0].SetActive(false);
 
         }
-    }
 
+        if (candiesinbag < etcinbag || candiesinbag == etcinbag) {
+            bagstate = "Mix";
+
+        }
+        else if (candiesinbag >= 1 && candiesinbag < 12 && etcinbag == 0) {
+            bagstate = "Kindofcandies";
+        }
+         else if(candiesinbag >= 12 && etcinbag == 0) {
+            bagstate = "FullCandy";
+
+        }
+        else {
+            bagstate = "Empty";
+        }
+    }
+    public override void Interactui() {
+        base.Interactui();
+        DiolaugeTrigger trigger;
+        if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
+
+            trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
+            foreach (var item in trigger.diooptions) {
+                if (item.thingtodo == "TradeItemOneTrail" && item.situation == "FullCandy" && bagstate == "FullCandy") {
+                    InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
+
+                    Destroy(this.gameObject);
+
+                }
+            }
+            trigger.Tstartdio(bagstate, "TradeItemOneTrail");
+
+        } else {
+            return;
+        }
+    }
     public void pourtrailmix() {
        
         if (!poured) {
@@ -194,20 +232,7 @@ public class TrailmixUI : UIMovement
         //    candytoget = null;
         //}
     }
-    //public override void EnterUI(Collider2D Coli) {
-    //    base.EnterUI(Coli);
-    //    if (Coli.GetComponent<TrailBit>() || Coli.GetComponent<candy>()) {
-    //        thingtoget = Coli.gameObject;
-
-    //    }
-
-    //    //if (Coli.GetComponent<TrailBit>()) {
-    //    //    trailtoget = Coli.GetComponent<TrailBit>();
-    //    //}
-    //    //if (Coli.GetComponent<candy>()) {
-    //    //    candytoget = Coli.GetComponent<candy>();
-    //    //}
-    //}
+  
     private void OnTriggerStay2D(Collider2D Coli) {
         if (Coli.GetComponent<TrailBit>() || Coli.GetComponent<candy>()) {
             thingtoget = Coli.gameObject;

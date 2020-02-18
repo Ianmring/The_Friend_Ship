@@ -24,17 +24,20 @@ public class KnifeUI : UIMovement
         base.Startfunt();
         cap = dir.GetComponent<CapsuleCollider2D>();
         rend = dir.GetComponent<Image>();
+
     }
     private void OnEnable() {
-        if (rend != null) {
-            rend.enabled = true;
 
+        if (rend != null) {
+            rend.enabled = true;          
         }
+        StartCoroutine("stickturn");
+
     }
     public override void Lateupfunt() {
         base.Lateupfunt();
         if (move) {
-            vek = Mathf.Atan2(-player.DirH, player.DirV) * Mathf.Rad2Deg;
+            vek = Mathf.Atan2(-player.MovH, player.MovV) * Mathf.Rad2Deg;
             dir.eulerAngles = new Vector3(0, 0, vek);
         } 
 
@@ -140,6 +143,28 @@ public class KnifeUI : UIMovement
             Box = null;
         }
     }
+    public override void Interactui() {
+        base.Interactui();
+        DiolaugeTrigger trigger;
+        if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
 
+            trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
+            trigger.Tstartdio("Knife", "N/A");
+           
+
+        } else {
+            return;
+        }
+    }
+    IEnumerator stickturn() {
+        yield return new WaitForSeconds(.1f);
+       
+        anim.anima[9].gameObject.SetActive(true);
+        anim.anima[9].SetTrigger("Round");
+        yield return new WaitForSeconds(3);
+        anim.anima[9].SetTrigger("Done");
+        anim.anima[9].gameObject.SetActive(false);
+
+    }
 
 }

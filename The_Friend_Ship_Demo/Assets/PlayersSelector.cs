@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayersSelector : MonoBehaviour {
     float movmag;
     float xmax;
@@ -13,10 +13,10 @@ public class PlayersSelector : MonoBehaviour {
     public movement mov;
 
     public Sprite Grab;
-    public Sprite Select;
+    public Image Select;
     Vector3 Center;
 
-    Animator anim;
+  public  Animator anim;
     [SerializeField]
  //  public DiolaugeTrigger diotrigg;
     public XMarkgo marktrigg;

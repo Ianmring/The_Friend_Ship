@@ -91,7 +91,7 @@ public class Room : MonoBehaviour
         inroom = false;
        // Colide.size = Colide.size = new Vector3(0.1f, 1, 0.1f);
         cam.Normal();
-       // cam.character.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
+       //cam.character.transform.position = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 3);
         yield return new WaitForSeconds(2);
 
         cam.FadeIn();

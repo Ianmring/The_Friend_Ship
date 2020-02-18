@@ -49,7 +49,7 @@ public class inventorygeneral : MonoBehaviour
         TriggerItem.PL = player;
         //Update_Slots();
 
-        uimanager.UIinstance.OBJSelector[player.direction].PointAssignplayer(player, TriggerItem);
+        //uimanager.UIinstance.OBJSelector[player.direction].PointAssignplayer(player, TriggerItem);
 
         PSlot = Instantiate(currentslot, KIContainer);
         slot = PSlot.GetComponent<PersonalItemSlot>();

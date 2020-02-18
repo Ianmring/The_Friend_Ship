@@ -34,6 +34,7 @@ public class UIMovement : MonoBehaviour
 
     public float sidescale;
 
+    public bool interactionItem;
 
     // Start is called before the first frame update
     void Start()
@@ -67,19 +68,25 @@ public class UIMovement : MonoBehaviour
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
+               // this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 Buttons.transform.localPosition = new Vector3(sidescale, 0);
+               
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
-                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
+                this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
 
+                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
+                Buttons.transform.localScale = new Vector3(-Buttons.transform.localScale.x, Buttons.transform.localScale.y);
                 break;
 
         }
         p1 = false;
         p2 = false;
+        StartCoroutine("RSstickturn");
+
         startingfunt();
 
     }
@@ -112,13 +119,15 @@ public class UIMovement : MonoBehaviour
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
-                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
+                this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
 
+                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
+                Buttons.transform.localScale = new Vector3(-Buttons.transform.localScale.x, Buttons.transform.localScale.y);
                 break;
 
         }
-
-       //transform.SetParent(Trig.Itemslide.handleRect);
+        StartCoroutine("RSstickturn");
+        //transform.SetParent(Trig.Itemslide.handleRect);
     }
     public void Newcontroller(Playergen Play) {
 
@@ -128,7 +137,7 @@ public class UIMovement : MonoBehaviour
             if (ISlot.isslected) {
                 //  transform.position = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
                 transform.position = new Vector3(Mathf.Clamp(trans.position.x, xmin, xmax), Mathf.Clamp(trans.position.y, 0, Screen.height));
-                finalpo = new Vector3(trans.position.x + (player.MovH * movmag), trans.position.y + (player.MovV * movmag));
+                finalpo = new Vector3(trans.position.x + (player.DirH * movmag), trans.position.y + (player.DirV * movmag));
                 transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
             } else {
                 return;
@@ -154,7 +163,7 @@ public class UIMovement : MonoBehaviour
 
             }
 
-            if (p1 && p2) {
+            if (p1 && p2 && interactionItem) {
 
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(trans.position);
@@ -174,7 +183,7 @@ public class UIMovement : MonoBehaviour
         else {
 
 
-            if (Input.GetButtonDown("Submit" + player.playernum)) {
+            if (Input.GetButtonDown("Submit" + player.playernum) ) {
 
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(trans.position);
@@ -223,6 +232,15 @@ public class UIMovement : MonoBehaviour
     }
     // Update is called once per frame
 
+    IEnumerator RSstickturn() {
+        yield return new WaitForSeconds(.1f);
+        
+        anim.anima[8].gameObject.SetActive(true);
+        anim.anima[8].SetTrigger("Round");
+        yield return new WaitForSeconds(3);
+        anim.anima[8].SetTrigger("Done");
+        anim.anima[8].gameObject.SetActive(false);
 
+    }
 
 }

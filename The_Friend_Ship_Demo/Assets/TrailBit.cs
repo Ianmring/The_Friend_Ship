@@ -17,7 +17,7 @@ public class TrailBit : MonoBehaviour
         transform.rotation =  Quaternion.Euler(0, 0, Random.Range(0,359));
         GetComponent<RectTransform>().sizeDelta = new Vector2(100, 200);
 
-        int mixtype = Random.Range(0, 2);
+        int mixtype = Random.Range(0, 4);
         GetComponent<TrailBit>().Mixtypes = (TrailBit.Trail)mixtype;
         GetComponent<Image>().sprite = mixtypes[mixtype];
 

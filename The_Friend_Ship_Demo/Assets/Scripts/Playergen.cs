@@ -79,7 +79,7 @@ public class Playergen : MonoBehaviour
                 break;
         }
         invmen.GenInv[direction] = invent;
-        UIMana.OBJSelector[direction].PointAssignplayer(this, triggeritem);
+      //  UIMana.OBJSelector[direction].PointAssignplayer(this, triggeritem);
 
         selecting = true;
 
@@ -107,6 +107,35 @@ public class Playergen : MonoBehaviour
         if (Input.GetButtonUp("Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
             UIMana.PauseMenu();
         }
+        if (UIMana.menuisopen && isselectingitem) {
+            if ((Itemselect > .1 && selecting) || Input.GetButtonUp("ItemRB" + playernum.ToString())) {
+                invmen.Itemup(direction);
+                if (invmen.itemselected[direction] >= 0) {
+                    invmen.equipitem(direction);
+                    // invent.AddKey(invmen.currentactiveitem[direction], false);
+                } else {
+                    invmen.equipitem(direction);
+                    //     invent.AddKey(null, false);
+
+                }
+                selecting = false;
+            } else if ((Itemselect < -.1 && selecting) || Input.GetButtonUp("ItemLB" + playernum.ToString())) {
+                invmen.ItemDown(direction);
+                if (invmen.itemselected[direction] >= 0) {
+                    invmen.equipitem(direction);
+                    //  invent.AddKey(invmen.currentactiveitem[direction],  false);
+                } else {
+                    invmen.equipitem(direction);
+                    //   invent.AddKey(null, false);
+
+                }
+                selecting = false;
+
+            } else if (Itemselect == 0) {
+                selecting = true;
+
+            }
+        }
     }
     
     private void FixedUpdate() {
@@ -123,35 +152,7 @@ public class Playergen : MonoBehaviour
         IReady = Input.GetAxis("Player_" + playernum.ToString() + "_Key");
         Mov.DirxM[direction] = DirH;
         Mov.DiryM[direction] = DirV;
-        if (UIMana.menuisopen && isselectingitem) {
-            if (Itemselect > .1 && selecting) {
-               invmen.Itemup(direction);
-                if (invmen.itemselected[direction] >= 0) {
-                    invmen.equipitem(direction);
-                   // invent.AddKey(invmen.currentactiveitem[direction], false);
-                } else {
-                    invmen.equipitem(direction);
-               //     invent.AddKey(null, false);
-
-                }
-                selecting = false;
-            } else if (Itemselect < -.1 && selecting) {
-              invmen.ItemDown(direction);
-                if (invmen.itemselected[direction] >= 0) {
-                    invmen.equipitem(direction);
-                  //  invent.AddKey(invmen.currentactiveitem[direction],  false);
-                } else {
-                    invmen.equipitem(direction);
-                 //   invent.AddKey(null, false);
-
-                }
-                selecting = false;
-
-            } else if (Itemselect == 0) {
-                selecting = true;
-
-            }
-        }
+        
     }
 
 

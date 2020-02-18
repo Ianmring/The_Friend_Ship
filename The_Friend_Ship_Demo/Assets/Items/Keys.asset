@@ -19,7 +19,7 @@ MonoBehaviour:
   isdefault: 0
   OBJ: {fileID: 0}
   UIOBJ: {fileID: 9058597651623910398, guid: 58de1b258e7efa149add034cd9ea962e, type: 3}
-  discription: 
+  discription: Key For Plane
   spritedimension: {x: 0, y: 0}
   spritelocation: {x: 0, y: 0}
   KeyItemType: 0

@@ -175,15 +175,15 @@ public class movement : MonoBehaviour {
                     steerint = 1;
                     dirint = 0;
                     steer = PlayerSteering.P2;
-                    P1st.text = "Moving";
-                    P2st.text = "Steering";
+                    //P1st.text = "Moving";
+                    //P2st.text = "Steering";
                     break;
                 case PlayerSteering.P2:
                     steerint = 0;
                     dirint = 1;
                     steer = PlayerSteering.P1;
-                    P1st.text = "Steering";
-                    P2st.text = "Moving";
+                    //P1st.text = "Steering";
+                    //P2st.text = "Moving";
                     break;
 
             }

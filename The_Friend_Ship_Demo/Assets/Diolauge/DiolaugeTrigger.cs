@@ -10,6 +10,7 @@ public class DiolaugeTrigger : MonoBehaviour {
     public Diolauge PostDio;
 
     DiolaugeManager dioman;
+    [SerializeField]
 
     bool caninteract;
     [SerializeField]
@@ -201,7 +202,7 @@ public    bool p2;
             ToDo = Messagetosend;
         }
 
-        if (meet == meetstates.interm) {
+       
             for (int i = 0; i < diooptions.Length; i++) {
                 if (diooptions[i].situation == dio) {
                     if (caninteract) {
@@ -212,7 +213,7 @@ public    bool p2;
                 }
             }           
 
-        }         
+                
      
 
     }

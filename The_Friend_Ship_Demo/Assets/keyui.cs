@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class keyui : UIMovement
 {
-    // Start is called before the first frame update
-   
+    public bool unlocked;
+    public override void Interactui() {
+        base.Interactui();
+        DiolaugeTrigger trigger;
+        if (targetobj.GetComponentInParent<DiolaugeTrigger>() && !unlocked) {
+            
+            trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
+            trigger.Tstartdio("Key", "GiveItem");
+            unlocked = true;
+
+        } else {
+            return;
+        }
+    }
 }

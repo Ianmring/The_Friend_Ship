@@ -13,7 +13,7 @@ public class BoxUI : UIMovement
     public bool open;
     public bool knifein;
   public  bool done;
-
+    public Item watch;
     bool Watchgotten;
     // Start is called before the first frame update
     public override void startingfunt() {
@@ -43,7 +43,7 @@ public class BoxUI : UIMovement
                 anim.AnimButtons[0].SetActive(true);
                 anim.anima[0].SetTrigger("Start");
             if (Input.GetButtonDown("Submit" + player.playernum)) {
-                Debug.Log("Watch");
+                Inventory.instance.AddKey(watch, 1);
                 Watchgotten = true;
             }
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class XMarkgo : MonoBehaviour {
 
     public SpriteRenderer Button1;
@@ -22,10 +22,13 @@ public class XMarkgo : MonoBehaviour {
 
     public DiolaugeTrigger trigger;
 
+    NavMeshObstacle navobstical;
+
     public void Start() {
         if (GetComponentInParent<DiolaugeTrigger>()) {
             trigger = GetComponentInParent<DiolaugeTrigger>();
         }
+        navobstical = GetComponent<NavMeshObstacle>();
     }
     private void OnTriggerEnter(Collider other) {
 
@@ -35,7 +38,7 @@ public class XMarkgo : MonoBehaviour {
             going = false;
             select.goingS = false;
             cantrigger = false;
-
+           // StartCoroutine("Delaynavon");
         }
 
 
@@ -46,7 +49,7 @@ public class XMarkgo : MonoBehaviour {
 
 
             there = false;
-
+            StartCoroutine("Delaynavon");
         }
     }
     public void LateUpdate() {
@@ -59,11 +62,14 @@ public class XMarkgo : MonoBehaviour {
 
             if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
                 if (trigger==null) {
+                    navobstical.enabled = false;
+
                     movement.MovInstance.age.destination = transform.position;
                     going = true;
                     select.goingS = true;
                     cantrigger = true;
                 } else {
+
                     p1 = true;
                     trigger.p1 = p1;
                     minordeciss = trigger.minordeciss;
@@ -74,6 +80,8 @@ public class XMarkgo : MonoBehaviour {
             }
             if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
                 if (trigger == null) {
+                    navobstical.enabled = false;
+
                     movement.MovInstance.age.destination = transform.position;
                     going = true;
                     select.goingS = true;
@@ -93,6 +101,7 @@ public class XMarkgo : MonoBehaviour {
             if (trigger != null) {
 
                if(!minordeciss && p1 && p2) {
+                    navobstical.enabled = false;
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;
                     going = true;
@@ -113,6 +122,7 @@ public class XMarkgo : MonoBehaviour {
 
 
         } else {
+            
             Button1.gameObject.SetActive(false);
             Button2.gameObject.SetActive(false);
             Or.SetActive(false);
@@ -123,6 +133,11 @@ public class XMarkgo : MonoBehaviour {
 
 
         }
+
+    }
+    IEnumerator Delaynavon() {
+        yield return new WaitForSeconds(1);
+        navobstical.enabled = true;
 
     }
 }

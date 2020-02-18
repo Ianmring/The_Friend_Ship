@@ -59,11 +59,24 @@ public class InventoryMenu : MonoBehaviour
         inventory.onkeyitemchangedcallback += AddUIKey;
 
         inventory.onKeyitemSamecallback += UpdateSlotKey;
-
-
-
+       
     }
 
+    public void StartAnim(int playernum) {
+        foreach (var item in selector[playernum].GetComponentInChildren<testanim>().AnimButtons) {
+            item.SetActive(true);
+        }
+        foreach (var item in selector[playernum].GetComponentInChildren<testanim>().anima) {
+            item.SetTrigger("Start");
+        }
+    }
+    public void StoptAnim(int playernum) {
+       
+        foreach (var item in selector[playernum].GetComponentInChildren<testanim>().anima) {
+            item.SetTrigger("Exit");
+        }
+       
+    }
 
 
     public void Itemup(int playernum) {
@@ -84,6 +97,8 @@ public class InventoryMenu : MonoBehaviour
                     itemselected[playernum] = Keyslots.Count - 1;
                 }
                 selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
+              
+
             }
 
 
@@ -113,8 +128,9 @@ public class InventoryMenu : MonoBehaviour
                 } else {
 
                 selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
-
-                }
+                //selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
+                //selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+            }
            // }
 
 
@@ -130,13 +146,16 @@ public class InventoryMenu : MonoBehaviour
                     Islots[playernum].isslected = false;
                     Islots[playernum].UpdateSlot();
                 }
-                uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(true);
+                //uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(true);
 
 
 
             } else {
 
-                uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(false);
+               // uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(false);
+                selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
+                selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+              
 
                 if (Islots[playernum] != null && Islots[playernum].isspawned ) {
                     if ( Islots[playernum].itemplace == itemselected[playernum] ) {
