@@ -124,43 +124,31 @@ public class uimanager : MonoBehaviour {
 
         if (playersready[0]) {
             oneplayer.isselectingitem = true;
+          
             oneplayer.curssor.SetActive(true);
-            //if (InventoryMenu.invmeninstance.itemselected[0] < 0) {
-            //    OBJSelector[0].gameObject.SetActive(true);
 
-            //}
-            InventoryMenu.invmeninstance.StartAnim(0);
 
         } else {
             oneplayer.isselectingitem = false;
-            oneplayer.curssor.SetActive(false);
-            //if (InventoryMenu.invmeninstance.itemselected[0] < 0) {
-            //    OBJSelector[0].Centerpos();
-            //    OBJSelector[0].gameObject.SetActive(false);
-
-            //}
             InventoryMenu.invmeninstance.StoptAnim(0);
+
+            oneplayer.curssor.SetActive(false);
+        
 
         }
 
         if (playersready[1]) {
             twoplayer.isselectingitem = true;
+         
             twoplayer.curssor.SetActive(true);
-            //if (InventoryMenu.invmeninstance.itemselected[1] < 0) {
-            //    OBJSelector[1].gameObject.SetActive(true);
 
-            //}
-            InventoryMenu.invmeninstance.StartAnim(1);
 
         } else {
             twoplayer.isselectingitem = false;
-            twoplayer.curssor.SetActive(false);
-            //if (InventoryMenu.invmeninstance.itemselected[1] < 0) {
-            //    OBJSelector[1].Centerpos();
-            //    OBJSelector[1].gameObject.SetActive(false);
-
-            //}
             InventoryMenu.invmeninstance.StoptAnim(1);
+
+            twoplayer.curssor.SetActive(false);
+         
 
         }
 
@@ -174,6 +162,17 @@ public class uimanager : MonoBehaviour {
    
     public void PauseMenu()
     {
+        StartCoroutine("PauseDelay");
+    }
+    public void Quit() {
+        Application.Quit();
+    }
+   public void Test() {
+        Debug.Log("test");
+    }
+
+    IEnumerator PauseDelay() {
+        yield return new WaitForSeconds(0.1f);
         events.SetSelectedGameObject(null);
 
         Debug.Log("pause");
@@ -184,25 +183,17 @@ public class uimanager : MonoBehaviour {
             twoplayer.isselectingitem = !twoplayer.isselectingitem;
             twoplayer.curssor.SetActive(!twoplayer.curssor.activeSelf);
         }
-      
+
         for (int i = 1; i < 7; i++) {
             Menus[i].SetActive(!Menus[i].activeSelf);
         }
 
-        
-        
+
+
         isopen = !isopen;
         movement.MovInstance.move = !movement.MovInstance.move;
         events.SetSelectedGameObject(first.gameObject);
     }
-    public void Quit() {
-        Application.Quit();
-    }
-   public void Test() {
-        Debug.Log("test");
-    }
-
-
 
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TrailmixUI : UIMovement
 {
-
+    [SerializeField]
     int animnum;
 
     public GameObject mix;
@@ -39,8 +39,8 @@ public class TrailmixUI : UIMovement
 
     public override void startingfunt() {
         base.startingfunt();
-        bitstospawn = 10;
-        candytosapwn = 7;
+        bitstospawn = 0;
+        candytosapwn = 13;
         Bench = InventoryMenu.invmeninstance.interactionarea;
 
         for (int i = 0; i < bitstospawn; i++) {
@@ -70,13 +70,7 @@ public class TrailmixUI : UIMovement
        
 
         if (candiesinbag > 0 || etcinbag > 0) {
-            if (ISlot.ontable) {
-                anim.AnimButtons[animnum].SetActive(true);
-                anim.anima[animnum].SetTrigger("Start");
-            } else {
-                anim.AnimButtons[animnum].SetActive(false);
-
-            }
+            
 
             switch (hold) {
                 case playerholding.p1:
@@ -107,6 +101,14 @@ public class TrailmixUI : UIMovement
                         singlepour = false;
                     }
                     break;
+
+            }
+            if (ISlot.ontable && ISlot.isslected) {
+                anim.AnimButtons[animnum].SetActive(true);
+                anim.anima[animnum].SetTrigger("Start");
+            } else {
+
+                anim.AnimButtons[animnum].SetActive(false);
 
             }
         } else {
@@ -179,6 +181,7 @@ public class TrailmixUI : UIMovement
 
                 }
             }
+
             trigger.Tstartdio(bagstate, "TradeItemOneTrail");
 
         } else {

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
-public class Tutorial_Manager : MonoBehaviour
+using TMPro; 
+    public class Tutorial_Manager : MonoBehaviour
 {
     public movement mov;
     public Animator P1Steer;
     public Animator P2Steer;
     public Animator Parent;
-
+    public Animator Info;
     bool on;
     public void Start() {
         mov = movement.MovInstance;
@@ -17,7 +18,7 @@ public class Tutorial_Manager : MonoBehaviour
 
     public void Fin() {
         on = true;
-
+        Tutorial(new Vector3(0, 150, 0) , "Use the Right Sticks to move the cursor along your player’s axis and Y to swap axes");
         MoveTutorial();
     }
     public void MoveTutorial() {
@@ -40,7 +41,10 @@ public class Tutorial_Manager : MonoBehaviour
             StartCoroutine("WaittoDown");
         }
     }
-    public void MenuTutorial() {
+    public void Tutorial(Vector3 newpos , string text) {
+        Info.gameObject.transform.localPosition = newpos;
+        Info.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        StartCoroutine("infoflash");
 
     }
 
@@ -51,5 +55,10 @@ public class Tutorial_Manager : MonoBehaviour
         P1Steer.SetTrigger("Done");
         P2Steer.SetTrigger("Done");
         mov.canswitch = true;
+    }
+    IEnumerator infoflash() {
+        Info.SetTrigger("on");
+        yield return new WaitForSeconds(3);
+        Info.SetTrigger("off");
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   name: Knife
-  layer: 3
+  layer: {x: 5, y: 0}
   icon: {fileID: 2004792943942528744, guid: f793b30b0863d8a4a80445d440d40a03, type: 3}
   isdefault: 0
   OBJ: {fileID: 0}
@@ -22,4 +22,5 @@ MonoBehaviour:
   discription: 
   spritedimension: {x: 50, y: 150}
   spritelocation: {x: 0, y: 10}
+  keeplayer: 1
   KeyItemType: 0

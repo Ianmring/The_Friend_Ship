@@ -116,7 +116,7 @@ public class movement : MonoBehaviour {
         moving = Moving.Not;
         turning = Turning.Not;
         spit = GetComponentInChildren<SpriteRenderer>();
-        X.SetActive(false);
+       // X.SetActive(false);
 
 
         //   direction = 2;

@@ -33,6 +33,11 @@ public class InventoryMenu : MonoBehaviour
     public Inventoryslot[] Islots;
 
     public inventorygeneral[] GenInv;
+    [SerializeField]
+    List<Animator> p1anim;
+    [SerializeField]
+    List<Animator> p2anim;
+
     Vector3 unequp;
 
     GameObject objecttodestory;
@@ -50,32 +55,37 @@ public class InventoryMenu : MonoBehaviour
         itemselected[1] = -1;
         unequp = selector[0].transform.position;
 
-     
+       
 
         inventoryUI.SetActive(false);
         inventory = Inventory.instance;
 
 
+
         inventory.onkeyitemchangedcallback += AddUIKey;
 
         inventory.onKeyitemSamecallback += UpdateSlotKey;
-       
+        foreach (var item1 in selector[0].GetComponentInChildren<testanim>().anima) {
+            p1anim.Add(item1);
+        }
+        foreach (var item2 in selector[1].GetComponentInChildren<testanim>().anima) {
+            p2anim.Add(item2);
+        }
     }
 
-    public void StartAnim(int playernum) {
-        foreach (var item in selector[playernum].GetComponentInChildren<testanim>().AnimButtons) {
-            item.SetActive(true);
-        }
-        foreach (var item in selector[playernum].GetComponentInChildren<testanim>().anima) {
-            item.SetTrigger("Start");
-        }
-    }
+
     public void StoptAnim(int playernum) {
-       
-        foreach (var item in selector[playernum].GetComponentInChildren<testanim>().anima) {
-            item.SetTrigger("Exit");
+
+        if (playernum == 0) {
+            foreach (var item in p1anim) {
+                item.SetTrigger("Exit");
+            }
+        } else {
+            foreach (var item in p2anim) {
+                item.SetTrigger("Exit");
+            }
         }
-       
+
     }
 
 
@@ -128,8 +138,7 @@ public class InventoryMenu : MonoBehaviour
                 } else {
 
                 selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
-                //selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
-                //selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+               
             }
            // }
 
@@ -139,6 +148,9 @@ public class InventoryMenu : MonoBehaviour
     }
 
     public void equipitem(int playernum) {
+
+        selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
+        selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
 
         if (Keyslots.Count >1) {
             if (itemselected[playernum] < 0) {
@@ -152,18 +164,21 @@ public class InventoryMenu : MonoBehaviour
 
             } else {
 
-               // uimanager.UIinstance.OBJSelector[playernum].gameObject.SetActive(false);
-                selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
-                selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+            
               
 
                 if (Islots[playernum] != null && Islots[playernum].isspawned ) {
                     if ( Islots[playernum].itemplace == itemselected[playernum] ) {
                         Islots[playernum].isslected = true;
                         Islots[playernum].UpdateSlot();
+                    //    Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
+
+
                     } else {
                         Islots[playernum].isslected = false;
                         Islots[playernum].UpdateSlot();
+                        Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
+
                     }
 
 
@@ -177,9 +192,28 @@ public class InventoryMenu : MonoBehaviour
 
                 if (Islots[playernum] != null && Islots[playernum].isspawned) {
                     Islots[playernum].isslected = true;
+                    
                     Islots[playernum].UpdateSlot();
                     Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
-                    GenInv[playernum].player.playercanvas.sortingOrder = currentactiveitem[playernum].layer;
+
+                    switch (playernum) {
+                        case 0:
+                            GenInv[0].player.playercanvas.sortingOrder = Mathf.RoundToInt(currentactiveitem[0].layer.x);
+                            if (currentactiveitem[1] != null && !currentactiveitem[1].keeplayer) {
+                                GenInv[1].player.playercanvas.sortingOrder = Mathf.RoundToInt(currentactiveitem[0].layer.y);
+
+                            }
+                            break;
+                        case 1:                            
+                            GenInv[1].player.playercanvas.sortingOrder = Mathf.RoundToInt(currentactiveitem[1].layer.x);
+                            if (currentactiveitem[0] != null && !currentactiveitem[0].keeplayer ) {
+                                GenInv[0].player.playercanvas.sortingOrder = Mathf.RoundToInt(currentactiveitem[1].layer.y);
+
+                            }
+                            break;
+                        
+                    }
+                 
                 } else {
                     GenInv[playernum].AddKey(currentactiveitem[playernum], false);
 
@@ -243,10 +277,7 @@ public class InventoryMenu : MonoBehaviour
         currentactiveitem[0] = null;
         Islots[1] = null;
         currentactiveitem[1] = null;
-        //uimanager.UIinstance.OBJSelector[0].gameObject.SetActive(false);
-        //uimanager.UIinstance.OBJSelector[1].gameObject.SetActive(false);
-        //uimanager.UIinstance.OBJSelector[0].Centerpos();
-        //uimanager.UIinstance.OBJSelector[1].Centerpos();
+    
 
     }
 

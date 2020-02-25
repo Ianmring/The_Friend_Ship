@@ -92,14 +92,18 @@ public class Playergen : MonoBehaviour
 
 
 
-        if (Input.GetButtonUp("Handoff" + playernum.ToString())) {
+        if (Input.GetButtonUp("Handoff" + playernum.ToString()) && !UIMana.isopen) {
                 Debug.Log("move");
                 movement.MovInstance.Switchplayerpos();
             }
 
         if (Input.GetButtonUp("MenuUP" + playernum.ToString())) {
+            //UIMana.toggleinvet();
+
             UIMana.playersready[direction] = !UIMana.playersready[direction];
-            UIMana.toggleinvet();                    
+            UIMana.toggleinvet();
+            invmen.equipitem(direction);
+
             Debug.Log("UP");
 
 

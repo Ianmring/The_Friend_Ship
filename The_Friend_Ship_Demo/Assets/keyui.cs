@@ -12,6 +12,10 @@ public class keyui : UIMovement
             
             trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
             trigger.Tstartdio("Key", "GiveItem");
+            if (trigger.Item && trigger.name == "Plane") {
+                trigger.meet = DiolaugeTrigger.meetstates.post;
+
+            }
             unlocked = true;
 
         } else {

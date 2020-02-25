@@ -99,11 +99,23 @@ public class Inventoryslot : MonoBehaviour
     
     public void ReassignSlot(Playergen Play, KeyitemTrigger Trigg) {
         OBJ.Assignplayer(Play, Trigg);
-        if (!ontable) {
+        Vector3 position;
+        position = OBJ.transform.position;
+        if ((!ontable) ||  ontable && isslected) {
             OBJ.transform.SetParent(Trigg.Itemslide.handleRect);
-            OBJ.trans.position = Trigg.Itemslide.handleRect.position;
-         //   Play.playercanvas.sortingOrder = Trigg.KI.layer;
+            if (ontable) {
+                OBJ.trans.position = position;
+            } else {
+                OBJ.trans.position = Trigg.Itemslide.handleRect.position;
 
+            }
+            //   Play.playercanvas.sortingOrder = Trigg.KI.layer;
+
+        } else if (ontable && !isslected) {
+
+        
+            OBJ.transform.SetParent(InventoryMenu.invmeninstance.interactionarea.transform);
+           
         }
 
     }

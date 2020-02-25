@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   name: Lighter
-  layer: 0
+  layer: {x: 0, y: 0}
   icon: {fileID: 7047310441521186486, guid: f0748bcb3043f1d4aa25c9f40410c6f8, type: 3}
   isdefault: 0
-  OBJ: {fileID: 707601082234407377, guid: 2286af5a7dac8f1459268add11f36efd, type: 3}
+  OBJ: {fileID: 0}
   UIOBJ: {fileID: 5534118185209474473, guid: 1cf32a70ca0e2874985c89b73ec737e7, type: 3}
   discription: 
+  spritedimension: {x: 0, y: 0}
+  spritelocation: {x: 0, y: 0}
+  keeplayer: 0
   KeyItemType: 0

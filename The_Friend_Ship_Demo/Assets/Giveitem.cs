@@ -22,5 +22,8 @@ public class Giveitem : MonoBehaviour
         Inventory.instance.AddKey(key, 1);
 
     }
+    public void ItemMenuToot() {
+        FindObjectOfType<Tutorial_Manager>().Tutorial(new Vector3(0,-175,0), "To access the the shared items menu, press the menu button.");
 
+    }
 }

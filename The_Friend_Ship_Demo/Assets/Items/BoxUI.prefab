@@ -94,6 +94,8 @@ MonoBehaviour:
   Buttons: {fileID: 0}
   move: 0
   sidescale: 0
+  interactionItem: 0
+  inverse: 1
   currentboxstate: 0
   box: {fileID: 0}
   boxstatesimages:
@@ -266,6 +268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327650262084178867, guid: 2ac86b8140889e44f874ddcd28db28a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac86b8140889e44f874ddcd28db28a4, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DiolaugeTrigger : MonoBehaviour {
 
+    public string Name;
+
     public Diolauge NotMentionDio;
     public Diolauge MentionDio;
     public Diolauge IntermDio;
@@ -41,6 +43,7 @@ public    bool p2;
 
     public PlayersSelector select;
 
+    public bool Item;
 
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
@@ -206,9 +209,14 @@ public    bool p2;
             for (int i = 0; i < diooptions.Length; i++) {
                 if (diooptions[i].situation == dio) {
                     if (caninteract) {
-                        dioman.Startdio(diooptions[i], this.gameObject , true);
+                    if (Item) {
+                        dioman.Startdio(diooptions[i], this.gameObject, true);
+                        return;
+                    } else {
+                        dioman.Startdio(diooptions[i], this.gameObject, true);
                         return;
                         //gameObject.SetActive(false);
+                    }
                     }
                 }
             }           

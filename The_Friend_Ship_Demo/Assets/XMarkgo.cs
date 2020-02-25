@@ -58,7 +58,19 @@ public class XMarkgo : MonoBehaviour {
 
             Button1.gameObject.SetActive(true);
             Button2.gameObject.SetActive(true);
-            Or.SetActive(true);
+
+            if (trigger == null) {
+                Or.SetActive(true);
+            } else {
+                if (trigger.minordeciss) {
+                    Or.SetActive(true);
+                    And.SetActive(false);
+
+                } else {
+                    Or.SetActive(false);
+                    And.SetActive(true);
+                }
+            }
 
             if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
                 if (trigger==null) {
@@ -108,6 +120,7 @@ public class XMarkgo : MonoBehaviour {
                     select.goingS = true;
                     cantrigger = true;
                 } else if (minordeciss && (p1 || p2)) {
+                    navobstical.enabled = false;
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;
                     going = true;
@@ -125,7 +138,10 @@ public class XMarkgo : MonoBehaviour {
             
             Button1.gameObject.SetActive(false);
             Button2.gameObject.SetActive(false);
+          
             Or.SetActive(false);
+            And.SetActive(false);
+
             p1 = false;
             p2 = false;
             Button1.color = Color.red;

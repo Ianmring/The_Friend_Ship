@@ -148,7 +148,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9058597651623910398}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -184,8 +184,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   Buttons: {fileID: 0}
   move: 0
-  sidescale: 0
+  sidescale: 20
   interactionItem: 1
+  inverse: 0
   unlocked: 0
 --- !u!1001 &3981448660663248358
 PrefabInstance:
@@ -304,7 +305,22 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3658712158367824323, guid: 2ac86b8140889e44f874ddcd28db28a4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086579914241283858, guid: 2ac86b8140889e44f874ddcd28db28a4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1575315008909098029, guid: 2ac86b8140889e44f874ddcd28db28a4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 986079421839280498, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -319,22 +335,7 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6746826622525284124, guid: 2ac86b8140889e44f874ddcd28db28a4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5336923162121409454, guid: 2ac86b8140889e44f874ddcd28db28a4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5865931912819073106, guid: 2ac86b8140889e44f874ddcd28db28a4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3658712158367824323, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -344,12 +345,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 986079421839280498, guid: 2ac86b8140889e44f874ddcd28db28a4,
+    - target: {fileID: 6746826622525284124, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4086579914241283858, guid: 2ac86b8140889e44f874ddcd28db28a4,
+    - target: {fileID: 5336923162121409454, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}
       propertyPath: m_Color.a
       value: 1

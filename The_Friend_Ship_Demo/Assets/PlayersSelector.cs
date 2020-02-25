@@ -88,7 +88,7 @@ public class PlayersSelector : MonoBehaviour {
 
 
 
-            if (Input.GetButtonDown("Submit") && !onmark && !goingS) {
+            if (Input.GetButtonDown("Submit") && !onmark && !goingS && mov.move) {
 
                 mov.age.destination = hit.point;
                 anim.SetTrigger("Pointt");

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class UIMovement : MonoBehaviour
 {
     public RectTransform trans;
@@ -36,6 +36,15 @@ public class UIMovement : MonoBehaviour
 
     public bool interactionItem;
 
+   public bool inverse;
+
+    Vector3 OGscale;
+    Vector3 OGButtonScale;
+
+    bool inversegate;
+
+    bool showinginfo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,11 +67,11 @@ public class UIMovement : MonoBehaviour
         ISlot.OBJ = this;
         ISlot.isspawned = true;
         movmag = 20;
-        player.playercanvas.sortingOrder = Trig.KI.layer;
+        player.playercanvas.sortingOrder = Mathf.RoundToInt(Trig.KI.layer.x);
         anim = GetComponentInChildren<testanim>();
         Buttons = anim.gameObject;
-
-
+        OGscale = transform.localScale;
+        OGButtonScale = Buttons.transform.localScale;
         switch (player.direction) {
             case 0:
                 xmin = Screen.width * .4f;
@@ -70,21 +79,24 @@ public class UIMovement : MonoBehaviour
                 hold = playerholding.p1;
                // this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 Buttons.transform.localPosition = new Vector3(sidescale, 0);
-               
+
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
-                this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
 
+                if (inverse ) {
+                    this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+                    Buttons.transform.localScale = new Vector3(Buttons.transform.localScale.x * -1, Buttons.transform.localScale.y);
+                }
                 Buttons.transform.localPosition = new Vector3(-sidescale, 0);
-                Buttons.transform.localScale = new Vector3(-Buttons.transform.localScale.x, Buttons.transform.localScale.y);
                 break;
 
         }
         p1 = false;
         p2 = false;
+        showinginfo = false;
         StartCoroutine("RSstickturn");
 
         startingfunt();
@@ -95,6 +107,8 @@ public class UIMovement : MonoBehaviour
     }
 
     public void Assignplayer(Playergen play, KeyitemTrigger Trigg) {
+
+
         trans = GetComponent<RectTransform>();
 
         player = play;
@@ -112,21 +126,30 @@ public class UIMovement : MonoBehaviour
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
+                if (inverse && transform.localScale.x < 0) {
+                    this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+                    Buttons.transform.localScale = new Vector3(Buttons.transform.localScale.x * -1, Buttons.transform.localScale.y);
+                }
                 Buttons.transform.localPosition = new Vector3(sidescale, 0);
+                inversegate = false;
 
                 break;
             case 1:
                 xmin = 0;
                 xmax = Screen.width * .6f;
                 hold = playerholding.p2;
-                this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
-
+                if (inverse && transform.localScale.x > 0 ) {
+                    this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+                    Buttons.transform.localScale = new Vector3(Buttons.transform.localScale.x * -1, Buttons.transform.localScale.y);
+                }
                 Buttons.transform.localPosition = new Vector3(-sidescale, 0);
-                Buttons.transform.localScale = new Vector3(-Buttons.transform.localScale.x, Buttons.transform.localScale.y);
                 break;
 
         }
-        StartCoroutine("RSstickturn");
+        if (this.gameObject.activeSelf) {
+            StartCoroutine("RSstickturn");
+
+        }
         //transform.SetParent(Trig.Itemslide.handleRect);
     }
     public void Newcontroller(Playergen Play) {
@@ -151,7 +174,18 @@ public class UIMovement : MonoBehaviour
         //    }
 
         }
+        if (Input.GetButtonDown("Handoff" + player.playernum)) {
+            showinginfo = true;
+        }else if(Input.GetButtonUp("Handoff" + player.playernum)) {
+            showinginfo = false;
+        }
 
+        if (ISlot.isslected && ISlot.isspawned && showinginfo) {
+            anim.AnimButtons[10].SetActive(true);
+        } else {
+            anim.AnimButtons[10].SetActive(false);
+
+        }
         if (bigdecistion) {
 
             if (Input.GetButtonDown("Submit1")) {
