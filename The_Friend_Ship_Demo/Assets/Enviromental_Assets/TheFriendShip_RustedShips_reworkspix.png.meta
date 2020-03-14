@@ -1,0 +1,379 @@
+fileFormatVersion: 2
+guid: 9778c939b75d00449958251423406ea0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4505980795694078627
+    second: TheFriendShip_RustedShips_reworkspix_0
+  - first:
+      213: -2352548305053096472
+    second: TheFriendShip_RustedShips_reworkspix_1
+  - first:
+      213: 4524451112849703301
+    second: TheFriendShip_RustedShips_reworkspix_2
+  - first:
+      213: 3544237595941500978
+    second: TheFriendShip_RustedShips_reworkspix_3
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TheFriendShip_RustedShips_reworkspix_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3136
+        width: 4103
+        height: 2402
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1209.2695, y: 1201}
+        - {x: 323.69336, y: 1201}
+        - {x: -6.107422, y: 1147.8488}
+        - {x: 30.53711, y: 982.9329}
+        - {x: -668.7627, y: 985.98694}
+        - {x: -735.94434, y: 973.77094}
+        - {x: -742.05176, y: 961.555}
+        - {x: -748.1592, y: 894.36707}
+        - {x: -2051.5, y: 662.26337}
+        - {x: -2051.5, y: 155.30008}
+        - {x: -2003.2344, y: 140.0301}
+        - {x: -1984.9121, y: 246.91995}
+        - {x: -2003.2344, y: 265.24393}
+        - {x: -1911.623, y: 509.5636}
+        - {x: -1893.3008, y: 491.23962}
+        - {x: -1893.3008, y: 494.2936}
+        - {x: -1914.6768, y: 488.18564}
+        - {x: -1920.7842, y: 482.07764}
+        - {x: -1932.999, y: 399.61975}
+        - {x: -1991.0195, y: -873.8965}
+        - {x: -1713.1318, y: -1200.6741}
+        - {x: -91.61133, y: -1200.6741}
+        - {x: 2051.5, y: -705.92676}
+        - {x: 2051.5, y: 30.086258}
+        - {x: 1859.71, y: 943.231}
+      - - {x: -659.60156, y: 836.3411}
+        - {x: -662.6553, y: 833.2872}
+        - {x: -662.6553, y: 824.1252}
+        - {x: -650.4404, y: 811.9092}
+        - {x: -635.1719, y: 790.5312}
+        - {x: -616.8496, y: 787.47723}
+        - {x: -543.56055, y: 720.2893}
+        - {x: -534.3994, y: 711.1273}
+        - {x: -522.1846, y: 711.1273}
+        - {x: -522.1846, y: 714.18134}
+        - {x: -592.4199, y: 714.18134}
+        - {x: -613.7959, y: 720.2893}
+        - {x: -659.60156, y: 692.80334}
+      - - {x: 629.06445, y: 891.31305}
+        - {x: 638.2256, y: 900.47504}
+        - {x: 656.54785, y: 906.58307}
+        - {x: 662.6553, y: 927.961}
+        - {x: 693.1924, y: 924.90704}
+        - {x: 665.709, y: 912.69104}
+        - {x: 656.54785, y: 903.52905}
+        - {x: 656.54785, y: 894.36707}
+        - {x: 598.52734, y: 894.36707}
+        - {x: 598.52734, y: 891.31305}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f7e7673d144d746834f7562f1d4412
+      internalID: -4505980795694078627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TheFriendShip_RustedShips_reworkspix_1
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 353
+        width: 3067
+        height: 2985
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1288.4625, y: 585.1037}
+        - {x: 1187.6901, y: 484.3218}
+        - {x: 1044.5, y: 721.5}
+        - {x: 558.62555, y: 1354.7106}
+        - {x: 470.06796, y: 1455.4924}
+        - {x: 149.4283, y: 1492.5}
+        - {x: -601.7846, y: 1492.5}
+        - {x: -708.6645, y: 1256.9828}
+        - {x: -1533.1664, y: 285.81207}
+        - {x: -1533.1664, y: -453.25488}
+        - {x: -803.3295, y: -1415.2635}
+        - {x: -540.7104, y: -1491.6135}
+        - {x: 1114.401, y: -1491.6135}
+        - {x: 1260.9791, y: -1445.8036}
+        - {x: 1533.5, y: -224.20522}
+        - {x: 1533.5, y: 511.80777}
+        - {x: 1361.7516, y: 591.2117}
+      - - {x: -1316.3529, y: -227.25922}
+        - {x: -1328.5677, y: -215.04323}
+        - {x: -1337.7289, y: -215.04323}
+        - {x: -1337.7289, y: -205.88124}
+        - {x: -1346.89, y: -196.71925}
+        - {x: -1337.7289, y: -196.71925}
+        - {x: -1337.7289, y: -208.93524}
+        - {x: -1328.5677, y: -218.09723}
+        - {x: -1276.6547, y: -215.04323}
+        - {x: -1279.7084, y: -218.09723}
+        - {x: -1285.8158, y: -230.3132}
+        - {x: -1252.225, y: -245.58319}
+      - - {x: -1206.4193, y: -181.44926}
+        - {x: -1291.9232, y: -144.80132}
+        - {x: -1206.4193, y: -163.12529}
+        - {x: -1123.9691, y: -190.61125}
+      - - {x: -1035.4115, y: -138.69333}
+        - {x: -1001.82074, y: -138.69333}
+        - {x: -913.2631, y: -117.31536}
+        - {x: -687.2885, y: -10.425508}
+        - {x: -665.91254, y: 1.7904758}
+        - {x: -656.7514, y: 10.952463}
+        - {x: -656.7514, y: 23.168446}
+        - {x: -659.8051, y: 23.168446}
+        - {x: -659.8051, y: 10.952463}
+        - {x: -650.644, y: 1.7904758}
+        - {x: -638.42914, y: -47.073456}
+        - {x: -626.2143, y: -59.28944}
+        - {x: -620.1069, y: -59.28944}
+        - {x: -620.1069, y: -56.235443}
+        - {x: -668.96625, y: -56.235443}
+        - {x: -736.1479, y: -59.28944}
+        - {x: -861.35004, y: -92.88339}
+        - {x: -977.39105, y: -150.90932}
+        - {x: -1029.3041, y: -175.34128}
+        - {x: -1038.4652, y: -184.50327}
+        - {x: -1038.4652, y: -196.71925}
+        - {x: -1035.4115, y: -196.71925}
+      - - {x: -717.8256, y: -138.69333}
+        - {x: -717.8256, y: -135.63933}
+        - {x: -736.1479, y: -135.63933}
+        - {x: -736.1479, y: -138.69333}
+      - - {x: -598.7309, y: -98.99139}
+        - {x: -598.7309, y: -95.93739}
+        - {x: -620.1069, y: -95.93739}
+        - {x: -620.1069, y: -98.99139}
+      - - {x: 1343.4293, y: 441.56586}
+        - {x: 1340.3756, y: 441.56586}
+        - {x: 1340.3756, y: 392.70193}
+        - {x: 1352.5905, y: 380.48596}
+      - - {x: 1404.5035, y: 411.0259}
+        - {x: 1392.2887, y: 423.24188}
+        - {x: 1383.1276, y: 423.24188}
+        - {x: 1383.1276, y: 441.56586}
+        - {x: 1380.0739, y: 441.56586}
+        - {x: 1380.0739, y: 432.40387}
+        - {x: 1389.235, y: 423.24188}
+        - {x: 1401.4498, y: 423.24188}
+        - {x: 1401.4498, y: 411.0259}
+        - {x: 1410.611, y: 401.86392}
+        - {x: 1410.611, y: 383.53995}
+        - {x: 1401.4498, y: 374.37796}
+        - {x: 1401.4498, y: 365.21597}
+        - {x: 1404.5035, y: 365.21597}
+      - - {x: 1264.0328, y: 450.72784}
+        - {x: 1264.0328, y: 462.94385}
+        - {x: 1260.9791, y: 462.94385}
+        - {x: 1260.9791, y: 404.9179}
+      - - {x: 983.0914, y: 490.4298}
+        - {x: 983.0914, y: 502.64578}
+        - {x: 980.03766, y: 502.64578}
+        - {x: 980.03766, y: 432.40387}
+      - - {x: 1083.8639, y: 481.26782}
+        - {x: 1080.8102, y: 481.26782}
+        - {x: 1080.8102, y: 472.10583}
+        - {x: 1089.9713, y: 462.94385}
+        - {x: 1102.1862, y: 432.40387}
+        - {x: 1111.3473, y: 423.24188}
+      - - {x: 943.3931, y: 551.5097}
+        - {x: 943.3931, y: 560.6717}
+        - {x: 980.03766, y: 560.6717}
+        - {x: 980.03766, y: 563.7257}
+        - {x: 970.8765, y: 563.7257}
+        - {x: 940.3394, y: 533.1857}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6268e00d88c6804baa4f859e7cd69e8
+      internalID: -2352548305053096472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TheFriendShip_RustedShips_reworkspix_2
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 3155
+        width: 2134
+        height: 2203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -239.17244, y: 1101.5}
+        - {x: -666.69196, y: 1101.5}
+        - {x: -962.9019, y: 644.6153}
+        - {x: -1066.7281, y: -60.857727}
+        - {x: -1066.7281, y: -106.66766}
+        - {x: -914.04254, y: -131.09962}
+        - {x: -843.8072, y: -134.15363}
+        - {x: -840.7535, y: -121.937645}
+        - {x: -837.69977, y: -82.235695}
+        - {x: -846.8609, y: -73.07371}
+        - {x: -883.50543, y: -51.69574}
+        - {x: -834.64606, y: 30.762148}
+        - {x: -834.64606, y: -393.74326}
+        - {x: -895.7203, y: -360.14932}
+        - {x: -1066.7281, y: -531.1731}
+        - {x: -620.8863, y: -1101.5}
+        - {x: 142.54143, y: -1101.5}
+        - {x: 899.86176, y: -589.199}
+        - {x: 899.86176, y: -341.82535}
+        - {x: 209.72307, y: 959.1769}
+      - - {x: 484.55704, y: -262.42145}
+        - {x: 472.3422, y: -250.20546}
+        - {x: 481.50333, y: -271.58344}
+        - {x: 484.55704, y: -271.58344}
+      - - {x: 246.3676, y: 317.83774}
+        - {x: 234.15276, y: 330.05374}
+        - {x: 224.99162, y: 330.05374}
+        - {x: 221.93791, y: 326.99973}
+        - {x: 228.04533, y: 317.83774}
+        - {x: 255.52873, y: 302.56778}
+      - - {x: -16.251543, y: 748.4512}
+        - {x: -19.305254, y: 730.1272}
+        - {x: -16.251543, y: 730.1272}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8059701e254188408cdc659ad6ed5b6
+      internalID: 4524451112849703301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TheFriendShip_RustedShips_reworkspix_3
+      rect:
+        serializedVersion: 2
+        x: 5117
+        y: 2692
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd6f82f4c7d9474bba662238136eea1
+      internalID: 3544237595941500978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6cdbd811e187ac648acbbf24c5b9e958
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

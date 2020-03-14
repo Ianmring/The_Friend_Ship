@@ -144,8 +144,8 @@ public class XMarkgo : MonoBehaviour {
 
             p1 = false;
             p2 = false;
-            Button1.color = Color.red;
-            Button2.color = Color.blue;
+            Button1.color = uimanager.UIinstance.P1C;
+            Button2.color = uimanager.UIinstance.P2C;
 
 
         }

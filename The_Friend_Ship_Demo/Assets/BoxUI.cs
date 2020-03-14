@@ -14,7 +14,7 @@ public class BoxUI : UIMovement
     public bool knifein;
   public  bool done;
     public Item watch;
-    bool Watchgotten;
+   [SerializeField] bool Watchgotten;
     // Start is called before the first frame update
     public override void startingfunt() {
         base.startingfunt();

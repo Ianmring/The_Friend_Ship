@@ -106,6 +106,7 @@ public class InventoryMenu : MonoBehaviour
                 if (itemselected[playernum] > Keyslots.Count - 1) {
                     itemselected[playernum] = Keyslots.Count - 1;
                 }
+
                 selector[playernum].transform.position = Keyslots[itemselected[playernum]].transform.position;
               
 

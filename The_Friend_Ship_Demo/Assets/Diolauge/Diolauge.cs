@@ -20,6 +20,6 @@ public class Diolauge : ScriptableObject
 
     public TextAsset txtsentences;
 
-    
+    public bool oneonone;
  //   public Sentence[] convo;
 }

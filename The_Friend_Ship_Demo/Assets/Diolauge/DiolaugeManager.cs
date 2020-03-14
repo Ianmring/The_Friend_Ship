@@ -24,9 +24,15 @@ public class DiolaugeManager : MonoBehaviour
     public Queue<string> Sentences;
 
     public Image expression;
-    Diolauge currentDiolauge;
+    [SerializeField] Diolauge currentDiolauge;
     public Image PB1;
     public Image PB2;
+
+
+    public Image Carl;
+    public Image Katie;
+    public Image Other;
+
     public TextMeshProUGUI ThingtoDo;
 
     public string TXTThingtodo;
@@ -47,10 +53,11 @@ public class DiolaugeManager : MonoBehaviour
     [SerializeField] public int p1I { get; set; }
    [SerializeField] public int p2I { get; set; }
 
-    GameObject currentdiogame;
+  [SerializeField]  GameObject currentdiogame;
     // Start is called before the first frame update
    public uimanager mana;
 
+    bool npcintoduced;
     void Start()
     {
         Sentences = new Queue<string>();
@@ -61,9 +68,9 @@ public class DiolaugeManager : MonoBehaviour
     // Update is called once per frame
     public void Startdio(Diolauge Dio , GameObject game , bool interact)
     {
+        Audiomana.Audioinstance.Play("OneBell");
 
         indio = true;
-
         movement.MovInstance.move = false;
         anim.SetTrigger("Open");
         currentDiolauge = Dio;
@@ -74,8 +81,7 @@ public class DiolaugeManager : MonoBehaviour
         if (Dio.thingtodo != "") {
             thingtodo = Dio.thingtodo;
         }
-        //   TXTThingtodo = Dio.ThingToDoTxt;
-        expression.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+    
         Sentences.Clear();
 
         string[] txtstring = Dio.txtsentences.text.Split('\n');
@@ -86,11 +92,26 @@ public class DiolaugeManager : MonoBehaviour
         }
         PB1.color = Color.yellow;
         PB2.color = Color.yellow;
-        DisplayNextSentence();
+       // Other.sprite = null;
+
         currentdiogame = game;
         Ineractobj = interact;
+
+        if (currentDiolauge.oneonone && Carl.transform.localScale.x > 0f) {
+            Carl.transform.position = Other.transform.position;
+            Carl.transform.localScale = new Vector3( -1,1);
+            Other.color = Color.clear;
+
+        } else if (!currentDiolauge.oneonone && Carl.transform.localScale.x < 0f) {
+            Carl.transform.localPosition = new Vector3(Katie.transform.localPosition.x-335, Katie.transform.localPosition.y);
+            Carl.transform.localScale = new Vector3(1, 1);
+
+        }
+
+        DisplayNextSentence();
+
         if (Ineractobj) {
-            currentdiogame.SetActive(false);
+            currentdiogame.gameObject.SetActive(false);
         } else {
             return;
 
@@ -118,7 +139,31 @@ public class DiolaugeManager : MonoBehaviour
             return;
         }
         nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
-        expression.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+
+     
+        if (currentDiolauge.Character_in_Conversation[currentconvopoint].notNPC) {
+            if (currentDiolauge.Character_in_Conversation[currentconvopoint].Name == "Carl") {
+                Carl.color = Color.white;
+                Katie.color = Color.gray;
+                Other.color = Color.gray;
+            } else if (currentDiolauge.Character_in_Conversation[currentconvopoint].Name == "Katie") {
+                Katie.color = Color.white;
+                Carl.color = Color.gray;
+                Other.color = Color.gray;
+            }
+
+        } else {
+           
+            Other.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+            npcintoduced = true;
+            Other.color = Color.white;
+            Katie.color = Color.gray;
+            Carl.color = Color.gray;
+        }
+        if (!npcintoduced) {
+            Other.color = Color.clear;
+        }
+        currentdiogame.SendMessage("Dothing" + currentconvopoint.ToString(), SendMessageOptions.DontRequireReceiver);
         currentconvopoint++;
 
         string sentence = Sentences.Dequeue();
@@ -136,13 +181,13 @@ public class DiolaugeManager : MonoBehaviour
             if (Input.GetButtonDown("Submit" + p1I.ToString()))
             {
                 p1 = true;
-                PB1.color = Color.green;
+                PB1.color = uimanager.UIinstance.P1C;
 
             }
             if (Input.GetButtonDown("Submit" + p2I.ToString()))
             {
                 p2 = true;
-                PB2.color = Color.green;
+                PB2.color = uimanager.UIinstance.P2C;
 
             }
             if (p1 && p2 )
@@ -157,12 +202,13 @@ public class DiolaugeManager : MonoBehaviour
     }
     IEnumerator TypeSentence(string sentence)
     {
-        DioText.text = "";
-        foreach (char Letter in sentence.ToCharArray())
-        {
-            DioText.text += Letter;
-            yield return new WaitForSeconds(0.03f);
-        }
+        //DioText.text = "";
+        DioText.text  = sentence;
+        yield return null;
+        //foreach (char Letter in sentence.ToCharArray())
+        //{
+        //    yield return new WaitForSeconds(0.03f);
+        //}
     }
     IEnumerator Timecolor()
     {
@@ -172,18 +218,23 @@ public class DiolaugeManager : MonoBehaviour
     }
     void EndDiolauge()
     {
+        Audiomana.Audioinstance.Play("TwoBells");
+
         currentconvopoint = 0;
 
         indio = false;
-
+      
         movement.MovInstance.move = true;
 
         p1 = false;
             p2 = false;
+       // Other.sprite = null;
         //CurrentNPC = null;
         //currentDiolauge = null;
         mana.p1.enabled = true;
         mana.p2.enabled = true;
+       
+        npcintoduced = false;
 
         cam.Normal();
     
@@ -200,7 +251,7 @@ public class DiolaugeManager : MonoBehaviour
         if (Ineractobj) {
             anim.SetTrigger("Close");
 
-            currentdiogame.SetActive(true);
+            currentdiogame.gameObject.SetActive(true);
         } else
 	{     
             anim.SetTrigger("Close");

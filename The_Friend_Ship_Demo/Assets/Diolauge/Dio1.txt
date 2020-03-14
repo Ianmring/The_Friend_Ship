@@ -1,1 +1,4 @@
-Use the left sticks to control the cursor and A to go to that point
+This is Carl Speaking
+This is Danny Speaking
+This is Katie Speaking
+This is Barry Speaking

@@ -39,8 +39,8 @@ public class TrailmixUI : UIMovement
 
     public override void startingfunt() {
         base.startingfunt();
-        bitstospawn = 0;
-        candytosapwn = 13;
+        bitstospawn = 7;
+        candytosapwn = 5;
         Bench = InventoryMenu.invmeninstance.interactionarea;
 
         for (int i = 0; i < bitstospawn; i++) {
@@ -190,7 +190,7 @@ public class TrailmixUI : UIMovement
     }
     public void pourtrailmix() {
        
-        if (!poured) {
+      //  if (!poured) {
             foreach (var item in Thingsinbag) {
                 item.transform.SetParent(Bench.transform);
                 item.gameObject.SendMessage("movetoBench");
@@ -207,19 +207,19 @@ public class TrailmixUI : UIMovement
             etcinbag = 0;
             candiesinbag = 0;
             poured = true;
-        } else if (!singlepour)         
-        {
+        //} else if (!singlepour)         
+        //{
 
-            if (Thingsinbag[Thingsinbag.Count -1].GetComponent<TrailBit>()) {
-                etcinbag--;
-            } else if (Thingsinbag[Thingsinbag.Count - 1].GetComponent<candy>()) {
-                candiesinbag--;
-            }
-                Thingsinbag[Thingsinbag.Count-1].transform.SetParent(Bench.transform);
-                Thingsinbag[Thingsinbag.Count-1].SendMessage("movetoBench");
-                Thingsinbag.RemoveAt(Thingsinbag.Count-1);
+        //    if (Thingsinbag[Thingsinbag.Count -1].GetComponent<TrailBit>()) {
+        //        etcinbag--;
+        //    } else if (Thingsinbag[Thingsinbag.Count - 1].GetComponent<candy>()) {
+        //        candiesinbag--;
+        //    }
+        //        Thingsinbag[Thingsinbag.Count-1].transform.SetParent(Bench.transform);
+        //        Thingsinbag[Thingsinbag.Count-1].SendMessage("movetoBench");
+        //        Thingsinbag.RemoveAt(Thingsinbag.Count-1);
            
-        }
+        //}
 
        
 
@@ -228,12 +228,7 @@ public class TrailmixUI : UIMovement
         base.ExitUI(Coli);
 
         thingtoget = null;
-        //if (Coli.GetComponent<TrailBit>()) {
-        //    trailtoget = null;
-        //}
-        //if (Coli.GetComponent<candy>()) {
-        //    candytoget = null;
-        //}
+       
     }
   
     private void OnTriggerStay2D(Collider2D Coli) {

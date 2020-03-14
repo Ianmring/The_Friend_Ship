@@ -41,7 +41,8 @@ public class uimanager : MonoBehaviour {
     public Canvas p1;
     public Canvas p2;
 
-    
+    public Color P1C;
+    public Color P2C;
 
    // public Selector[] OBJSelector;
 
@@ -130,7 +131,7 @@ public class uimanager : MonoBehaviour {
 
         } else {
             oneplayer.isselectingitem = false;
-            InventoryMenu.invmeninstance.StoptAnim(0);
+          //  InventoryMenu.invmeninstance.StoptAnim(0);
 
             oneplayer.curssor.SetActive(false);
         
@@ -145,7 +146,7 @@ public class uimanager : MonoBehaviour {
 
         } else {
             twoplayer.isselectingitem = false;
-            InventoryMenu.invmeninstance.StoptAnim(1);
+           // InventoryMenu.invmeninstance.StoptAnim(1);
 
             twoplayer.curssor.SetActive(false);
          

@@ -29,6 +29,7 @@ public class camscript : MonoBehaviour {
         cam = GetComponent<Camera>();
         cam.nearClipPlane = -100;
         character = FindObjectOfType<movement>().GetComponent<Transform>();
+      //  Application.targetFrameRate = 200;
        // transform.position = character.transform.position + offsetI;
     }
 	
@@ -64,20 +65,20 @@ public class camscript : MonoBehaviour {
         targettrans = trans;
         TargetZoom = Zoom;
 
-        //if (rend == 3) {
-        //    cam.cullingMask = 1 << 9 | 1 << 8 | 1 << 10 | 1<<11 ;
-        //} else if (rend == 2) {
-        //    cam.cullingMask = 1 << 9 | 1 << 10 | 1 << 11;
+        if (rend == 3) {
+            cam.cullingMask = 1 << 9 | 1 << 8 | 1 << 10 | 1 << 11;
+        } else if (rend == 2) {
+            cam.cullingMask = 1 << 9 | 1 << 10 | 1 << 11;
 
-        //} else {
-        //    cam.cullingMask = -1;
-        //}
+        } else {
+            cam.cullingMask = -1;
+        }
 
 
     }
     public void Normal() {
         targettrans = null;
-        TargetZoom = 11;
+        TargetZoom = 9;
         isfollwoing = true;
         cam.cullingMask = -1;
 

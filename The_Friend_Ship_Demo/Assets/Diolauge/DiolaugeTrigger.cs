@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiolaugeTrigger : MonoBehaviour {
 
-    public string Name;
+   // public string Name;
 
     public Diolauge NotMentionDio;
     public Diolauge MentionDio;

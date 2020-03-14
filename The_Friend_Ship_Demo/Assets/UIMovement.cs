@@ -77,8 +77,11 @@ public class UIMovement : MonoBehaviour
                 xmin = Screen.width * .4f;
                 xmax = Screen.width;
                 hold = playerholding.p1;
-               // this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
-                Buttons.transform.localPosition = new Vector3(sidescale, 0);
+                if (inverse && transform.localScale.x < 0) {
+                    this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+                    Buttons.transform.localScale = new Vector3(Buttons.transform.localScale.x * -1, Buttons.transform.localScale.y);
+                }
+                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
 
                 break;
             case 1:
@@ -90,7 +93,7 @@ public class UIMovement : MonoBehaviour
                     this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
                     Buttons.transform.localScale = new Vector3(Buttons.transform.localScale.x * -1, Buttons.transform.localScale.y);
                 }
-                Buttons.transform.localPosition = new Vector3(-sidescale, 0);
+                Buttons.transform.localPosition = new Vector3(sidescale, 0);
                 break;
 
         }

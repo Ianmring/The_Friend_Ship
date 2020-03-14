@@ -42,6 +42,9 @@ public class playerselect : MonoBehaviour {
     public Item[] Itemstoadd;
 
     public Item Trilmix;
+
+    public Color P1C;
+    public Color P2C;
     //  public Text InstructionalText;
     //public int playernumbers;
     void Start() {
@@ -51,7 +54,8 @@ public class playerselect : MonoBehaviour {
         Boat = FindObjectOfType<movement>().gameObject;
         Player1 = FindObjectOfType<Player1>().gameObject;
         Player2 = FindObjectOfType<Player2>().gameObject;
-
+        P1C = uimanager.UIinstance.P1C;
+        P2C = uimanager.UIinstance.P2C;
         play = player1.notselected;
         string[] names = Input.GetJoystickNames();
 
@@ -109,11 +113,11 @@ public class playerselect : MonoBehaviour {
                 play = player1.Cont1;
                 ctdwntext.text = "Player 2 Press A";
 
-                p1chk.color = Color.green;
+                p1chk.color = P1C;
             } else if (Input.GetButtonDown("Submit1") && play == player1.Cont2) {
 
 
-                p2chk.color = Color.green;
+                p2chk.color = P2C;
                 countdown = true;
 
 
@@ -125,10 +129,10 @@ public class playerselect : MonoBehaviour {
                 play = player1.Cont2;
                 ctdwntext.text = "Player 2 Press A";
 
-                p1chk.color = Color.green;
+                p1chk.color = P1C;
 
             } else if (Input.GetButtonDown("Submit2") && play == player1.Cont1) {
-                p2chk.color = Color.green;
+                p2chk.color =P2C;
                 countdown = true;
 
 
@@ -156,6 +160,8 @@ public class playerselect : MonoBehaviour {
         }
 
     }
+
+   
     IEnumerator Waittoselect() {
         yield return new WaitForSeconds(.1f);
         menuoff = true;
@@ -235,7 +241,6 @@ public class playerselect : MonoBehaviour {
             default:
                 break;
         }
-        cameraref.Normal();
         uimanager.UIinstance.p1.gameObject.SetActive(true);
         uimanager.UIinstance.p2.gameObject.SetActive(true);
         for (int i = 0; i < Itemstoadd.Length; i++) {
@@ -246,6 +251,8 @@ public class playerselect : MonoBehaviour {
         Inventory.instance.AddKey(Trilmix, 1);
 
         FindObjectOfType<DiolaugeManager>().Startdio(dio, toot, false);
+        cameraref.Normal();
+
         Destroy(GetComponent<playerselect>());
     }
 }
