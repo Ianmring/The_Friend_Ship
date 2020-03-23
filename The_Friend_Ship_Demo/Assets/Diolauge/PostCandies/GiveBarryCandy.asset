@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
-  m_Name: IntroDio2
+  m_Name: GiveBarryCandy
   m_EditorClassIdentifier: 
-  thingtodo: Dothething
-  situation: 
-  ThingToDoTxt: Go To Land
-  Character_in_Conversation:
-  - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  currentexpressions: 00000000
-  txtsentences: {fileID: 4900000, guid: 1af6e9e20468acc48a4a65e990f54182, type: 3}
+  thingtodo: TradeItemOneTrail
+  situation: DannyFullCandy
+  ThingToDoTxt: 
+  Character_in_Conversation: []
+  currentexpressions: 
+  txtsentences: {fileID: 4900000, guid: f25e3bb4d050fc84ebb93c3e82c75e29, type: 3}
+  oneonone: 0

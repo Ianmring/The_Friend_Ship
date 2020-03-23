@@ -250,7 +250,7 @@ public class playerselect : MonoBehaviour {
         Inventory.instance.AddKey(Trilmix, 1);
         Inventory.instance.AddKey(Trilmix, 1);
 
-        FindObjectOfType<DiolaugeManager>().Startdio(dio, toot, false);
+        FindObjectOfType<DiolaugeManager>().Startdio(dio, toot, false, false);
         cameraref.Normal();
 
         Destroy(GetComponent<playerselect>());

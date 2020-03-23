@@ -116,6 +116,7 @@ public class movement : MonoBehaviour {
         moving = Moving.Not;
         turning = Turning.Not;
         spit = GetComponentInChildren<SpriteRenderer>();
+        
        // X.SetActive(false);
 
 
@@ -223,41 +224,7 @@ public class movement : MonoBehaviour {
 
         }
         
-        #region OldMov
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        //RaycastHit hit;
-        //if (Input.GetMouseButtonDown(0)) {
-        //    if (Physics.Raycast(ray, out hit)) {
-        //        age.destination = hit.point;
-        //    }
-
-        //}
-
-
-
-
-        //if (go) {
-        //    mag = Mathf.Abs(directions[dirint]);
-        //    if (directions[dirint] < -0.3) {
-        //        moving = Moving.Forwad;
-        //        isbackward = false;
-
-
-        //        // ismoving = true;
-        //    } else if (directions[dirint] > 0.3) {
-        //        moving = Moving.Backwards;
-        //        isbackward = true;
-
-
-        //        //ismoving = true;
-
-        //    } else {
-        //        moving = Moving.Not;
-
-        //    }
-        //}
-        #endregion
+  
     }
 
 
@@ -330,119 +297,7 @@ public class movement : MonoBehaviour {
         */
 
     }
-    #region oldmov 
-    /*
-     * 
-     *  void Direction() {
-        if (go) {
-            if (Turnx[steerint] > 0.3) {
-                turning = Turning.Clockwise;
-
-                StartCoroutine("TurnClockwise");
-
-
-
-            } else if (Turnx[steerint] < -0.3) {
-                turning = Turning.AniClockwise;
-
-                StartCoroutine("TurnAntiClockwise");
-
-
-            } else {
-
-                turning = Turning.Not;
-            }
-        }
-           
-    }
-    public void checkDirection()
-    {
-        if (direction < 0)
-        {
-            direction = 7;
-        }
-        else if (direction > 7)
-        {
-            direction = 0;
-        }
-
-        spit.GetComponent<Transform>().eulerAngles = new Vector3(40,0,0);
-        spit.sprite = imagedir[direction];
-
-        switch (direction)
-        {
-            case 0:
-                Dir = Directions.up;
-
-                break;
-            case 1:
-
-                Dir = Directions.right;
-                break;
-            case 2:
-
-                Dir = Directions.right;
-                break;
-            case 3:
-
-                Dir = Directions.right;
-                break;
-            case 4:
-
-                Dir = Directions.down;
-                break;
-            case 5:
-
-                Dir = Directions.left;
-                break;
-            case 6:
-
-                Dir = Directions.left;
-                break;
-            case 7:
-
-                Dir = Directions.left;
-                break;
-          
-        }
-    }
-    IEnumerator TurnClockwise()
-    {
-        if (t1)
-        {
-            transform.Rotate(Vector3.up, 45);
-            direction++;
-            checkDirection();
-            t1 = false;
-        }
-        yield return new WaitForSeconds(turnspeed);
-
-        transform.Rotate(Vector3.up, 45);
-        direction++;
-        checkDirection();
-
-        StopCoroutine("TurnClockwise");
-    }
-    IEnumerator TurnAntiClockwise()
-    {
-        if (t1)
-        {
-            transform.Rotate(Vector3.up, -45);
-            direction--;
-            checkDirection();
-
-            t1 = false;
-        }
-        yield return new WaitForSeconds(turnspeed);
-
-        transform.Rotate(Vector3.up, -45);
-        direction--;
-        checkDirection();
-
-        StopCoroutine("TurnAntiClockwise");
-    }
-    */
-    #endregion
+  
 }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiolaugeTrigger : MonoBehaviour {
 
-   // public string Name;
+    public string Name;
 
     public Diolauge NotMentionDio;
     public Diolauge MentionDio;
@@ -45,6 +45,7 @@ public    bool p2;
 
     public bool Item;
 
+    public bool indoors;
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
      //   meet = meetstates.notmentioned;
@@ -138,7 +139,7 @@ public    bool p2;
             case meetstates.notmentioned:
                 minordeciss = true;
 
-                dioman.Startdio(NotMentionDio, this.gameObject , true);
+                dioman.Startdio(NotMentionDio, this.gameObject , true , indoors);
 
                 ToDo = MentionDio.thingtodo;
                 
@@ -146,22 +147,22 @@ public    bool p2;
             case meetstates.mentioned:
                 minordeciss = true;
 
-                dioman.Startdio(MentionDio, this.gameObject , true);
+                dioman.Startdio(MentionDio, this.gameObject , true, indoors);
 
                 meet = meetstates.interm;
-
-                foreach (var people in peoplemeet) {
-                    people.meet = meetstates.mentioned;
-                    people.minordeciss = false;
-                }
-                              
+                if (peoplemeet.Length != 0) {
+                    foreach (var people in peoplemeet) {
+                        people.meet = meetstates.mentioned;
+                        people.minordeciss = false;
+                    }
+                }           
                 ToDo = MentionDio.thingtodo;
                 
                 break;
             case meetstates.interm:
                 minordeciss = true;
 
-                dioman.Startdio(IntermDio, this.gameObject, true);
+                dioman.Startdio(IntermDio, this.gameObject, true, indoors);
 
                 ToDo = IntermDio.thingtodo;
                 
@@ -170,7 +171,7 @@ public    bool p2;
             case meetstates.post:
                 minordeciss = true;
 
-                dioman.Startdio(PostDio, this.gameObject, true);
+                dioman.Startdio(PostDio, this.gameObject, true, indoors);
 
                 ToDo = PostDio.thingtodo;
 
@@ -207,13 +208,13 @@ public    bool p2;
 
        
             for (int i = 0; i < diooptions.Length; i++) {
-                if (diooptions[i].situation == dio) {
+                if (diooptions[i].situation == name + dio) {
                     if (caninteract) {
                     if (Item) {
-                        dioman.Startdio(diooptions[i], this.gameObject, true);
+                        dioman.Startdio(diooptions[i], this.gameObject, true, indoors);
                         return;
                     } else {
-                        dioman.Startdio(diooptions[i], this.gameObject, true);
+                        dioman.Startdio(diooptions[i], this.gameObject, true, indoors);
                         return;
                         //gameObject.SetActive(false);
                     }

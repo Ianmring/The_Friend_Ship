@@ -68,7 +68,7 @@ public class Room : MonoBehaviour
 
         inroom = true;
       //  Colide.size = EntrenceScale;
-        cam.CamOver(Center.transform, 7, 3, false);
+        cam.CamOver(Center.transform, 10, 3, false);
        // cam.character.transform.position = new Vector3(transform.position.x , transform.position.y, transform.position.z+3);
         yield return new WaitForSeconds(2);
 

@@ -48,5 +48,10 @@ public class LighterUI : UIMovement
             Debug.Log("collide");
         }
     }
-   
+    private void OnEnable() {
+        islight = false;
+        strikes = 0;
+
+    }
+
 }

@@ -26,15 +26,19 @@ public class camscript : MonoBehaviour {
     
     //public Quaternion offsetangel;
     void Start () {
+        // Camera.current.aspect = 16;
         cam = GetComponent<Camera>();
         cam.nearClipPlane = -100;
         character = FindObjectOfType<movement>().GetComponent<Transform>();
       //  Application.targetFrameRate = 200;
        // transform.position = character.transform.position + offsetI;
     }
-	
-	// Update is called once per frame
-	void Update () {
+    private void Awake() {
+        Screen.SetResolution(1920, 1200, true);
+
+    }
+    // Update is called once per frame
+    void Update () {
 
 
        

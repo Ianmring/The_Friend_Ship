@@ -20,12 +20,19 @@ public class distancedio : MonoBehaviour
         
         if (other.gameObject.GetComponent<movement>()) {
             Debug.Log("OUT");
-
-            dioman.Startdio(dio , this.gameObject, false);
+            FindObjectOfType<Tutorial_Manager>().Tutorialoff();
+            dioman.Startdio(dio , this.gameObject, false, false);
             // gameObject.SetActive(false);
             cam.CamOver(target.transform, 8.5f, 1, false);
             //cam.targettrans = target.transform;
             //cam.isfollwoing = false;
         }
+    }
+
+    IEnumerator Wait() {
+
+        yield return new WaitForSeconds(1);
+
+
     }
 }

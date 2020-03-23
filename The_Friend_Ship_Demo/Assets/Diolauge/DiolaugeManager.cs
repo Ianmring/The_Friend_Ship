@@ -21,6 +21,8 @@ public class DiolaugeManager : MonoBehaviour
 
     camscript cam;
 
+   public  Character Boy;
+   public Character Girl;
     public Queue<string> Sentences;
 
     public Image expression;
@@ -33,7 +35,7 @@ public class DiolaugeManager : MonoBehaviour
     public Image Katie;
     public Image Other;
 
-    public TextMeshProUGUI ThingtoDo;
+   // public TextMeshProUGUI ThingtoDo;
 
     public string TXTThingtodo;
     public string thingtodo;
@@ -58,6 +60,8 @@ public class DiolaugeManager : MonoBehaviour
    public uimanager mana;
 
     bool npcintoduced;
+
+    bool indoor;
     void Start()
     {
         Sentences = new Queue<string>();
@@ -66,7 +70,7 @@ public class DiolaugeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Startdio(Diolauge Dio , GameObject game , bool interact)
+    public void Startdio(Diolauge Dio , GameObject game , bool interact , bool indoors)
     {
         Audiomana.Audioinstance.Play("OneBell");
 
@@ -75,6 +79,8 @@ public class DiolaugeManager : MonoBehaviour
         anim.SetTrigger("Open");
         currentDiolauge = Dio;
         nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
+        Katie.overrideSprite = Girl.expressions[0];
+        Carl.overrideSprite = Boy.expressions[0];
         if (Dio.ThingToDoTxt != "") {
             TXTThingtodo = Dio.ThingToDoTxt;
         }
@@ -96,7 +102,7 @@ public class DiolaugeManager : MonoBehaviour
 
         currentdiogame = game;
         Ineractobj = interact;
-
+        indoor = indoors;
         if (currentDiolauge.oneonone && Carl.transform.localScale.x > 0f) {
             Carl.transform.position = Other.transform.position;
             Carl.transform.localScale = new Vector3( -1,1);
@@ -142,21 +148,30 @@ public class DiolaugeManager : MonoBehaviour
 
      
         if (currentDiolauge.Character_in_Conversation[currentconvopoint].notNPC) {
+
             if (currentDiolauge.Character_in_Conversation[currentconvopoint].Name == "Carl") {
+                    Carl.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+
                 Carl.color = Color.white;
                 Katie.color = Color.gray;
-                Other.color = Color.gray;
+
+
             } else if (currentDiolauge.Character_in_Conversation[currentconvopoint].Name == "Katie") {
+                   Katie.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+
                 Katie.color = Color.white;
                 Carl.color = Color.gray;
-                Other.color = Color.gray;
+
             }
+            Other.color = Color.gray;
 
         } else {
            
-            Other.sprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
             npcintoduced = true;
+
+            Other.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
             Other.color = Color.white;
+
             Katie.color = Color.gray;
             Carl.color = Color.gray;
         }
@@ -223,8 +238,10 @@ public class DiolaugeManager : MonoBehaviour
         currentconvopoint = 0;
 
         indio = false;
-      
-        movement.MovInstance.move = true;
+
+            movement.MovInstance.move = true;
+
+        
 
         p1 = false;
             p2 = false;
@@ -235,10 +252,12 @@ public class DiolaugeManager : MonoBehaviour
         mana.p2.enabled = true;
        
         npcintoduced = false;
+        if (!indoor) {
+            cam.Normal();
 
-        cam.Normal();
-    
-        ThingtoDo.text = "Thing to do -> " + TXTThingtodo;
+        }
+
+        // ThingtoDo.text = "Thing to do -> " + TXTThingtodo;
         for (int i = 2; i < 6; i++) {
             mana.Menus[i].SetActive(true);
         }

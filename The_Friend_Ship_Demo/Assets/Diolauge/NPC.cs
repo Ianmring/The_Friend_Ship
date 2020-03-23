@@ -18,7 +18,7 @@ public class NPC : Interactable
     int p1I;
     int p2I;
 
-   
+    public bool indoors;
     public override void Interact()
     {
         if (this.enabled)
@@ -37,11 +37,11 @@ public class NPC : Interactable
 
         if (diomana.currentstorymoment == storytriggers[diotoload]) {
             currentdiolauge++;
-            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload], this.gameObject , true);
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload], this.gameObject , true, indoors);
             currentdiolauge++;
 
         } else {
-            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload] , this.gameObject,true);
+            FindObjectOfType<DiolaugeManager>().Startdio(Diolaugeoptions[diotoload] , this.gameObject,true, indoors);
 
         }
 

@@ -19,6 +19,8 @@ public class UIMovement : MonoBehaviour
 
     Vector3 finalpo;
 
+    public TextMeshProUGUI Description;
+
     public bool bigdecistion;
 
     bool p1;

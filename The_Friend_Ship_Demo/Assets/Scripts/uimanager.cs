@@ -57,6 +57,8 @@ public class uimanager : MonoBehaviour {
     //public GameObject[] Storebuttons;
     int countt;
 
+    public bool itemcan;
+
     void Start()
     {
         int slotnums;
@@ -94,10 +96,11 @@ public class uimanager : MonoBehaviour {
         //    playersready[1] = false;
         //}
 
-        
-    
 
-        if ((playersready[0] || playersready[1]) && !manadio.indio) {
+        Tutorial_Manager.tootinstance.Tutorialoff();
+
+
+        if ((playersready[0] || playersready[1]) && !manadio.indio && itemcan) {
             Menus[0].SetActive(true);
             Menus[Menus.Length-1].SetActive(false);
             isopen = true;

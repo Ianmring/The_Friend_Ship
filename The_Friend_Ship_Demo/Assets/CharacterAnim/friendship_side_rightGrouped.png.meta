@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: b6efa3b4d7d4194498aab77d8acb1e59
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7881627743819658749
+    second: friendship_side_rightGrouped_0
+  - first:
+      213: -5981311655512605256
+    second: friendship_side_rightGrouped_1
+  - first:
+      213: 2641934540381248042
+    second: friendship_side_rightGrouped_2
+  - first:
+      213: -1008272519390276020
+    second: friendship_side_rightGrouped_3
+  - first:
+      213: 2543748469270259208
+    second: friendship_side_rightGrouped_4
+  - first:
+      213: -6762185848508749653
+    second: friendship_side_rightGrouped_5
+  - first:
+      213: -5510132001469767666
+    second: friendship_side_rightGrouped_6
+  - first:
+      213: -6220056535531124748
+    second: friendship_side_rightGrouped_7
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1600
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: friendship_side_rightGrouped_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3997
+        width: 3212
+        height: 1959
+      alignment: 9
+      pivot: {x: 0.48143518, y: 0.6095809}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895d9b74f4a026d459e91008b32f344d
+      internalID: -7881627743819658749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friendship_side_rightGrouped_1
+      rect:
+        serializedVersion: 2
+        x: 4222
+        y: 3825
+        width: 2980
+        height: 2159
+      alignment: 9
+      pivot: {x: 0.45197558, y: 0.64362097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f5febd3b5cf1c4b9568ad90933d83d
+      internalID: -5981311655512605256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friendship_side_rightGrouped_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1971
+        width: 3006
+        height: 1685
+      alignment: 9
+      pivot: {x: 0.4484237, y: 0.5424667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b6e298c4b2d4443adc4eef0bf33fee
+      internalID: -1008272519390276020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friendship_side_rightGrouped_4
+      rect:
+        serializedVersion: 2
+        x: 4197
+        y: 2162
+        width: 2986
+        height: 1469
+      alignment: 9
+      pivot: {x: 0.4560663, y: 0.48376307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c889af0db652d43996e344b7e1d6ab
+      internalID: 2543748469270259208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friendship_side_rightGrouped_6
+      rect:
+        serializedVersion: 2
+        x: 4205
+        y: 65
+        width: 2997
+        height: 1484
+      alignment: 9
+      pivot: {x: 0.44826874, y: 0.4678545}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b9f44ef0dd715409641f56ad208457
+      internalID: -5510132001469767666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: friendship_side_rightGrouped_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 3230
+        height: 1484
+      alignment: 9
+      pivot: {x: 0.4815386, y: 0.4758909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8822264b7fe2e3b4eab4ffb2b9bad2a5
+      internalID: -6220056535531124748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c6a4bdffa957bab43b0f56a15ec3f397
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
