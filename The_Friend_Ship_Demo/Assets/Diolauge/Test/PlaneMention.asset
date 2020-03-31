@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
-  m_Name: Test_Ment_Diolauge 1
+  m_Name: PlaneMention
   m_EditorClassIdentifier: 
   thingtodo: 
   situation: 
-  ThingToDoTxt: Find Coin
+  ThingToDoTxt: 
   Character_in_Conversation:
-  - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  currentexpressions: 00000000
-  txtsentences: {fileID: 4900000, guid: 4cb1696afc5ba0d4e85e849a6d0ebff9, type: 3}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  currentexpressions: 0000000000000000
+  txtsentences: {fileID: 4900000, guid: fd487b1b53400e44dadecceaeb57f0ad, type: 3}
+  oneonone: 1

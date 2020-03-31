@@ -13,9 +13,50 @@ MonoBehaviour:
   m_Name: GiveBarryCandy
   m_EditorClassIdentifier: 
   thingtodo: TradeItemOneTrail
-  situation: DannyFullCandy
+  situation: FullCandy
   ThingToDoTxt: 
-  Character_in_Conversation: []
-  currentexpressions: 
-  txtsentences: {fileID: 4900000, guid: f25e3bb4d050fc84ebb93c3e82c75e29, type: 3}
+  Character_in_Conversation:
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  currentexpressions: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000100000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  txtsentences: {fileID: 4900000, guid: 7399dbc8d8cbaae4898d8ca2fcaea524, type: 3}
   oneonone: 0

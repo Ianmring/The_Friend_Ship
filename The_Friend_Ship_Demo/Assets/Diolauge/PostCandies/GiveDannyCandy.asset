@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
+  m_Name: GiveDannyCandy
+  m_EditorClassIdentifier: 
+  thingtodo: TradeItemOneTrail
+  situation: FullCandy
+  ThingToDoTxt: 
+  Character_in_Conversation:
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  currentexpressions: 00000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000000000000000000000000000000000000000000000000000000000000
+  txtsentences: {fileID: 4900000, guid: f25e3bb4d050fc84ebb93c3e82c75e29, type: 3}
+  oneonone: 0

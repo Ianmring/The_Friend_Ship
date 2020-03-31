@@ -44,36 +44,36 @@ public class BuckettUi : UIMovement
                 break;
          
         }
-        if (box != null) {
-            if (box.currentboxstate == BoxUI.boxstates.Pryed && Input.GetButtonDown("Submit" + player.playernum) && !box.open) {
-                box.open = true;
-             //   box.currentboxstate = BoxUI.boxstates.Open;
-            } else if (box.currentboxstate == BoxUI.boxstates.Open) {
-                anim.anima[0].SetTrigger("Exit");
-                anim.AnimButtons[0].SetActive(false);
-                box = null;
-            }
-        }
+        //if (box != null) {
+        //    if (box.currentboxstate == BoxUI.boxstates.Pryed && Input.GetButtonDown("Submit" + player.playernum) && !box.open) {
+        //        box.open = true;
+        //     //   box.currentboxstate = BoxUI.boxstates.Open;
+        //    } else if (box.currentboxstate == BoxUI.boxstates.Open) {
+        //        anim.anima[0].SetTrigger("Exit");
+        //        anim.AnimButtons[0].SetActive(false);
+        //        box = null;
+        //    }
+        //}
       
     }
     public override void EnterUI(Collider2D Coli) {
         base.EnterUI(Coli);
 
-        if (Coli.gameObject.GetComponent<coinui>()) {
-            //Buttons.SetActive(true);
-            anim.AnimButtons[animnum].SetActive(true);
-            anim.anima[animnum].SetTrigger("Start");
-            isoncoin = true;
-            coin = Coli.gameObject.GetComponent<coinui>();
+        //if (Coli.gameObject.GetComponent<coinui>()) {
+        //    //Buttons.SetActive(true);
+        //    anim.AnimButtons[animnum].SetActive(true);
+        //    anim.anima[animnum].SetTrigger("Start");
+        //    isoncoin = true;
+        //    coin = Coli.gameObject.GetComponent<coinui>();
 
-        } else if (Coli.GetComponent<BoxUI>() ) {
+        //} else if (Coli.GetComponent<BoxUI>() ) {
           
-            box = Coli.GetComponent<BoxUI>();
-            if (box.currentboxstate == BoxUI.boxstates.Pryed ) {
-                anim.AnimButtons[0].SetActive(true);
-                anim.anima[0].SetTrigger("Start");
-            }
-        }
+        //    box = Coli.GetComponent<BoxUI>();
+        //    if (box.currentboxstate == BoxUI.boxstates.Pryed ) {
+        //        anim.AnimButtons[0].SetActive(true);
+        //        anim.anima[0].SetTrigger("Start");
+        //    }
+        //}
     }
     public override void ExitUI(Collider2D Coli) {
         base.ExitUI(Coli);

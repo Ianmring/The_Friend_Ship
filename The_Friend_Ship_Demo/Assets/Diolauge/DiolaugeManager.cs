@@ -168,12 +168,18 @@ public class DiolaugeManager : MonoBehaviour
         } else {
            
             npcintoduced = true;
+            if (currentDiolauge.Character_in_Conversation[currentconvopoint] == null) {
+                Katie.color = Color.gray;
+                Carl.color = Color.gray;
+                Other.color = Color.clear;
 
-            Other.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
-            Other.color = Color.white;
+            } else {
+                Other.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+                Other.color = Color.white;
 
-            Katie.color = Color.gray;
-            Carl.color = Color.gray;
+                Katie.color = Color.gray;
+                Carl.color = Color.gray;
+            }
         }
         if (!npcintoduced) {
             Other.color = Color.clear;
@@ -218,12 +224,12 @@ public class DiolaugeManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         //DioText.text = "";
-        DioText.text  = sentence;
-        yield return null;
-        //foreach (char Letter in sentence.ToCharArray())
-        //{
-        //    yield return new WaitForSeconds(0.03f);
-        //}
+       // DioText.text  = sentence;
+        DioText.text = "";
+        foreach (char Letter in sentence.ToCharArray()) {
+            DioText.text += Letter;
+            yield return new WaitForSeconds(0.03f);
+        }
     }
     IEnumerator Timecolor()
     {

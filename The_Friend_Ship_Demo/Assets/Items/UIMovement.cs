@@ -191,51 +191,33 @@ public class UIMovement : MonoBehaviour
             anim.AnimButtons[10].SetActive(false);
 
         }
-        if (bigdecistion) {
+     
+      
 
-            if (Input.GetButtonDown("Submit1")) {
-                p1 = true;
-              
-            }
-            if (Input.GetButtonDown("Submit2")) {
-                p2 = true;
+          
 
-            }
-
-            if (p1 && p2 && interactionItem) {
-
+           
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(trans.position);
                 if (Physics.Raycast(ray, out hit)) {
+            targetobj = hit.collider.gameObject;
+            if (targetobj.GetComponent<DiolaugeTrigger>()) {
+                anim.AnimButtons[11].SetActive(true);
+                if (Input.GetButtonDown("Submit" + player.playernum)) {
+
                     //   Debug.Log(hit.collider.gameObject);
-                    targetobj = hit.collider.gameObject;
+
                     Interactui();
                 }
-                p1 = false;
-                p2 = false;
-                bigdecistion = false;
-
-            } else {
+            } 
+            else {
+                anim.AnimButtons[11].SetActive(false);
                 targetobj = null;
             }
-        } 
-        else {
+           
 
-
-            if (Input.GetButtonDown("Submit" + player.playernum) ) {
-
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(trans.position);
-                if (Physics.Raycast(ray, out hit)) {
-                    //   Debug.Log(hit.collider.gameObject);
-                    targetobj = hit.collider.gameObject;
-                    Interactui();
-                }
-
-            } else {
-                targetobj = null;
-            }
-        }
+                } 
+        
 
         
     }

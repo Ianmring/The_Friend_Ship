@@ -16,6 +16,29 @@ MonoBehaviour:
   situation: Key
   ThingToDoTxt: 
   Character_in_Conversation:
-  - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  currentexpressions: 00000000
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  currentexpressions: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   txtsentences: {fileID: 4900000, guid: 123ec09e03cffc742b5b4dc798908772, type: 3}
+  oneonone: 1

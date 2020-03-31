@@ -36,7 +36,7 @@ using TMPro;
     public void Fin() {
         
 
-        Tutorial(new Vector3(0, 150, 0) , "Use the Right Sticks to move the cursor along your player’s axis and Y to swap axes");
+        Tutorial(new Vector3(0, 150, 0) , "Use the Right Sticks to move the cursor along your player’s axis; press A to go to that location; press Y to swap axes");
         on = true;
         MoveTutorial();
     }
@@ -92,8 +92,11 @@ using TMPro;
 
     }
     public void Tutorialoff() {
+
         Info.SetActive(false);
     }
+
+  
     IEnumerator WaittoDown() {
         yield return new WaitForSeconds(3);
         Parent.SetTrigger("off");

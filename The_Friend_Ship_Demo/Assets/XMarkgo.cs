@@ -24,9 +24,12 @@ public class XMarkgo : MonoBehaviour {
 
     NavMeshObstacle navobstical;
 
+    public SphereCollider ParentTrigger;
+
     public void Start() {
         if (GetComponentInParent<DiolaugeTrigger>()) {
             trigger = GetComponentInParent<DiolaugeTrigger>();
+            ParentTrigger = trigger.GetComponent<SphereCollider>();
         }
         navobstical = GetComponent<NavMeshObstacle>();
     }
@@ -114,6 +117,8 @@ public class XMarkgo : MonoBehaviour {
 
                if(!minordeciss && p1 && p2) {
                     navobstical.enabled = false;
+                    ParentTrigger.radius = 0.1f;
+
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;
                     going = true;
@@ -121,6 +126,8 @@ public class XMarkgo : MonoBehaviour {
                     cantrigger = true;
                 } else if (minordeciss && (p1 || p2)) {
                     navobstical.enabled = false;
+                    ParentTrigger.radius = 0.1f;
+
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;
                     going = true;
@@ -154,6 +161,9 @@ public class XMarkgo : MonoBehaviour {
     IEnumerator Delaynavon() {
         yield return new WaitForSeconds(1);
         navobstical.enabled = true;
+        if (ParentTrigger != null) {
+            ParentTrigger.radius = 1;
 
+        }
     }
 }

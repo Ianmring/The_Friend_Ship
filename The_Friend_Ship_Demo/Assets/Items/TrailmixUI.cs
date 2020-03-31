@@ -33,14 +33,14 @@ public class TrailmixUI : UIMovement
     bool poured;
     bool singlepour;
     bool doublepour;
-
+    bool tooton;
     public GameObject Mixholder;
    public string bagstate;
 
     public override void startingfunt() {
         base.startingfunt();
-        bitstospawn = 7;
-        candytosapwn = 5;
+        bitstospawn = 0;
+        candytosapwn = 12;
         Bench = InventoryMenu.invmeninstance.interactionarea;
 
         for (int i = 0; i < bitstospawn; i++) {
@@ -161,9 +161,11 @@ public class TrailmixUI : UIMovement
         }
          else if(candiesinbag >= 12 && etcinbag == 0) {
             bagstate = "FullCandy";
-
-        }
-        else {
+            if (!tooton) {
+                Tutorial_Manager.tootinstance.Tutorial(this.gameObject.transform.position, "Items and interact with the outside world too! Who ever is controlling the object can over something and press A.");
+                tooton = true;
+            }
+        } else {
             bagstate = "Empty";
         }
     }
@@ -176,7 +178,7 @@ public class TrailmixUI : UIMovement
             foreach (var item in trigger.diooptions) {
                 if (item.thingtodo == "TradeItemOneTrail" && item.situation == "FullCandy" && bagstate == "FullCandy") {
                     InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
-
+                    Tutorial_Manager.tootinstance.Tutorialoff();
                     Destroy(this.gameObject);
 
                 }

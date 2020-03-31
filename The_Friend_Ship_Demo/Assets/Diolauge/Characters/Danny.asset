@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e150fd8aca8d141bcfe387f165bc81, type: 3}
   m_Name: Danny
   m_EditorClassIdentifier: 
-  Name: Bubbles
+  Name: Danny
   expressions:
   - {fileID: 21300000, guid: a85c4929474df274391f45bff0044d63, type: 3}
   - {fileID: 21300000, guid: e4e093f7413c3984aa847b589e7c09c8, type: 3}

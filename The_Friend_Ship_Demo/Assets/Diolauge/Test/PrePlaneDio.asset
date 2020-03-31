@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
-  m_Name: GiveTrail
+  m_Name: PrePlaneDio
   m_EditorClassIdentifier: 
-  thingtodo: TradeItemOneTrail
-  situation: FullCandy
+  thingtodo: 
+  situation: 
   ThingToDoTxt: 
-  Character_in_Conversation:
-  - {fileID: 11400000, guid: daf8fb4ad26e70b4f9ee504d88900bfb, type: 2}
-  currentexpressions: 00000000
-  txtsentences: {fileID: 4900000, guid: 8f1d774671536b94d8cd7ac0beab77ea, type: 3}
+  Character_in_Conversation: []
+  currentexpressions: 
+  txtsentences: {fileID: 0}
+  oneonone: 0

@@ -16,9 +16,9 @@ public class PlayersSelector : MonoBehaviour {
     public Image Select;
     Vector3 Center;
 
-  public  Animator anim;
+    public Animator anim;
     [SerializeField]
- //  public DiolaugeTrigger diotrigg;
+    //  public DiolaugeTrigger diotrigg;
     public XMarkgo marktrigg;
 
     public bool onmark;
@@ -37,66 +37,53 @@ public class PlayersSelector : MonoBehaviour {
 
     // Update is called once per frame
     void LateUpdate() {
-        if (mov != null && mov.move ) {
-
-            transform.position = new Vector3(Mathf.Clamp(trans.position.x, 0, Screen.width), Mathf.Clamp(trans.position.y, 0, Screen.height));
-            finalpo = new Vector3(trans.position.x + (mov.DirxM[mov.steerint] * 20), trans.position.y + (mov.DiryM[mov.dirint] * 20));
-            transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
-
-            // Debug.DrawLine(trans.position, hitt.collider.transform.position);
-        }
-
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(trans.position);
-        if (Physics.Raycast(ray, out hit)) {
-            //   hitt = hit;
+       
 
 
-            //if (hit.transform.GetComponent<DiolaugeTrigger>()) {
-            //    if (diotrigg == null) {
-            //        diotrigg = hit.transform.GetComponent<DiolaugeTrigger>();
-            //        diotrigg.select = this;
-            //    }
+            if (mov != null && mov.move) {
 
-            //    diotrigg.cantrigger = true;
-            //    onmark = true;
+                transform.position = new Vector3(Mathf.Clamp(trans.position.x, 0, Screen.width), Mathf.Clamp(trans.position.y, 0, Screen.height));
+                finalpo = new Vector3(trans.position.x + (mov.DirxM[mov.steerint] * 20), trans.position.y + (mov.DiryM[mov.dirint] * 20));
+                transform.position = Vector3.Lerp(trans.position, finalpo, .25f);
 
+                // Debug.DrawLine(trans.position, hitt.collider.transform.position);
+            }
 
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(trans.position);
+            if (Physics.Raycast(ray, out hit)) {
+               
 
-            //} else if (diotrigg != null && !diotrigg.going) {
-            //    diotrigg.cantrigger = false;
-            //    onmark = false;
+                if (hit.transform.GetComponent<XMarkgo>()) {
 
-            //}
-
-            if (hit.transform.GetComponent<XMarkgo>()) {
-              
                     marktrigg = hit.transform.GetComponent<XMarkgo>();
                     marktrigg.select = this;
-                
-
-                marktrigg.cantrigger = true;
-                onmark = true;
 
 
-            } else if (marktrigg != null && !marktrigg.going) {
-                marktrigg.cantrigger = false;
-                onmark = false;
-
-            }
+                    marktrigg.cantrigger = true;
+                    onmark = true;
 
 
+                } else if (marktrigg != null && !marktrigg.going) {
+                    marktrigg.cantrigger = false;
+                    onmark = false;
+
+                }
 
 
-            if (Input.GetButtonDown("Submit") && !onmark && !goingS && mov.move) {
 
-                mov.age.destination = hit.point;
-                anim.SetTrigger("Pointt");
-                goingS = false;
 
+                if (Input.GetButtonDown("Submit") && !onmark && !goingS && mov.move) {
+
+                    mov.age.destination = hit.point;
+                    anim.SetTrigger("Pointt");
+                    goingS = false;
+
+
+                }
 
             }
 
         }
-
-    } }
+    
+}

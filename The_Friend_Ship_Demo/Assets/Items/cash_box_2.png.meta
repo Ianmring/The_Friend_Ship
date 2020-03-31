@@ -93,10 +93,10 @@ TextureImporter:
       name: cash_box_2_0
       rect:
         serializedVersion: 2
-        x: 38
+        x: 35
         y: 62
-        width: 787
-        height: 548
+        width: 795
+        height: 550
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,7 +104,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab5a44ef63a3fe24fba21312ec7f5149
+      spriteID: 45a804af9edbec84084d663c1195e882
       internalID: 7326564742308422333
       vertices: []
       indices: 
@@ -114,10 +114,10 @@ TextureImporter:
       name: cash_box_2_1
       rect:
         serializedVersion: 2
-        x: 883
-        y: 62
-        width: 788
-        height: 548
+        x: 889
+        y: 52
+        width: 797
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a6042dfcd2b62147b09fbd40792633f
+      spriteID: cbb1ac9fd7b37e647bc156122ce25472
       internalID: 3902292150663890121
       vertices: []
       indices: 

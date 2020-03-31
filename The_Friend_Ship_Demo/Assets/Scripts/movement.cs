@@ -45,7 +45,7 @@ public class movement : MonoBehaviour {
 
      enum Turning { Clockwise, AniClockwise, Not };
 
-     enum Directions { up, upleft, left, downleft, down, downright, right, upright}
+     enum Directions { up,  left,  down,  right}
 
    public enum PlayerSteering { P1,P2}
 
@@ -74,7 +74,7 @@ public class movement : MonoBehaviour {
    public inventorygeneral p2I;
 
 
-  public  SpriteRenderer spit;
+  public  Animator spit;
     public float mag;
 
     public bool move= true;
@@ -115,7 +115,7 @@ public class movement : MonoBehaviour {
         Switchplayerpos();
         moving = Moving.Not;
         turning = Turning.Not;
-        spit = GetComponentInChildren<SpriteRenderer>();
+        spit = GetComponentInChildren<Animator>();
         
        // X.SetActive(false);
 
@@ -127,32 +127,30 @@ public class movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-
         spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
 
 
-        if (move && !uimanager.UIinstance.isopen)
-        {
 
-           
-          //  rig.mass = 1;
-            Currentang = GetComponent<Transform>().eulerAngles;
-            Move();
-            //Direction();
-     
-         //   rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
-         //   zoom = rig.velocity.magnitude;
-            turnspeed = zoom >= 1 ? minturnspeed : maxturnspeed;
-            zroto = transform.localEulerAngles.y;
-            Pointer.gameObject.SetActive(true);
-        }
-        else {
+            if (move && !uimanager.UIinstance.isopen) {
 
-            age.destination = transform.localPosition;
 
-            turning = Turning.Not;
-            Pointer.gameObject.SetActive(false);
+                //  rig.mass = 1;
+                Currentang = GetComponent<Transform>().eulerAngles;
+                Move();
+                //Direction();
+
+                //   rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
+                //   zoom = rig.velocity.magnitude;
+                turnspeed = zoom >= 1 ? minturnspeed : maxturnspeed;
+                zroto = transform.localEulerAngles.y;
+                Pointer.gameObject.SetActive(true);
+            } else {
+
+                age.destination = transform.localPosition;
+
+                turning = Turning.Not;
+                Pointer.gameObject.SetActive(false);
+            spit.SetTrigger("Stop");
 
         }
 
@@ -197,22 +195,34 @@ public class movement : MonoBehaviour {
 
         if (going) {
             if (Currentang.y > 45 && Currentang.y < 135) {
-                spit.sprite = imagedir[2];
+                Dir =  Directions.left;
+
+                spit.SetTrigger("Left");
             } else if (Currentang.y > 135 && Currentang.y < 225) {
-                spit.sprite = imagedir[4];
+                Dir = Directions.down;
+
+                spit.SetTrigger("Down");
             } else if (Currentang.y > 225 && Currentang.y < 315) {
-                spit.sprite = imagedir[6];
+                Dir = Directions.right;
+
+                spit.SetTrigger("Right");
             } else if (Currentang.y > 315 || Currentang.y < 45) {
-                spit.sprite = imagedir[0];
+                Dir = Directions.up;
+
+                spit.SetTrigger("Up");
             }
-        }
+        } 
         if (age.remainingDistance <= age.stoppingDistance) {
             going = false;
             X.SetActive(false);
+            spit.SetTrigger("Stop");
+
+
         } else {
             going = true;
 
             if (Pointer.onmark || Pointer.goingS) {
+
                 X.SetActive(false);
             } else {
                 X.SetActive(true);

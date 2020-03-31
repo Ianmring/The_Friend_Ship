@@ -208,7 +208,8 @@ public    bool p2;
 
        
             for (int i = 0; i < diooptions.Length; i++) {
-                if (diooptions[i].situation == name + dio) {
+                if (diooptions[i].situation ==  dio) {
+                Debug.Log("doneI");
                     if (caninteract) {
                     if (Item) {
                         dioman.Startdio(diooptions[i], this.gameObject, true, indoors);

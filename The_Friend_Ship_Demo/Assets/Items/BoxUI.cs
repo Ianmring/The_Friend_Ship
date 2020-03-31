@@ -15,6 +15,15 @@ public class BoxUI : UIMovement
   public  bool done;
     public Item watch;
    [SerializeField] bool Watchgotten;
+
+   public int knifeshakes;
+
+    int boxshakes;
+   public bool shaking;
+    bool boxshake;
+    bool boxshaking;
+
+   public bool Crushed;
     // Start is called before the first frame update
     public override void startingfunt() {
         base.startingfunt();
@@ -26,25 +35,34 @@ public class BoxUI : UIMovement
     public override void Lateupfunt() {
         base.Lateupfunt();
 
+        if (knifeshakes > 20) {
+            open = true;
+            shaking = false;
+        } else if (knifeshakes == 0) {
+            shaking = false;
+        }
+
         if (!done) {
             if (knifein && !open) {
                 currentboxstate = boxstates.Pryed;
-            } else if (open && knifein) {
+            } else if (open && knifein ) {
                 currentboxstate = boxstates.Open;
                 done = true;
-            } else {
+            } else { 
                 currentboxstate = boxstates.closed;
             }
         }
-        box.sprite = boxstatesimages[(int)currentboxstate];
+        if (!shaking && !boxshaking ) {
+            box.sprite = boxstatesimages[(int)currentboxstate];
+
+        }
 
         if ( open && ISlot.isslected && !Watchgotten) {
             
                 anim.AnimButtons[0].SetActive(true);
                 anim.anima[0].SetTrigger("Start");
             if (Input.GetButtonDown("Submit" + player.playernum)) {
-                Inventory.instance.AddKey(watch, 1);
-                Watchgotten = true;
+                BoxShake();
             }
 
         } else {
@@ -53,4 +71,35 @@ public class BoxUI : UIMovement
             //  anim.anima[animnum].SetTrigger("Exit");
         }
     }
+    public void KnifeShake(bool L , bool R) {
+        shaking = true;
+        knifeshakes++;
+        if (L) {
+            box.sprite = boxstatesimages[3];
+
+        } else { 
+            box.sprite = boxstatesimages[4];
+
+        }
+
+    }
+
+    public void BoxShake() {
+        boxshakes++;
+        boxshaking = true;
+        if (boxshake) {
+            box.sprite = boxstatesimages[5];
+            boxshake = false;
+        } else {
+            box.sprite = boxstatesimages[6];
+            boxshake = true;
+        }
+        if (boxshakes > 20) {
+            box.sprite = boxstatesimages[(int)currentboxstate];
+
+            Inventory.instance.AddKey(watch, 1);
+            Watchgotten = true;
+        }
+    }
+      
 }

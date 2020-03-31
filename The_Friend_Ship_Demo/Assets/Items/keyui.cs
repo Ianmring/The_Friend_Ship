@@ -22,4 +22,7 @@ public class keyui : UIMovement
             return;
         }
     }
+    private void OnEnable() {
+     //   Tutorial_Manager.tootinstance.Tutorial(this.gameObject.transform.position, "Items and interact with the outside world too! Who ever is controlling the object can over something and press A.");
+    }
 }

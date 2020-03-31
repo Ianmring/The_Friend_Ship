@@ -90,74 +90,77 @@ public class Playergen : MonoBehaviour
     void Update() {
 
 
+      
 
-
-        if (Input.GetButtonDown("Handoff" + playernum.ToString()) && !UIMana.isopen) {
+            if (Input.GetButtonDown("Handoff" + playernum.ToString()) && !UIMana.isopen) {
                 Debug.Log("move");
                 movement.MovInstance.Switchplayerpos();
             }
 
 
-        if (Input.GetButtonDown("MenuUP" + playernum.ToString())) {
-            //UIMana.toggleinvet();
+            if (Input.GetButtonDown("MenuUP" + playernum.ToString())) {
+                //UIMana.toggleinvet();
 
-            UIMana.playersready[direction] = !UIMana.playersready[direction];
-            if (UIMana.playersready[direction]) {
-                Audiomana.Audioinstance.Play("ZipOpen");
+                UIMana.playersready[direction] = !UIMana.playersready[direction];
+                if (UIMana.playersready[direction]) {
+                    Audiomana.Audioinstance.Play("ZipOpen");
 
-            } else {
-                Audiomana.Audioinstance.Play("ZipClose");
-
-            }
-            UIMana.toggleinvet();
-            invmen.equipitem(direction);
-
-            Debug.Log("UP");
-
-
-        }
-        if (Input.GetButtonDown("Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
-            UIMana.PauseMenu();
-        }
-        if (UIMana.menuisopen && isselectingitem) {
-            if ((Itemselect > .1 && selecting) || Input.GetButtonDown("ItemRB" + playernum.ToString())) {
-                Audiomana.Audioinstance.Play("Rum");
-                invmen.Itemup(direction);
-                if (invmen.itemselected[direction] >= 0) {
-                    invmen.equipitem(direction);
-
-                    // invent.AddKey(invmen.currentactiveitem[direction], false);
                 } else {
-                    invmen.equipitem(direction);
-                    //     invent.AddKey(null, false);
+                    Audiomana.Audioinstance.Play("ZipClose");
 
                 }
+                UIMana.toggleinvet();
+                invmen.equipitem(direction);
 
-                selecting = false;
-            } else if ((Itemselect < -.1 && selecting) || Input.GetButtonDown("ItemLB" + playernum.ToString())) {
-                Audiomana.Audioinstance.Play("Rum");
-                invmen.ItemDown(direction);
-                if (invmen.itemselected[direction] >= 0) {
-                    invmen.equipitem(direction);
+                Debug.Log("UP");
 
-                    //  invent.AddKey(invmen.currentactiveitem[direction],  false);
-                } else {
-                    invmen.equipitem(direction);
-                    //   invent.AddKey(null, false);
-
-                }
-
-                selecting = false;
-
-            } else if (Itemselect == 0) {
-                selecting = true;
 
             }
-        }
+            if (Input.GetButtonDown("Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
+                UIMana.PauseMenu();
+            }
+            if (UIMana.menuisopen && isselectingitem) {
+                if ((Itemselect > .1 && selecting) || Input.GetButtonDown("ItemRB" + playernum.ToString())) {
+                    Audiomana.Audioinstance.Play("Rum");
+                    invmen.Itemup(direction);
+                    if (invmen.itemselected[direction] >= 0) {
+                        invmen.equipitem(direction);
+
+                        // invent.AddKey(invmen.currentactiveitem[direction], false);
+                    } else {
+                        invmen.equipitem(direction);
+                        //     invent.AddKey(null, false);
+
+                    }
+
+                    selecting = false;
+                } else if ((Itemselect < -.1 && selecting) || Input.GetButtonDown("ItemLB" + playernum.ToString())) {
+                    Audiomana.Audioinstance.Play("Rum");
+                    invmen.ItemDown(direction);
+                    if (invmen.itemselected[direction] >= 0) {
+                        invmen.equipitem(direction);
+
+                        //  invent.AddKey(invmen.currentactiveitem[direction],  false);
+                    } else {
+                        invmen.equipitem(direction);
+                        //   invent.AddKey(null, false);
+
+                    }
+
+                    selecting = false;
+
+                } else if (Itemselect == 0) {
+                    selecting = true;
+
+                }
+            }
+        
+
     }
     
     private void FixedUpdate() {
 
+        
         Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
         Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
         Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Turn");

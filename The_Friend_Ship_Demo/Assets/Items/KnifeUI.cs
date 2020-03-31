@@ -20,6 +20,16 @@ public class KnifeUI : UIMovement
 
     [SerializeField]
     bool animationgo;
+    
+    public enum Animstates {none, Triggers, stick}
+    public Animstates currenttriggers;
+
+
+
+ public   bool L;
+  public  bool R;
+
+    public bool shaking;
     public override void Startfunt() {
         base.Startfunt();
         cap = dir.GetComponent<CapsuleCollider2D>();
@@ -34,6 +44,19 @@ public class KnifeUI : UIMovement
         }
 
         StartCoroutine("stickturn");
+        //anim.AnimButtons[6].SetActive(false);
+
+        //switch (hold) {
+        //    case playerholding.p1:
+        //        animnum = 6;
+
+        //        break;
+        //    case playerholding.p2:
+        //        animnum = 7;
+
+        //        break;
+
+        //}
 
     }
     public override void Lateupfunt() {
@@ -45,16 +68,52 @@ public class KnifeUI : UIMovement
 
         }
 
-        if (animationgo && !Box.done && Box !=null) {
-            anim.AnimButtons[animnum].SetActive(true);
-            anim.anima[animnum].SetTrigger("Start");
-        } else {
-            anim.AnimButtons[animnum].SetActive(false);
+        if (Box == null) {
+            anim.AnimButtons[6].SetActive(false);
 
-          //  anim.anima[animnum].SetTrigger("Exit");
+        } else {
+            if (!Box.done && Box != null && currenttriggers == Animstates.Triggers) {
+                anim.AnimButtons[6].SetActive(true);
+                anim.anima[6].SetTrigger("Start");
+            } else {
+                anim.AnimButtons[6].SetActive(false);
+
+            }
+
+            if (!Box.done && Box != null && currenttriggers == Animstates.stick) {
+                anim.AnimButtons[8].SetActive(true);
+                anim.anima[8].SetTrigger("LeftRight");
+
+            
+
+                if (player.DirH > 0 && !R) {
+                   
+                    R = true;
+                    L = false;
+                    Box.KnifeShake(L,R);
+                }
+
+                if (player.DirH < 0 && !L) {
+                    L = true;
+                    R = false;
+                    Box.KnifeShake(L, R);
+
+                }
+
+
+            } else {
+                L = false;
+                R = false;
+                Box.knifeshakes = 0;
+                shaking = false;
+                anim.AnimButtons[8].SetActive(false);
+
+            }
         }
 
+      
 
+      
         if (!ISlot.isslected) {
             // rend.enabled = true;
             if (Box != null) {
@@ -66,51 +125,28 @@ public class KnifeUI : UIMovement
         } 
         
         else {
-            switch (hold) {
-                case playerholding.p1:
-                    animnum = 6;
-                    if (player.IReady > .5f && Box != null) {
-                        Box.knifein = true;
-                        rend.enabled = false;
-                        move = false;
-                        animationgo = false;
 
-                    } else if (Box != null) {
-
-                        Box.knifein = false;
-                        move = true;
-
-                        rend.enabled = true;
+            if (player.IReady > .5f && Box != null && !Box.done) {
+                Box.knifein = true;
+                rend.enabled = false;
+                move = false;
+                currenttriggers = Animstates.stick;
 
 
+            } else if (Box != null) {
 
-                    }
-                    break;
-                case playerholding.p2:
-                    animnum = 7;
-                    if (player.Ready > .5f && Box != null) {
-                        Box.knifein = true;
-                        rend.enabled = false;
-                        move = false;
-                        animationgo = false;
+                Box.knifein = false;
+                move = true;
+                currenttriggers = Animstates.Triggers;
 
-                    } else if (Box != null) {
 
-                        Box.knifein = false;
-                        move = true;
-
-                        rend.enabled = true;
+                rend.enabled = true;
 
 
 
-                    }
-                    break;
-
-
-
-                    //transform.rotation = Quaternion.LookRotation()
             }
 
+            
         }
     }
 
@@ -125,8 +161,8 @@ public class KnifeUI : UIMovement
 
             }
 
-            if (!Box.knifein) {
-                animationgo = true;
+            if (!Box.knifein && currenttriggers == Animstates.none) {
+                currenttriggers = Animstates.Triggers;
 
             }
         }
@@ -135,7 +171,7 @@ public class KnifeUI : UIMovement
         base.ExitUI(Coli);
         if (Coli.GetComponent<BoxUI>() != null) {
 
-            animationgo = false;
+            currenttriggers = Animstates.none;
 
             Box.knifein = false;
             if (Box!= null && ISlot.isslected) {
@@ -170,5 +206,6 @@ public class KnifeUI : UIMovement
         anim.anima[9].gameObject.SetActive(false);
 
     }
+
 
 }
