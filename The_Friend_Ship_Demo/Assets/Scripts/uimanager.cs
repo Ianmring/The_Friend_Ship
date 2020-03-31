@@ -62,7 +62,7 @@ public class uimanager : MonoBehaviour {
     void Start()
     {
         int slotnums;
-        //itemcan = true;
+        itemcan = true;
         Input = GetComponent<StandaloneInputModule>();
         events = GetComponent<EventSystem>();
         manadio = DiolaugeManager.DioInstance;

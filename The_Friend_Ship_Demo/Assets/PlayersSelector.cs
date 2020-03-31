@@ -54,9 +54,9 @@ public class PlayersSelector : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                
 
-                if (hit.transform.GetComponent<XMarkgo>()) {
+                if (hit.transform.GetComponentInChildren<XMarkgo>()) {
 
-                    marktrigg = hit.transform.GetComponent<XMarkgo>();
+                    marktrigg = hit.transform.GetComponentInChildren<XMarkgo>();
                     marktrigg.select = this;
 
 

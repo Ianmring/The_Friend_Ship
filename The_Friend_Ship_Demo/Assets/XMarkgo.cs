@@ -32,6 +32,7 @@ public class XMarkgo : MonoBehaviour {
             ParentTrigger = trigger.GetComponent<SphereCollider>();
         }
         navobstical = GetComponent<NavMeshObstacle>();
+
     }
     private void OnTriggerEnter(Collider other) {
 
@@ -47,9 +48,15 @@ public class XMarkgo : MonoBehaviour {
 
 
     }
+    //private void OnEnable() {
+    //    ParentTrigger.enabled = false;
+    //    GetComponent<SphereCollider>().enabled = false;
+    //}
     private void OnTriggerExit(Collider other) {
         if (other.GetComponent<movement>()) {
 
+           // ParentTrigger.enabled = true;
+           // GetComponent<SphereCollider>().enabled = true;
 
             there = false;
             StartCoroutine("Delaynavon");
@@ -118,7 +125,7 @@ public class XMarkgo : MonoBehaviour {
                if(!minordeciss && p1 && p2) {
                     navobstical.enabled = false;
                     ParentTrigger.radius = 0.1f;
-
+                    
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;
                     going = true;

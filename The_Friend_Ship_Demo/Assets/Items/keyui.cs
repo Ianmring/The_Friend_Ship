@@ -8,16 +8,18 @@ public class keyui : UIMovement
     public override void Interactui() {
         base.Interactui();
         DiolaugeTrigger trigger;
-        if (targetobj.GetComponentInParent<DiolaugeTrigger>() && !unlocked) {
-            
+        if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
+            InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
+            Destroy(this.gameObject);
             trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
             trigger.Tstartdio("Key", "GiveItem");
             if (trigger.Item && trigger.name == "Plane") {
                 trigger.meet = DiolaugeTrigger.meetstates.post;
+               
 
             }
-            unlocked = true;
-
+           
+           
         } else {
             return;
         }

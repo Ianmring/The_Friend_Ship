@@ -39,8 +39,8 @@ public class TrailmixUI : UIMovement
 
     public override void startingfunt() {
         base.startingfunt();
-        bitstospawn = 0;
-        candytosapwn = 12;
+        bitstospawn = 5;
+        candytosapwn = 6;
         Bench = InventoryMenu.invmeninstance.interactionarea;
 
         for (int i = 0; i < bitstospawn; i++) {

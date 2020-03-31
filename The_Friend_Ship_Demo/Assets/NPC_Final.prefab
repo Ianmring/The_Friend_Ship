@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 81137678}
   - component: {fileID: 81137677}
   - component: {fileID: 81137676}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: ScaledPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237984924}
   - component: {fileID: 237984925}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: B1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320180107}
   - component: {fileID: 320180108}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: And
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,8 @@ GameObject:
   - component: {fileID: 620047098}
   - component: {fileID: 620047100}
   - component: {fileID: 620047099}
-  m_Layer: 12
+  - component: {fileID: 83276610}
+  m_Layer: 8
   m_Name: QuestMarker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,6 +311,7 @@ MonoBehaviour:
   going: 0
   select: {fileID: 0}
   trigger: {fileID: 0}
+  ParentTrigger: {fileID: 0}
 --- !u!135 &620047099
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -323,6 +325,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &83276610
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620047097}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.75, y: 0.5, z: 0.75}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &679436061
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679436062}
   - component: {fileID: 679436063}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: B2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988084258}
   - component: {fileID: 988084259}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Or
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +513,7 @@ GameObject:
   - component: {fileID: 1602801421}
   - component: {fileID: 1602801420}
   - component: {fileID: 1602801419}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2728b76f1150fd945bc82d24937a3a70, type: 2}
+  - {fileID: 2100000, guid: 76d1f0a4ae1bace44a714df2b3e5ea39, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -586,8 +604,9 @@ GameObject:
   - component: {fileID: 2211887862950315495}
   - component: {fileID: 570376261}
   - component: {fileID: 1837269484}
-  m_Layer: 12
-  m_Name: QuestMarker
+  - component: {fileID: 931804124}
+  m_Layer: 8
+  m_Name: NPC_Final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +638,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1837269484
 MonoBehaviour:
@@ -633,6 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359b22e8bf1f12740ae1c1cad683bec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Barry
   NotMentionDio: {fileID: 0}
   MentionDio: {fileID: 11400000, guid: 23922e6aa528846429965e3bd69b5dba, type: 2}
   IntermDio: {fileID: 11400000, guid: 6b52c37653b4d1b47b3cf86ab0790351, type: 2}
@@ -641,7 +661,9 @@ MonoBehaviour:
   cantrigger: 0
   going: 0
   there: 0
-  diooptions: []
+  diooptions:
+  - {fileID: 11400000, guid: af2fc3930568be141829cf11966ba650, type: 2}
+  - {fileID: 11400000, guid: ea5e12e78bdbffc49b170999c1f94aea, type: 2}
   p1: 0
   p2: 0
   meet: 1
@@ -650,3 +672,21 @@ MonoBehaviour:
   minordeciss: 0
   select: {fileID: 0}
   Item: 0
+  indoors: 1
+--- !u!114 &931804124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2211887862950315492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b748bcaf07c9146accc746446eb8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items: []
+  Cash: {fileID: 0}
+  key: {fileID: 11400000, guid: 14f9b669fc77d734a918e7a5093b5d98, type: 2}
+  Plane: {fileID: 0}
+  NewIntermdiolauges: []

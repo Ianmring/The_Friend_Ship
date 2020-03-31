@@ -54,7 +54,7 @@ public    bool p2;
     private void OnEnable() {
 
         caninteract = false;
-        
+       // GetComponent<SphereCollider>().enabled = false;
       
         StartCoroutine("Abletointeract");
     }
@@ -195,6 +195,8 @@ public    bool p2;
         //Button1.color = Color.yellow;
         //Button2.color = Color.yellow;
         yield return new WaitForSeconds(.5f);
+       // GetComponent<SphereCollider>().enabled = true;
+
         caninteract = true;
        // cantrigger = false;
         

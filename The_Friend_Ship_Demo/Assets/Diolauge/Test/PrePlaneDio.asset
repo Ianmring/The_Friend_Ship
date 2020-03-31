@@ -15,7 +15,10 @@ MonoBehaviour:
   thingtodo: 
   situation: 
   ThingToDoTxt: 
-  Character_in_Conversation: []
-  currentexpressions: 
-  txtsentences: {fileID: 0}
-  oneonone: 0
+  Character_in_Conversation:
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  currentexpressions: 000000000000000000000000
+  txtsentences: {fileID: 4900000, guid: 4cb1696afc5ba0d4e85e849a6d0ebff9, type: 3}
+  oneonone: 1

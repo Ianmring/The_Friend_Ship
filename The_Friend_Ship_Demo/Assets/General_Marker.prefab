@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8830995410373608374}
   - component: {fileID: 8830995410373608361}
   - component: {fileID: 8830995410373608360}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: ScaledPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8830995410583819053}
   - component: {fileID: 8830995410583819050}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: Or
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8830995410786984849}
   - component: {fileID: 8830995410786984862}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: B2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8830995410839545390}
   - component: {fileID: 8830995410839545391}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: And
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8830995411224523035}
   - component: {fileID: 8830995411224523032}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: B1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,8 +423,8 @@ GameObject:
   - component: {fileID: 8830995412158705039}
   - component: {fileID: 8830995412158705036}
   - component: {fileID: 8830995412158705037}
-  m_Layer: 12
-  m_Name: QuestMarker 2
+  m_Layer: 11
+  m_Name: General_Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,7 +437,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8830995412158705025}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -471,6 +471,7 @@ MonoBehaviour:
   going: 0
   select: {fileID: 0}
   trigger: {fileID: 0}
+  ParentTrigger: {fileID: 0}
 --- !u!135 &8830995412158705036
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -482,7 +483,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.9
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &8830995412158705037
 NavMeshObstacle:
@@ -512,7 +513,7 @@ GameObject:
   - component: {fileID: 8830995412424417439}
   - component: {fileID: 8830995412424417438}
   - component: {fileID: 8830995412424417425}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
