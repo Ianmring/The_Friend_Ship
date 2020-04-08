@@ -46,6 +46,8 @@ public class Playergen : MonoBehaviour
 
     public Canvas playercanvas;
     public GameObject curssor;
+
+    public bool iskeyboard;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,7 @@ public class Playergen : MonoBehaviour
                 playercanvas = UIMana.p1;
                 curssor = UIMana.P1curss;
                 UIMana.oneplayer = this;
+                
                 break;
 
             case 1:
@@ -77,6 +80,10 @@ public class Playergen : MonoBehaviour
               
 
                 break;
+        }
+
+        if (iskeyboard) {
+            Mov.keyboard = true;
         }
         invmen.GenInv[direction] = invent;
       //  UIMana.OBJSelector[direction].PointAssignplayer(this, triggeritem);
@@ -98,11 +105,18 @@ public class Playergen : MonoBehaviour
             }
 
 
-            if (Input.GetButtonDown("MenuUP" + playernum.ToString())) {
-                //UIMana.toggleinvet();
+            if (Input.GetButtonDown("MenuUP" + playernum.ToString()) && UIMana.itemcan) {
+            //UIMana.toggleinvet();
 
+            if (movement.MovInstance.Solo) {
+                UIMana.playersready[0] = !UIMana.playersready[0];
+                UIMana.playersready[1] = !UIMana.playersready[1];
+
+            } else {
                 UIMana.playersready[direction] = !UIMana.playersready[direction];
-                if (UIMana.playersready[direction]) {
+
+            }
+            if (UIMana.playersready[direction]) {
                     Audiomana.Audioinstance.Play("ZipOpen");
 
                 } else {
@@ -119,6 +133,7 @@ public class Playergen : MonoBehaviour
             if (Input.GetButtonDown("Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
                 UIMana.PauseMenu();
             }
+       
             if (UIMana.menuisopen && isselectingitem) {
                 if ((Itemselect > .1 && selecting) || Input.GetButtonDown("ItemRB" + playernum.ToString())) {
                     Audiomana.Audioinstance.Play("Rum");

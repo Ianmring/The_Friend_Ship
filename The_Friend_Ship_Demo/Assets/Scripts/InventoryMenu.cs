@@ -150,8 +150,29 @@ public class InventoryMenu : MonoBehaviour
 
     public void equipitem(int playernum) {
 
-        selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
-        selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+        switch (playernum) {
+            case 0:
+                if (GenInv[0].player.iskeyboard) {
+                    selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("StartK");
+                    selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("StartK");
+                } else {
+                    selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
+                    selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+                }
+                break;
+            case 1:
+                if (GenInv[1].player.iskeyboard) {
+                    selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("StartK");
+                    selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("StartK");
+                } else {
+                    selector[playernum].GetComponentInChildren<testanim>().anima[0].SetTrigger("Start");
+                    selector[playernum].GetComponentInChildren<testanim>().anima[1].SetTrigger("Start");
+                }
+                break;
+            default:
+                break;
+        }
+       
 
         if (Keyslots.Count >1) {
             if (itemselected[playernum] < 0) {
@@ -177,7 +198,7 @@ public class InventoryMenu : MonoBehaviour
 
                     } else {
                         Islots[playernum].isslected = false;
-                        Islots[playernum].UpdateSlot();
+                        Islots[playernum].UpdateSlot();                        
                         Islots[playernum].ReassignSlot(GenInv[playernum].player, GenInv[playernum].TriggerItem);
 
                     }

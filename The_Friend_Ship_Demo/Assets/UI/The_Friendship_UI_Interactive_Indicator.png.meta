@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 5944031497664283141
     second: The_Friendship_UI_Interactive_Indicator_0
+  - first:
+      213: 5455680346430024130
+    second: The_Friendship_UI_Interactive_Indicator_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -87,22 +90,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: The_Friendship_UI_Interactive_Indicator_0
+      name: The_Friendship_UI_Interactive_Indicator_1
       rect:
         serializedVersion: 2
-        x: 376
-        y: 244
-        width: 239
-        height: 224
+        x: 63
+        y: 18
+        width: 312
+        height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de9907128c7449746a7b79b9f8926845
-      internalID: 5944031497664283141
+      spriteID: 175cff1c1903723489f0e593019d5095
+      internalID: 5455680346430024130
       vertices: []
       indices: 
       edges: []

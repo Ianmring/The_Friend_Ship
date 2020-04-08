@@ -98,7 +98,7 @@ public class Inventoryslot : MonoBehaviour
     }
     
     public void ReassignSlot(Playergen Play, KeyitemTrigger Trigg) {
-        OBJ.Assignplayer(Play, Trigg);
+        OBJ.Assignplayer(Play, Trigg , Play.iskeyboard);
         Vector3 position;
         position = OBJ.transform.position;
         if ((!ontable) ||  ontable && isslected) {

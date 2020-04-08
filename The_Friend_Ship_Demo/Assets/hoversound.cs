@@ -11,7 +11,7 @@ public class hoversound : MonoBehaviour , ISelectHandler
 
    
     public void OnSelect(BaseEventData eventData) {
-        Audiomana.Audioinstance.Play("CasaHover");
+        Audiomana.Audioinstance.Play("ShakeSing");
     }
 
 }

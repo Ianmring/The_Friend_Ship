@@ -21,6 +21,7 @@ public class uimanager : MonoBehaviour {
     public GameObject Canvase;
     public GameObject[] Menus;
 
+  ///  public GameObject inforindicator;
 
     public Button first;
 
@@ -28,8 +29,8 @@ public class uimanager : MonoBehaviour {
 
     bool[] storedplayerready;
 
-    public StandaloneInputModule Input { get; set; }
-    EventSystem events;
+    public StandaloneInputModule Inputt { get; set; }
+  public  EventSystem events;
 
     public bool isopen;
     public bool menuisopen;
@@ -59,11 +60,14 @@ public class uimanager : MonoBehaviour {
 
     public bool itemcan;
 
+    public bool ispaused;
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         int slotnums;
-        itemcan = true;
-        Input = GetComponent<StandaloneInputModule>();
+//        itemcan = true;
+        Inputt = GetComponent<StandaloneInputModule>();
         events = GetComponent<EventSystem>();
         manadio = DiolaugeManager.DioInstance;
         slotnums = Canvase.transform.childCount;
@@ -86,21 +90,38 @@ public class uimanager : MonoBehaviour {
 
     }
 
+    private void Update() {
+        if (Input.anyKeyDown) {
+            Inputt.verticalAxis = "Vertical_LaunchK";
+            Inputt.horizontalAxis = "Horizontal_LaunchK";
+           // Inputt.submitButton = "Swap1";
+           // Debug.Log("key");
+        } else if (Input.GetAxis("Vertical_Launch") > .5f || Input.GetAxis("Vertical_Launch") < -.5f || Input.GetAxis("Horizontal_Launch") > .5f || Input.GetAxis("Horizontal_Launch") < -.5f) 
+            
+            {
+            Inputt.verticalAxis = "Vertical_Launch";
+            Inputt.horizontalAxis = "Horizontal_Launch";
+           // Inputt.submitButton = "Submit";
 
-   
-  
+            //  Debug.Log("pad");
+        }
+
+
+    }
+
+
     public void toggleinvet() {
 
         //if (manadio.indio) {
         //    playersready[0] = false;
         //    playersready[1] = false;
         //}
-
+       
 
         Tutorial_Manager.tootinstance.Tutorialoff();
 
 
-        if ((playersready[0] || playersready[1]) && !manadio.indio && itemcan) {
+        if (((playersready[0] || playersready[1]) && !manadio.indio && itemcan)) {
             Menus[0].SetActive(true);
             Menus[Menus.Length-1].SetActive(false);
             isopen = true;
@@ -169,6 +190,7 @@ public class uimanager : MonoBehaviour {
         StartCoroutine("PauseDelay");
     }
     public void Quit() {
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSdLyuUsZ2048V3_0vaNTDehzHPDaZwsDYVZJEqJkqpvBzCm3Q/viewform?usp=sf_link");
         Application.Quit();
     }
    public void Test() {
@@ -189,14 +211,32 @@ public class uimanager : MonoBehaviour {
         }
 
         for (int i = 1; i < 7; i++) {
+          
             Menus[i].SetActive(!Menus[i].activeSelf);
         }
+        Tutorial_Manager info;
+        info = Tutorial_Manager.tootinstance;
 
+        if (info.infoon && info.Info.activeSelf) {
+            info.Info.SetActive(false);
+
+        } else if(info.infoon && !info.Info.activeSelf) {
+            info.Info.SetActive(true);
+
+        }
+
+
+        
+        
+        //for (int i = 8; i < 14; i++) {
+        //    Menus[i].SetActive(!Menus[i].activeSelf);
+        //}
 
 
         isopen = !isopen;
         movement.MovInstance.move = !movement.MovInstance.move;
         events.SetSelectedGameObject(first.gameObject);
+        ispaused = !ispaused;
     }
 
 

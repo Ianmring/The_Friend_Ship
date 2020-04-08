@@ -94,6 +94,11 @@ public class XMarkgo : MonoBehaviour {
 
                     p1 = true;
                     trigger.p1 = p1;
+
+                    if (movement.MovInstance.Solo) {
+                        p2 = true;
+                        trigger.p2 = p2;
+                    }
                     minordeciss = trigger.minordeciss;
 
                 }
@@ -111,6 +116,11 @@ public class XMarkgo : MonoBehaviour {
                 } else {
                     p2 = true;
                     trigger.p2 = p2;
+
+                    if (movement.MovInstance.Solo) {
+                        p1 = true;
+                        trigger.p1 = p1;
+                    }
                     minordeciss = trigger.minordeciss;
 
                 }
@@ -124,7 +134,7 @@ public class XMarkgo : MonoBehaviour {
 
                if(!minordeciss && p1 && p2) {
                     navobstical.enabled = false;
-                    ParentTrigger.radius = 0.1f;
+                    ParentTrigger.radius = 0.5f;
                     
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;
@@ -133,7 +143,7 @@ public class XMarkgo : MonoBehaviour {
                     cantrigger = true;
                 } else if (minordeciss && (p1 || p2)) {
                     navobstical.enabled = false;
-                    ParentTrigger.radius = 0.1f;
+                    ParentTrigger.radius = 0.5f;
 
                     movement.MovInstance.age.destination = transform.position;
                     trigger.select = select;

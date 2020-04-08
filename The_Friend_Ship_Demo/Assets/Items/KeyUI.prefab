@@ -157,7 +157,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 5944031497664283141, guid: 5055799621582454287a4421e16f4530,
+  m_Sprite: {fileID: -2898571881031350831, guid: c9d174f52162f874d9423294f2fe24f9,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   sidescale: 20
   interactionItem: 1
   inverse: 0
+  Keyboard: 0
   unlocked: 0
 --- !u!1001 &3981448660663248358
 PrefabInstance:
@@ -401,6 +402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 63.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 280926255865932338, guid: 2ac86b8140889e44f874ddcd28db28a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5739432093870818342, guid: 2ac86b8140889e44f874ddcd28db28a4,
         type: 3}

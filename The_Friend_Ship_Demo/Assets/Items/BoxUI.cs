@@ -60,7 +60,13 @@ public class BoxUI : UIMovement
         if ( open && ISlot.isslected && !Watchgotten) {
             
                 anim.AnimButtons[0].SetActive(true);
+            if (Keyboard) {
+                anim.anima[0].SetTrigger("StartK");
+
+            } else {
+
                 anim.anima[0].SetTrigger("Start");
+            }
             if (Input.GetButtonDown("Submit" + player.playernum)) {
                 BoxShake();
             }

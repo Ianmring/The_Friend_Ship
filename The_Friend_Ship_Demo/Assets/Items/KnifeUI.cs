@@ -34,6 +34,7 @@ public class KnifeUI : UIMovement
         base.Startfunt();
         cap = dir.GetComponent<CapsuleCollider2D>();
         rend = dir.GetComponent<Image>();
+        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0, 0), "This is the Item Menu, Both players must press the menu button again to exit the menu. ");
        // StartCoroutine("stickturn");
 
     }
@@ -82,8 +83,12 @@ public class KnifeUI : UIMovement
 
             if (!Box.done && Box != null && currenttriggers == Animstates.stick) {
                 anim.AnimButtons[8].SetActive(true);
-                anim.anima[8].SetTrigger("LeftRight");
+                if (Keyboard) {
+                    anim.anima[8].SetTrigger("LeftRightKey");
 
+                } else {
+                    anim.anima[8].SetTrigger("LeftRight");
+                }
             
 
                 if (player.DirH > 0 && !R) {
@@ -198,9 +203,13 @@ public class KnifeUI : UIMovement
     }
     IEnumerator stickturn() {
         yield return null;
-       
-        anim.anima[9].gameObject.SetActive(true);
-        anim.anima[9].SetTrigger("LeftRight");
+        if (Keyboard) {
+            anim.anima[9].gameObject.SetActive(true);
+            anim.anima[9].SetTrigger("LeftRightKey");
+        } else {
+            anim.anima[9].gameObject.SetActive(true);
+            anim.anima[9].SetTrigger("LeftRight");
+        }
         yield return new WaitForSeconds(3);
         anim.anima[9].SetTrigger("Done");
         anim.anima[9].gameObject.SetActive(false);

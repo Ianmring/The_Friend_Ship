@@ -24,6 +24,7 @@ public class Giveitem : MonoBehaviour
             Inventory.instance.AddKey(Cash, 1);
             GetComponent<DiolaugeTrigger>().IntermDio = NewIntermdiolauges[1];
         }
+        Application.LoadLevel(Application.loadedLevel);
     }
     public void TradeItemOneTrail() {
         if (key != null) {
@@ -31,9 +32,10 @@ public class Giveitem : MonoBehaviour
             Inventory.instance.AddKey(key, 1);
             GetComponent<DiolaugeTrigger>().IntermDio = NewIntermdiolauges[2];
         }
+        Debug.Log("Key got");
     }
     public void ItemMenuToot() {
-        FindObjectOfType<Tutorial_Manager>().Tutorial(new Vector3(0,-175,0), "To access the the shared items menu, press the menu button.");
+        FindObjectOfType<Tutorial_Manager>().Tutorial(new Vector3(0,0), "To access the the shared items menu, press the menu button \n \n or F1 if using a Keyboard.");
 
     }
     public void Fin() {

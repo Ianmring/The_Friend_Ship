@@ -36,8 +36,12 @@ public class inventorygeneral : MonoBehaviour
 
         if (INVNUM == 0) {
             movement.MovInstance.p1I = this;
+            movement.MovInstance.P1G = player;
+          //  movement.MovInstance.SwapPlayers();
         } else {
             movement.MovInstance.p2I = this;
+            movement.MovInstance.P2G = player;
+         //   movement.MovInstance.SwapPlayers();
 
         }
         //  Container = GameObject.Find("D" + player.direction + "_Inv").GetComponent<Transform>();
@@ -56,6 +60,7 @@ public class inventorygeneral : MonoBehaviour
         slot.invt = this;
         slot.Playernum = player.direction;
 
+       
     }
 
     // Update is called once per frame

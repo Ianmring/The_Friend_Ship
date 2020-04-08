@@ -16,6 +16,7 @@ public class LighterUI : UIMovement
         base.startingfunt();
         lighter = GetComponent<Image>();
         numberofstrikes = Random.Range(5, 8);
+        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0, 0), "Any item left on the center area will stay there if a player switchs to another item");
     }
     public override void Lateupfunt() {
         base.Lateupfunt();

@@ -62,6 +62,11 @@ public class DiolaugeManager : MonoBehaviour
     bool npcintoduced;
 
     bool indoor;
+
+
+    bool playedsfx;
+
+   // public bool soloD;
     void Start()
     {
         Sentences = new Queue<string>();
@@ -201,13 +206,34 @@ public class DiolaugeManager : MonoBehaviour
         {
             if (Input.GetButtonDown("Submit" + p1I.ToString()))
             {
+
+                if (!playedsfx) {
+                    Audiomana.Audioinstance.Play("CasaHover");
+                    playedsfx = true;
+                }
+
                 p1 = true;
+
+                if (movement.MovInstance.Solo) {
+                    p2 = true;
+                    PB2.color = uimanager.UIinstance.P2C;
+                     
+                }
                 PB1.color = uimanager.UIinstance.P1C;
 
             }
             if (Input.GetButtonDown("Submit" + p2I.ToString()))
             {
+                if (!playedsfx) {
+                    Audiomana.Audioinstance.Play("CasaHover");
+                    playedsfx = true;
+                }
                 p2 = true;
+                if (movement.MovInstance.Solo) {
+                    p1 = true;
+                    PB1.color = uimanager.UIinstance.P1C;
+
+                }
                 PB2.color = uimanager.UIinstance.P2C;
 
             }
@@ -216,6 +242,8 @@ public class DiolaugeManager : MonoBehaviour
 
                 p1 = false;
                 p2 = false;
+                Audiomana.Audioinstance.Play("CasaSelect");
+                playedsfx = false;
                 DisplayNextSentence();
             }
         }

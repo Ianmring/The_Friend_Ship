@@ -1,41 +1,41 @@
-BR: AAAA
-BR: I knew you were good kids!
-B: We are! 
-G: Our parents tell us all the time!
-BR: I figure.
-BR: Anyhow, as pormissed
-BR: Here's a little something to help you get out of here.
-BR: A key to the downed plane that brought me and my brother here. Your's to keep! 
-B: oh wow! thats perfect!
-G: Thank you Barry!
-BR: Anytime kids, a least some of us should make it out of here.
-B: We'll never forget what you've done for us.
-G: We really won't.
-G: We have good memories.
-BR: Im sure you do.
-BR: OH, and while you're out there. 
-BR: Would it be possible to collect something for me. 
-B: you mean before we leave? Sure
-BR: Great!
-BR: Inside the plane there should be a golden watch that belonged to my father.
-BR: It's the only thing I have to remember him by. And I'd very much like it back.
-BR: I'd get it myself, but every time I leave my shop Danny randsacks the place. 
-D: Woah Woah Woah.
-D: First off, I think you mean "cosmetically improve"
-D: And second off, you talking about Papa Pepino's gold watch?
-D: That thing's worth a small fortne.
-D: And you plan on just KEEPING it?
-BR: Yes Danny.
-BR: Not all of us are motivated by money.
-BR: Some of us are intrinsically motivated by good actions. Like these kids over here.
-BR: Right Kids?
-G: Im not sure what intrinsic means, but it sounds really positive. 
-G: So I'm going to agree.
-B: Same here.
-D: Well kids, if you wanna do some good for both me and youselves.
-D: Bring me the watch and not only will I let you keep the plane.
-D: But I'll give you a little somehting for your trouble. 
-D: As opposed to "Happy Feelings", which will get you nothing. 
-BR: Well, either way. The plane sould be north of my shop and west of my brothers. 
-G: Were on it!
-B: Dont worry Danny/Barry, we'll get that watch for you! 
+AAAA
+I knew you were good kids!
+We are! 
+Our parents tell us all the time!
+I figure.
+Anyhow, as promised
+Here's a little something to help you get out of here.
+A key to the downed plane that brought me and my brother here. Yours to keep! 
+Oh wow! that's perfect!
+Thank you Barry!
+Anytime kids, at least some of us should make it out of here.
+We'll never forget what you've done for us.
+We really won't.
+We have good memories.
+I'm sure you do.
+OH, and while you're out there. 
+Would it be possible to collect something for me? 
+You mean before we leave? Sure
+Great!
+Inside the plane there should be a golden watch that belonged to my father.
+It's the only thing I have to remember him by. And I'd very much like it back.
+I'd get it myself, but every time I leave my shop Danny wrecks the place. 
+Woah Woah Woah.
+First off, I think you mean "cosmetically improve"
+And second off, you talking about Papa Pepino's gold watch?
+That thing's worth a small fortune.
+And you plan on just KEEPING it?
+Yes Danny.
+Not all of us are motivated by money.
+Some of us are intrinsically motivated by good actions. Like these kids over here.
+Right Kids?
+I'm not sure what intrinsic means, but it sounds really positive. 
+So I'm going to agree.
+Same here.
+Well kids, if you wanna do some good for both me and yourselves.
+Bring me the watch and not only will I let you keep the plane.
+But I'll give you a little something for your trouble. 
+As opposed to "Happy Feelings", which will get you nothing. 
+Well, either way. The plane should be north of my shop and west of my brothers. 
+Were on it!
+Don't worry Danny/Barry, we'll get that watch for you!

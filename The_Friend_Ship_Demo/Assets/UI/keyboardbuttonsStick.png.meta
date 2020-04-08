@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: 8b9ac1cdbecc8704086935475e32e324
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5395569781855831954
+    second: keyboardbuttonsStick_0
+  - first:
+      213: -4632555586943172410
+    second: keyboardbuttonsStick_1
+  - first:
+      213: 3782592739799317290
+    second: keyboardbuttonsStick_2
+  - first:
+      213: -131184084646412907
+    second: keyboardbuttonsStick_3
+  - first:
+      213: 1591771240377667838
+    second: keyboardbuttonsStick_4
+  - first:
+      213: 5831931120464629190
+    second: keyboardbuttonsStick_5
+  - first:
+      213: -3159941931389752581
+    second: keyboardbuttonsStick_6
+  - first:
+      213: -2421703038930551701
+    second: keyboardbuttonsStick_7
+  - first:
+      213: -7691376058506718614
+    second: keyboardbuttonsStick_8
+  - first:
+      213: 7512767764634564938
+    second: keyboardbuttonsStick_9
+  - first:
+      213: 34167373078059377
+    second: keyboardbuttonsStick_10
+  - first:
+      213: 5558465340162238541
+    second: keyboardbuttonsStick_11
+  - first:
+      213: -7570863585243060364
+    second: keyboardbuttonsStick_12
+  - first:
+      213: 3492397817318680960
+    second: keyboardbuttonsStick_13
+  - first:
+      213: 6995902253282654605
+    second: keyboardbuttonsStick_14
+  - first:
+      213: 1101178501815420155
+    second: keyboardbuttonsStick_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 3537
+        width: 925
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ba9db2e9b2ce64984816e0f79c93e9
+      internalID: -5395569781855831954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_1
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 3537
+        width: 924
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863cf447fff9d8c44a32cd0085b9adcf
+      internalID: -4632555586943172410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_2
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 3537
+        width: 924
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3727611c6d87de4fa6cde513b5eda3f
+      internalID: 3782592739799317290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_3
+      rect:
+        serializedVersion: 2
+        x: 2937
+        y: 3537
+        width: 925
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249ef83a05b99e847bed0d1fdc4ac67e
+      internalID: -131184084646412907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_4
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 2557
+        width: 925
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274d28aa869b9de4eb282717905c535f
+      internalID: 1591771240377667838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_5
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 2557
+        width: 922
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f3e6c44dc1b8249992bb6f303afabc
+      internalID: 5831931120464629190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_6
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 2557
+        width: 924
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e2c50ee934b764d875f84de853625f
+      internalID: -3159941931389752581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_7
+      rect:
+        serializedVersion: 2
+        x: 2937
+        y: 2557
+        width: 925
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96472b57cd477d448d9d1a2fbbfa549
+      internalID: -2421703038930551701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1577
+        width: 925
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5099c49ec6cdce5408c593d3f1c455fe
+      internalID: -7691376058506718614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_9
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 1577
+        width: 924
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3287e977a1c27c4f9dd3f5e30ea8cdf
+      internalID: 7512767764634564938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_10
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 1577
+        width: 924
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3265019cfc2b744468003b75aa7b2d33
+      internalID: 34167373078059377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_11
+      rect:
+        serializedVersion: 2
+        x: 2937
+        y: 1577
+        width: 925
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce535911d7ffde4f882cffc693e59ee
+      internalID: 5558465340162238541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_12
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 597
+        width: 925
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f52f76cf637bf4e9e2ab4771ec1a22
+      internalID: -7570863585243060364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_13
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 597
+        width: 922
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2cce14d1985d24f936503b0c1c7b79
+      internalID: 3492397817318680960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_14
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 597
+        width: 924
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613e2ebb3233aff4a8174860c7ef9747
+      internalID: 6995902253282654605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsStick_15
+      rect:
+        serializedVersion: 2
+        x: 2937
+        y: 597
+        width: 925
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e30909f978adf4f861c14602d49f68
+      internalID: 1101178501815420155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4f2b60d2b4a14a94fae49d4aeb3683b0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

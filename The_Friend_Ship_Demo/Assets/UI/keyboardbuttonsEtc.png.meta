@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: a5fbb573eedfe784ba97f85a7ceffa6f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6685045540290653406
+    second: keyboardbuttonsEtc_0
+  - first:
+      213: 6424678270245751187
+    second: keyboardbuttonsEtc_1
+  - first:
+      213: 2558351250365335591
+    second: keyboardbuttonsEtc_2
+  - first:
+      213: 5861414920344529693
+    second: keyboardbuttonsEtc_3
+  - first:
+      213: -487698865083413753
+    second: keyboardbuttonsEtc_4
+  - first:
+      213: -7463726013393510971
+    second: keyboardbuttonsEtc_5
+  - first:
+      213: -635104632732121126
+    second: keyboardbuttonsEtc_6
+  - first:
+      213: -9037782528806667339
+    second: keyboardbuttonsEtc_7
+  - first:
+      213: 1181636434299985256
+    second: keyboardbuttonsEtc_8
+  - first:
+      213: 5397778795966840992
+    second: keyboardbuttonsEtc_9
+  - first:
+      213: -5583309537759328673
+    second: keyboardbuttonsEtc_10
+  - first:
+      213: 7562483953341113244
+    second: keyboardbuttonsEtc_11
+  - first:
+      213: 8521906228163245616
+    second: keyboardbuttonsEtc_12
+  - first:
+      213: -7234640205799674101
+    second: keyboardbuttonsEtc_13
+  - first:
+      213: -6797122942338457610
+    second: keyboardbuttonsEtc_14
+  - first:
+      213: -2345239076500904157
+    second: keyboardbuttonsEtc_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 6557
+        width: 4409
+        height: 926
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96ab0b6923b2d842bd48e4f252ce736
+      internalID: 6685045540290653406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_1
+      rect:
+        serializedVersion: 2
+        x: 4477
+        y: 6557
+        width: 926
+        height: 926
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e83f68853f1e44eb9fc4b565d24495
+      internalID: 6424678270245751187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_2
+      rect:
+        serializedVersion: 2
+        x: 5436
+        y: 6557
+        width: 927
+        height: 926
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4391d3805620b4688ce348588cddfb
+      internalID: 2558351250365335591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 5594
+        width: 4409
+        height: 930
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f528ccee08ac7438bec7ab29708bc8
+      internalID: 5861414920344529693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_4
+      rect:
+        serializedVersion: 2
+        x: 4477
+        y: 5594
+        width: 926
+        height: 930
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4c4b9c47d05cb4c993b03b5abd95aa
+      internalID: -487698865083413753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_5
+      rect:
+        serializedVersion: 2
+        x: 5436
+        y: 5594
+        width: 927
+        height: 930
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f257c3f64b7833429c21dd81cb31a6a
+      internalID: -7463726013393510971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 4616
+        width: 2570
+        height: 927
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bbe65c8907c324595fa7709e64fb26
+      internalID: -635104632732121126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_7
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 4616
+        width: 2571
+        height: 927
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64787fb48db0d61488ad6474d1f3afbc
+      internalID: -9037782528806667339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 3657
+        width: 2570
+        height: 926
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b392b9409a042d4b991469e55296e84
+      internalID: 1181636434299985256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_9
+      rect:
+        serializedVersion: 2
+        x: 3075
+        y: 3657
+        width: 2570
+        height: 926
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c8758a592b19d94c9173e2d9a52b0da
+      internalID: 5397778795966840992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2695
+        width: 1790
+        height: 929
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6c4f084ee7df34a9ffd81672a7fbfe
+      internalID: -5583309537759328673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_11
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 2695
+        width: 1787
+        height: 929
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76eceb70c750a7342a4121577ea9b404
+      internalID: 7562483953341113244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1716
+        width: 1790
+        height: 930
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc9cc4e81e80f54da03a341c84a7d22
+      internalID: 8521906228163245616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_13
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 1716
+        width: 1787
+        height: 930
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2141d637908c11f468aa98efba5925e5
+      internalID: -7234640205799674101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_14
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 6560
+        width: 925
+        height: 920
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ffd4194ffca157489052faa539ce5bf
+      internalID: -6797122942338457610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyboardbuttonsEtc_15
+      rect:
+        serializedVersion: 2
+        x: 6397
+        y: 5598
+        width: 927
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a102257257344df4da6469c7dd3c0c2e
+      internalID: -2345239076500904157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a875f9f5e1d38f5459cab5827f4d00c5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

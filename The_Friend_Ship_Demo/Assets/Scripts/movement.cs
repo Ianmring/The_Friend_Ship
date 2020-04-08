@@ -21,14 +21,14 @@ public class movement : MonoBehaviour {
     #endregion
 
 
-    public float speed;
+    //public float speed;
 
-    public float maxspeed;
-    public float minturnspeed;
-    public float maxturnspeed;
-   float turnspeed;
+   // public float maxspeed;
+   // public float minturnspeed;
+   // public float maxturnspeed;
+   //float turnspeed;
 
-   public float zoom;
+   //public float zoom;
   //  Rigidbody rig;
 
    public Vector3 Currentang;
@@ -61,7 +61,7 @@ public class movement : MonoBehaviour {
 
  //   public RectTransform directC;
 
-    public GameObject[] Handels;
+    //public GameObject[] Handels;
 
     public Sprite[] imagedir;
 
@@ -73,6 +73,8 @@ public class movement : MonoBehaviour {
     public inventorygeneral p1I;
    public inventorygeneral p2I;
 
+    public Playergen P1G;
+    public Playergen P2G;
 
   public  Animator spit;
     public float mag;
@@ -80,7 +82,11 @@ public class movement : MonoBehaviour {
     public bool move= true;
 
     public bool isturning;
-    public bool PlayersSet;
+    public bool Solo;
+
+    public enum playingas { Cont1, Cont2, NA}
+
+  public  playingas playas;
 
     public bool altoveride;
    public int steerint;
@@ -104,6 +110,11 @@ public class movement : MonoBehaviour {
     public PlayersSelector Pointer;
 
     public GameObject X;
+
+    public Image sideindie1;
+    public Image sideindie2;
+
+    public bool keyboard;
     void Start () {
 
         go = true;
@@ -113,6 +124,7 @@ public class movement : MonoBehaviour {
    //     rig = GetComponent<Rigidbody>();
         steer = PlayerSteering.P1;
         Switchplayerpos();
+
         moving = Moving.Not;
         turning = Turning.Not;
         spit = GetComponentInChildren<Animator>();
@@ -141,7 +153,7 @@ public class movement : MonoBehaviour {
 
                 //   rig.velocity = Vector3.ClampMagnitude(rig.velocity, maxspeed);
                 //   zoom = rig.velocity.magnitude;
-                turnspeed = zoom >= 1 ? minturnspeed : maxturnspeed;
+               // turnspeed = zoom >= 1 ? minturnspeed : maxturnspeed;
                 zroto = transform.localEulerAngles.y;
                 Pointer.gameObject.SetActive(true);
             } else {
@@ -155,7 +167,9 @@ public class movement : MonoBehaviour {
         }
 
 
-
+        if (Solo && (Input.GetButtonDown("Swap1"))) {
+            SwapPlayers();
+        }
         //   spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
 
         //if (turning == Turning.Not && moving == Moving.Not)
@@ -167,8 +181,55 @@ public class movement : MonoBehaviour {
 
     }
 
+    public void SwapPlayers() {
+        Debug.Log("Swap");
+       
+       
+        switch (playas) {
+            case playingas.Cont1:
+                if (P1G.playernum == 2) {
+                    //  playas = playingas.Player2;
+                    P1G.playernum = 1;
+                    P2G.playernum = 2;
+                    sideindie1.color = new Color32(255, 223, 203, 255);
+                    sideindie2.color = new Color32(171, 150, 138, 255);
+
+                } else if (P1G.playernum == 1) {
+                    //  playas = playingas.Player1;
+                    P1G.playernum = 2;
+                    P2G.playernum = 1;
+                    sideindie2.color = new Color32(255, 223, 203, 255);
+                    sideindie1.color = new Color32(171, 150, 138, 255);
+
+                }
+                break;
+            case playingas.Cont2:               
+
+                if (P2G.playernum == 2) {
+                    //  playas = playingas.Player2;
+                    P1G.playernum = 2;
+                    P2G.playernum = 1;
+                    sideindie1.color = new Color32(255, 223, 203, 255);
+                    sideindie2.color = new Color32(171, 150, 138, 255);
+
+                } else if (P2G.playernum == 1) {
+                    //  playas = playingas.Player1;
+                    P1G.playernum = 1;
+                    P2G.playernum = 2;
+                    sideindie2.color = new Color32(255, 223, 203, 255);
+                    sideindie1.color = new Color32(171, 150, 138, 255);
+
+                }
+                break;
+            
+        }
+
+
+    }
+   
     public void Switchplayerpos() {
-        if(canswitch){
+        if(canswitch && !uimanager.UIinstance.isopen){
+           
             switch (steer) {
                 case PlayerSteering.P1:
                     steerint = 1;
@@ -188,7 +249,7 @@ public class movement : MonoBehaviour {
             }
             FindObjectOfType<Tutorial_Manager>().MoveTutorial();
             canswitch = false;
-        }
+        } 
     }
     void Move()
     {

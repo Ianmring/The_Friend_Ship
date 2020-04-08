@@ -19,7 +19,7 @@ using TMPro;
     public Color P2;
     bool on;
 
-
+  public  bool infoon;
     #region Singelton
     public static Tutorial_Manager tootinstance;
 
@@ -34,9 +34,12 @@ using TMPro;
     }
 
     public void Fin() {
-        
 
-        Tutorial(new Vector3(0, 150, 0) , "Use the Right Sticks to move the cursor along your player’s axis; press A to go to that location; press Y to swap axes");
+       
+        Tutorial(new Vector3(0, 150, 0) , "Use the Right Sticks to move the cursor along your player’s axis or IKJL if you're on a Keyboard \n \n Press A to go to that location or Space if you're on a keyboard \n \n Press Y to swap axes or G if you're on a keyboard");
+        if (mov.Solo) {
+            mov.SwapPlayers();
+        }
         on = true;
         MoveTutorial();
     }
@@ -58,6 +61,8 @@ using TMPro;
         }
       
     }
+
+   
     public void MoveTutorial() {
 
         if (on) {
@@ -66,15 +71,38 @@ using TMPro;
             Parent.SetTrigger("on");
             switch (mov.steer) {
                 case movement.PlayerSteering.P1:
-                    P1Steer.SetTrigger("LeftRight");
-                    P2Steer.SetTrigger("UpDown");
+
+                    if (mov.P1G.iskeyboard) {
+                        P1Steer.SetTrigger("LeftRightKey");
+                    } else {
+                        P1Steer.SetTrigger("LeftRight");
+                    }
+
+
+                    if (mov.P2G.iskeyboard) {
+                        P2Steer.SetTrigger("UpDownKey");
+                    } else {
+                        P2Steer.SetTrigger("UpDown");
+                    }
                     play.SetTrigger("Turnp1");
                     //Horz.color = P1;
                     //Vert.color = P2;
                     break;
                 case movement.PlayerSteering.P2:
-                    P1Steer.SetTrigger("UpDown");
-                    P2Steer.SetTrigger("LeftRight");
+
+                    if (mov.P1G.iskeyboard) {
+                        P1Steer.SetTrigger("UpDownKey");
+                    } else {
+                        P1Steer.SetTrigger("UpDown");
+
+                    }
+
+                    if (mov.P2G.iskeyboard) {
+                        P2Steer.SetTrigger("LeftRightKey");
+
+                    } else {
+                        P2Steer.SetTrigger("LeftRight");
+                    }
                     play.SetTrigger("Turnp2");
                     //Horz.color = P2;
                     //Vert.color = P1;
@@ -88,15 +116,18 @@ using TMPro;
         Info.SetActive(true);
         Info.gameObject.transform.localPosition = newpos;
         Info.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        infoon = true;
       //  Info.SetTrigger("on");
 
     }
     public void Tutorialoff() {
 
         Info.SetActive(false);
+        infoon = false;
+
     }
 
-  
+
     IEnumerator WaittoDown() {
         yield return new WaitForSeconds(3);
         Parent.SetTrigger("off");

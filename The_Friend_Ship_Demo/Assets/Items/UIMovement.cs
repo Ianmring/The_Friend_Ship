@@ -47,6 +47,7 @@ public class UIMovement : MonoBehaviour
 
     bool showinginfo;
 
+    public bool Keyboard;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +103,7 @@ public class UIMovement : MonoBehaviour
         p1 = false;
         p2 = false;
         showinginfo = false;
+        Keyboard = player.iskeyboard;
         StartCoroutine("RSstickturn");
 
         startingfunt();
@@ -111,11 +113,11 @@ public class UIMovement : MonoBehaviour
        
     }
 
-    public void Assignplayer(Playergen play, KeyitemTrigger Trigg) {
+    public void Assignplayer(Playergen play, KeyitemTrigger Trigg , bool keyboard) {
 
 
         trans = GetComponent<RectTransform>();
-
+        Keyboard = keyboard;
         player = play;
         Trig = Trigg;
         ISlot = play.invmen.Islots[player.direction];
@@ -152,6 +154,7 @@ public class UIMovement : MonoBehaviour
 
         }
         if (this.gameObject.activeSelf) {
+
             StartCoroutine("RSstickturn");
 
         }
@@ -255,9 +258,15 @@ public class UIMovement : MonoBehaviour
 
     IEnumerator RSstickturn() {
         yield return new WaitForSeconds(.1f);
-        
-        anim.anima[8].gameObject.SetActive(true);
-        anim.anima[8].SetTrigger("Round");
+
+        if (Keyboard) {
+            anim.anima[8].gameObject.SetActive(true);
+            anim.anima[8].SetTrigger("RoundKey");
+        } else {
+            anim.anima[8].gameObject.SetActive(true);
+            anim.anima[8].SetTrigger("Round");
+        }
+      
         yield return new WaitForSeconds(3);
         anim.anima[8].SetTrigger("Done");
         anim.anima[8].gameObject.SetActive(false);

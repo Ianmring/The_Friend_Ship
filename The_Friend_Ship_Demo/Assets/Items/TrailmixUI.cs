@@ -39,8 +39,8 @@ public class TrailmixUI : UIMovement
 
     public override void startingfunt() {
         base.startingfunt();
-        bitstospawn = 5;
-        candytosapwn = 6;
+        bitstospawn = 7;
+        candytosapwn = 8;
         Bench = InventoryMenu.invmeninstance.interactionarea;
 
         for (int i = 0; i < bitstospawn; i++) {
@@ -60,6 +60,7 @@ public class TrailmixUI : UIMovement
             candiesinbag++;
 
         }
+        Tutorial_Manager.tootinstance.Tutorialoff();
 
 
     }
@@ -105,7 +106,12 @@ public class TrailmixUI : UIMovement
             }
             if (ISlot.ontable && ISlot.isslected) {
                 anim.AnimButtons[animnum].SetActive(true);
-                anim.anima[animnum].SetTrigger("Start");
+                if (Keyboard) {
+                    anim.anima[animnum].SetTrigger("StartK");
+
+                } else {
+                    anim.anima[animnum].SetTrigger("Start");
+                }
             } else {
 
                 anim.AnimButtons[animnum].SetActive(false);
@@ -144,7 +150,12 @@ public class TrailmixUI : UIMovement
         if (thingtoget != null ) {
             anim.AnimButtons[0].SetActive(true);
 
-            anim.anima[0].SetTrigger("Start");
+            if (Keyboard) {
+                anim.anima[0].SetTrigger("StartK");
+
+            } else {
+                anim.anima[0].SetTrigger("Start");
+            }
             //anim.AnimButtons[0].transform.localPosition = new Vector3(-222, -135);
 
         } else {
@@ -159,10 +170,10 @@ public class TrailmixUI : UIMovement
         else if (candiesinbag >= 1 && candiesinbag < 12 && etcinbag == 0) {
             bagstate = "Kindofcandies";
         }
-         else if(candiesinbag >= 12 && etcinbag == 0) {
+         else if(candiesinbag >= 16 && etcinbag == 0) {
             bagstate = "FullCandy";
             if (!tooton) {
-                Tutorial_Manager.tootinstance.Tutorial(this.gameObject.transform.position, "Items and interact with the outside world too! Who ever is controlling the object can over something and press A.");
+                Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and press A \n \n Space if you're on a keyboard.");
                 tooton = true;
             }
         } else {
