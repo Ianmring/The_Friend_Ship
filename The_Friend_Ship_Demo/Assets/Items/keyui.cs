@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class keyui : UIMovement
 {
-    public bool unlocked;
     public override void Interactui() {
         base.Interactui();
         DiolaugeTrigger trigger;
-        if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
+        Diolauge_Trigger_2D trigger2d;
+        if (targetobj.GetComponent<DiolaugeTrigger>()) {
             InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
             Destroy(this.gameObject);
             trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
@@ -20,11 +20,23 @@ public class keyui : UIMovement
             }
            
            
+        }
+        if (targetobj.GetComponent<Diolauge_Trigger_2D>()) {
+            InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
+            Destroy(this.gameObject);
+            trigger2d = targetobj.GetComponentInParent<Diolauge_Trigger_2D>();
+            trigger2d.Tstartdio("Key", "GiveItem");
+            if (trigger2d.Item && trigger2d.name == "Plane") {
+                trigger2d.meet = Diolauge_Trigger_2D.meetstates2d.post;
+
+
+            }
+        }
+        if (targetobj.GetComponent<XMarkgo>()) {
+            targetobj.GetComponent<XMarkgo>().Unlockdio();
         } else {
             return;
         }
     }
-    private void OnEnable() {
-     //   Tutorial_Manager.tootinstance.Tutorial(this.gameObject.transform.position, "Items and interact with the outside world too! Who ever is controlling the object can over something and press A.");
-    }
+   
 }

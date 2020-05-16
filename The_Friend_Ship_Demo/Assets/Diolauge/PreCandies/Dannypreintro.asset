@@ -15,11 +15,26 @@ MonoBehaviour:
   thingtodo: 
   situation: 
   ThingToDoTxt: 
+  Lines:
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Hey! Hey! HEY!\r\nHuman Kids! \r\nThis aint a place for you!\r\nUnless
+      you got stuff leave!"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Human Kids! \r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "This aint a place for you!\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Unless you got stuff, leave!
   Character_in_Conversation:
   - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
   - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
   - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
   - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  Radio_Characters: []
   currentexpressions: 01000000010000000100000001000000
   txtsentences: {fileID: 4900000, guid: 909c6e22906500842a329f5ac4f91486, type: 3}
   oneonone: 0

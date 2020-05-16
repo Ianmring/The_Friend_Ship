@@ -15,6 +15,56 @@ MonoBehaviour:
   thingtodo: 
   situation: 
   ThingToDoTxt: 
+  Lines:
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Gee, some of the stuff they\u2019re\r\nselling here sure is old.\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Kinda looks like Dad\u2019s \"man cave\"\r\nback home- only with less high\r\nschool
+      football memorabilia or Jam\r\nBand merch.\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 1
+    line: "Help you\u2019s two\u2019s?\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Are you Danny?\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Owner of this greasy black market\r\noutlet?\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 1
+    line: "Hey that\u2019s \"greasy perfectly\r legitimate business\" to you! \u2019Scuze\r
+      me. I mean \"sanitary and\r more-or-less legitimate\r business\"...\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 1
+    line: "Sorry, sir!\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Eh. S\u2019fine. People make that\r mistake all the time... Now, I take\r\nit
+      you\u2019s two\u2019s is the kids I heard\r over the radio at my spineless\r\nbrother\u2019s
+      froo-froo wussy emporium.\r Glad you made the sound decision by\r comin\u2019
+      through here instead. So,\r what can I do ya for?\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Well, sir. We\u2019re in need of finding\r\na way out of here.\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Ain\u2019t we all. So, what\u2019re ya\r\nsellin\u2019?\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Selling?\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "It\u2019s a pawn shop, kidlet. Ya gotta\r pawn somethin\u2019 if ya want
+      me to pay\r ya\u2019s!\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Oh, well... We might have something\r on us that could be of use to you.\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Well, let\u2019s see it then. But know\r that I won\u2019t buy just anything.
+      I\r\nonly sell high-end, quality goods\r here. Ya understand?\r"
   Character_in_Conversation:
   - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
   - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
@@ -27,6 +77,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  Radio_Characters: []
   currentexpressions: 0000000000000000000000000000000001000000000000000000000000000000000000000000000000000000
   txtsentences: {fileID: 4900000, guid: 9190fb2183e7a30499a002a8d9abd7fa, type: 3}
   oneonone: 0

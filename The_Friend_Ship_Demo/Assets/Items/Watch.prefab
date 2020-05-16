@@ -3542,7 +3542,6 @@ GameObject:
   - component: {fileID: 5956451288974002829}
   - component: {fileID: 4435208894504197557}
   - component: {fileID: 4261512919800637543}
-  - component: {fileID: 5094918702785836801}
   m_Layer: 11
   m_Name: Image
   m_TagString: Untagged
@@ -3607,22 +3606,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!70 &5094918702785836801
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6277300232431850163}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 27.91, y: 52.94}
-  m_Direction: 0
 --- !u!1 &6409102167849021789
 GameObject:
   m_ObjectHideFlags: 0
@@ -4421,8 +4404,8 @@ GameObject:
   - component: {fileID: 9058597651623910397}
   - component: {fileID: 9058597651623910395}
   - component: {fileID: 6834528805976257708}
-  - component: {fileID: 3026545077530248865}
   - component: {fileID: 7602583070923176776}
+  - component: {fileID: 9095048428399279609}
   m_Layer: 11
   m_Name: Watch
   m_TagString: Untagged
@@ -4480,33 +4463,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &3026545077530248865
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058597651623910398}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Constraints: 7
 --- !u!114 &7602583070923176776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4535,3 +4492,19 @@ MonoBehaviour:
   interactionItem: 0
   inverse: 0
   Keyboard: 0
+--- !u!70 &9095048428399279609
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058597651623910398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 29.11}
+  m_Size: {x: 27.91, y: 52.94}
+  m_Direction: 0

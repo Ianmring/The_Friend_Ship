@@ -14,7 +14,7 @@ public class Playergen : MonoBehaviour
 
     public int direction;
     public int playernum;
-
+    public string Controller;
    // public Material[] Mats;
 
     public Renderer playerrend;
@@ -99,18 +99,18 @@ public class Playergen : MonoBehaviour
 
       
 
-            if (Input.GetButtonDown("Handoff" + playernum.ToString()) && !UIMana.isopen) {
-                Debug.Log("move");
-                movement.MovInstance.Switchplayerpos();
-            }
+           
 
 
-            if (Input.GetButtonDown("MenuUP" + playernum.ToString()) && UIMana.itemcan) {
+            if (Input.GetButtonDown(Controller + "MenuUP" + playernum.ToString()) && UIMana.itemcan) {
             //UIMana.toggleinvet();
 
             if (movement.MovInstance.Solo) {
                 UIMana.playersready[0] = !UIMana.playersready[0];
                 UIMana.playersready[1] = !UIMana.playersready[1];
+                InventoryMenu.invmeninstance.interactionareamovep1 = true;
+                InventoryMenu.invmeninstance.interactionareamovep2 = true;
+
 
             } else {
                 UIMana.playersready[direction] = !UIMana.playersready[direction];
@@ -130,12 +130,12 @@ public class Playergen : MonoBehaviour
 
 
             }
-            if (Input.GetButtonDown("Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
+            if (Input.GetButtonDown(Controller + "Exit" + playernum.ToString()) && !DiolaugeManager.DioInstance.indio) {
                 UIMana.PauseMenu();
             }
        
             if (UIMana.menuisopen && isselectingitem) {
-                if ((Itemselect > .1 && selecting) || Input.GetButtonDown("ItemRB" + playernum.ToString())) {
+                if ((Itemselect > .1 && selecting) || Input.GetButtonDown(Controller + "ItemRB" + playernum.ToString())) {
                     Audiomana.Audioinstance.Play("Rum");
                     invmen.Itemup(direction);
                     if (invmen.itemselected[direction] >= 0) {
@@ -149,7 +149,7 @@ public class Playergen : MonoBehaviour
                     }
 
                     selecting = false;
-                } else if ((Itemselect < -.1 && selecting) || Input.GetButtonDown("ItemLB" + playernum.ToString())) {
+                } else if ((Itemselect < -.1 && selecting) || Input.GetButtonDown(Controller + "ItemLB" + playernum.ToString())) {
                     Audiomana.Audioinstance.Play("Rum");
                     invmen.ItemDown(direction);
                     if (invmen.itemselected[direction] >= 0) {
@@ -176,16 +176,16 @@ public class Playergen : MonoBehaviour
     private void FixedUpdate() {
 
         
-        Mov.directions[direction] = Input.GetAxis("Vertical_P" + playernum.ToString());
-        Mov.directionsx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString());
-        Mov.Turnx[direction] = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Turn");
-        Itemselect = Input.GetAxis("ItemScrool" + playernum.ToString());
-        DirH = Input.GetAxis("Horizontal_P" + playernum.ToString() + "_Launch");
-        DirV = Input.GetAxis("Vertical_P" + playernum.ToString() + "_Launch");
+        Mov.directions[direction] = Input.GetAxis(Controller + "Vertical_P" + playernum.ToString());
+        Mov.directionsx[direction] = Input.GetAxis(Controller + "Horizontal_P" + playernum.ToString());
+        Mov.Turnx[direction] = Input.GetAxis(Controller + "Horizontal_P" + playernum.ToString() + "_Turn");
+        Itemselect = Input.GetAxis(Controller + "ItemScrool" + playernum.ToString());
+        DirH = Input.GetAxis(Controller + "Horizontal_P" + playernum.ToString() + "_Launch");
+        DirV = Input.GetAxis(Controller + "Vertical_P" + playernum.ToString() + "_Launch");
         MovH = Mov.directionsx[direction];
         MovV = Mov.directions[direction];
-        Ready = Input.GetAxis("Player_" + playernum.ToString() + "_Aim");
-        IReady = Input.GetAxis("Player_" + playernum.ToString() + "_Key");
+        Ready = Input.GetAxis(Controller + "Player_" + playernum.ToString() + "_Aim");
+        IReady = Input.GetAxis(Controller + "Player_" + playernum.ToString() + "_Key");
         Mov.DirxM[direction] = DirH;
         Mov.DiryM[direction] = DirV;
         

@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
+  m_Name: BarryIntroP
+  m_EditorClassIdentifier: 
+  thingtodo: 
+  situation: 
+  ThingToDoTxt: Go Right
+  Lines:
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Maybe there's someone here that can help us.\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Why does it smell so sad here?\r"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "That, my friend, is the smell of fluorescent lighting and minimum wage
+      graveyard shifts!\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "You heard that voice too, right?\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "I think so, but I've learned to mostly tune out the disembodied voices
+      that talk to me at this point.\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Yeah!... I mean- what?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: 'Welcome to See-N-Leave! I''m Barry. '
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "How can I help you today?\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Look! A screamy whale!\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Uhh, I'm a basking shark actually.\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Asking sharks what?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Basking Shark.\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "You're asking sharks \"basking shark\"?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Uhhhh... Sure, yeah. \r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Yeah, that's what I'm doing. \r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "ANYWAY, what can I do for you kids today?\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Well, we kinda just wanted to ask a few questions if you don't mind.\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Yeah.\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "First and foremost: How are you today?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "I'm terrific, sir, and yourself?\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Great! Thanks for asking!... Wait... I mean kinda bad actually! \r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "We're lost and separated from our parents.\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Yeah, do you know how we can get back home?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "You mean to the surface world?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "I have a few ideas on how to do that...\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Oh, good! What should we do?\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Ditch this pencil-neck and come see me, that's what you should do.\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Did your desk just talk?\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "We see you, Mr. Desk! What can we do to help?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Ugh... Don't mind him. \r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "That's just my brother, Danny. Or at least he used to be my brother before
+      he succumbed to a life of sleaziness and shady dealings! Now I don't even know
+      who he is anymore.\r\n"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "So... Your brother is a desk?\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Yikes. Some real special little angels ya got there, huh Barry?\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Listen, kids, you can stick with my duddly-do-right brother here and take
+      him up on his little to worthless advice.\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "OR you can come visit me at my... \"base of operations.\" \r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "You mean your seedy, price-gouging pawn shop? That base of operations?\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "You mean my \"fantastic, perfectly legitimate business- with bargains so
+      insane, they'll make your head spin- which just so happens to also be a pawn
+      shop?\" Yes, dear brother, yes I do.\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Come on by, kids. Just take a right and follow the coast after you make
+      your way out of Barry's sad little inconvenience store and head straight. Ya
+      can't miss the place.\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Hey, did you just call the See-N-Leave an in-convenience store?!\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "I may have.\r"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "Why, you son of a-\r\n"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Ownerofaninconveniencestoresayswhat?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: "What?\r\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 0
+    line: Dang it!
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: See ya real soon, kids!
+  Character_in_Conversation:
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+  Radio_Characters:
+  - {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+  currentexpressions: 000000000100000000000000010000000000000000000000010000000100000001000000010000000100000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000010000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000
+  txtsentences: {fileID: 4900000, guid: e262b4d198e4ce84d9360217c9925beb, type: 3}
+  oneonone: 0

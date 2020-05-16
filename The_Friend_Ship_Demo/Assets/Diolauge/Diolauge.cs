@@ -13,9 +13,16 @@ public class Diolauge : ScriptableObject
 
     public string ThingToDoTxt;
     public enum Expression { happy, sad, talking, confused, angry, laughing, surprised, silly };
+    [Space(10)]
 
+    [Header("new")]
+    public Line[] Lines;
 
+    [Header("old")]
+    [Space(10)]
     public Character[] Character_in_Conversation;
+    public Character[] Radio_Characters;
+
     public Expression[] currentexpressions;
 
     public TextAsset txtsentences;

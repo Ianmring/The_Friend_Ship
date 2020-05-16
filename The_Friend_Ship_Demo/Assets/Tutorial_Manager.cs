@@ -35,8 +35,42 @@ using TMPro;
 
     public void Fin() {
 
-       
-        Tutorial(new Vector3(0, 150, 0) , "Use the Right Sticks to move the cursor along your player’s axis or IKJL if you're on a Keyboard \n \n Press A to go to that location or Space if you're on a keyboard \n \n Press Y to swap axes or G if you're on a keyboard");
+        switch (mov.conttype) {
+            case movement.controllertype.Xbox:
+
+                if (!mov.Solo) {
+                    Tutorial(new Vector3(0, 150, 0), "Use the Right Sticks to move the cursor along your player’s color coded axis \n \n Press A to go to that location \n \n Press Y to swap axes");
+
+                } else {
+                    Tutorial(new Vector3(0, 150, 0), "Use the Right Sticks to move the cursor along your player’s color coded axis \n \n Press A to go to that location \n \n Press in the Right Stick to switch players");
+
+                }
+
+                break;
+            case movement.controllertype.XboxHyb:
+                Tutorial(new Vector3(0, 150, 0), "Use the Right Sticks to move the cursor along your player’s color coded axis or IKJL if you're on a keyboard \n \n Press A to go to that location or Space if you're on a keyboard \n \n Press Y to swap axes or G if you're on a keyboard");
+
+                break;
+            case movement.controllertype.Playstation:
+                if (!mov.Solo) {
+                    Tutorial(new Vector3(0, 150, 0), "Use the Right Sticks to move the cursor along your player’s color coded axis \n \n Press X to go to that location \n \n Press Triangle to swap axes");
+
+                } else {
+                    Tutorial(new Vector3(0, 150, 0), "Use the Right Sticks to move the cursor along your player’s color coded axis \n \n Press X to go to that location \n \n Press in the Right Stick to switch players");
+
+                }
+                break;
+            case movement.controllertype.PlaystationHyb:
+                Tutorial(new Vector3(0, 150, 0), "Use the Right Sticks to move the cursor along your player’s color coded axis or IKJL if you're on a keyboard \n \n Press X to go to that location or Space if you're on a keyboard \n \n Press Triangle to swap axes or G if you're on a keyboard");
+
+                break;
+            case movement.controllertype.Keypad:
+                Tutorial(new Vector3(0, 150, 0), "Use the IKJL to move the cursor along a player’s color coded axis \n \n Press Space to go to that location \n \n Press Return to switch players");
+
+                break;
+            default:
+                break;
+        }
         if (mov.Solo) {
             mov.SwapPlayers();
         }

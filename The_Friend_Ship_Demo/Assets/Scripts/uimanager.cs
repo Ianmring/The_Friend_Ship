@@ -42,6 +42,8 @@ public class uimanager : MonoBehaviour {
     public Canvas p1;
     public Canvas p2;
 
+    public Canvas Indoors;
+
     public Color P1C;
     public Color P2C;
 
@@ -53,6 +55,8 @@ public class uimanager : MonoBehaviour {
     public int currentselected = 0;
 
     DiolaugeManager manadio;
+
+    public string controllerL;
     //public GameObject[] buttons;
 
     //public GameObject[] Storebuttons;
@@ -94,18 +98,17 @@ public class uimanager : MonoBehaviour {
         if (Input.anyKeyDown) {
             Inputt.verticalAxis = "Vertical_LaunchK";
             Inputt.horizontalAxis = "Horizontal_LaunchK";
-           // Inputt.submitButton = "Swap1";
-           // Debug.Log("key");
-        } else if (Input.GetAxis("Vertical_Launch") > .5f || Input.GetAxis("Vertical_Launch") < -.5f || Input.GetAxis("Horizontal_Launch") > .5f || Input.GetAxis("Horizontal_Launch") < -.5f) 
+           
+        } else 
             
             {
-            Inputt.verticalAxis = "Vertical_Launch";
-            Inputt.horizontalAxis = "Horizontal_Launch";
-           // Inputt.submitButton = "Submit";
-
+            Inputt.verticalAxis = controllerL + "Vertical_Launch";
+            Inputt.horizontalAxis = controllerL + "Horizontal_Launch";
+           
             //  Debug.Log("pad");
         }
-
+        Inputt.submitButton = controllerL + "Submit";
+        Inputt.cancelButton = controllerL + "Cancel";
 
     }
 

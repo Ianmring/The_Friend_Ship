@@ -15,6 +15,43 @@ MonoBehaviour:
   thingtodo: 
   situation: 
   ThingToDoTxt: 
+  Lines:
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Jeez, I didn't think we'd make it out of there.\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "I know!\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Who would've thought a roving band of shark-people would be so mean?!\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "I know, but it sure was exciting! \r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "It's something im going to remember for a long time!\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Yeah!\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: Yeah!
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "So what now?\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "We should probably try and find some dry land. \r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Maybe somebody will be there who can help us.\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Good idea.\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: Hopefully it doesn't take too long to find some.
   Character_in_Conversation:
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
   - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
@@ -28,6 +65,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
   - {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+  Radio_Characters: []
   currentexpressions: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   txtsentences: {fileID: 4900000, guid: 5b6ee418e2a9451419e842c46a30fb46, type: 3}
   oneonone: 1

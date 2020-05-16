@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
+  m_Name: DannyKnife
+  m_EditorClassIdentifier: 
+  thingtodo: 
+  situation: Knife
+  ThingToDoTxt: 
+  Lines:
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Kids, do you not see the DOZENS of large knives I got lining the walls behind
+      me?
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 1
+    line: Im sorry sir, but I don't.
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 1
+    line: WHAT?... oh yea, I had to take them down. Too many people tried to go over
+      the counter and snagg'em.
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Let's just say they don't do that anymore.
+  Character_in_Conversation: []
+  Radio_Characters: []
+  currentexpressions: 
+  txtsentences: {fileID: 0}
+  oneonone: 0

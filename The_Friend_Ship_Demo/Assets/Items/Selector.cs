@@ -41,7 +41,7 @@ public class Selector : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Submit" + player.playernum)) {
+        if (Input.GetButtonDown(player.Controller+"Submit" + player.playernum)) {
             anim.SetTrigger("Pointt");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(trans.position);

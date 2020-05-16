@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   name: Trail Mix
-  layer: -1
+  layer: {x: 4, y: 0}
   icon: {fileID: 3308197442021331658, guid: 8ef8e35030c97af40b944f4b57807389, type: 3}
   isdefault: 0
   OBJ: {fileID: 0}
   UIOBJ: {fileID: 3457357670612087231, guid: 22f4a37a5d085e543a9db1d20ce333c7, type: 3}
   discription: 
   spritedimension: {x: 100, y: 100}
+  spritelocation: {x: 0, y: 0}
+  keeplayer: 0
   KeyItemType: 0

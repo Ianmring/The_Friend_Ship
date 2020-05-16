@@ -54,5 +54,34 @@ public class LighterUI : UIMovement
         strikes = 0;
 
     }
+    public override void Interactui() {
+        base.Interactui();
+        DiolaugeTrigger trigger;
+        Diolauge_Trigger_2D trigger2d;
+        if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
+
+            trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
+          
+
+                    trigger.Tstartdio("Lighter", "N/A");
+               
+
+          
+           // interactionItem = false;
+
+        } else if (targetobj.GetComponentInParent<Diolauge_Trigger_2D>()) {
+
+            trigger2d = targetobj.GetComponentInParent<Diolauge_Trigger_2D>();
+           
+
+                    trigger2d.Tstartdio("Lighter", "N/A");
+                
+            
+
+
+        } else {
+            return;
+        }
+    }
 
 }

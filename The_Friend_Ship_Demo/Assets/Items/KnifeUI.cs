@@ -34,7 +34,7 @@ public class KnifeUI : UIMovement
         base.Startfunt();
         cap = dir.GetComponent<CapsuleCollider2D>();
         rend = dir.GetComponent<Image>();
-        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0, 0), "This is the Item Menu, Both players must press the menu button again to exit the menu. ");
+        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0, 0), "This is the Item Menu, Both players must press the their menu buttons again to exit the menu. ");
        // StartCoroutine("stickturn");
 
     }
@@ -75,7 +75,13 @@ public class KnifeUI : UIMovement
         } else {
             if (!Box.done && Box != null && currenttriggers == Animstates.Triggers) {
                 anim.AnimButtons[6].SetActive(true);
-                anim.anima[6].SetTrigger("Start");
+                if (Keyboard) {
+                    anim.anima[6].SetTrigger("StartK");
+
+                } else {
+                    anim.anima[6].SetTrigger("Start" + player.Controller);
+
+                }
             } else {
                 anim.AnimButtons[6].SetActive(false);
 
@@ -191,11 +197,30 @@ public class KnifeUI : UIMovement
     public override void Interactui() {
         base.Interactui();
         DiolaugeTrigger trigger;
+        Diolauge_Trigger_2D trigger2d;
         if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
 
             trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
-            trigger.Tstartdio("Knife", "N/A");
-           
+            foreach (var item in trigger.diooptions) {
+                if (item.situation == "Knife") {
+
+                    trigger.Tstartdio("Knife", "N/A");
+                }
+            }
+
+
+            // interactionItem = false;
+
+        } else if (targetobj.GetComponentInParent<Diolauge_Trigger_2D>()) {
+
+            trigger2d = targetobj.GetComponentInParent<Diolauge_Trigger_2D>();
+            foreach (var item in trigger2d.diooptions) {
+                if (item.situation == "Knife") {
+
+                    trigger2d.Tstartdio("Knife", "N/A");
+                }
+            }
+
 
         } else {
             return;

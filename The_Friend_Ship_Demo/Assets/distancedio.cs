@@ -10,6 +10,12 @@ public class distancedio : MonoBehaviour
     DiolaugeManager dioman;
     public GameObject target;
     camscript cam;
+
+    [SerializeField]
+    bool inverse;
+
+
+   
     public void Start() {
         dioman = FindObjectOfType<DiolaugeManager>();
         cam = FindObjectOfType<camscript>();
@@ -17,15 +23,33 @@ public class distancedio : MonoBehaviour
 
     // Update is called once per frame
     private void OnTriggerExit(Collider other) {
-        
-        if (other.gameObject.GetComponent<movement>()) {
-            Debug.Log("OUT");
-            FindObjectOfType<Tutorial_Manager>().Tutorialoff();
-            dioman.Startdio(dio , this.gameObject, false, false);
-            // gameObject.SetActive(false);
-            cam.CamOver(target.transform, 8.5f, 1, false);
-            //cam.targettrans = target.transform;
-            //cam.isfollwoing = false;
+
+        if (!inverse) {
+
+            if (other.gameObject.GetComponent<movement>()) {
+                Debug.Log("OUT");
+                FindObjectOfType<Tutorial_Manager>().Tutorialoff();
+                dioman.Startdio(dio, this.gameObject, false, false);
+                // gameObject.SetActive(false);
+                cam.CamOver(target.transform, 8.5f, 1, false);
+                //cam.targettrans = target.transform;
+                //cam.isfollwoing = false;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (inverse) {
+
+            if (other.gameObject.GetComponent<movement>()) {
+                Debug.Log("OUT");
+                FindObjectOfType<Tutorial_Manager>().Tutorialoff();
+                dioman.Startdio(dio, this.gameObject, false, false);
+                // gameObject.SetActive(false);
+                cam.CamOver(target.transform, 8.5f, 1, false);
+                //cam.targettrans = target.transform;
+                //cam.isfollwoing = false;
+            }
         }
     }
 

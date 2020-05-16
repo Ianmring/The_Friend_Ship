@@ -35,6 +35,8 @@ public class DiolaugeManager : MonoBehaviour
     public Image Katie;
     public Image Other;
 
+    [SerializeField]
+    Image Ridiochat;
    // public TextMeshProUGUI ThingtoDo;
 
     public string TXTThingtodo;
@@ -52,10 +54,13 @@ public class DiolaugeManager : MonoBehaviour
 
     bool Ineractobj;
     public int currentstorymoment;
-    [SerializeField] public int p1I { get; set; }
-   [SerializeField] public int p2I { get; set; }
+    [SerializeField] public int p1I;
+    [SerializeField] public int p2I;
 
-  [SerializeField]  GameObject currentdiogame;
+    [SerializeField] public string p1C;
+    [SerializeField] public string p2C;
+
+    [SerializeField]  GameObject currentdiogame;
     // Start is called before the first frame update
    public uimanager mana;
 
@@ -66,7 +71,8 @@ public class DiolaugeManager : MonoBehaviour
 
     bool playedsfx;
 
-   // public bool soloD;
+
+    // public bool soloD;
     void Start()
     {
         Sentences = new Queue<string>();
@@ -78,12 +84,12 @@ public class DiolaugeManager : MonoBehaviour
     public void Startdio(Diolauge Dio , GameObject game , bool interact , bool indoors)
     {
         Audiomana.Audioinstance.Play("OneBell");
-
+        currentconvopoint = 0;
         indio = true;
         movement.MovInstance.move = false;
         anim.SetTrigger("Open");
         currentDiolauge = Dio;
-        nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
+        nameText.text = currentDiolauge.Lines[currentconvopoint].character.name;
         Katie.overrideSprite = Girl.expressions[0];
         Carl.overrideSprite = Boy.expressions[0];
         if (Dio.ThingToDoTxt != "") {
@@ -95,11 +101,13 @@ public class DiolaugeManager : MonoBehaviour
     
         Sentences.Clear();
 
-        string[] txtstring = Dio.txtsentences.text.Split('\n');
 
-        foreach (var Sentence in txtstring)
+        //string[] txtstring = Dio.txtsentences.text.Split('\n');
+
+
+        foreach (var Sentence in Dio.Lines)
         {
-            Sentences.Enqueue(Sentence);
+            Sentences.Enqueue(Sentence.line);
         }
         PB1.color = Color.yellow;
         PB2.color = Color.yellow;
@@ -149,20 +157,20 @@ public class DiolaugeManager : MonoBehaviour
             EndDiolauge();
             return;
         }
-        nameText.text = currentDiolauge.Character_in_Conversation[currentconvopoint].Name;
+        nameText.text = currentDiolauge.Lines[currentconvopoint].character.name;
 
-     
-        if (currentDiolauge.Character_in_Conversation[currentconvopoint].notNPC) {
 
-            if (currentDiolauge.Character_in_Conversation[currentconvopoint].Name == "Carl") {
-                    Carl.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+        if (currentDiolauge.Lines[currentconvopoint].character.notNPC) {
+
+            if (currentDiolauge.Lines[currentconvopoint].character.Name == "Carl") {
+                    Carl.overrideSprite = currentDiolauge.Lines[currentconvopoint].character.expressions[(int)currentDiolauge.Lines[currentconvopoint].currentexpressions];
 
                 Carl.color = Color.white;
                 Katie.color = Color.gray;
 
 
-            } else if (currentDiolauge.Character_in_Conversation[currentconvopoint].Name == "Katie") {
-                   Katie.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+            } else if (currentDiolauge.Lines[currentconvopoint].character.Name == "Katie") {
+                   Katie.overrideSprite = currentDiolauge.Lines[currentconvopoint].character.expressions[(int)currentDiolauge.Lines[currentconvopoint].currentexpressions];
 
                 Katie.color = Color.white;
                 Carl.color = Color.gray;
@@ -173,13 +181,23 @@ public class DiolaugeManager : MonoBehaviour
         } else {
            
             npcintoduced = true;
-            if (currentDiolauge.Character_in_Conversation[currentconvopoint] == null) {
+            if (currentDiolauge.Lines[currentconvopoint].character == null) {
                 Katie.color = Color.gray;
                 Carl.color = Color.gray;
                 Other.color = Color.clear;
 
             } else {
-                Other.overrideSprite = currentDiolauge.Character_in_Conversation[currentconvopoint].expressions[(int)currentDiolauge.currentexpressions[currentconvopoint]];
+                Other.overrideSprite = currentDiolauge.Lines[currentconvopoint].character.expressions[(int)currentDiolauge.Lines[currentconvopoint].currentexpressions];
+
+                if (currentDiolauge.Radio_Characters.Length > 0) {
+                    foreach (var item in currentDiolauge.Radio_Characters) {
+                        if (currentDiolauge.Lines[currentconvopoint].character == item) {
+                            Ridiochat.gameObject.SetActive(true);
+                        } else {
+                            Ridiochat.gameObject.SetActive(false);
+                        }
+                    }
+                }
                 Other.color = Color.white;
 
                 Katie.color = Color.gray;
@@ -204,7 +222,7 @@ public class DiolaugeManager : MonoBehaviour
     {
         if (indio)
         {
-            if (Input.GetButtonDown("Submit" + p1I.ToString()))
+            if (Input.GetButtonDown(movement.MovInstance.controllerL + "Submit" + p1I.ToString()))
             {
 
                 if (!playedsfx) {
@@ -222,7 +240,7 @@ public class DiolaugeManager : MonoBehaviour
                 PB1.color = uimanager.UIinstance.P1C;
 
             }
-            if (Input.GetButtonDown("Submit" + p2I.ToString()))
+            if (Input.GetButtonDown(movement.MovInstance.controllerL+"Submit" + p2I.ToString()))
             {
                 if (!playedsfx) {
                     Audiomana.Audioinstance.Play("CasaHover");
@@ -256,7 +274,7 @@ public class DiolaugeManager : MonoBehaviour
         DioText.text = "";
         foreach (char Letter in sentence.ToCharArray()) {
             DioText.text += Letter;
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
     IEnumerator Timecolor()
@@ -275,7 +293,8 @@ public class DiolaugeManager : MonoBehaviour
 
             movement.MovInstance.move = true;
 
-        
+        Ridiochat.gameObject.SetActive(false);
+
 
         p1 = false;
             p2 = false;

@@ -4332,6 +4332,7 @@ GameObject:
   - component: {fileID: 6903565140524057049}
   - component: {fileID: 1852760633003720398}
   - component: {fileID: 3523908507803342182}
+  - component: {fileID: 3085692182329488612}
   m_Layer: 11
   m_Name: CashUI
   m_TagString: Untagged
@@ -4472,3 +4473,19 @@ MonoBehaviour:
   interactionItem: 0
   inverse: 0
   Keyboard: 0
+--- !u!58 &3085692182329488612
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058597651623910398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 17.92, y: 17.1}
+  serializedVersion: 2
+  m_Radius: 15.84

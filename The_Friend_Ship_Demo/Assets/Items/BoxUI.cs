@@ -24,6 +24,8 @@ public class BoxUI : UIMovement
     bool boxshaking;
 
    public bool Crushed;
+
+    bool shakeA;
     // Start is called before the first frame update
     public override void startingfunt() {
         base.startingfunt();
@@ -58,21 +60,42 @@ public class BoxUI : UIMovement
         }
 
         if ( open && ISlot.isslected && !Watchgotten) {
-            
+
+            if(shakeA){
                 anim.AnimButtons[0].SetActive(true);
-            if (Keyboard) {
-                anim.anima[0].SetTrigger("StartK");
 
+                anim.AnimButtons[1].SetActive(false);
+                if (Keyboard) {
+                    anim.anima[0].SetTrigger("StartK");
+
+                } else {
+
+                    anim.anima[0].SetTrigger("Start" + player.Controller);
+                }
+                if (Input.GetButtonDown(player.Controller + "Submit" + player.playernum)) {
+                    BoxShake();
+                    shakeA = false;
+                }
             } else {
+                anim.AnimButtons[1].SetActive(true);
 
-                anim.anima[0].SetTrigger("Start");
-            }
-            if (Input.GetButtonDown("Submit" + player.playernum)) {
-                BoxShake();
+                anim.AnimButtons[0].SetActive(false);
+                if (Keyboard) {
+                    anim.anima[1].SetTrigger("StartK");
+
+                } else {
+
+                    anim.anima[1].SetTrigger("Start" + player.Controller);
+                }
+                if (Input.GetButtonDown(player.Controller + "Cancel" + player.playernum)) {
+                    BoxShake();
+                    shakeA = true;
+                }
             }
 
         } else {
             anim.AnimButtons[0].SetActive(false);
+            anim.AnimButtons[1].SetActive(false);
 
             //  anim.anima[animnum].SetTrigger("Exit");
         }

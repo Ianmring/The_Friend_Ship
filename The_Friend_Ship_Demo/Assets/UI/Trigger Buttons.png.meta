@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: e93dcf334f6258f4990657a3085b3cad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6325089381779697438
+    second: Trigger Buttons_0
+  - first:
+      213: -8122925580813854491
+    second: Trigger Buttons_1
+  - first:
+      213: 6407734554113152372
+    second: Trigger Buttons_2
+  - first:
+      213: -1937857386182851540
+    second: Trigger Buttons_3
+  - first:
+      213: 6854309306184068902
+    second: Trigger Buttons_4
+  - first:
+      213: 6714329943081014447
+    second: Trigger Buttons_5
+  - first:
+      213: 7785345506061900266
+    second: Trigger Buttons_6
+  - first:
+      213: -7703869469289069736
+    second: Trigger Buttons_7
+  - first:
+      213: 6144644311527966726
+    second: Trigger Buttons_8
+  - first:
+      213: -1119972668182036775
+    second: Trigger Buttons_9
+  - first:
+      213: -8080916301673949688
+    second: Trigger Buttons_10
+  - first:
+      213: 3334839660177046508
+    second: Trigger Buttons_11
+  - first:
+      213: 1320976939291337536
+    second: Trigger Buttons_12
+  - first:
+      213: 4199220544756643692
+    second: Trigger Buttons_13
+  - first:
+      213: -4756384534339824942
+    second: Trigger Buttons_14
+  - first:
+      213: 4393830753403895142
+    second: Trigger Buttons_15
+  - first:
+      213: 1857404658216562933
+    second: Trigger Buttons_16
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trigger Buttons_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 2573
+        width: 870
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707a69a336b882548995745234dc4510
+      internalID: 6325089381779697438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_1
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 2573
+        width: 870
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05d24bd7fd05a74891f3f65a3d5c116
+      internalID: -8122925580813854491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 2115
+        width: 870
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e708884e99d0e14f9339b29193e8b87
+      internalID: 6407734554113152372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_3
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 2115
+        width: 870
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d4202c28d5d67419816bd92c70b85a
+      internalID: -1937857386182851540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_4
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1638
+        width: 564
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c96092279ec5344a9254a7cf44ac8f
+      internalID: 6854309306184068902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_5
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1638
+        width: 581
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299713b3ec064c045b7443b2f9556bc6
+      internalID: 6714329943081014447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_6
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1536
+        width: 650
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28529055aff04fd489c317e52eaf4791
+      internalID: 7785345506061900266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_7
+      rect:
+        serializedVersion: 2
+        x: 2311
+        y: 1536
+        width: 649
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b102265923257404993d89f61bec875d
+      internalID: -7703869469289069736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_8
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1162
+        width: 564
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1428838c432872f418f0e73def91f683
+      internalID: 6144644311527966726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_9
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1162
+        width: 581
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4532c5d2814ea041ade9575d9f49065
+      internalID: -1119972668182036775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_10
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1010
+        width: 650
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65b66eb0b83c5943827017fb60af9f0
+      internalID: -8080916301673949688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_11
+      rect:
+        serializedVersion: 2
+        x: 2311
+        y: 1010
+        width: 649
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255d9bfbc2d5eb94b9d2bb5a0be03461
+      internalID: 3334839660177046508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_12
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 601
+        width: 580
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dcc4130ee918244929eaeb6c1c8169
+      internalID: 1320976939291337536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_13
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 601
+        width: 581
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e49e02ac00e06b4cb77e2c8ff8e36ba
+      internalID: 4199220544756643692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_14
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 7
+        width: 580
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a672f8d14df646a4bb1b76720d453b9d
+      internalID: -4756384534339824942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trigger Buttons_15
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 7
+        width: 581
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007cbe873eb40ed4987ba370280f6397
+      internalID: 4393830753403895142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ee54234fe8c565743902e29ade88b2e4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

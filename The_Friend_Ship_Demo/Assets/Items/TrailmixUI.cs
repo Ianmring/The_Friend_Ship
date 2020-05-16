@@ -39,7 +39,7 @@ public class TrailmixUI : UIMovement
 
     public override void startingfunt() {
         base.startingfunt();
-        bitstospawn = 7;
+        bitstospawn = 9;
         candytosapwn = 8;
         Bench = InventoryMenu.invmeninstance.interactionarea;
 
@@ -110,7 +110,7 @@ public class TrailmixUI : UIMovement
                     anim.anima[animnum].SetTrigger("StartK");
 
                 } else {
-                    anim.anima[animnum].SetTrigger("Start");
+                    anim.anima[animnum].SetTrigger("Start" + player.Controller);
                 }
             } else {
 
@@ -122,7 +122,7 @@ public class TrailmixUI : UIMovement
         }
 
 
-        if (Input.GetButtonDown("Submit" + player.playernum)) {
+        if (Input.GetButtonDown(player.Controller+ "Submit" + player.playernum)) {
             if (thingtoget != null && thingtoget.GetComponent<TrailBit>()) {
                 TrailBit  Trail;
                 Trail = thingtoget.GetComponent<TrailBit>();
@@ -154,7 +154,7 @@ public class TrailmixUI : UIMovement
                 anim.anima[0].SetTrigger("StartK");
 
             } else {
-                anim.anima[0].SetTrigger("Start");
+                anim.anima[0].SetTrigger("Start" + player.Controller);
             }
             //anim.AnimButtons[0].transform.localPosition = new Vector3(-222, -135);
 
@@ -173,6 +173,28 @@ public class TrailmixUI : UIMovement
          else if(candiesinbag >= 16 && etcinbag == 0) {
             bagstate = "FullCandy";
             if (!tooton) {
+                interactionItem = true;
+                switch (movement.MovInstance.conttype) {
+                    case movement.controllertype.Xbox:
+                        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and press A.");
+
+                        break;
+                    case movement.controllertype.XboxHyb:
+                        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and press A \n \n Space if you're on a keyboard.");
+                        break;
+                    case movement.controllertype.Playstation:
+                        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and press X.");
+                        break;
+                    case movement.controllertype.PlaystationHyb:
+                        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and press X \n \n Space if you're on a keyboard.");
+
+                        break;
+                    case movement.controllertype.Keypad:
+                        Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and Space.");
+
+                        break;
+
+                }
                 Tutorial_Manager.tootinstance.Tutorial(new Vector3(0, 0), "Items can interact with the outside world too! \n \n Who ever is controlling the object can hover the object's pointer over something and press A \n \n Space if you're on a keyboard.");
                 tooton = true;
             }
@@ -183,6 +205,7 @@ public class TrailmixUI : UIMovement
     public override void Interactui() {
         base.Interactui();
         DiolaugeTrigger trigger;
+        Diolauge_Trigger_2D trigger2d;
         if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
 
             trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
@@ -193,9 +216,34 @@ public class TrailmixUI : UIMovement
                     Destroy(this.gameObject);
 
                 }
+
+                
             }
 
             trigger.Tstartdio(bagstate, "TradeItemOneTrail");
+            interactionItem = false;
+
+        } else if(targetobj.GetComponentInParent<Diolauge_Trigger_2D>()) {
+
+            trigger2d = targetobj.GetComponentInParent<Diolauge_Trigger_2D>();
+            foreach (var item in trigger2d.diooptions) {
+                if (item.thingtodo == "TradeItemOneTrail" && item.situation == "FullCandy" && bagstate == "FullCandy") {
+                    trigger2d.Tstartdio(bagstate, "TradeItemOneTrail");
+
+                    InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
+                    Tutorial_Manager.tootinstance.Tutorialoff();
+                    Destroy(this.gameObject);
+                    interactionItem = false;
+
+                }
+                else if (item.situation == "Mix" && bagstate == "Mix") {
+                    trigger2d.Tstartdio(bagstate, "ItemMenuToot");
+                    interactionItem = false;
+                  
+
+                }
+            }
+
 
         } else {
             return;

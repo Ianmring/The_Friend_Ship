@@ -49,10 +49,14 @@ public class PlayersSelector : MonoBehaviour {
                 // Debug.DrawLine(trans.position, hitt.collider.transform.position);
             }
 
+
+        if (!mov.in2droom) {
+
+
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(trans.position);
             if (Physics.Raycast(ray, out hit)) {
-               
+
 
                 if (hit.transform.GetComponentInChildren<XMarkgo>()) {
 
@@ -73,7 +77,8 @@ public class PlayersSelector : MonoBehaviour {
 
 
 
-                if ((Input.GetButtonDown("Submit1") || (Input.GetButtonDown("Submit2") )) && !onmark && !goingS && mov.move) {
+
+                if ((Input.GetButtonDown(mov.controllerL + "Submit1") || (Input.GetButtonDown(mov.controllerL + "Submit2"))) && !onmark && !goingS && mov.move) {
 
                     mov.age.destination = hit.point;
                     anim.SetTrigger("Pointt");
@@ -83,7 +88,10 @@ public class PlayersSelector : MonoBehaviour {
                 }
 
             }
+        }
 
         }
-    
+
+
+
 }

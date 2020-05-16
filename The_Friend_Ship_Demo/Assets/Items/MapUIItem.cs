@@ -17,7 +17,7 @@ public class MapUIItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Submit" + player.playernum.ToString()) && trigg.isusing) {
+        if (Input.GetButtonDown(player.Controller+"Submit" + player.playernum.ToString()) && trigg.isusing) {
             Debug.Log("Hit");
         }
 

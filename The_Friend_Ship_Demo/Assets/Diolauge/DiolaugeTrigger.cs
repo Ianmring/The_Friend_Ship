@@ -78,20 +78,10 @@ public    bool p2;
         }
     }
     public void LateUpdate() {
+        
 
-        //if (cantrigger) {
 
-            //Button1.gameObject.SetActive(true);
-            //Button2.gameObject.SetActive(true);
-            //if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
-            //    p1 = true;
-            //    Button1.color = Color.green;
-            //}
-            //if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
-            //    p2 = true;
-            //    Button2.color = Color.green;
-
-            //}
+       
             if (p1 && p2 && !minordeciss ) {
                 select.goingS = true;
                // movement.MovInstance.age.destination = transform.localPosition;
@@ -99,11 +89,9 @@ public    bool p2;
                 if (there && going) {
                     StartCoroutine("TriggerdioWait");
                 }
-
             }
             if ((p1 || p2) && minordeciss) {
                 select.goingS = true;
-
               //  movement.MovInstance.age.destination = transform.localPosition;
                 going = true;
                 if (there && going) {
@@ -111,24 +99,7 @@ public    bool p2;
                 }
             }
 
-            //if (minordeciss) {
-            //    Or.SetActive(true);
-            //    And.SetActive(false);
-
-            //} else if (!minordeciss) {
-            //    Or.SetActive(false);
-            //    And.SetActive(true);
-            //}
-
-        //} else {
-        //    Button1.gameObject.SetActive(false);
-        //    Button2.gameObject.SetActive(false);
-        //    Or.SetActive(false);
-        //    And.SetActive(false);
-        //    //Button1.color = Color.red;
-        //    //Button2.color = Color.blue;
-        //}
-
+          
    
 
     }

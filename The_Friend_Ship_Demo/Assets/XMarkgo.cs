@@ -26,6 +26,11 @@ public class XMarkgo : MonoBehaviour {
 
     public SphereCollider ParentTrigger;
 
+    public bool needsOBJ;
+
+    public Diolauge obsiticaldio;
+    public Diolauge unlockdio;
+
     public void Start() {
         if (GetComponentInParent<DiolaugeTrigger>()) {
             trigger = GetComponentInParent<DiolaugeTrigger>();
@@ -64,115 +69,141 @@ public class XMarkgo : MonoBehaviour {
     }
     public void LateUpdate() {
 
-        if (cantrigger) {
+        if (!movement.MovInstance.in2droom) {
 
-            Button1.gameObject.SetActive(true);
-            Button2.gameObject.SetActive(true);
 
-            if (trigger == null) {
-                Or.SetActive(true);
+            if (cantrigger ) {
+                if (!needsOBJ) {
+                    Button1.gameObject.SetActive(true);
+                    Button2.gameObject.SetActive(true);
+
+                    if (trigger == null) {
+                        Or.SetActive(true);
+                    } else {
+                        if (trigger.minordeciss) {
+                            Or.SetActive(true);
+                            And.SetActive(false);
+
+                        } else {
+                            Or.SetActive(false);
+                            And.SetActive(true);
+                        }
+                    }
+
+                    if (Input.GetButtonDown(DiolaugeManager.DioInstance.p1C + "Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
+                        if (trigger == null) {
+                            navobstical.enabled = false;
+
+                            movement.MovInstance.age.destination = transform.position;
+                            going = true;
+                            select.goingS = true;
+                            cantrigger = true;
+                        } else {
+
+                            p1 = true;
+                            trigger.p1 = p1;
+
+                            if (movement.MovInstance.Solo) {
+                                p2 = true;
+                                trigger.p2 = p2;
+                                Button2.color = Color.green;
+
+                            }
+                            minordeciss = trigger.minordeciss;
+
+                        }
+                        Button1.color = Color.green;
+
+                    }
+                    if (Input.GetButtonDown(DiolaugeManager.DioInstance.p2C + "Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
+                        if (trigger == null) {
+                            navobstical.enabled = false;
+
+                            movement.MovInstance.age.destination = transform.position;
+                            going = true;
+                            select.goingS = true;
+                            cantrigger = true;
+                        } else {
+                            p2 = true;
+                            trigger.p2 = p2;
+
+                            if (movement.MovInstance.Solo) {
+                                p1 = true;
+                                trigger.p1 = p1;
+                                Button1.color = Color.green;
+
+                            }
+                            minordeciss = trigger.minordeciss;
+
+                        }
+                        Button2.color = Color.green;
+
+
+                    }
+
+
+                    if (trigger != null) {
+
+                        if (!minordeciss && p1 && p2) {
+                            navobstical.enabled = false;
+                            ParentTrigger.radius = 0.5f;
+
+                            movement.MovInstance.age.destination = transform.position;
+                            trigger.select = select;
+                            going = true;
+                            select.goingS = true;
+                            cantrigger = true;
+                        } else if (minordeciss && (p1 || p2)) {
+                            navobstical.enabled = false;
+                            ParentTrigger.radius = 0.5f;
+
+                            movement.MovInstance.age.destination = transform.position;
+                            trigger.select = select;
+                            going = true;
+                            select.goingS = true;
+                            cantrigger = true;
+                        }
+                    }
+                } else {
+                    Button1.gameObject.SetActive(true);
+                    Button2.gameObject.SetActive(true);
+
+                    if (Input.GetButtonDown(DiolaugeManager.DioInstance.p1C + "Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
+                        DiolaugeManager.DioInstance.Startdio(obsiticaldio, this.gameObject, true, false);
+                    }
+                    if (Input.GetButtonDown(DiolaugeManager.DioInstance.p2C + "Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
+                        DiolaugeManager.DioInstance.Startdio(obsiticaldio, this.gameObject, true, false);
+
+                    }
+                }
+
+
+
+
+
             } else {
-                if (trigger.minordeciss) {
-                    Or.SetActive(true);
-                    And.SetActive(false);
 
-                } else {
-                    Or.SetActive(false);
-                    And.SetActive(true);
-                }
-            }
+               
 
-            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())) {
-                if (trigger==null) {
-                    navobstical.enabled = false;
+                Button1.gameObject.SetActive(false);
+                Button2.gameObject.SetActive(false);
 
-                    movement.MovInstance.age.destination = transform.position;
-                    going = true;
-                    select.goingS = true;
-                    cantrigger = true;
-                } else {
+                Or.SetActive(false);
+                And.SetActive(false);
 
-                    p1 = true;
-                    trigger.p1 = p1;
+                p1 = false;
+                p2 = false;
+                Button1.color = uimanager.UIinstance.P1C;
+                Button2.color = uimanager.UIinstance.P2C;
 
-                    if (movement.MovInstance.Solo) {
-                        p2 = true;
-                        trigger.p2 = p2;
-                    }
-                    minordeciss = trigger.minordeciss;
-
-                }
-                Button1.color = Color.green;
-                
-            }
-            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString())) {
-                if (trigger == null) {
-                    navobstical.enabled = false;
-
-                    movement.MovInstance.age.destination = transform.position;
-                    going = true;
-                    select.goingS = true;
-                    cantrigger = true;
-                } else {
-                    p2 = true;
-                    trigger.p2 = p2;
-
-                    if (movement.MovInstance.Solo) {
-                        p1 = true;
-                        trigger.p1 = p1;
-                    }
-                    minordeciss = trigger.minordeciss;
-
-                }
-                Button2.color = Color.green;
-                
 
             }
+        } 
+    }
 
-          
-            if (trigger != null) {
-
-               if(!minordeciss && p1 && p2) {
-                    navobstical.enabled = false;
-                    ParentTrigger.radius = 0.5f;
-                    
-                    movement.MovInstance.age.destination = transform.position;
-                    trigger.select = select;
-                    going = true;
-                    select.goingS = true;
-                    cantrigger = true;
-                } else if (minordeciss && (p1 || p2)) {
-                    navobstical.enabled = false;
-                    ParentTrigger.radius = 0.5f;
-
-                    movement.MovInstance.age.destination = transform.position;
-                    trigger.select = select;
-                    going = true;
-                    select.goingS = true;
-                    cantrigger = true;
-                } 
-            }
-
-            
-
-
-
-
-        } else {
-            
-            Button1.gameObject.SetActive(false);
-            Button2.gameObject.SetActive(false);
-          
-            Or.SetActive(false);
-            And.SetActive(false);
-
-            p1 = false;
-            p2 = false;
-            Button1.color = uimanager.UIinstance.P1C;
-            Button2.color = uimanager.UIinstance.P2C;
-
-
-        }
+    public void Unlockdio() {
+        needsOBJ = false;
+        DiolaugeManager.DioInstance.Startdio(unlockdio, this.gameObject, true, false);
 
     }
     IEnumerator Delaynavon() {

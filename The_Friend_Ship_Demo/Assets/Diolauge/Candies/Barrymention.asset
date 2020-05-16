@@ -12,12 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
   m_Name: Barrymention
   m_EditorClassIdentifier: 
-  thingtodo: 
+  thingtodo: Newmention
   situation: 
   ThingToDoTxt: 
-  Character_in_Conversation:
-  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
-  - {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
-  currentexpressions: 0000000001000000
+  Lines:
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 1
+    line: "Listen, go ahead and pay my conman\r sleaze-bag of a brother a visit if\r
+      you want, but if-and-when you\r realize you can\u2019t trust him as far\r as
+      you can throw him, I\u2019ll be right\r here.\r"
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 1
+    line: "I\u2019ve never tried throwing anybody\r before.\r\n"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 1
+    line: "I have. It\u2019s hard..."
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 1
+    line: "Sir, are you asking us to throw\r your brother?\r\n\n"
+  - character: {fileID: 11400000, guid: c65124837700f0d4b960d363d7401f34, type: 2}
+    currentexpressions: 1
+    line: '...Honestly, go for it.'
+  Character_in_Conversation: []
+  Radio_Characters: []
+  currentexpressions: 
   txtsentences: {fileID: 4900000, guid: 817a26bbd197cdd4f83b066bfa45480f, type: 3}
   oneonone: 0

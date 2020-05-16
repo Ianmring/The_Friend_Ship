@@ -182,9 +182,9 @@ public class UIMovement : MonoBehaviour
         //    }
 
         }
-        if (Input.GetButtonDown("Handoff" + player.playernum)) {
+        if (Input.GetButtonDown(player.Controller+"Handoff" + player.playernum)) {
             showinginfo = true;
-        }else if(Input.GetButtonUp("Handoff" + player.playernum)) {
+        }else if(Input.GetButtonUp(player.Controller +"Handoff" + player.playernum)) {
             showinginfo = false;
         }
 
@@ -194,47 +194,63 @@ public class UIMovement : MonoBehaviour
             anim.AnimButtons[10].SetActive(false);
 
         }
-     
-      
 
-          
 
-           
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(trans.position);
-                if (Physics.Raycast(ray, out hit)) {
-            targetobj = hit.collider.gameObject;
-            if (targetobj.GetComponent<DiolaugeTrigger>()) {
+
+
+
+        if (!movement.MovInstance.in2droom) {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(trans.position);
+            if (Physics.Raycast(ray, out hit)) {
+                targetobj = hit.collider.gameObject;
+
+
+            }
+        } else {
+
+            RaycastHit2D hit2d = Physics2D.Raycast(trans.position, Vector2.zero);
+
+            if (hit2d.collider!=null) {
+              //  Debug.Log("hit " + hit2d.collider.gameObject);
+                targetobj = hit2d.collider.gameObject;
+            }
+
+        }
+
+
+        if (targetobj != null) {
+            if ( (targetobj.GetComponent<Diolauge_Trigger_2D>() || targetobj.GetComponent<DiolaugeTrigger>() || targetobj.GetComponent<XMarkgo>()) && interactionItem) {
                 anim.AnimButtons[11].SetActive(true);
-                if (Input.GetButtonDown("Submit" + player.playernum)) {
+                if (Input.GetButtonDown(player.Controller + "Submit" + player.playernum)) {
 
                     //   Debug.Log(hit.collider.gameObject);
 
                     Interactui();
                 }
-            } 
-            else {
+
+            } else {
                 anim.AnimButtons[11].SetActive(false);
                 targetobj = null;
             }
-           
+        }
 
-                } 
-        
-
-        
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Bench") {
             ISlot.ontable = true;
         }
         EnterUI(collision);
+
+        
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.gameObject.tag == "Bench") {
             ISlot.ontable = false;
         }
         ExitUI(collision);
+
+       
     }
     public virtual void EnterUI(Collider2D Coli) {
 

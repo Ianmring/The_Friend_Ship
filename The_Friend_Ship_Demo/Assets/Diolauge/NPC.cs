@@ -58,12 +58,12 @@ public class NPC : Interactable
         {
             Button1.gameObject.SetActive(true);
             Button2.gameObject.SetActive(true);
-            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p1I.ToString())&& dio)
+            if (Input.GetButtonDown(DiolaugeManager.DioInstance.p1C +"Submit" + DiolaugeManager.DioInstance.p1I.ToString())&& dio)
             {
                 p1 = true;
                 Button1.color = Color.green;
             }
-            if (Input.GetButtonDown("Submit" + DiolaugeManager.DioInstance.p2I.ToString()) && dio)
+            if (Input.GetButtonDown(DiolaugeManager.DioInstance.p2C+"Submit" + DiolaugeManager.DioInstance.p2I.ToString()) && dio)
             {
                 p2 = true;
                 Button2.color = Color.green;

@@ -88,6 +88,10 @@ public class movement : MonoBehaviour {
 
   public  playingas playas;
 
+    public enum controllertype { Xbox, XboxHyb, Playstation, PlaystationHyb, Keypad};
+
+   public controllertype conttype;
+
     public bool altoveride;
    public int steerint;
    public int dirint;
@@ -115,6 +119,15 @@ public class movement : MonoBehaviour {
     public Image sideindie2;
 
     public bool keyboard;
+
+    [SerializeField]
+    public bool in2droom;
+
+
+
+    public Room currentroom;
+
+    public string controllerL;
     void Start () {
 
         go = true;
@@ -143,6 +156,7 @@ public class movement : MonoBehaviour {
 
 
 
+
             if (move && !uimanager.UIinstance.isopen) {
 
 
@@ -167,7 +181,7 @@ public class movement : MonoBehaviour {
         }
 
 
-        if (Solo && (Input.GetButtonDown("Swap1"))) {
+        if (Solo && (Input.GetButtonDown(controllerL+"Swap1"))) {
             SwapPlayers();
         }
         //   spit.GetComponent<Transform>().eulerAngles = new Vector3(40, 0, 0);
@@ -191,6 +205,7 @@ public class movement : MonoBehaviour {
                     //  playas = playingas.Player2;
                     P1G.playernum = 1;
                     P2G.playernum = 2;
+                    steer = PlayerSteering.P1;
                     sideindie1.color = new Color32(255, 223, 203, 255);
                     sideindie2.color = new Color32(171, 150, 138, 255);
 
@@ -198,6 +213,7 @@ public class movement : MonoBehaviour {
                     //  playas = playingas.Player1;
                     P1G.playernum = 2;
                     P2G.playernum = 1;
+                    steer = PlayerSteering.P2;
                     sideindie2.color = new Color32(255, 223, 203, 255);
                     sideindie1.color = new Color32(171, 150, 138, 255);
 
@@ -209,6 +225,7 @@ public class movement : MonoBehaviour {
                     //  playas = playingas.Player2;
                     P1G.playernum = 2;
                     P2G.playernum = 1;
+                    steer = PlayerSteering.P1;
                     sideindie1.color = new Color32(255, 223, 203, 255);
                     sideindie2.color = new Color32(171, 150, 138, 255);
 
@@ -216,6 +233,7 @@ public class movement : MonoBehaviour {
                     //  playas = playingas.Player1;
                     P1G.playernum = 1;
                     P2G.playernum = 2;
+                    steer = PlayerSteering.P2;
                     sideindie2.color = new Color32(255, 223, 203, 255);
                     sideindie1.color = new Color32(171, 150, 138, 255);
 

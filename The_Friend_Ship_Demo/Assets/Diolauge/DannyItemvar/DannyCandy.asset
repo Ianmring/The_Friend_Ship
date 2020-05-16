@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a783801c0f711a49815cef92403b524, type: 3}
+  m_Name: DannyCandy
+  m_EditorClassIdentifier: 
+  thingtodo: 
+  situation: Mix
+  ThingToDoTxt: 
+  Lines:
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "That... That's not surface food, is it? Why, that could fetch a real\r\npretty
+      penny down here. Lemme see..."
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Dried cranberries, unsalted almonds, sunflower seeds. Oof.
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: I take it you kids parents don't care much about providing you with the
+      ever-fleeting joys of childhood while you've got them, huh? No thank y-...
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 1
+    line: Wait a second...
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 1
+    line: Mixed in with the nuts and the fruit there... Are those...
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 1
+    line: Unspecified-Non-Brand-Affiliated-Mini-Hardshelled-Multicolor-Chocolate-Candy-Pieces
+      in there?
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Now, we're talkin' hot commodities, baby!...
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "Great! How much are you offering?\r"
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Squat.
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Sorry, kids, but no one's gonna waste their time pick'in through rabbit
+      food just for a few pieces of candy.
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: Of course, I'd do it myself but, uhhh, y'know... Flipper arms...
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: If only there were a couple of nice kids that are willing to separate that
+      candy from the rest of that junk.
+  - character: {fileID: 11400000, guid: 58021b94be099e7448f1606045637597, type: 2}
+    currentexpressions: 0
+    line: "Alas, it's a lost cause, I'm afraid.\r "
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: 'Are you thinkin'' what I''m thinkin'', sis? '
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: 'Yeah. '
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: 'How are rats able to fit through holes smaller than the circumference of
+      a quarter? '
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: "Are their bones compactable or what's the deal there?\r "
+  - character: {fileID: 11400000, guid: b48aa8daabf8c2544b317deefb3257ac, type: 2}
+    currentexpressions: 0
+    line: "I was talking about the candies...\r"
+  - character: {fileID: 11400000, guid: 50f03af989602724bada7903ea7305eb, type: 2}
+    currentexpressions: 0
+    line: 'Right! The candies! Yeah, let''s do it!
+
+'
+  Character_in_Conversation: []
+  Radio_Characters: []
+  currentexpressions: 
+  txtsentences: {fileID: 0}
+  oneonone: 0

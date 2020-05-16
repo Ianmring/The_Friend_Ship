@@ -7,7 +7,9 @@ public class WatchUI : UIMovement
     public override void Interactui() {
         base.Interactui();
         DiolaugeTrigger trigger;
-        if (targetobj.GetComponentInParent<DiolaugeTrigger>() ) {
+        Diolauge_Trigger_2D trigger2d;
+
+        if (targetobj.GetComponentInParent<DiolaugeTrigger>()) {
 
 
             trigger = targetobj.GetComponentInParent<DiolaugeTrigger>();
@@ -22,8 +24,26 @@ public class WatchUI : UIMovement
             }
             trigger.Tstartdio("Watch", "TradeItemOneWatch");
 
+        } else if (targetobj.GetComponentInParent<Diolauge_Trigger_2D>()) {
+
+            trigger2d = targetobj.GetComponentInParent<Diolauge_Trigger_2D>();
+
+            foreach (var item in trigger2d.diooptions) {
+                if (item.thingtodo == "TradeItemOneWatch") {
+                    InventoryMenu.invmeninstance.RemoveUIKey(player.direction);
+
+                    Destroy(this.gameObject);
+
+                }
+            }
+            trigger2d.Tstartdio("Watch", "TradeItemOneWatch");
+
         } else {
             return;
         }
+    }
+    public override void startingfunt() {
+        base.startingfunt();
+        interactionItem = true;
     }
 }
